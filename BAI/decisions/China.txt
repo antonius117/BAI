@@ -1,0 +1,1963 @@
+political_decisions = {
+	torching_of_the_summer_palace = {
+		potential = {
+			NOT = { tag = QNG }
+			QNG = { owns = 1616 }
+			civilized = yes
+			is_greater_power = yes
+			state_n_government = 1
+			war_with = QNG
+			NOT = { has_global_flag = summer_palace_torched }
+		}
+		allow = {
+			controls = 1616
+		}
+		effect = {
+			set_global_flag = summer_palace_torched
+			badboy = 3
+			QNG = { country_event = 13355 }
+		}
+	}
+	
+	clear_out_the_manchu_elite = {
+		potential = {
+			tag = QNG
+			government = absolute_monarchy
+			is_greater_power = no
+			civilized = no
+			has_global_flag = taiping_has_happened
+			NOT = {
+				has_country_flag = manchu_elite_cleared_out
+			}
+		}
+		allow = {
+			average_consciousness = 3
+		}
+		effect = {
+			years_of_research = 0.1
+			add_accepted_culture = beifaren
+			remove_accepted_culture = mongol
+			any_pop = {
+				limit = { has_pop_culture = manchu }
+				militancy = 2
+				consciousness = 1
+			}
+			any_pop = {
+				limit = {
+					NOT = { has_pop_culture = manchu }
+				}
+				militancy = -2
+				consciousness = -1
+			}
+			set_country_flag = manchu_elite_cleared_out
+		}
+	}
+	
+	abandon_neutral_faction = {
+		picture = abandon_faction
+		potential = {
+			is_culture_group = east_asian
+			has_global_flag = warlord_era_has_begun
+			has_country_flag = neutral_faction
+			NOT = {
+				tag = CHI
+				tag = KMT
+				tag = TPG
+				tag = QNG
+			}
+		}
+		
+		allow = {
+			war = no
+			OR = {
+				any_owned_province = {
+					is_core = CHI
+					NOT = { is_core = THIS }
+				}
+				is_greater_power = yes
+				is_secondary_power = yes
+			}
+		}
+		
+		effect = {
+			clr_country_flag = neutral_faction
+			random_owned = {
+				limit = {
+					owner = {
+						OR = {
+							ruling_party_ideology = reactionary
+							ruling_party_ideology = fascist
+						}
+					}
+				}
+				owner = {
+					set_country_flag = beiyang_faction
+				}
+			}
+			random_owned = {
+				limit = {
+					owner = {
+						ruling_party_ideology = communist
+					}
+				}
+				owner = {
+					set_country_flag = communist_faction
+				}
+			}
+			random_owned = {
+				limit = {
+					owner = {
+						OR = {
+							ruling_party_ideology = conservative
+							ruling_party_ideology = liberal
+							ruling_party_ideology = anarcho_liberal
+							ruling_party_ideology = socialist
+						}
+					}
+				}
+				owner = {
+					set_country_flag = kuomintang_faction
+				}
+			}
+			any_country = {
+				limit = {
+					is_culture_group = east_asian
+					NOT = { tag = THIS }
+				}
+				relation = { who = THIS value = -100 }
+				leave_alliance = THIS
+			}
+		}
+		
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+	abandon_kuomintang_faction = {
+		picture = abandon_faction
+		potential = {
+			is_culture_group = east_asian
+			has_global_flag = warlord_era_has_begun
+			has_country_flag = kuomintang_faction
+			NOT = {
+				tag = CHI
+				tag = KMT
+				tag = TPG
+				tag = QNG
+			}
+		}
+		
+		allow = {
+			war = no
+			OR = {
+				ruling_party_ideology = reactionary
+				ruling_party_ideology = fascist
+				ruling_party_ideology = communist
+			}
+		}
+		
+		effect = {
+			clr_country_flag = kuomintang_faction
+			random_owned = {
+				limit = {
+					owner = {
+						OR = {
+							ruling_party_ideology = reactionary
+							ruling_party_ideology = fascist
+						}
+					}
+				}
+				owner = {
+					set_country_flag = beiyang_faction
+				}
+			}
+			random_owned = {
+				limit = {
+					owner = {
+						ruling_party_ideology = communist
+					}
+				}
+				owner = {
+					set_country_flag = communist_faction
+				}
+			}
+			any_country = {
+				limit = {
+					is_culture_group = east_asian
+					NOT = { tag = THIS }
+				}
+				relation = { who = THIS value = -100 }
+				leave_alliance = THIS
+			}
+		}
+		
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+	abandon_communist_faction = {
+		picture = abandon_faction
+		potential = {
+			is_culture_group = east_asian
+			has_global_flag = warlord_era_has_begun
+			has_country_flag = communist_faction
+			NOT = {
+				tag = CHI
+				tag = KMT
+				tag = TPG
+				tag = QNG
+			}
+		}
+		
+		allow = {
+			war = no
+			NOT = {
+				ruling_party_ideology = communist
+			}
+		}
+		
+		effect = {
+			clr_country_flag = communist_faction
+			random_owned = {
+				limit = {
+					owner = {
+						OR = {
+							ruling_party_ideology = reactionary
+							ruling_party_ideology = fascist
+						}
+					}
+				}
+				owner = {
+					set_country_flag = beiyang_faction
+				}
+			}
+			random_owned = {
+				limit = {
+					owner = {
+						OR = {
+							ruling_party_ideology = conservative
+							ruling_party_ideology = liberal
+							ruling_party_ideology = anarcho_liberal
+							ruling_party_ideology = socialist
+						}
+					}
+				}
+				owner = {
+					set_country_flag = kuomintang_faction
+				}
+			}
+			any_country = {
+				limit = {
+					is_culture_group = east_asian
+					NOT = { tag = THIS }
+				}
+				relation = { who = THIS value = -100 }
+				leave_alliance = THIS
+			}
+		}
+		
+		ai_will_do = {
+			factor = 1
+		}
+	}
+	
+	abandon_beiyang_faction = {
+		picture = abandon_faction
+		potential = {
+			is_culture_group = east_asian
+			has_global_flag = warlord_era_has_begun
+			has_country_flag = beiyang_faction
+			NOT = {
+				tag = CHI
+				tag = KMT
+				tag = TPG
+				tag = QNG
+			}
+		}
+		
+		allow = {
+			war = no
+			NOT = { ruling_party_ideology = reactionary }
+			NOT = { ruling_party_ideology = fascist }
+		}
+		
+		effect = {
+			clr_country_flag = beiyang_faction
+			random_owned = {
+				limit = {
+					owner = {
+						ruling_party_ideology = communist
+					}
+				}
+				owner = {
+					set_country_flag = communist_faction
+				}
+			}
+			random_owned = {
+				limit = {
+					owner = {
+						OR = {
+							ruling_party_ideology = conservative
+							ruling_party_ideology = liberal
+							ruling_party_ideology = anarcho_liberal
+							ruling_party_ideology = socialist
+						}
+					}
+				}
+				owner = {
+					set_country_flag = kuomintang_faction
+				}
+			}
+			any_country = {
+				limit = {
+					is_culture_group = east_asian
+					NOT = { tag = THIS }
+				}
+				relation = { who = THIS value = -100 }
+				leave_alliance = THIS
+			}
+		}
+		
+		ai_will_do = {
+			factor = 1
+		}
+	}
+	
+	become_leader_of_kuomintang = {
+		potential = {
+			is_culture_group = east_asian
+			has_global_flag = warlord_era_has_begun
+			has_country_flag = kuomintang_faction
+			NOT = { tag = KMT }
+			KMT = { exists = no }
+		}
+		
+		allow = {
+			war = no
+			NOT = { has_country_modifier = drive_to_reunify }
+			OR = {
+				any_owned_province = {
+					is_core = CHI
+					NOT = { is_core = THIS }
+				}
+				owns = 1493
+				owns = 1616
+			}
+		}
+		
+		effect = {
+			prestige = 10
+			all_core = { add_core = KMT }
+			any_pop = {
+				scaled_militancy = {
+					ideology = liberal
+					factor = -4
+				}
+				scaled_militancy = {
+					ideology = conservative
+					factor = -4
+				}
+			}
+			change_tag = KMT
+			set_country_flag = center_of_the_kuomintang
+			add_accepted_culture = nanfaren
+			add_accepted_culture = beifaren
+			add_country_modifier = {
+				name = taiping_draft
+				duration = 1095
+			}
+			any_country = {
+				limit = {
+					is_culture_group = east_asian
+					NOT = { has_country_flag = kuomintang_faction }
+				}
+				relation = { who = THIS value = -100 }
+				leave_alliance = THIS
+			}
+		}
+		
+		ai_will_do = {
+			factor = 1
+		}
+	}
+	
+	become_leader_of_beiyang = {
+		potential = {
+			is_culture_group = east_asian
+			has_global_flag = warlord_era_has_begun
+			has_country_flag = beiyang_faction
+			CHI = { exists = no }
+			NOT = { tag = CHI }
+		}
+		
+		allow = {
+			war = no
+			owns = 1616
+		}
+		
+		effect = {
+			prestige = 10
+			any_pop = {
+				scaled_militancy = {
+					ideology = reactionary
+					factor = -6
+				}
+			}
+			change_tag = CHI
+			primary_culture = beifaren
+			add_accepted_culture = nanfaren
+			add_accepted_culture = manchu
+			add_accepted_culture = hakka
+			add_accepted_culture = miao
+			add_accepted_culture = min
+			add_accepted_culture = zhuang
+			add_accepted_culture = yue
+			add_accepted_culture = yi
+			set_country_flag = center_of_the_beiyang
+			any_country = {
+				limit = {
+					is_culture_group = east_asian
+				}
+				relation = { who = THIS value = -100 }
+				leave_alliance = THIS
+			}
+		}
+		
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+	become_leader_of_communists = {
+		potential = {
+			is_culture_group = east_asian
+			has_global_flag = warlord_era_has_begun
+			has_country_flag = communist_faction
+			CHI = { exists = no }
+			NOT = { tag = CHI }
+		}
+		
+		allow = {
+			war = no
+			owns = 1616
+		}
+		
+		effect = {
+			prestige = 10
+			any_pop = {
+				scaled_militancy = {
+					ideology = communist
+					factor = -6
+				}
+			}
+			change_tag = CHI
+			primary_culture = beifaren
+			add_accepted_culture = nanfaren
+			add_accepted_culture = manchu
+			add_accepted_culture = hakka
+			add_accepted_culture = miao
+			add_accepted_culture = min
+			add_accepted_culture = zhuang
+			add_accepted_culture = yue
+			add_accepted_culture = yi
+			set_country_flag = center_of_the_communists
+			any_country = {
+				limit = {
+					is_culture_group = east_asian
+					NOT = { has_country_flag = communist_faction }
+				}
+				relation = { who = THIS value = -100 }
+				leave_alliance = THIS
+			}
+		}
+		
+		ai_will_do = {
+			factor = 1
+		}
+	}
+	
+	join_the_KMT = {
+		potential = {
+			is_culture_group = east_asian
+			has_global_flag = warlord_era_has_begun
+			has_country_flag = kuomintang_faction
+			NOT = { tag = KMT }
+			ai = yes
+		}
+		
+		allow = {
+			owns = 1616
+			KMT = { exists = yes }
+		}
+		
+		effect = {
+			KMT = { 
+				prestige = 5
+				country_event = 131741
+			}
+		}
+		
+		ai_will_do = {
+			factor = 1
+		}
+	}
+	
+	reunification_of_china_KMT = {
+		picture = become_leader_of_kuomintang
+		potential = {
+			tag = KMT
+			has_global_flag = warlord_era_has_begun
+		}
+		
+		allow = {
+			war = no
+			owns = 1616
+			CHI = {
+				OR = {
+					exists = no
+					in_sphere = THIS
+				}
+			}
+			FJN = {
+				OR = {
+					exists = no
+					has_country_flag = kuomintang_faction
+					has_country_flag = neutral_faction
+					in_sphere = THIS
+				}
+			}
+			GMJ = {
+				OR = {
+					exists = no
+					has_country_flag = kuomintang_faction
+					has_country_flag = neutral_faction
+					in_sphere = THIS
+				}
+			}
+			GNG = {
+				OR = {
+					exists = no
+					has_country_flag = kuomintang_faction
+					has_country_flag = neutral_faction
+					in_sphere = THIS
+				}
+			}
+			GXI = {
+				OR = {
+					exists = no
+					has_country_flag = kuomintang_faction
+					has_country_flag = neutral_faction
+					in_sphere = THIS
+				}
+			}
+			HNN = {
+				OR = {
+					exists = no
+					has_country_flag = kuomintang_faction
+					has_country_flag = neutral_faction
+					in_sphere = THIS
+				}
+			}
+			HUI = {
+				OR = {
+					exists = no
+					has_country_flag = kuomintang_faction
+					has_country_flag = neutral_faction
+					in_sphere = THIS
+				}
+			}
+			MCK = {
+				OR = {
+					exists = no
+					has_country_flag = kuomintang_faction
+					has_country_flag = neutral_faction
+					in_sphere = THIS
+				}
+			}
+			SXI = {
+				OR = {
+					exists = no
+					has_country_flag = kuomintang_faction
+					has_country_flag = neutral_faction
+					in_sphere = THIS
+				}
+			}
+			SZC = {
+				OR = {
+					exists = no
+					has_country_flag = kuomintang_faction
+					has_country_flag = neutral_faction
+					in_sphere = THIS
+				}
+			}
+			TPG = {
+				OR = {
+					exists = no
+					in_sphere = THIS
+				}
+			}
+			XBI = {
+				OR = {
+					exists = no
+					has_country_flag = kuomintang_faction
+					has_country_flag = neutral_faction
+					in_sphere = THIS
+				}
+			}
+			YNN = {
+				OR = {
+					exists = no
+					has_country_flag = kuomintang_faction
+					has_country_flag = neutral_faction
+					in_sphere = THIS
+				}
+			}
+		}
+		
+		effect = {
+			clr_global_flag = warlord_era_has_begun
+			capital = 2221
+			prestige = 20
+			CHI = {
+				all_core = { add_core = KMT }
+			}
+			random_owned = {
+				limit = {
+					is_core = SXI
+					SXI = { exists = no }
+				}
+				SXI = { all_core = { remove_core = SXI } }
+			}
+			random_owned = {
+				limit = {
+					is_core = HUI
+					HUI = { exists = no }
+				}
+				HUI = { all_core = { remove_core = HUI } }
+			}
+			random_owned = {
+				limit = {
+					is_core = SZC
+					SZC = { exists = no }
+				}
+				SZC = { all_core = { remove_core = SZC } }
+			}
+			random_owned = {
+				limit = {
+					is_core = XIN
+					XIN = { exists = no }
+				}
+				XIN = { all_core = { remove_core = XIN } }
+			}
+			random_owned = {
+				limit = {
+					is_core = HNN
+					HNN = { exists = no }
+				}
+				HNN = { all_core = { remove_core = HNN } }
+			}
+			random_country = {
+				limit = {
+					tag = CHI
+					ai = yes
+					exists = yes
+					in_sphere = THIS
+				}
+				annex_to = THIS
+			}
+			random_country = {
+				limit = {
+					tag = TPG
+					ai = yes
+					exists = yes
+					in_sphere = THIS
+				}
+				annex_to = THIS
+			}
+			any_country = {
+				limit = {
+					exists = yes
+					OR = {
+						has_country_flag = kuomintang_faction
+						has_country_flag = neutral_faction
+						has_country_flag = beiyang_faction
+					}
+					OR = {
+						is_vassal = no
+						vassal_of = THIS
+					}
+					NOT = { tag = THIS }
+				}
+				country_event = 131745
+			}			
+		}
+		
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+	reunification_of_china_communist = {
+		picture = become_leader_of_communists
+		potential = {
+			is_culture_group = east_asian
+			NOT = { tag = KMT }
+			has_country_flag = communist_faction
+			has_global_flag = warlord_era_has_begun
+		}
+		
+		allow = {
+			war = no
+			owns = 1616
+			CHI = {
+				OR = {
+					tag = THIS
+					exists = no
+				}
+			}
+			KMT = {
+				OR = {
+					in_sphere = THIS
+					exists = no
+					has_global_flag = kmt_has_lost
+				}
+			}
+			TPG = {
+				OR = {
+					in_sphere = THIS
+					exists = no
+				}
+			}
+			FJN = {
+				OR = {
+					exists = no
+					has_country_flag = neutral_faction
+					has_country_flag = communist_faction
+					in_sphere = THIS
+				}
+			}
+			GMJ = {
+				OR = {
+					exists = no
+					has_country_flag = neutral_faction
+					has_country_flag = communist_faction
+					in_sphere = THIS
+				}
+			}
+			GNG = {
+				OR = {
+					exists = no
+					has_country_flag = neutral_faction
+					has_country_flag = communist_faction
+					in_sphere = THIS
+				}
+			}
+			GXI = {
+				OR = {
+					exists = no
+					has_country_flag = neutral_faction
+					has_country_flag = communist_faction
+					in_sphere = THIS
+				}
+			}
+			HNN = {
+				OR = {
+					exists = no
+					has_country_flag = neutral_faction
+					has_country_flag = communist_faction
+					in_sphere = THIS
+				}
+			}
+			HUI = {
+				OR = {
+					exists = no
+					has_country_flag = neutral_faction
+					has_country_flag = communist_faction
+					in_sphere = THIS
+				}
+			}
+			MCK = {
+				OR = {
+					exists = no
+					has_country_flag = neutral_faction
+					has_country_flag = communist_faction
+					in_sphere = THIS
+				}
+			}
+			SXI = {
+				OR = {
+					exists = no
+					has_country_flag = neutral_faction
+					has_country_flag = communist_faction
+					in_sphere = THIS
+				}
+			}
+			SZC = {
+				OR = {
+					exists = no
+					has_country_flag = neutral_faction
+					has_country_flag = communist_faction
+					in_sphere = THIS
+				}
+			}
+			XBI = {
+				OR = {
+					exists = no
+					has_country_flag = neutral_faction
+					has_country_flag = communist_faction
+					in_sphere = THIS
+				}
+			}
+			YNN = {
+				OR = {
+					exists = no
+					has_country_flag = neutral_faction
+					has_country_flag = communist_faction
+					in_sphere = THIS
+				}
+			}
+		}
+		
+		effect = {
+			clr_global_flag = warlord_era_has_begun
+			prestige = 20
+			capital = 1616
+			random_owned = {
+				limit = {
+					is_core = SXI
+					SXI = { exists = no }
+				}
+				SXI = { all_core = { remove_core = SXI } }
+			}
+			random_owned = {
+				limit = {
+					is_core = HUI
+					HUI = { exists = no }
+				}
+				HUI = { all_core = { remove_core = HUI } }
+			}
+			random_owned = {
+				limit = {
+					is_core = SZC
+					SZC = { exists = no }
+				}
+				SZC = { all_core = { remove_core = SZC } }
+			}
+			random_owned = {
+				limit = {
+					is_core = XIN
+					XIN = { exists = no }
+				}
+				XIN = { all_core = { remove_core = XIN } }
+			}
+			random_owned = {
+				limit = {
+					is_core = HNN
+					HNN = { exists = no }
+				}
+				HNN = { all_core = { remove_core = HNN } }
+			}
+			random_country = {
+				limit = {
+					tag = KMT
+					ai = yes
+					exists = yes
+					in_sphere = THIS
+				}
+				annex_to = THIS
+			}
+			random_country = {
+				limit = {
+					tag = TPG
+					ai = yes
+					exists = yes
+					in_sphere = THIS
+				}
+				annex_to = THIS
+			}
+			random_owned = {
+				limit = {
+					owner = { 
+						NOT = { tag = CHI }
+					}
+				}
+				owner = {
+					all_core = { remove_core = THIS }
+					change_tag = CHI
+					primary_culture = beifaren
+					add_accepted_culture = nanfaren
+					add_accepted_culture = manchu
+					add_accepted_culture = hakka
+					add_accepted_culture = miao
+					add_accepted_culture = min
+					add_accepted_culture = zhuang
+					add_accepted_culture = yue
+					add_accepted_culture = yi
+				}
+			}
+			any_country = {
+				limit = {
+					exists = yes
+					OR = {
+						has_country_flag = neutral_faction
+						has_country_flag = communist_faction
+					}
+					OR = {
+						is_vassal = no
+						vassal_of = THIS
+					}
+					NOT = { tag = THIS }
+				}
+				country_event = 131745
+			}			
+		}
+		
+		ai_will_do = {
+			factor = 1
+		}
+	}
+	
+	reunification_of_china = {
+		picture = form_china
+		potential = {
+			is_culture_group = east_asian
+			NOT = { tag = KMT }
+			NOT = { has_country_flag = communist_faction }
+			OR = {
+				tag = CHI
+				NOT = { has_country_flag = beiyang_faction }
+			}
+			has_global_flag = warlord_era_has_begun
+		}
+		
+		allow = {
+			war = no
+			owns = 1616
+			OR = {
+				KMT = { exists = no }
+				has_global_flag = kmt_has_lost
+			}
+			CHI = {
+				OR = {
+					exists = no
+					tag = THIS
+					in_sphere = THIS
+				}
+			}
+			FJN = {
+				OR = {
+					exists = no
+					tag = THIS
+					has_country_flag = neutral_faction
+					in_sphere = THIS
+				}
+			}
+			GMJ = {
+				OR = {
+					exists = no
+					tag = THIS
+					has_country_flag = neutral_faction
+					in_sphere = THIS
+				}
+			}
+			GNG = {
+				OR = {
+					exists = no
+					tag = THIS
+					has_country_flag = neutral_faction
+					in_sphere = THIS
+				}
+			}
+			GXI = {
+				OR = {
+					exists = no
+					tag = THIS
+					has_country_flag = neutral_faction
+					in_sphere = THIS
+				}
+			}
+			HNN = {
+				OR = {
+					exists = no
+					tag = THIS
+					has_country_flag = neutral_faction
+					in_sphere = THIS
+				}
+			}
+			HUI = {
+				OR = {
+					exists = no
+					tag = THIS
+					has_country_flag = neutral_faction
+					in_sphere = THIS
+				}
+			}
+			MCK = {
+				OR = {
+					exists = no
+					tag = THIS
+					has_country_flag = neutral_faction
+					in_sphere = THIS
+				}
+			}
+			SXI = {
+				OR = {
+					exists = no
+					tag = THIS
+					has_country_flag = neutral_faction
+					in_sphere = THIS
+				}
+			}
+			SZC = {
+				OR = {
+					exists = no
+					tag = THIS
+					has_country_flag = neutral_faction
+					in_sphere = THIS
+				}
+			}
+			TPG = {
+				OR = {
+					exists = no
+					tag = THIS
+					in_sphere = THIS
+				}
+			}
+			XBI = {
+				OR = {
+					exists = no
+					tag = THIS
+					has_country_flag = neutral_faction
+					in_sphere = THIS
+				}
+			}
+			YNN = {
+				OR = {
+					exists = no
+					tag = THIS
+					has_country_flag = neutral_faction
+					in_sphere = THIS
+				}
+			}
+		}
+		
+		effect = {
+			clr_global_flag = warlord_era_has_begun
+			prestige = 20
+			capital = 1616
+			random_owned = {
+				limit = {
+					is_core = SXI
+					SXI = { exists = no }
+				}
+				SXI = { all_core = { remove_core = SXI } }
+			}
+			random_owned = {
+				limit = {
+					is_core = HUI
+					HUI = { exists = no }
+				}
+				HUI = { all_core = { remove_core = HUI } }
+			}
+			random_owned = {
+				limit = {
+					is_core = SZC
+					SZC = { exists = no }
+				}
+				SZC = { all_core = { remove_core = SZC } }
+			}
+			random_owned = {
+				limit = {
+					is_core = XIN
+					XIN = { exists = no }
+				}
+				XIN = { all_core = { remove_core = XIN } }
+			}
+			random_owned = {
+				limit = {
+					is_core = HNN
+					HNN = { exists = no }
+				}
+				HNN = { all_core = { remove_core = HNN } }
+			}
+			random_country = {
+				limit = {
+					tag = CHI
+					ai = yes
+					exists = yes
+					in_sphere = THIS
+				}
+				annex_to = THIS
+			}
+			random_country = {
+				limit = {
+					tag = TPG
+					ai = yes
+					exists = yes
+					in_sphere = THIS
+				}
+				annex_to = THIS
+			}
+			random_owned = {
+				limit = {
+					owner = { 
+						NOT = { tag = TPG }
+						NOT = { tag = CHI }
+						NOT = { has_country_flag = kuomintang_faction }
+					}
+				}
+				owner = {
+					all_core = { remove_core = THIS }
+					change_tag = CHI
+					primary_culture = beifaren
+					add_accepted_culture = nanfaren
+					add_accepted_culture = manchu
+					add_accepted_culture = hakka
+					add_accepted_culture = miao
+					add_accepted_culture = min
+					add_accepted_culture = zhuang
+					add_accepted_culture = yue
+					add_accepted_culture = yi
+				}
+			}
+			random_owned = {
+				limit = {
+					owner = { 
+						NOT = { tag = TPG }
+						NOT = { tag = CHI }
+						has_country_flag = kuomintang_faction
+					}
+				}
+				CHI = {
+					all_core = { add_core = KMT }
+				}
+				owner = {
+					all_core = { remove_core = THIS }
+					change_tag = KMT
+					primary_culture = nanfaren
+					add_accepted_culture = beifaren
+				}
+			}
+			random_owned = {
+				limit = {
+					owner = { tag = TPG }
+				}
+				CHI = {
+					all_core = { add_core = TPG }
+				}
+			}
+			any_country = {
+				limit = {
+					exists = yes
+					OR = {
+						has_country_flag = kuomintang_faction
+						has_country_flag = neutral_faction
+						has_country_flag = beiyang_faction
+					}
+					OR = {
+						is_vassal = no
+						vassal_of = THIS
+					}
+					NOT = { tag = THIS }
+				}
+				country_event = 131745
+			}			
+		}
+		
+		ai_will_do = {
+			factor = 1
+		}
+	}
+	
+	unequal_treaty = {
+		potential = {
+			any_owned_province = { continent = asia }
+			NOT = { has_country_flag = intervened_boxer_war }
+			is_greater_power = yes
+			NOT = {
+				AND = {
+					OR = {
+						tag = JAP
+						tag = TKG
+					}
+					NOT = { has_country_flag = negotiate_treaty_shimonoseki }
+				}
+				has_country_flag = negotiate_unequal_treaty
+				is_culture_group = east_asian
+			}
+			QNG = {
+				civilized = no
+				war_with = THIS
+				NOT = { has_country_flag = negotiate_unequal_treaty }
+				OR = {
+					owns = 1481
+					owns = 1496
+					owns = 1498
+					owns = 1538
+					owns = 1566
+					owns = 1569
+					owns = 1606
+					owns = 1608
+				}
+			}
+		}
+		
+		allow = {
+			war_with = QNG
+			QNG = {
+				OR = {
+					war_exhaustion = 50
+					any_owned_province = { controlled_by = THIS }
+				}
+				OR = {
+					national_provinces_occupied = 0.05
+					blockade = 0.50
+				}
+				war_exhaustion = 10
+			}
+		}
+		
+		effect = {
+			set_country_flag = negotiate_unequal_treaty
+			badboy = 2
+			QNG = {
+				set_country_flag = negotiate_unequal_treaty
+				country_event = 1316082
+			}
+		}
+		
+		ai_will_do = {
+			factor = 1
+		}
+	}
+	
+	unequal_treaty_TPG = {
+		picture = unequal_treaty
+		potential = {
+			any_owned_province = { continent = asia }
+			is_greater_power = yes
+			NOT = {
+				AND = {
+					OR = {
+						tag = JAP
+						tag = TKG
+					}
+					NOT = { has_country_flag = negotiate_treaty_shimonoseki }
+				}
+				has_country_flag = negotiate_unequal_treaty
+				is_culture_group = east_asian
+			}
+			TPG = {
+				civilized = no
+				war_with = THIS
+				NOT = { has_country_flag = negotiate_unequal_treaty }
+				OR = {
+					owns = 1481
+					owns = 1496
+					owns = 1498
+					owns = 1538
+					owns = 1566
+					owns = 1569
+					owns = 1606
+					owns = 1608
+				}
+			}
+		}
+		
+		allow = {
+			war_with = TPG
+			TPG = {
+				OR = {
+					war_exhaustion = 50
+					any_owned_province = { controlled_by = THIS }
+				}
+				OR = {
+					national_provinces_occupied = 0.05
+					blockade = 0.50
+				}
+				war_exhaustion = 10
+			}
+		}
+		
+		effect = {
+			set_country_flag = negotiate_unequal_treaty
+			badboy = 2
+			TPG = {
+				set_country_flag = negotiate_unequal_treaty
+				country_event = 1316082
+			}
+		}
+		
+		ai_will_do = {
+			factor = 1
+		}
+	}
+	
+	self_strengthening_movement = {
+		potential = {
+			OR = {
+				AND = {
+					tag = QNG
+					NOT = { exists = TPG }
+				}
+				AND = {
+					tag = TPG
+					NOT = { exists = QNG }
+				}
+			}
+			civilized = no
+			NOT = { has_country_modifier = self_strengthening_movement }
+			has_global_flag = taiping_has_happened
+		}
+		
+		allow = {
+			war = no
+			civilization_progress = 0.5
+			OR = {
+				NOT = { prestige = 25 }
+				has_recently_lost_war = yes
+				NOT = { money = 10000 }
+			}
+		}
+		
+		effect = {
+			random_owned = {
+				limit = {
+					owner = { ai = no }
+				}
+				owner = { treasury = 250000 }
+			}
+			add_country_modifier = {
+				name = self_strengthening_movement
+				duration = 1825
+			}
+		}
+		
+		ai_will_do = {
+			factor = 1
+		}
+	}
+	
+	total_war_in_taiping = {
+		alert = yes
+		picture = support_boxers
+		potential = {
+			exists = QNG
+			has_global_flag = taiping_has_happened
+			NOT = { has_country_modifier = taiping_draft }
+			NOT = { has_country_flag = taiping_draft_happened }
+			tag = TPG
+		}
+		
+		allow = {
+			war_with = QNG
+			NOT = { num_of_cities = 50 }
+		}
+		
+		effect = {
+			iron = 20
+			wool = 20
+			timber = 100
+			small_arms = 20
+			leadership = 40
+			define_general = {
+				name = "Yang Xiuqing"
+				personality = fanatic
+				background = natural_born_leader
+			}
+			add_country_modifier = {
+				name = taiping_draft
+				duration = 1825
+			}
+			set_country_flag = taiping_draft_happened 
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+	total_war_in_kashgaria = {
+		alert = yes
+		picture = support_boxers
+		potential = {
+			exists = QNG
+			has_global_flag = dungan_rebellion
+			NOT = { has_country_modifier = small_country_draft }
+			NOT = { has_country_flag = kashgaria_draft_happened }
+			tag = UYG
+		}
+		
+		allow = {
+			war_with = QNG
+		}
+		
+		effect = {
+			iron = 10
+			wool = 10
+			timber = 25
+			small_arms = 10
+			leadership = 20
+			define_general = {
+				name = "Yaqub Beg"
+				personality = charismatic
+				background = adventurer
+			}
+			add_country_modifier = {
+				name = small_country_draft
+				duration = 365
+			}
+			any_country = {
+				limit = {
+					neighbour = THIS
+					NOT = { war_with = THIS }
+					ai = yes
+					THIS = { ai = yes }
+				}
+				relation = { who = THIS value = 50 }
+			}
+			set_country_flag = kashgaria_draft_happened 
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+	total_war_in_yunnan = {
+		alert = yes
+		picture = support_boxers
+		potential = {
+			exists = QNG
+			has_global_flag = panthay_rebellion
+			NOT = { has_country_modifier = small_country_draft }
+			NOT = { has_country_flag = yunnan_draft_happened }
+			tag = PGU
+		}
+		
+		allow = {
+			war_with = QNG
+		}
+		
+		effect = {
+			iron = 10
+			wool = 10
+			timber = 25
+			small_arms = 10
+			leadership = 20
+			define_general = {
+				name = "Du Wenxiu"
+				personality = deeply_religious
+				background = natural_born_leader
+			}
+			add_country_modifier = {
+				name = small_country_draft
+				duration = 365
+			}
+			any_country = {
+				limit = {
+					neighbour = THIS
+					NOT = { war_with = THIS }
+					ai = yes
+					THIS = { ai = yes }
+				}
+				relation = { who = THIS value = 50 }
+			}
+			set_country_flag = yunnan_draft_happened 
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+	total_war_in_peking = {
+		alert = yes
+		picture = support_boxers
+		potential = {
+			exists = TPG
+			has_global_flag = taiping_has_happened
+			NOT = { has_country_modifier = taiping_draft }
+			NOT = { has_global_flag = peking_draft_happened }
+			tag = QNG
+		}
+		
+		allow = {
+			war_with = TPG
+			NOT = { num_of_cities = 50 }
+		}
+		
+		effect = {
+			add_country_modifier = {
+				name = taiping_draft
+				duration = 1825
+			}
+			set_global_flag = peking_draft_happened 
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+	
+	form_china = {
+		potential = {
+			tag = QNG
+			NOT = { has_global_flag = china_formed }
+		}
+		
+		allow = {
+			war = no
+			owns = 1616
+			NOT = {
+				government = absolute_monarchy
+				government = prussian_constitutionalism
+				government = hms_government
+			}
+			NOT = { has_country_flag = mandate }
+			TPG = { exists = no }
+		}
+		
+		effect = {
+			prestige = 20
+			all_core = { remove_core = QNG }
+			change_tag = CHI
+			primary_culture = beifaren
+			add_accepted_culture = nanfaren
+			add_accepted_culture = manchu
+			add_accepted_culture = hakka
+			add_accepted_culture = miao
+			add_accepted_culture = min
+			add_accepted_culture = zhuang
+			add_accepted_culture = yue
+			add_accepted_culture = yi
+			random_country = {
+				limit = {
+					tag = TIB
+					vassal_of = THIS
+				}
+				THIS = { release_vassal = TIB }
+			}
+			random_owned = {
+				limit = {
+					province_id = 1587
+					NOT = { exists = TIB }
+				}
+				owner = {
+					any_owned = {
+						limit = {
+							OR = {
+								region = TIB_1587
+								region = NEP_1326
+							}
+						}
+						secede_province = TIB
+					}
+				}
+			}
+			random_country = {
+				limit = {
+					tag = MGL
+					vassal_of = THIS
+				}
+				THIS = { release_vassal = MGL }
+			}
+			random_owned = {
+				limit = {
+					province_id = 1465
+					NOT = { exists = MGL }
+				}
+				owner = {
+					any_owned = {
+						limit = {
+							is_core = MGL
+							NOT = { region = CHI_1532 }
+						}
+						secede_province = MGL
+					}
+				}
+			}
+			CHI_1468 = { remove_core = CHI }
+			CHI_1465 = { remove_core = CHI }
+			1469 = { remove_core = CHI }
+			random_owned = { limit = { region = CHI_1082 } CHI_1082 = { add_core = MCK } }
+			CHI_1479 = { add_core = MCK }
+			CHI_1552 = { add_core = MCK }
+		}
+		
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+	chuang_guangdong = {
+		picture = peking_convention
+		potential = {
+			tag = QNG
+			civilized = no
+			MCK = {
+				ai = yes
+				exists = yes
+				NOT = { owns = 1082 }
+				civilized = no
+				substate_of = THIS
+			}
+			NOT = { has_country_flag = chuang_guangdong }
+		}
+		
+		allow = {
+			MCK = { substate_of = THIS }
+			war = no
+		}
+		
+		effect = {
+			set_country_flag = chuang_guangdong
+			prestige = 5
+			MCK = { all_core = { add_core = QNG add_core = CHI } }
+			inherit = MCK
+		}
+	}
+
+	claim_tibet = {
+		picture = tibet_capital
+		potential = {
+			OR = {
+				tag = CHI
+				tag = TPG
+			}
+			neighbour = TIB
+			NOT = { is_our_vassal = TIB }
+			NOT = { 1587 = { is_core = CHI } }
+		}	
+		allow = {
+			war = no
+			war_policy = jingoism
+			nationalism_n_imperialism = 1
+		}
+		effect = {
+			TIB = { all_core = { add_core = CHI add_core = THIS } }
+			badboy = 3
+		}
+		ai_will_do = { factor = 1 }
+	}
+	
+	nanking_roc_capital = {
+		picture = become_leader_of_kuomintang
+		potential = {
+			tag = KMT
+			owns = 2221
+			2221 = { is_capital = no }
+		}
+		allow = {
+			owns = 2221
+			war = no
+		}
+		effect = {
+			prestige = 2
+			capital = 2221
+			any_pop = {
+				militancy = -1
+				consciousness = -1
+			}
+		}
+		ai_will_do = { factor = 1 }
+	}
+
+	chinese_taiwan = {
+		picture = form_china
+		potential = {
+			is_culture_group = east_asian
+			owns = 1485
+			owns = 2562
+			OR = {
+				JAP = { has_country_flag = taiwan_administration }
+				TKG = { has_country_flag = taiwan_administration }
+			}
+		}
+		
+		allow = {
+			war = no
+		}
+		
+		effect = {
+			JAP = { clr_country_flag = taiwan_administration }
+			TKG = { clr_country_flag = taiwan_administration }
+			1485 = {
+				remove_core = JAP
+				remove_core = TKG
+				change_province_name = "Taibei"
+			}
+			2562 = {
+				remove_core = JAP
+				remove_core = TKG
+				change_province_name = "Tainan"
+				state_scope = {
+					change_region_name = "Formosa"
+				}
+			}
+			prestige = 2
+		}
+	}
+
+	treaty_port_hongkong = {
+		picture = unequal_treaty
+		potential = {
+			NOT = { is_culture_group = east_asian }
+			has_country_modifier = chinese_trade
+			1496 = {
+				owner = {
+					is_culture_group = east_asian
+					has_country_modifier = chinese_trade
+				}
+				NOT = { owned_by = THIS }
+			}
+		}
+
+		allow = {
+			has_country_modifier = chinese_trade
+			1496 = {
+				owner = {
+					is_culture_group = east_asian
+					has_country_modifier = chinese_trade
+				}
+				NOT = { owned_by = THIS }
+			}
+		}
+
+		effect = {
+			remove_country_modifier = chinese_trade
+			1496 = {
+				secede_province = THIS
+			}
+		}
+	}
+
+	treaty_port_macao = {
+		picture = unequal_treaty
+		potential = {
+			NOT = { is_culture_group = east_asian }
+			has_country_modifier = chinese_trade
+			1498 = {
+				owner = {
+					is_culture_group = east_asian
+					has_country_modifier = chinese_trade
+				}
+				NOT = { owned_by = THIS }
+			}
+		}
+
+		allow = {
+			has_country_modifier = chinese_trade
+			1498 = {
+				owner = {
+					is_culture_group = east_asian
+					has_country_modifier = chinese_trade
+				}
+				NOT = { owned_by = THIS }
+			}
+		}
+
+		effect = {
+			remove_country_modifier = chinese_trade
+			1498 = {
+				secede_province = THIS
+			}
+		}
+	}
+
+	treaty_port_shanghai = {
+		picture = unequal_treaty
+		potential = {
+			NOT = { is_culture_group = east_asian }
+			has_country_modifier = chinese_trade
+			1538 = {
+				owner = {
+					is_culture_group = east_asian
+					has_country_modifier = chinese_trade
+				}
+				NOT = { owned_by = THIS }
+			}
+		}
+
+		allow = {
+			has_country_modifier = chinese_trade
+			1538 = {
+				owner = {
+					is_culture_group = east_asian
+					has_country_modifier = chinese_trade
+				}
+				NOT = { owned_by = THIS }
+			}
+		}
+
+		effect = {
+			remove_country_modifier = chinese_trade
+			1538 = {
+				secede_province = THIS
+			}
+		}
+	}
+
+	treaty_port_qingdao = {
+		picture = unequal_treaty
+		potential = {
+			NOT = { is_culture_group = east_asian }
+			has_country_modifier = chinese_trade
+			1566 = {
+				owner = {
+					is_culture_group = east_asian
+					has_country_modifier = chinese_trade
+				}
+				NOT = { owned_by = THIS }
+			}
+		}
+
+		allow = {
+			has_country_modifier = chinese_trade
+			1566 = {
+				owner = {
+					is_culture_group = east_asian
+					has_country_modifier = chinese_trade
+				}
+				NOT = { owned_by = THIS }
+			}
+		}
+
+		effect = {
+			remove_country_modifier = chinese_trade
+			1566 = {
+				secede_province = THIS
+			}
+		}
+	}
+
+	treaty_port_weihaiwei = {
+		picture = unequal_treaty
+		potential = {
+			NOT = { is_culture_group = east_asian }
+			has_country_modifier = chinese_trade
+			1569 = {
+				owner = {
+					is_culture_group = east_asian
+					has_country_modifier = chinese_trade
+				}
+				NOT = { owned_by = THIS }
+			}
+		}
+
+		allow = {
+			has_country_modifier = chinese_trade
+			1569 = {
+				owner = {
+					is_culture_group = east_asian
+					has_country_modifier = chinese_trade
+				}
+				NOT = { owned_by = THIS }
+			}
+		}
+
+		effect = {
+			remove_country_modifier = chinese_trade
+			1569 = {
+				secede_province = THIS
+			}
+		}
+	}
+
+	treaty_port_jiaxing = {
+		picture = unequal_treaty
+		potential = {
+			NOT = { is_culture_group = east_asian }
+			has_country_modifier = chinese_trade
+			1606 = {
+				owner = {
+					is_culture_group = east_asian
+					has_country_modifier = chinese_trade
+				}
+				NOT = { owned_by = THIS }
+			}
+		}
+
+		allow = {
+			has_country_modifier = chinese_trade
+			1606 = {
+				owner = {
+					is_culture_group = east_asian
+					has_country_modifier = chinese_trade
+				}
+				NOT = { owned_by = THIS }
+			}
+		}
+
+		effect = {
+			remove_country_modifier = chinese_trade
+			1606 = {
+				secede_province = THIS
+			}
+		}
+	}
+
+	treaty_port_port_arthur = {
+		picture = unequal_treaty
+		potential = {
+			NOT = { is_culture_group = east_asian }
+			has_country_modifier = chinese_trade
+			1481 = {
+				owner = {
+					is_culture_group = east_asian
+					has_country_modifier = chinese_trade
+				}
+				NOT = { owned_by = THIS }
+			}
+		}
+
+		allow = {
+			has_country_modifier = chinese_trade
+			1481 = {
+				owner = {
+					is_culture_group = east_asian
+					has_country_modifier = chinese_trade
+				}
+				NOT = { owned_by = THIS }
+			}
+		}
+
+		effect = {
+			remove_country_modifier = chinese_trade
+			1481 = {
+				secede_province = THIS
+			}
+		}
+	}
+
+	treaty_port_ningbo = {
+		picture = unequal_treaty
+		potential = {
+			NOT = { is_culture_group = east_asian }
+			has_country_modifier = chinese_trade
+			1608 = {
+				owner = {
+					is_culture_group = east_asian
+					has_country_modifier = chinese_trade
+				}
+				NOT = { owned_by = THIS }
+			}
+		}
+
+		allow = {
+			has_country_modifier = chinese_trade
+			1608 = {
+				owner = {
+					is_culture_group = east_asian
+					has_country_modifier = chinese_trade
+				}
+				NOT = { owned_by = THIS }
+			}
+		}
+
+		effect = {
+			remove_country_modifier = chinese_trade
+			1608 = {
+				secede_province = THIS
+			}
+		}
+	}
+}

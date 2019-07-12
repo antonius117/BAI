@@ -1,0 +1,146 @@
+political_decisions = {
+	mediate_belgian_independence = {
+		picture = sign_treaty_of_london
+		potential = {
+			tag = ENG
+			is_greater_power = yes
+			BEL = { exists = yes }
+			NET = {
+				exists = yes
+				NOT = { any_owned_province = { is_core = BEL } }
+				NOT = { has_country_flag = signed_treaty_of_london }
+			}
+			NOT = { has_country_flag = mediated_belgian_independence }
+		}
+		
+		allow = {
+			NET = {
+				war = no
+				is_greater_power = no
+			}
+			BEL = {
+				war = no
+			}
+			OR = { 
+				relation = {
+					who = NET
+					value = 100
+				}
+				diplomatic_influence = {
+					who = NET
+					value = 60
+				}
+			}
+			year = 1839
+		}
+		
+		effect = {
+			set_country_flag = mediated_belgian_independence
+			prestige = 10
+			NET = { country_event = 36709 }
+		}
+		
+		ai_will_do = {
+			factor = 1
+			modifier = {
+				factor = 0
+				NOT = { year = 1839 }
+			}
+		}
+	}
+
+	embrace_the_boer = {
+		picture = embrace_the_boer
+		potential = {
+			tag = NET
+			NOT = { has_country_flag = boer_accepted }
+			any_owned_province = { 
+				OR = {
+					is_core = SAF
+					is_core = NAL
+					is_core = TRN
+					is_core = ORA
+				}
+			}
+		}
+		
+		allow = {
+			war = no
+			money = 100000
+			any_owned_province = { has_pop_culture = boer }
+		}
+		
+		effect = {
+			set_country_flag = boer_accepted
+			treasury = -100000
+			add_accepted_culture = boer
+			any_pop = { limit = { culture = boer }
+				militancy = -7
+				consciousness = -4
+				money = 10
+			}
+		}
+		
+		ai_will_do = { factor = 1 }
+	}
+	
+	dutch_wallonia = {
+		picture = become_wallonia
+		potential = {
+			tag = NET
+			owns = 392
+			owns = 393
+			owns = 394
+			owns = 395
+			owns = 398
+			NOT = { has_global_flag = dutch_wallons }
+		}
+		
+		allow = {
+			war = no
+			nationalism_n_imperialism = 1
+		}
+		
+		effect = {
+			prestige = 5
+			set_global_flag = dutch_wallons
+			395 = { change_province_name = "Luik" }
+			392 = { change_province_name = "Namen" }
+			398 = { change_province_name = "Aarlen" }
+			393 = { change_province_name = "Doornik" }
+			394 = { change_province_name = "Bergen" }
+		}
+		
+		ai_will_do = { factor = 1 }
+	}
+	
+	
+	standard_wallonia = {
+		picture = become_wallonia
+		potential = {
+			NOT = { tag = NET }
+			owns = 392
+			owns = 393
+			owns = 394
+			owns = 395
+			owns = 398
+			has_global_flag = dutch_wallons
+		}
+		
+		allow = {
+			war = no
+		}
+		
+		effect = {
+			prestige = 5
+			clr_global_flag = dutch_wallons
+			395 = { change_province_name = "Liège" }
+			392 = { change_province_name = "Namur" }
+			398 = { change_province_name = "Arlon" }
+			393 = { change_province_name = "Tournai" }
+			394 = { change_province_name = "Charleroi" }
+		}
+		
+		ai_will_do = { factor = 1 }
+	}
+}

@@ -1,0 +1,613 @@
+################################
+# Greece QUESTIONS AND ANSWERS #
+################################
+
+country_event = {
+	id = 190401
+	title = "Mycenaean Excavations"
+	desc = "A great power has come to us asking to excavate local ruins."
+	picture = "Mykene"
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = "Certainly."
+		set_global_flag = greek_excavation_rights
+		FROM = {
+			country_event = 190411
+		}
+		ai_chance = {
+			factor = 20
+			modifier = {
+				factor = 0.1
+				has_global_flag = greek_excavation_rights
+			}
+			modifier = {
+				factor = 3
+				FROM = {
+					prestige = 125
+				}
+			}
+			modifier = {
+				factor = 1.5
+				FROM = {
+					is_greater_power = yes
+				}
+			}
+		}
+	}
+	
+	option = {
+		name = "Never!"
+		FROM = {
+			country_event = 190421
+		}
+	}
+}
+
+#Greece Allows
+country_event = {
+	id = 190411
+	title = "Greece Permits!"
+	desc = "The Greeks have agreed that we may excavate at Mycenae."
+	picture = "Mykene"
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = "Hurrah!"
+		add_country_modifier = {
+			name = mycenaean_excavations
+			duration = -1
+		}
+		relation = {
+			who = FROM
+			value = 20
+		}
+		set_global_flag = mycenaean_excavation_rights
+		prestige = 5
+	}
+}
+
+#Greece Refuses
+country_event = {
+	id = 190421
+	title = "Greece Refuses!"
+	desc = "The foolish Greeks have refused our antiquarians access!"
+	picture = "Mykene"
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = "Damnation!"
+		relation = {
+			who = FROM
+			value = -20
+		}
+		prestige = -5
+	}
+}
+
+# Excavation team gets into trouble
+country_event = {
+	id = 190431
+	title = "Legal Issues"
+	desc = "There's been some unfortunate allegations in Greece..."
+	picture = "Mykene"
+	
+	trigger = {
+		has_country_modifier = mycenaean_excavations
+		NOT = {
+			owns = 840
+		}
+	}
+	
+	mean_time_to_happen = {
+		months = 200
+		modifier = {
+			factor = 1.2
+			is_greater_power = yes
+		}
+		modifier = {
+			factor = 0.8
+			NOT = {
+				prestige = 125
+			}
+		}
+		modifier = {
+			factor = 1.3
+			revolution_n_counterrevolution = 1
+		}
+	}
+	
+	option = {
+		name = "A little money may help?"
+		treasury = -2500
+		ai_chance = {
+			factor = 50
+			modifier = {
+				factor = 0
+				NOT = { money = 2500 }
+			}
+		}
+	}
+	
+	option = {
+		name = "Bring them home."
+		random_country = {
+			limit = {
+				owns = 840
+			}
+			relation = {
+				who = THIS
+				value = -20
+			}
+		}
+		remove_country_modifier = mycenaean_excavations
+		set_country_flag = greece_refused
+		ai_chance = {
+			factor = 50
+		}
+	}
+}
+
+# Tomb Found
+country_event = {
+	id = 190441
+	title = "Greek Tomb Discovered!"
+	desc = "A royal tomb has been found in Greece."
+	picture = "Loewentor"
+	
+	trigger = {
+		has_country_modifier = mycenaean_excavations
+	}
+	
+	mean_time_to_happen = {
+		months = 200
+		modifier = {
+			factor = 0.9
+			invention = modern_archaeology
+		}
+        modifier = {
+			factor = 0.9
+            has_country_flag = archaeological_society
+		}
+        modifier = {
+			factor = 0.9
+            has_country_flag = famous_archaeologist
+		}
+	}
+	
+	option = {
+		name = "Excellent."
+		prestige = 5
+		years_of_research = 0.05
+	}
+}
+
+#Fraud
+country_event = {
+	id = 190451
+	title = "Accusations of Fraud"
+	desc = "Some of the jewellery our excavators have found is of questionable validity..."
+	picture = "Mykene"
+		
+	trigger = {
+		has_country_modifier = mycenaean_excavations
+	}
+	
+	mean_time_to_happen = {
+		months = 200
+		modifier = {
+			factor = 1.2
+			invention = modern_archaeology
+		}
+        modifier = {
+			factor = 1.3
+            has_country_flag = archaeological_society
+		}
+        modifier = {
+			factor = 1.4
+            has_country_flag = famous_archaeologist
+		}
+	}
+	
+	option = {
+		name = "Blast!"
+		any_pop = { limit = { NOT = { literacy = 0.6 } }
+			militancy = 0.5
+		}
+	}
+}
+
+#Agamemnon's mask
+country_event = {
+	id = 190461
+	title = "EVTNAME190461"
+	desc = "EVTDESC190461"
+	news = yes
+	news_desc_long = "EVTDESC190461_NEWS_LONG"
+	news_desc_medium = "EVTDESC190461_NEWS_MEDIUM"
+	news_desc_short = "EVTDESC190461_NEWS_SHORT"
+	picture = "Mask"
+	major = yes	
+	
+	trigger = {
+		has_country_modifier = mycenaean_excavations
+		NOT = {
+			has_global_flag = agamemnon_found
+		}
+	}
+	
+	mean_time_to_happen = {
+		months = 1000
+		modifier = {
+			factor = 0.9
+			invention = modern_archaeology
+		}
+		modifier = {
+			factor = 0.9
+			has_country_flag = archaeological_society
+		}
+		modifier = {
+			factor = 0.9
+			has_country_flag = famous_archaeologist
+		}
+	}
+	
+	option = {
+		name = "Overwhelming..."
+		prestige = 30
+		years_of_research = 0.75
+		set_global_flag = agamemnon_found
+		any_country = {
+			remove_country_modifier = mycenaean_excavations
+		}
+		remove_country_modifier = mycenaean_excavations
+		clr_global_flag = mycenaean_excavation_rights
+        country_event = 201070
+	}
+}
+
+#Crete Question
+country_event = {
+	id = 1904012
+	title = "Minoan Excavations"
+	desc = "A great power has come to us asking to excavate local ruins."
+	picture = "Knossos"
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = "Certainly."
+		set_global_flag = crete_excavation_rights
+		FROM = {
+			country_event = 1904112
+		}
+		ai_chance = {
+			factor = 20
+			modifier = {
+				factor = 0.1
+				has_global_flag = crete_excavation_rights
+			}
+			modifier = {
+				factor = 3
+				FROM = {
+					prestige = 200
+				}
+			}
+			modifier = {
+				factor = 1.5
+				FROM = {
+					is_greater_power = yes
+				}
+			}
+		}
+	}
+	
+	option = {
+		name = "Never!"
+		FROM = {
+			country_event = 1904212
+		}
+	}
+}
+
+#Crete Allows
+country_event = {
+	id = 1904112
+	title = "Crete Permits!"
+	desc = "The Creteans have agreed that we may excavate at Knossos."
+	picture = "Knossos"
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = "Hurrah!"
+		add_country_modifier = {
+			name = minoan_excavations
+			duration = -1
+		}
+		relation = {
+			who = FROM
+			value = 20
+		}
+		set_global_flag = minoan_excavation_rights
+		prestige = 5
+	}
+}
+
+#Crete Refuses
+country_event = {
+	id = 1904212
+	title = "Crete Refuses!"
+	desc = "The foolish Creteans have refused our antiquarians access!"
+	picture = "Knossos"
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = "Damnation!"
+		relation = {
+			who = FROM
+			value = -20
+		}
+		prestige = -5
+	}
+}
+
+# Excavation team gets into trouble
+country_event = {
+	id = 1904312
+	title = "Legal Issues"
+	desc = "There's been some unfortunate allegations in Crete..."
+	picture = "Knossos"
+	
+	trigger = {
+		has_country_modifier = minoan_excavations
+		NOT = {
+			owns = 847
+		}
+	}
+	
+	mean_time_to_happen = {
+		months = 200
+		modifier = {
+			factor = 1.2
+			is_greater_power = yes
+		}
+		modifier = {
+			factor = 0.8
+			NOT = {
+				prestige = 200
+			}
+		}
+		modifier = {
+			factor = 1.3
+			revolution_n_counterrevolution = 1
+		}
+	}
+	
+	option = {
+		name = "A little money may help?"
+		treasury = -5000
+		ai_chance = {
+			factor = 50
+			modifier = {
+				factor = 0
+				NOT = { money = 5000 }
+			}
+		}
+	}
+	
+	option = {
+		name = "Bring them home."
+		random_country = {
+			limit = {
+				owns = 847
+			}
+			relation = {
+				who = THIS
+				value = -20
+			}
+		}
+		remove_country_modifier = minoan_excavations
+		set_country_flag = crete_refused
+		ai_chance = {
+			factor = 50
+		}
+	}
+}
+
+#Knossos Palace Found
+country_event = {
+	id = 1904412
+	title = "Great Palace Discovered!"
+	desc = "A great palace has been found in Knossos!"
+	picture = "Knossos_palace"
+	
+	trigger = {
+		has_country_modifier = minoan_excavations
+	}
+	
+	mean_time_to_happen = {
+		months = 200
+        modifier = {
+			factor = 0.9
+            has_country_flag = archaeological_society
+		}
+        modifier = {
+			factor = 0.9
+            has_country_flag = famous_archaeologist
+		}
+	}
+	
+	option = {
+		name = "Intriguing."
+		prestige = 5
+		years_of_research = 0.05
+	}
+}
+
+#The Labyrinth
+country_event = {
+	id = 1904612
+	title = "EVTNAME1904612"
+	desc = "EVTDESC1904612"
+	news = yes
+	news_title = "EVTNAME1904612_NEWS_TITLE"
+	news_desc_long = "EVTDESC1904612_NEWS_LONG"
+	news_desc_medium = "EVTDESC1904612_NEWS_MEDIUM"
+	news_desc_short = "EVTDESC1904612_NEWS_SHORT"
+	picture = "Labyrinth"	
+	major = yes
+	
+	trigger = {
+		has_country_modifier = minoan_excavations
+		NOT = {
+			has_global_flag = minos_found
+		}
+	}
+	
+	mean_time_to_happen = {
+		months = 1000
+		modifier = {
+			factor = 0.9
+			has_country_flag = archaeological_society
+		}
+		modifier = {
+			factor = 0.9
+			has_country_flag = famous_archaeologist
+		}
+	}
+	
+	option = {
+		name = "Splendid."
+		prestige = 30
+		years_of_research = 0.75
+		set_global_flag = minos_found
+		any_country = {
+			remove_country_modifier = minoan_excavations
+		}
+		remove_country_modifier = minoan_excavations
+		clr_global_flag = minoan_excavation_rights
+		country_event = 201071
+	}
+}
+
+country_event = {
+	id = 1905101
+	title = "EVTNAME1905101"
+	desc = "EVTDESC1905101"
+	news = yes
+	news_title = "EVTNAME1905101_NEWS_TITLE"
+	news_desc_long = "EVTDESC1905101_NEWS_LONG"
+	news_desc_medium = "EVTDESC1905101_NEWS_MEDIUM"
+	news_desc_short = "EVTDESC1905101_NEWS_SHORT"
+	picture = "paleoanthropology"
+	
+	trigger = {
+		NOT = {
+			has_global_flag = neanderthal
+		}
+		OR = {
+			owns = 578
+			578 = {
+				owner = {
+					in_sphere = THIS
+				}
+			}
+		}
+		cheap_steel = 1
+	}
+	
+	mean_time_to_happen = {
+		months = 120
+	}
+	
+	option = {
+		name = "Marvellous!"
+		set_global_flag = neanderthal
+		prestige = 10
+		years_of_research = 0.1
+	}
+	
+}
+country_event = {
+	id = 1905201
+	title = "EVTNAME1905201"
+	desc = "EVTDESC1905201"
+	news = yes
+	news_title = "EVTNAME1905201_NEWS_TITLE"
+	news_desc_long = "EVTDESC1905201_NEWS_LONG"
+	news_desc_medium = "EVTDESC1905201_NEWS_MEDIUM"
+	news_desc_short = "EVTDESC1905201_NEWS_SHORT"
+	picture = "paleoanthropology"
+	
+	trigger = {
+		NOT = {
+			has_global_flag = erectus
+		}
+		OR = {
+			owns = 1414
+			1414 = {
+				owner = {
+					in_sphere = THIS
+				}
+			}
+		}
+		phenomenology_n_hermeneutic = 1
+	}
+	
+	mean_time_to_happen = {
+		months = 120
+	}
+	
+	option = {
+		name = "Marvellous!"
+		set_global_flag = erectus
+		prestige = 10
+		years_of_research = 0.1
+	}
+	
+}
+
+country_event = {
+	id = 1905301
+	title = "EVTNAME1905301"
+	desc = "EVTDESC1905301"
+	news = yes
+	news_title = "EVTNAME1905301_NEWS_TITLE"
+	news_desc_long = "EVTDESC1905301_NEWS_LONG"
+	news_desc_medium = "EVTDESC1905301_NEWS_MEDIUM"
+	news_desc_short = "EVTDESC1905301_NEWS_SHORT"
+	picture = "paleoanthropology"
+	
+	trigger = {
+
+		NOT = {
+			has_global_flag = africanus
+		}
+		OR = {
+			owns = 2095
+			2095 = {
+				owner = {
+					in_sphere = THIS
+				}
+			}
+		}
+		anti__rationalism = 1
+		year = 1920
+	}
+
+	mean_time_to_happen = {
+		months = 120
+	}
+	
+	option = {
+		name = "Marvellous!"
+		set_global_flag = africanus
+		prestige = 10
+		years_of_research = 0.1
+	}
+}

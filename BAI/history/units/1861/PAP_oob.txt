@@ -1,0 +1,59 @@
+leader = {
+	name = "de Lamoricière"
+	date = 1852.1.1
+	type = land
+	personality = deeply_religious
+	background = colonial_b
+	prestige = 0.2
+}
+
+leader = {
+	name = "de Courten"
+	date = 1858.1.1
+	type = land
+	personality = competent
+	background = aristocrat
+	prestige = 0.1
+}
+
+leader = {
+	name = "Hermann Kanzler"
+	date = 1860.1.1
+	type = land
+	personality = bold
+	background = rising_star
+	prestige = 0.1
+}
+
+leader = {
+	name = "de Pimodan"
+	date = 1860.1.1
+	type = land
+	personality = manful
+	background = generals_aide
+	prestige = 0.1
+}
+
+army = {
+	name = "Esercito Pontificio"
+	location = 749
+	regiment = {
+		name= "1. Zuavi Pontifici"
+		type = infantry
+		home = 749
+	}
+
+	regiment = {
+		name= "2. Zuavi Pontifici - Sancti Patricii"
+		type = infantry
+		home = 749
+	}
+
+	regiment = {
+		name= "3. Zuavi Pontifici"
+		type = artillery
+		home = 750
+	}
+}
+
+

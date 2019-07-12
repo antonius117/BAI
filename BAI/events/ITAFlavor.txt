@@ -1,0 +1,5352 @@
+country_event = {
+
+	id = 35300
+
+	trigger = {
+		OR = {
+			tag = ITA
+			tag = ITP
+		}
+		year = 1910
+		NOT = {
+			year = 1913
+		}
+		
+	}
+	
+	fire_only_once = yes
+ 
+	mean_time_to_happen =  {
+		months = 5
+
+		modifier = {
+			factor = 0.75 #increase likelihood to happen
+			year = 1911
+		}
+
+
+		modifier = {
+			factor = 0.95 #increase likelihood to happen
+			year = 1912
+		}
+	}
+
+	title = "EVTNAME35300"
+	desc = "EVTDESC35300"
+	picture = "theatre"
+
+	option = {
+		name = "EVTOPTA35300" 
+		prestige = 2
+	}
+}
+
+country_event = {
+
+	id = 35301
+
+	trigger = {
+		OR = {
+			tag = ITP
+			tag = ITA
+		}
+		year = 1902
+		NOT = {
+			year = 1905
+			}
+		
+	}
+	
+	fire_only_once = yes
+ 
+	mean_time_to_happen =  {
+		months = 5
+
+		modifier = {
+			factor = 0.75 #increase likelihood to happen
+			year = 1903
+		}
+
+
+		modifier = {
+			factor = 0.95 #increase likelihood to happen
+			year = 1904
+		}
+	}
+
+	title = "EVTNAME35301"
+	desc = "EVTDESC35301"
+	picture = "theatre"
+
+	option = {
+		name = "EVTOPTA35301" 
+		prestige = 3
+	}
+}
+
+country_event = {
+
+	id = 35302 #Parallel to PAP35700
+	title = "EVTNAME35700"
+	desc = "EVTDESC35700"
+	picture = "pope"
+	
+	trigger = {
+		tag = ITA
+		year = 1891
+		NOT = {
+			year = 1894
+			exists = PAP
+			exists = ITP
+			has_global_flag = RerumNovarum
+		}
+	}
+	
+	fire_only_once = yes
+ 
+	mean_time_to_happen =  {
+		months = 5
+
+		modifier = {
+			factor = 0.75 #increase likelihood to happen
+			year = 1892
+		}
+
+
+		modifier = {
+			factor = 0.95 #increase likelihood to happen
+			year = 1893
+		}
+	}
+
+	option = {
+		name = "EVTOPTA35700" 
+		prestige = 5
+		labourers = {
+			consciousness = 1
+		}
+		craftsmen = {
+			consciousness = 1
+		}
+		artisans = {
+			consciousness = 1
+		}
+		soldiers = {
+			consciousness = 1
+		}
+		set_global_flag = RerumNovarum		
+	}
+}
+
+country_event = {
+	id = 35305
+	title = "EVTNAME35305" #the Guerra di Libia
+	desc = "EVTDESC35305"
+	picture = "deliberation"
+	
+	fire_only_once = yes
+	
+	trigger = {
+		OR = {
+			tag = ITP
+			tag = ITA
+		}
+		war = no
+		is_disarmed = no
+		has_global_flag = berlin_congress_held
+		OR = {
+			military_directionism = 1
+			mass_politics = 1
+			year = 1910
+		}
+		is_greater_power = yes
+		OR = {
+			war_policy = jingoism
+			war_policy = pro_military
+		}
+		TUR = {
+			owns = 1731
+			is_greater_power = no
+			NOT = {
+				alliance_with = ITA
+				in_sphere = ITA
+				alliance_with = ITP
+				in_sphere = ITP
+			}
+		}
+		NOT = { has_country_modifier = no_more_war }
+	}
+	
+	mean_time_to_happen = {
+		months = 25
+		modifier = {
+			factor = 0.25
+			TUR = { war = yes }
+		}
+	}
+	
+	option = {
+		name = "For the glory of Italia!"
+		set_country_flag = guerra_di_libia
+		any_pop = {
+			limit = { is_culture_group = italian }
+			dominant_issue = {
+				factor = 0.05
+				value = jingoism
+			}
+			scaled_militancy = {
+				issue = jingoism
+				factor = -4
+			}
+		}
+		random_owned = {
+			limit = {
+				owner = { ai = yes }
+				1731 = { is_colonial = no }
+			}
+			owner = {
+				war = {
+					target = TUR
+					attacker_goal = {
+						casus_belli = acquire_any_state
+						state_province_id = 1731
+					}
+					call_ally = yes
+				}
+			}
+		}
+		random_owned = {
+			limit = {
+				owner = { ai = no }
+				1731 = { is_colonial = no }
+			}
+			owner = {
+				war = {
+					target = TUR
+					attacker_goal = {
+						casus_belli = acquire_any_state
+						state_province_id = 1731
+					}
+				}
+			}
+		}
+		random_owned = {
+			limit = {
+				owner = { ai = yes }
+				1731 = { is_colonial = yes }
+			}
+			owner = {
+				war = {
+					target = TUR
+					attacker_goal = {
+						casus_belli = place_in_the_sun
+						state_province_id = 1731
+					}
+					call_ally = yes
+				}
+			}
+		}
+		random_owned = {
+			limit = {
+				owner = { ai = no }
+				1731 = { is_colonial = yes }
+			}
+			owner = {
+				war = {
+					target = TUR
+					attacker_goal = {
+						casus_belli = place_in_the_sun
+						state_province_id = 1731
+					}
+				}
+			}
+		}
+		ai_chance = {
+			factor = 80
+			modifier = {
+				factor = 0.5
+				badboy = 0.6
+				NOT = {
+					government = fascist_dictatorship
+					government = absolute_monarchy
+				}
+			}
+		}
+	}
+	
+	option = {
+		name = "This is not the time."
+		any_pop = {
+			limit = { is_culture_group = italian }
+			dominant_issue = {
+				factor = 0.02
+				value = pacifism
+			}
+			scaled_militancy = {
+				issue = jingoism
+				factor = 4
+			}
+		}
+		ai_chance = {
+			factor = 20
+			modifier = {
+				factor = 2
+				badboy = 0.6
+				NOT = {
+					government = fascist_dictatorship
+					government = absolute_monarchy
+				}
+			}
+		}
+	}
+}
+
+country_event = {
+
+	id = 9003811
+	title = "The Plebiscite of Savoy"
+	desc = "The people of Savoy are hitting up the polls to decide if their future should be with Switzerland, France or Italy."
+	picture = "treaty"
+
+	trigger = {
+		tag = FRA
+		war = no
+		owns = 465
+		owns = 466
+		NOT = { has_country_flag = savvotan }
+		has_country_flag = cavour_has_done_his
+	}
+	
+	mean_time_to_happen = {
+		months = 4
+	}	
+
+	option = {
+		name = "Do not interfere."
+		badboy = -2
+		set_country_flag = savvotan2
+		set_country_flag = savvotan
+		any_pop = {
+			limit = {
+				culture = north_italian
+			}
+			consciousness = 2
+			militancy = 1
+		}
+		ai_chance = {
+			factor = 20
+		}
+	}
+
+	option = {
+		name = "Rig the polls, they want to be French!"
+		badboy = 2
+		country_event = 9003813
+		any_pop = {
+			limit = {
+				culture = north_italian
+			}
+			militancy = 6
+			consciousness = 4
+		}
+		set_country_flag = savvotan
+		ai_chance = {
+			factor = 80
+		}
+	}
+}
+
+country_event = {
+
+	id = 9003812
+	title = "The Plebiscite of Savoy"
+	desc = "The Swiss have won the votes, should we let Savoy secede?"
+	picture = "treaty"
+
+	trigger = {
+		tag = FRA
+		war = no
+		owns = 465
+		owns = 466
+		NOT = { has_country_flag = savvotan3 }
+		has_country_flag = savvotan2
+	}
+	
+	mean_time_to_happen = {
+		days = 24
+		modifier = {
+			factor = 0.9
+			average_consciousness = 4
+		}
+		modifier = {
+			factor = 0.8
+			average_militancy = 4
+		}
+		modifier = {
+			factor = 0.1
+			capital_scope = {
+				controlled_by_rebels = yes
+			}
+		}
+	}	
+
+	option = {
+		name = "Let them go."
+		badboy = -2
+		SWI = {
+			country_event = 9003813
+		}
+		set_country_flag = savvotan3
+	}
+
+	option = {
+		name = "Damn the polls, they stay French!"
+		badboy = 2
+		465 = { add_core = SWI }
+		466 = { add_core = SWI }
+		any_pop = {
+			limit = {
+				culture = north_italian
+			}
+			militancy = 8
+			consciousness = 6
+		}
+		set_country_flag = savvotan3
+	}
+}
+
+country_event = {
+
+	id = 9003813
+	title = "The Plebiscite of Savoy"
+	desc = "The people have voted to join the Swiss confederation and France has allowed them to join us."
+	picture = "treaty"
+
+	is_triggered_only = yes
+
+	option = {
+		name = "Rejoice!"
+		prestige = 10
+		FRA = {
+			465 = {
+				remove_core = ITA
+				remove_core = ITP
+				remove_core = FRA
+				remove_core = SVY
+				remove_core = SAR
+				add_core = SWI
+				secede_province = SWI
+			}
+			466 = {
+				remove_core = ITA
+				remove_core = ITP
+				remove_core = FRA
+				remove_core = SVY
+				remove_core = SAR
+				add_core = SWI
+				secede_province = SWI
+			}
+		}
+	}
+}
+
+
+country_event = {
+
+	id = 9003814
+	title = "The Plebiscite of Savoy"
+	desc = "The Italians have won the votes, should we let Savoy secede back to them?"
+	picture = "treaty"
+
+	trigger = {
+		tag = FRA
+		war = no
+		exists = SAR
+		owns = 465
+		owns = 466
+		NOT = { has_country_flag = savvotan3 }
+		has_country_flag = savvotan2
+	}
+	
+	mean_time_to_happen = {
+		months = 1
+		modifier = {
+			factor = 0.9
+			466 = {
+			state_scope = {
+				average_consciousness = 4
+			}
+			}
+		}
+		modifier = {
+			factor = 0.8
+			466 = {
+			state_scope = {
+				average_militancy = 4
+			}
+			}
+		}
+		modifier = {
+			factor = 0.7
+			466 = {
+			state_scope = {
+				average_militancy = 8
+			}
+			}
+		}
+	}	
+
+	option = {
+		name = "Let them go."
+		badboy = -2
+		SAR = {
+			country_event = 9003815
+		}
+		set_country_flag = savvotan3
+	}
+
+	option = {
+		name = "Damn the polls, they stay French!"
+		badboy = 2
+		relation = {
+			who = SAR
+			value = -400
+		}
+		465 = { add_core = SAR }
+		466 = { add_core = SAR }
+		any_pop = {
+			limit = {
+				culture = north_italian
+			}
+			militancy = 8
+			consciousness = 6
+		}
+		set_country_flag = savvotan3
+	}
+}	
+
+country_event = {
+
+	id = 9003815
+	title = "The Plebiscite of Savoy"
+	desc = "The people have voted to join us and France has allowed them to as well!"
+	picture = "treaty"
+
+	is_triggered_only = yes
+
+	option = {
+		name = "Rejoice!"
+		prestige = 10
+		FRA = {
+			465 = {
+				add_core = ITA
+				add_core = SAR
+				remove_core = FRA
+				secede_province = SAR
+			}
+			466 = {
+				add_core = ITA
+				add_core = SAR
+				remove_core = FRA
+				secede_province = SAR
+			}
+		}
+	}
+}	
+
+country_event = {
+
+	id = 9003816
+	title = "The Plebiscite of Savoy"
+	desc = "The Italians have won the votes, should we let Savoy secede back to them?"
+	picture = "treaty"
+
+	trigger = {
+		tag = FRA
+		war = no
+		OR = {
+			exists = ITA
+			exists = ITP
+		}
+		owns = 465
+		owns = 466
+		NOT = { has_country_flag = savvotan3 }
+		has_country_flag = savvotan2
+	}
+	
+	mean_time_to_happen = {
+		months = 1
+		modifier = {
+			factor = 0.9
+			466 = {
+			state_scope = {
+				average_consciousness = 4
+			}
+			}
+		}
+		modifier = {
+			factor = 0.8
+			466 = {
+			state_scope = {
+				average_militancy = 4
+			}
+			}
+		}
+		modifier = {
+			factor = 0.7
+			466 = {
+			state_scope = {
+				average_militancy = 8
+			}
+			}
+		}
+	}	
+
+	option = {
+		name = "Let them go."
+		relation = {
+			who = ITA
+			value = 200
+		}
+		badboy = -2
+		random_country = {
+			limit = {
+				tag = ITA
+				exists = yes
+			}
+			country_event = 9003817
+		}
+		random_country = {
+			limit = {
+				tag = ITP
+				exists = yes
+			}
+			country_event = 9003817
+		}
+		set_country_flag = savvotan3
+	}
+
+	option = {
+		name = "Damn the polls, they stay French!"
+		badboy = 2
+		random_country = {
+			limit = {
+				tag = ITA
+				exists = yes
+			}
+			465 = { add_core = ITA }
+			466 = { add_core = ITA }
+		}
+		random_country = {
+			limit = {
+				tag = ITP
+				exists = yes
+			}
+			465 = { add_core = ITP }
+			466 = { add_core = ITP }
+		}
+		any_pop = {
+			limit = {
+				culture = north_italian
+			}
+			militancy = 8
+			consciousness = 6
+		}
+		set_country_flag = savvotan3
+	}
+}	
+
+country_event = {
+
+	id = 9003817
+	title = "The Plebiscite of Savoy"
+	desc = "The people have voted to join us and France has allowed them to as well!"
+	picture = "treaty"
+
+	is_triggered_only = yes
+
+	option = {
+		name = "Rejoice!"
+		prestige = 10
+		random_country = {
+			limit = {
+				tag = ITA
+				exists = yes
+			}
+			465 = {
+				add_core = ITA
+				remove_core = FRA
+				secede_province = ITA
+			}
+			466 = {
+				add_core = ITA
+				remove_core = FRA
+				secede_province = ITA
+			}
+		}
+		random_country = {
+			limit = {
+				tag = ITP
+				exists = yes
+			}
+			465 = {
+				add_core = ITP
+				remove_core = FRA
+				secede_province = ITP
+			}
+			466 = {
+				add_core = ITP
+				remove_core = FRA
+				secede_province = ITP
+			}
+		}
+	}
+}
+
+country_event = {
+
+	id = 9003818
+	title = "The Plebiscite of Savoy"
+	desc = "The Italians have won the votes, should we let Savoy secede back to them?"
+	picture = "treaty"
+
+	trigger = {
+		tag = FRA
+		war = no
+		exists = SVY
+		owns = 465
+		owns = 466
+		NOT = { has_country_flag = savvotan3 }
+		has_country_flag = savvotan2
+	}
+	
+	mean_time_to_happen = {
+		months = 1
+		modifier = {
+			factor = 0.9
+			466 = {
+			state_scope = {
+				average_consciousness = 4
+			}
+			}
+		}
+		modifier = {
+			factor = 0.8
+			466 = {
+			state_scope = {
+				average_militancy = 4
+			}
+			}
+		}
+		modifier = {
+			factor = 0.7
+			466 = {
+			state_scope = {
+				average_militancy = 8
+			}
+			}
+		}
+	}	
+
+	option = {
+		name = "Let them go."
+		badboy = -2
+		SVY = {
+			country_event = 9003817
+		}
+		set_country_flag = savvotan3
+	}
+
+	option = {
+		name = "Damn the polls, they stay French!"
+		badboy = 2
+		465 = { add_core = SVY }
+		466 = { add_core = SVY }
+		any_pop = {
+			limit = {
+				culture = north_italian
+			}
+			militancy = 8
+			consciousness = 6
+		}
+		set_country_flag = savvotan3
+	}
+}	
+
+country_event = {
+
+	id = 9003819
+	title = "The Plebiscite of Savoy"
+	desc = "The people have voted to join us and France has allowed them to as well!"
+	picture = "treaty"
+
+	is_triggered_only = yes
+
+	option = {
+		name = "Rejoice!"
+		prestige = 10
+		FRA = {
+			465 = {
+				add_core = ITA
+				add_core = SVY
+				remove_core = FRA
+				secede_province = SVY
+			}
+			466 = {
+				add_core = ITA
+				add_core = SVY
+				remove_core = FRA
+				secede_province = SVY
+			}
+		}
+	}
+}
+
+country_event = {
+
+	id = 9003820
+	title = "The Plebiscite of Savoy"
+	desc = "We've have won the votes, Savoy is officially ours!"
+	picture = "treaty"
+
+	trigger = {
+		tag = FRA
+		war = no
+		exists = SVY
+		owns = 465
+		owns = 466
+		NOT = { has_country_flag = savvotan3 }
+		has_country_flag = savvotan2
+	}
+	
+	mean_time_to_happen = {
+		months = 1
+		modifier = {
+			factor = 0.8
+			NOT = {
+				466 = {
+				state_scope = {
+					average_militancy = 2
+				}
+				}
+			}
+		}
+	}	
+
+	option = {
+		name = "Good for us!"
+		any_greater_power = {
+			relation = {
+				who = THIS
+				value = 25
+			}
+		}
+		prestige = 10
+		set_country_flag = savvotan3
+	}
+
+}	
+
+country_event = {
+
+	id = 90038
+	title = "EVTNAME90038" #The Pact of Plombières
+	desc = "EVTDESC90038"
+	news = yes
+	news_desc_long = "EVTDESC90038_NEWS_LONG"
+	news_desc_medium = "EVTDESC90038_NEWS_MEDIUM"
+	news_desc_short = "EVTDESC90038_NEWS_SHORT"
+	picture = "pact_of_piombieres"
+
+	is_triggered_only = yes
+
+	option = {
+		name = "We will agree to the pact."
+		diplomatic_influence = { who = SAR value = 100 }
+		random_owned = {
+			limit = {
+				owner = {
+					ai = yes
+					NOT = { badboy = 0.68 }
+				}
+			}
+			owner = {
+				badboy = -25
+			}
+			owner = {
+				badboy = 18
+			}
+		}
+		random_owned = {
+			limit = {
+				owner = {
+					OR = {
+						ai = no
+						badboy = 0.68
+					}
+				}
+			}
+			owner = { badboy = 3 }
+		}
+		SAR = {
+			prestige = 10
+			relation = {
+				who = FRA
+				value = 150
+			}
+			create_alliance = FRA
+			add_country_modifier = {
+				name = small_country_draft
+				duration = 365
+			}
+		}
+		any_country = {
+			limit = {
+				is_culture_group = italian
+				OR = {
+					in_sphere = FRA
+					part_of_sphere = no
+				}
+				ai = yes
+				NOT = { alliance_with = FRA }
+			}
+			create_alliance = FRA
+		}		
+		random_country = {
+			limit = {
+				tag = AUS
+				owns = 726
+				owns = 727
+				owns = 728
+				exists = SAR
+			}
+			THIS = {
+				relation = {
+					who = AUS
+					value = -150
+				}
+				casus_belli = {
+					target = AUS
+					type = free_peoples
+					months = 12
+				}
+				war = {
+					target = AUS
+					attacker_goal = {
+						casus_belli = free_peoples
+						country = SAR
+						state_province_id = 726
+					}
+					call_ally = yes
+				}
+			}
+		}
+		random_country = {
+			limit = {
+				tag = AUS
+				owns = 726
+				owns = 727
+				owns = 728
+				exists = SVY
+			}
+			THIS = {
+				relation = {
+					who = AUS
+					value = -150
+				}
+				casus_belli = {
+					target = AUS
+					type = free_peoples
+					months = 12
+				}
+				war = {
+					target = AUS
+					attacker_goal = {
+						casus_belli = free_peoples
+						country = SVY
+						state_province_id = 726
+					}
+					call_ally = yes
+				}
+			}
+		}
+		random_country = {
+			limit = {
+				tag = KUK
+				owns = 726
+				owns = 727
+				owns = 728
+				exists = SAR
+			}
+			THIS = {
+				relation = {
+					who = KUK
+					value = -150
+				}
+				casus_belli = {
+					target = KUK
+					type = free_peoples
+					months = 12
+				}
+				war = {
+					target = KUK
+					attacker_goal = {
+						casus_belli = free_peoples
+						country = SAR
+						state_province_id = 726
+					}
+					call_ally = yes
+				}
+			}
+		}
+		random_country = {
+			limit = {
+				tag = KUK
+				owns = 726
+				owns = 727
+				owns = 728
+				exists = SVY
+			}
+			THIS = {
+				relation = {
+					who = KUK
+					value = -150
+				}
+				casus_belli = {
+					target = KUK
+					type = free_peoples
+					months = 12
+				}
+				war = {
+					target = KUK
+					attacker_goal = {
+						casus_belli = free_peoples
+						country = SVY
+						state_province_id = 726
+					}
+					call_ally = yes
+				}
+			}
+		}		
+		ai_chance = {
+			factor = 95
+		}
+	}
+
+	option = {
+		name = "This is not in France's best interest."
+		diplomatic_influence = {
+			who = FROM
+			value = -200
+		}
+		FROM = {
+			prestige = -10
+			relation = {
+				who = FRA
+				value = -100
+			}
+			leave_alliance = FRA
+			country_event = 96161
+		}
+		ai_chance = {
+			factor = 5
+		}
+	}
+}
+
+country_event = {
+
+	id = 96160
+	title = "Union with Sardinia"
+	desc = "For the good of Italian reunification, our people wish to unite with the Sardinians."
+
+	trigger = {
+		primary_culture = north_italian
+		war = no
+		is_vassal = no
+		ai = yes
+		NOT = {
+			tag = SAR
+			tag = SVY
+			exists = ITA
+			exists = ITP
+			truce_with = SAR
+			truce_with = SVY
+			has_country_flag = does_not_want_to_unify
+			has_country_flag = attempted_sardinia_union
+		}
+		OR = {
+			part_of_sphere = no
+			sphere_owner = { is_sphere_leader_of = SAR }
+			in_sphere = SAR
+			in_sphere = SVY
+		}
+		OR = {
+			SAR = {
+				war = no
+				neighbour = THIS
+				is_vassal = no
+			}
+			SVY = {
+				war = no
+				neighbour = THIS
+				is_vassal = no
+			}
+		}
+	}
+
+	mean_time_to_happen = {
+		months = 24
+	}
+
+	option = {
+		name = "Viva Italia!"
+		set_country_flag = attempted_sardinia_union
+		random_owned = {
+			limit = {
+				SAR = { exists = yes }
+			}
+			owner = {
+				all_core = { add_core = SAR }
+			}
+		}
+		random_owned = {
+			limit = {
+				SVY = { exists = yes }
+			}
+			owner = {
+				all_core = { add_core = SVY }
+			}
+		}
+		random_owned = {
+			limit = {
+				owner = { has_country_flag = made_the_call_to_union }
+			}
+			SAR = { set_country_flag = made_the_call_to_union }
+			SVY = { set_country_flag = made_the_call_to_union }
+		}
+		random_country = {
+			limit = {
+				OR = {
+					tag = SAR
+					tag = SVY
+				}
+				exists = yes
+				ai = yes
+			}
+			prestige = 10
+			inherit = THIS
+		}
+		random_country = {
+			limit = {
+				OR = {
+					tag = SAR
+					tag = SVY
+				}
+				exists = yes
+				ai = no
+			}
+			prestige = 10
+			country_event = 60130
+		}
+	}
+}
+
+country_event = {
+	
+	id = 96161
+	title = "Failure of Plombières"
+	desc = "The Pact of Plombières has failed, and our deal with France is broken."
+	picture = "pact_of_piombieres"
+	
+	trigger = {
+		OR = {
+			tag = SAR
+			tag = SVY
+		}
+		war = no
+		has_country_flag = plombieres
+		NOT = {
+			has_global_flag = plombieres_refused
+			has_country_flag = cavour_has_done_his
+			owns = 726
+			owns = 727
+			owns = 728
+		}
+		FRA = {
+			war = no
+		}
+	}
+	
+	mean_time_to_happen = {
+		months = 3
+	}
+	
+	option = {
+		name = "Unfortunate."
+		set_global_flag = plombieres_refused
+		465 = { add_core = FRA }
+		466 = { add_core = FRA }
+		472 = { add_core = FRA }
+		PAP_741 = { add_core = THIS }
+		MOD_739 = { add_core = THIS }
+		TUS_744 = { add_core = THIS }
+	}
+}
+
+country_event = {
+
+	id = 96165
+	title = "EVTNAME96165" #Italian Unification
+	desc = "EVTDESC96165"
+	picture = "unite"
+
+	is_triggered_only = yes
+
+	option = {
+		name = "This is a threat to $COUNTRY$."
+		set_country_flag = objects_to_italy
+		relation = {
+			who = FROM
+			value = -100
+		}
+		random_owned = {
+			limit = {
+				owner = { is_greater_power = yes }
+			}
+			owner = {
+				diplomatic_influence = {
+					who = FROM
+					value = -200
+				}
+			}
+		}
+		leave_alliance = FROM
+		casus_belli = {
+			target = FROM
+			type = humiliate
+			months = 12
+		}
+		casus_belli = {
+			target = FROM
+			type = free_peoples
+			months = 36
+		}
+		ai_chance = {
+			factor = 50
+			modifier = {
+				factor = 0.1
+				is_sphere_leader_of = FROM
+			}
+			modifier = {
+				factor = 0.25
+				alliance_with = FROM
+			}
+			modifier = {
+				factor = 0.5
+				tag = FRA
+				NOT = {
+					465 = { owned_by = FROM }
+					466 = { owned_by = FROM }
+					472 = { owned_by = FROM }
+				}
+			}
+			modifier = {
+				factor = 0.5
+				war_policy = pacifism
+			}
+			modifier = {
+				factor = 1.5
+				NOT = { relation = { who = FROM value = 0 } }
+			}
+			modifier = {
+				factor = 0.5
+				relation = { who = FROM value = 100 }
+			}
+		}
+	}
+
+	option = {
+		name = "We must reconcile with Italy."
+		set_country_flag = accepts_italy
+		relation = {
+			who = FROM
+			value = 100
+		}
+		random_owned = {
+			limit = {
+				owner = { is_greater_power = yes }
+			}
+			owner = {
+				diplomatic_influence = {
+					who = FROM
+					value = 25
+				}
+			}
+		}
+		ai_chance = {
+			factor = 50
+			modifier = {
+				factor = 0.5
+				war_policy = jingoism
+			}
+			modifier = {
+				factor = 1.5
+				tag = FRA
+				NOT = {
+					465 = { owned_by = FROM }
+					466 = { owned_by = FROM }
+					472 = { owned_by = FROM }
+				}
+			}
+			modifier = {
+				factor = 0.5
+				tag = FRA
+				OR = {
+					465 = { owned_by = FROM }
+					466 = { owned_by = FROM }
+					472 = { owned_by = FROM }
+				}
+			}
+			modifier = {
+				factor = 0
+				any_core = { owned_by = FROM }
+			}
+			modifier = {
+				factor = 0.1
+				OR = {
+					tag = AUS
+					tag = KUK
+				}
+			}
+			modifier = {
+				factor = 0.5
+				NOT = { relation = { who = FROM value = 0 } }
+			}
+			modifier = {
+				factor = 1.5
+				relation = { who = FROM value = 100 }
+			}
+		}
+	}
+}
+
+country_event = {
+
+	id = 96170
+	title = "EVTNAME96170" #Il Risorgimento
+	desc = "EVTDESC96170"
+	major = yes
+
+	trigger = {
+		is_culture_group = italian
+		war = no
+		is_vassal = no
+		is_disarmed = no
+		NOT = {
+			exists = ITA
+			exists = ITP
+			has_country_flag = does_not_want_to_be_unified
+		}
+		OR = {
+			revolution_n_counterrevolution = 1
+			AND = {
+				year = 1890
+				OR = {
+					is_secondary_power = yes
+					is_greater_power = yes
+				}
+			}
+		}
+		OR = {
+			has_global_flag = italian_call_to_union
+			has_global_flag = garibaldi_redshirts
+			AND = {
+				OR = {
+					tag = SAR
+					tag = SVY
+					tag = SIC
+				}
+				exists = GER
+				year = 1890
+			}
+		}
+	}
+
+	mean_time_to_happen = {
+		months = 40
+		modifier = {
+			factor = 0.25
+			has_country_flag = made_the_call_to_union
+		}
+		modifier = {
+			factor = 0.5
+			is_greater_power = yes
+		}
+		modifier = {
+			factor = 1.5
+			is_greater_power = no
+			is_secondary_power = no
+		}
+		modifier = {
+			factor = 3
+			NOT = { year = 1870 }
+		}
+		modifier = {
+			factor = 1.5
+			year = 1870
+			NOT = { year = 1880 }
+		}
+		modifier = {
+			factor = 0.5
+			year = 1890
+		}
+		modifier = {
+			factor = 0.75
+			exists = GER
+		}
+	}
+
+	option = {				
+		name = "EVTOPTA11103" #Accept inheritance
+		clr_country_flag = made_the_call_to_union
+		prestige = 10
+		random_country = {
+			limit = { is_sphere_leader_of = THIS }
+			set_country_flag = objects_to_italy
+		}
+		add_accepted_culture = south_italian
+		add_accepted_culture = north_italian
+		change_tag = culture
+		any_country = {
+			limit = {
+				NOT = {
+					tag = THIS
+					tag = PAP
+				}
+				is_culture_group = THIS
+				is_greater_power = no
+				num_of_cities = 1
+			}
+			country_event = 11101
+		}
+		random_country = {
+			limit = {
+				tag = PAP
+				NOT = { tag = THIS }
+			}
+			relation = {
+				who = THIS
+				value = -200
+			}
+			leave_alliance = THIS
+			any_owned = {
+				limit = {
+					NOT = { province_id = 749 }
+				}
+				secede_province = THIS
+			}
+		}
+		any_country = {
+			limit = {
+				NOT = { is_culture_group = italian }
+				OR = {
+					has_country_flag = objects_to_italy
+					AND = {
+						neighbour = ITA
+						OR = {
+							tag = AUS
+							tag = KUK
+						}
+					}
+					AND = {
+						neighbour = ITA
+						is_greater_power = yes
+					}
+				}
+			}
+			country_event = 96165
+		}
+		ai_chance = {
+			factor = 95
+		}
+	}
+	
+	option = {
+		name = "EVTOPTB11103" #Refuse inheritance
+		prestige = 5
+		set_country_flag = does_not_want_to_be_unified
+		clr_country_flag = made_the_call_to_union
+		any_pop = {
+			militancy = 6
+		}
+		ai_chance = {
+			factor = 5
+			modifier = {
+				factor = 0
+				OR = {
+					tag = SAR
+					tag = SVY
+				}
+			}
+		}
+	}
+}			
+
+country_event = {
+
+	id = 999544
+
+	trigger = {
+		owns = 770
+		OR = {
+			exists = ITA
+			year = 1870
+		}
+	}
+	
+	fire_only_once = yes
+
+	title = "Italian Istria"
+	desc = "With the Italians beginning to unify, Venice's claim on Istria is falling apart."
+	picture = "Prosper"
+
+	option = {
+		name = "Well that's one less threat to worry about." 
+		prestige = 2
+		737 = {
+			remove_core = VEN
+		}
+		770 = {
+			remove_core = VEN
+		}
+	}
+}
+
+country_event = {
+
+	id = 995213
+
+	trigger = {
+		EGY_921 = { owned_by = THIS }
+		OR = {
+			tag = PAP
+			tag = ITP
+		}
+		has_country_flag = first_crusade
+		NOT = { has_country_flag = jerusalemowned }
+	}
+	
+	fire_only_once = yes
+
+	title = "Jerusalem"
+	desc = "Our conquest in Palestine is complete and once again the Holy City is in Christian hands, we should properly colonize the region to make sure it stays that way."
+	picture = "jerusalem"
+
+	mean_time_to_happen = {
+		days = 7
+	}
+
+	option = {
+		name = "Glory to God!" 
+		set_country_flag = jerusalemowned
+		clr_global_flag = crusade_in_progress
+		prestige = 20
+		EGY_921 = {
+			add_province_modifier = {
+				name = colonial_recruitment
+				duration = 3650
+			}
+			remove_core = THIS
+		}
+	}
+}
+
+country_event = {
+
+	id = 995214
+
+	trigger = {
+		any_owned_province = {
+			is_core = ITA
+		}
+		exists = ITP
+	}
+	
+	fire_only_once = yes
+
+	title = "Papal Italy"
+	desc = "With Italy under Papal rule, it's claims need to be re-assessed."
+	picture = "Prosper"
+
+	mean_time_to_happen = {
+		days = 1
+	}
+
+	option = {
+		name = "Glory to God!" 
+		ITA = {	
+			all_core = {
+				add_core = ITP
+				remove_core = ITA
+			}
+		}
+	}
+}
+
+country_event = {
+
+	id = 995215
+
+	trigger = {
+		EGY_915 = { owned_by = THIS }
+		OR = {
+			tag = PAP
+			tag = ITP
+		}
+		has_country_flag = second_crusade
+		NOT = { has_country_flag = lebanonowned }
+	}
+	
+	fire_only_once = yes
+
+	title = "Lebanon"
+	desc = "Our conquest in Lebanon is complete and once again Beirut is in Christian hands, we should properly colonize the region to make sure it stays that way."
+	picture = "jerusalem"
+
+	mean_time_to_happen = {
+		days = 7
+	}
+
+	option = {
+		name = "Glory to God!" 
+		set_country_flag = lebanonowned
+		clr_global_flag = crusade_in_progress
+		prestige = 20
+		EGY_915 = {
+			add_province_modifier = {
+				name = colonial_recruitment
+				duration = 3650
+			}
+			remove_core = THIS
+		}
+	}
+}
+
+country_event = {
+
+	id = 995216
+
+	trigger = {
+		EGY_897 = { owned_by = THIS }
+		EGY_903 = { owned_by = THIS }
+		OR = {
+			tag = PAP
+			tag = ITP
+		}
+		has_country_flag = third_crusade
+		NOT = { has_country_flag = syriaowned }
+	}
+	
+	fire_only_once = yes
+
+	title = "Syria"
+	desc = "Our conquest in Syria is complete and once again Damascus is in Christian hands, we should properly colonize the region to make sure it stays that way."
+	picture = "jerusalem"
+
+	mean_time_to_happen = {
+		days = 7
+	}
+
+	option = {
+		name = "Glory to God!" 
+		set_country_flag = syriaowned
+		clr_global_flag = crusade_in_progress
+		prestige = 20
+		EGY_897 = {
+			add_province_modifier = {
+				name = colonial_recruitment
+				duration = 3650
+			}
+			remove_core = THIS
+		}
+		EGY_903 = {
+			add_province_modifier = {
+				name = colonial_recruitment
+				duration = 3650
+			}
+			remove_core = THIS
+		}
+	}
+}
+
+country_event = {
+
+	id = 188125
+	title = "EVTNAME188125"
+	desc = "EVTDESC188125"
+	picture = "jerusalem"
+
+	is_triggered_only = yes
+
+	option = {
+		name = "EVTOPTA188125"
+		prestige = -10
+		badboy = 2
+		any_pop = {
+			limit = {
+				has_pop_religion = catholic
+			}
+			scaled_consciousness = { factor = -2 ideology = reactionary }
+			scaled_militancy = { factor = -2 ideology = reactionary }
+			scaled_consciousness = { factor = -2 ideology = conservative }
+			scaled_militancy = { factor = -2 ideology = conservative }
+			scaled_consciousness = { factor = -2 ideology = fascist }
+			scaled_militancy = { factor = -2 ideology = fascist }
+		}
+		any_pop = {
+			limit = {
+				has_pop_religion = orthodox
+			}
+			scaled_consciousness = { factor = -1 ideology = reactionary }
+			scaled_militancy = { factor = -1 ideology = reactionary }
+			scaled_consciousness = { factor = -1 ideology = conservative }
+			scaled_militancy = { factor = -1 ideology = conservative }
+			scaled_consciousness = { factor = -1 ideology = fascist }
+			scaled_militancy = { factor = -1 ideology = fascist }
+		}
+		set_country_flag = crusade_support
+		random_country = {
+			limit = {
+				owns = 917
+			}
+			country_event = 188126
+		}
+		ai_chance = {
+			factor = 20
+			modifier = {
+				factor = 75
+				OR = {
+					ruling_party_ideology = fascist
+					ruling_party_ideology = reactionary
+				}
+			}
+			modifier = {
+				factor = 100
+				OR = {
+					government = fascist_dictatorship
+					government = absolute_monarchy
+				}
+			}
+			modifier = {
+				factor = 25
+				relation = {
+					who = FROM
+					value = 150
+				}
+			}
+		}
+	}
+	option = {
+		name = "EVTOPTB188125"
+		prestige = 10
+		any_pop = {
+			limit = {
+				has_pop_religion = catholic
+			}
+			scaled_consciousness = { factor = 2 ideology = reactionary }
+			scaled_militancy = { factor = 2 ideology = reactionary }
+			scaled_consciousness = { factor = 2 ideology = conservative }
+			scaled_militancy = { factor = 2 ideology = conservative }
+			scaled_consciousness = { factor = 2 ideology = fascist }
+			scaled_militancy = { factor = 2 ideology = fascist }
+		}
+		any_pop = {
+			limit = {
+				has_pop_religion = orthodox
+			}
+			scaled_consciousness = { factor = 1 ideology = reactionary }
+			scaled_militancy = { factor = 1 ideology = reactionary }
+			scaled_consciousness = { factor = 1 ideology = conservative }
+			scaled_militancy = { factor = 1 ideology = conservative }
+			scaled_consciousness = { factor = 1 ideology = fascist }
+			scaled_militancy = { factor = 1 ideology = fascist }
+		}
+		casus_belli = {
+			target = FROM
+			type = humiliate
+			months = 24
+		}
+		casus_belli = {
+			target = FROM
+			type = cut_down_to_size
+			months = 24
+		}
+		ai_chance = {
+			factor = 80
+			modifier = {
+				factor = 75
+				OR = {
+					ruling_party_ideology = socialist
+					ruling_party_ideology = liberal
+					ruling_party_ideology = anarcho_liberal
+				}
+			}
+			modifier = {
+				factor = 100
+				government = democracy
+			}
+			modifier = {
+				factor = 100
+				NOT = {
+					OR = {
+						has_country_flag = catholic_religion
+						has_country_flag = protestant_religion
+					}
+				}
+			}
+		}
+	}
+}
+
+country_event = {
+
+	id = 188126
+	title = "EVTNAME188126"
+	desc = "EVTDESC188126"
+	picture = "jerusalem"
+
+	is_triggered_only = yes
+
+	option = {
+		name = "EVTOPTA188126"
+		random_country = {
+			limit = {
+				tag = PAP
+				exists = yes
+			}
+			THIS = {
+				relation = {
+					who = PAP
+					value = -200
+				}
+			}
+			FROM = {
+				relation = {
+					who = THIS
+					value = -200
+				}
+				diplomatic_influence = {
+					who = THIS
+					value = -100
+				}
+				casus_belli = {	
+					target = THIS
+					type = liberate_country
+					months = 24
+				}
+				war = {
+					target = THIS
+					attacker_goal = {
+						casus_belli = liberate_country
+						country = PAP
+					}
+				}
+			}
+		}
+		random_country = {
+			limit = {
+				tag = ITP
+				exists = yes
+			}
+			THIS = {
+				relation = {
+					who = ITP
+					value = -200
+				}
+			}
+			FROM = {
+				relation = {
+					who = THIS
+					value = -200
+				}
+				diplomatic_influence = {
+					who = THIS
+					value = -100
+				}
+				casus_belli = {	
+					target = THIS
+					type = liberate_country
+					months = 24
+				}
+				war = {
+					target = THIS
+					attacker_goal = {
+						casus_belli = liberate_country
+						country = ITP
+					}
+				}
+			}
+		}
+	}
+}
+
+country_event = {
+
+	id = 188127
+	title = "EVTNAME188127"
+	desc = "EVTDESC188127"
+	picture = "jerusalem"
+
+	is_triggered_only = yes
+
+	option = {
+		name = "EVTOPTA188127"
+		prestige = -10
+		badboy = 2
+		any_pop = {
+			limit = {
+				has_pop_religion = catholic
+			}
+			scaled_consciousness = { factor = -2 ideology = reactionary }
+			scaled_militancy = { factor = -2 ideology = reactionary }
+			scaled_consciousness = { factor = -2 ideology = conservative }
+			scaled_militancy = { factor = -2 ideology = conservative }
+			scaled_consciousness = { factor = -2 ideology = fascist }
+			scaled_militancy = { factor = -2 ideology = fascist }
+		}
+		any_pop = {
+			limit = {
+				has_pop_religion = orthodox
+			}
+			scaled_consciousness = { factor = -1 ideology = reactionary }
+			scaled_militancy = { factor = -1 ideology = reactionary }
+			scaled_consciousness = { factor = -1 ideology = conservative }
+			scaled_militancy = { factor = -1 ideology = conservative }
+			scaled_consciousness = { factor = -1 ideology = fascist }
+			scaled_militancy = { factor = -1 ideology = fascist }
+		}
+		set_country_flag = crusade_support
+		random_country = {
+			limit = {
+				owns = 913
+			}
+			country_event = 188126
+		}
+		ai_chance = {
+			factor = 20
+			modifier = {
+				factor = 75
+				OR = {
+					ruling_party_ideology = fascist
+					ruling_party_ideology = reactionary
+				}
+			}
+			modifier = {
+				factor = 100
+				OR = {
+					government = fascist_dictatorship
+					government = absolute_monarchy
+				}
+			}
+			modifier = {
+				factor = 25
+				relation = {
+					who = FROM
+					value = 150
+				}
+			}
+		}
+	}
+	option = {
+		name = "EVTOPTB188127"
+		prestige = 10
+		any_pop = {
+			limit = {
+				has_pop_religion = catholic
+			}
+			scaled_consciousness = { factor = 2 ideology = reactionary }
+			scaled_militancy = { factor = 2 ideology = reactionary }
+			scaled_consciousness = { factor = 2 ideology = conservative }
+			scaled_militancy = { factor = 2 ideology = conservative }
+			scaled_consciousness = { factor = 2 ideology = fascist }
+			scaled_militancy = { factor = 2 ideology = fascist }
+		}
+		any_pop = {
+			limit = {
+				has_pop_religion = orthodox
+			}
+			scaled_consciousness = { factor = 1 ideology = reactionary }
+			scaled_militancy = { factor = 1 ideology = reactionary }
+			scaled_consciousness = { factor = 1 ideology = conservative }
+			scaled_militancy = { factor = 1 ideology = conservative }
+			scaled_consciousness = { factor = 1 ideology = fascist }
+			scaled_militancy = { factor = 1 ideology = fascist }
+		}
+		casus_belli = {
+			target = FROM
+			type = humiliate
+			months = 24
+		}
+		casus_belli = {
+			target = FROM
+			type = cut_down_to_size
+			months = 24
+		}
+		ai_chance = {
+			factor = 80
+			modifier = {
+				factor = 75
+				OR = {
+					ruling_party_ideology = socialist
+					ruling_party_ideology = liberal
+					ruling_party_ideology = anarcho_liberal
+				}
+			}
+			modifier = {
+				factor = 100
+				government = democracy
+			}
+			modifier = {
+				factor = 100
+				NOT = {
+					OR = {
+						has_country_flag = catholic_religion
+						has_country_flag = orthodox_religion
+					}
+				}
+			}
+		}
+	}
+}
+
+country_event = {
+
+	id = 188157
+	title = "EVTNAME188127"
+	desc = "EVTDESC188127"
+	picture = "jerusalem"
+
+	is_triggered_only = yes
+
+	option = {
+		name = "EVTOPTA188127"
+		prestige = -10
+		badboy = 2
+		any_pop = {
+			limit = {
+				has_pop_religion = catholic
+			}
+			scaled_consciousness = { factor = -2 ideology = reactionary }
+			scaled_militancy = { factor = -2 ideology = reactionary }
+			scaled_consciousness = { factor = -2 ideology = conservative }
+			scaled_militancy = { factor = -2 ideology = conservative }
+			scaled_consciousness = { factor = -2 ideology = fascist }
+			scaled_militancy = { factor = -2 ideology = fascist }
+		}
+		any_pop = {
+			limit = {
+				has_pop_religion = orthodox
+			}
+			scaled_consciousness = { factor = -1 ideology = reactionary }
+			scaled_militancy = { factor = -1 ideology = reactionary }
+			scaled_consciousness = { factor = -1 ideology = conservative }
+			scaled_militancy = { factor = -1 ideology = conservative }
+			scaled_consciousness = { factor = -1 ideology = fascist }
+			scaled_militancy = { factor = -1 ideology = fascist }
+		}
+		set_country_flag = crusade_support
+		random_country = {
+			limit = {
+				owns = 902
+			}
+			country_event = 188126
+		}
+		ai_chance = {
+			factor = 20
+			modifier = {
+				factor = 75
+				OR = {
+					ruling_party_ideology = fascist
+					ruling_party_ideology = reactionary
+				}
+			}
+			modifier = {
+				factor = 100
+				OR = {
+					government = fascist_dictatorship
+					government = absolute_monarchy
+				}
+			}
+			modifier = {
+				factor = 25
+				relation = {
+					who = FROM
+					value = 150
+				}
+			}
+		}
+	}
+	option = {
+		name = "EVTOPTB188127"
+		prestige = 10
+		any_pop = {
+			limit = {
+				has_pop_religion = catholic
+			}
+			scaled_consciousness = { factor = 2 ideology = reactionary }
+			scaled_militancy = { factor = 2 ideology = reactionary }
+			scaled_consciousness = { factor = 2 ideology = conservative }
+			scaled_militancy = { factor = 2 ideology = conservative }
+			scaled_consciousness = { factor = 2 ideology = fascist }
+			scaled_militancy = { factor = 2 ideology = fascist }
+		}
+		any_pop = {
+			limit = {
+				has_pop_religion = orthodox
+			}
+			scaled_consciousness = { factor = 1 ideology = reactionary }
+			scaled_militancy = { factor = 1 ideology = reactionary }
+			scaled_consciousness = { factor = 1 ideology = conservative }
+			scaled_militancy = { factor = 1 ideology = conservative }
+			scaled_consciousness = { factor = 1 ideology = fascist }
+			scaled_militancy = { factor = 1 ideology = fascist }
+		}
+		casus_belli = {
+			target = FROM
+			type = humiliate
+			months = 24
+		}
+		casus_belli = {
+			target = FROM
+			type = cut_down_to_size
+			months = 24
+		}
+		ai_chance = {
+			factor = 80
+			modifier = {
+				factor = 75
+				OR = {
+					ruling_party_ideology = socialist
+					ruling_party_ideology = liberal
+					ruling_party_ideology = anarcho_liberal
+				}
+			}
+			modifier = {
+				factor = 100
+				government = democracy
+			}
+			modifier = {
+				factor = 100
+				NOT = {
+					OR = {
+						has_country_flag = catholic_religion
+						has_country_flag = orthodox_religion
+					}
+				}
+			}
+		}
+	}
+}
+
+##################
+# Mazzini's fate #
+##################
+
+
+#Sardinia demands Mazzini
+country_event = {
+	id = 202009
+	title = "EVTNAME202009" 
+	desc = "EVTDESC202009"
+	picture = "Mazzini"
+
+	fire_only_once = yes
+
+	trigger = {
+		tag = SAR
+		government = absolute_monarchy
+		NOT = { year = 1848 }
+	}
+
+	mean_time_to_happen = {
+		months = 12
+	}
+
+	option = {
+		name = "Mazzini is a threat to traditional order and should be arrested."
+		prestige = 2
+		set_global_flag = sardinia_demands_mazzini
+		relation = {
+			who = SWI
+			value = -25
+		}
+		relation = {
+			who = AUS
+			value = 25
+		}
+		any_pop = {
+			scaled_consciousness = {
+				ideology = liberal
+				factor = 0.5
+			}
+		}
+		ai_chance = {
+			factor = 70
+			modifier = {
+				factor = 1.5
+				ruling_party_ideology = conservative
+			}
+			modifier = {
+				factor = 2
+				ruling_party_ideology = reactionary
+			}
+		}
+	}
+	option = {
+		name = "We shouldn't disturb Switzerland with such matters."
+		prestige = -2
+		relation = {
+			who = SWI
+			value = 50
+		}
+		middle_strata = {
+			ideology = {
+				value = liberal
+				factor = 0.05
+			}
+		}
+		ai_chance = {
+			factor = 30
+			modifier = {
+				factor = 2
+				ruling_party_ideology = liberal
+			}
+		}
+	}
+}
+
+#Sardinia demands Mazzini
+country_event = {
+	id = 202010
+	title = "EVTNAME202009" 
+	desc = "EVTDESC202009"
+	picture = "Mazzini"
+
+	fire_only_once = yes
+
+	trigger = {
+		tag = SWI
+		has_global_flag = sardinia_demands_mazzini
+	}
+
+	mean_time_to_happen = {
+		days = 14
+	}
+
+	option = {
+		name = "Mazzini is our guest. No one has the right to blackmail our proud country!"
+		set_global_flag = mazzini_in_exile
+		prestige = 2
+		badboy = 1
+		relation = {
+			who = SAR
+			value = -25
+		}
+		relation = {
+			who = AUS
+			value = -50
+		}
+		any_pop = {
+			scaled_militancy = {
+				ideology = liberal
+				factor = -1
+			}
+		}
+		ai_chance = {
+			factor = 10
+			modifier = {
+				factor = 2
+				ruling_party_ideology = liberal
+			}
+		}
+	}
+	option = {
+		name = "Pretend that we arrest him, but let Mazzini time to escape."
+		set_global_flag = mazzini_escaped
+		ai_chance = {
+			factor = 60
+			modifier = {
+				factor = 2
+				ruling_party_ideology = conservative
+			}
+		}
+	}
+	option = {
+		name = "Very well, arrest and extradite him."
+		set_global_flag = mazzini_arrested
+		prestige = -2
+		badboy = -1
+		relation = {
+			who = SAR
+			value = 50
+		}
+		relation = {
+			who = AUS
+			value = 50
+		}
+		any_pop = {
+			scaled_consciousness = {
+				ideology = liberal
+				factor = 1
+			}
+		}
+		ai_chance = {
+			factor = 30
+			modifier = {
+				factor = 2.5
+				ruling_party_ideology = reactionary
+			}
+		}
+	}
+}
+
+#Mazzini seeks a new exile in GB
+country_event = {
+	id = 202011
+	title = "EVTNAME202009" 
+	desc = "EVTDESC202011"
+	picture = "Mazzini"
+
+	fire_only_once = yes
+
+	trigger = {
+		tag = ENG
+		has_global_flag = mazzini_escaped
+	}
+
+	mean_time_to_happen = {
+		months = 3
+	}
+
+	option = {
+		name = "Welcome, Mazzini."
+		set_global_flag = mazzini_in_exile
+		prestige = 2
+		relation = {
+			who = SAR
+			value = -10
+		}
+		relation = {
+			who = AUS
+			value = -10
+		}
+		any_pop = {
+			scaled_militancy = {
+				ideology = liberal
+				factor = -0.5
+			}
+		}
+		ai_chance = {
+			factor = 75
+			modifier = {
+				factor = 1.5
+				ruling_party_ideology = liberal
+			}
+			modifier = {
+				factor = 1.5
+				government = prussian_constitutionalism
+			}
+			modifier = {
+				factor = 1.5
+				government = democracy
+			}
+			modifier = {
+				factor = 1.5
+				press_rights = free_press
+			}
+		}                
+	}
+	option = {
+		name = "We have enough troublemakers in our nation."
+		set_global_flag = mazzini_arrested
+		ai_chance = {
+			factor = 25
+			modifier = {
+				factor = 1.5
+				ruling_party_ideology = conservative
+			}
+			modifier = {
+				factor = 1.5
+				government = absolute_monarchy
+			}
+			modifier = {
+				factor = 1.5
+				press_rights = state_press
+			}
+		}      
+	}
+}
+
+#Mazzini arrested
+country_event = {
+	id = 202012
+	title = "EVTNAME202012" 
+	desc = "EVTDESC202012"
+	picture = "Mazzini"
+
+	fire_only_once = yes
+
+	trigger = {
+		tag = SAR
+		has_global_flag = mazzini_arrested
+	}
+
+	mean_time_to_happen = {
+		months = 1
+	}
+
+	option = {
+		name = "We caught that criminal!"
+		prestige = 2
+		relation = {
+			who = AUS
+			value = 50
+		}
+		any_pop = {
+			scaled_militancy = {
+				ideology = liberal
+				factor = -1
+			}
+		}
+		any_pop = {
+			scaled_consciousness = {
+				ideology = liberal
+				factor = -1
+			}
+		}              
+	}
+}
+
+#Mazzini exiled
+country_event = {
+	id = 202013
+	title = "EVTNAME202013" 
+	desc = "EVTDESC202013"
+	picture = "Mazzini"
+
+	fire_only_once = yes
+
+	trigger = {
+		tag = SAR
+		has_global_flag = mazzini_in_exile
+	}
+
+	mean_time_to_happen = {
+		months = 1
+	}
+
+	option = {
+		name = "The liberals will celebrate this victory..."
+		prestige = -2
+		any_pop = {
+			ideology = {
+				value = liberal
+				factor = 0.03
+			}
+		}    
+		any_pop = {
+			scaled_militancy = {
+				ideology = liberal
+				factor = 1
+			}
+		}
+		any_pop = {
+			scaled_consciousness = {
+				ideology = liberal
+				factor = 1
+			}
+		}
+	}
+}
+
+#Reforms in the Papal state
+country_event = {
+	id = 202014
+	title = "EVTNAME202014" 
+	desc = "EVTDESC202014"
+	picture = "Pope"
+
+	fire_only_once = yes
+
+	trigger = {
+		tag = PAP
+		OR = {
+			government = absolute_monarchy
+			government = prussian_constitutionalism
+		}
+		year = 1846
+		NOT = { year = 1848 }
+		has_country_flag = liberal_revolution_in_progress
+	}
+
+	mean_time_to_happen = {
+		months = 3
+	}
+
+	option = {
+		name = "It is time for reforms."
+		set_global_flag = pius_IX_reforms
+		prestige = 5
+		any_pop = {
+			ideology = {
+				value = liberal
+				factor = 0.15
+			}
+			scaled_consciousness = {
+				ideology = liberal
+				factor = 2
+			}
+			scaled_militancy = {
+				ideology = liberal
+				factor = -1
+			}
+			scaled_militancy = {
+				ideology = reactionary
+				factor = 2
+			}
+		}
+		ai_chance = {
+			factor = 70
+			modifier = {
+				factor = 1.5
+				ruling_party_ideology = liberal
+			}
+		}
+	}
+	option = {
+		name = "No concessions to anyone - I'm the bloody Pope!"
+		prestige = -5
+		any_pop = {
+			scaled_militancy = {
+				ideology = liberal
+				factor = 4
+			}
+			ideology = {
+				value = reactionary
+				factor = 0.1
+			}
+		}
+		ai_chance = {
+			factor = 30
+			modifier = {
+				factor = 1.5
+				ruling_party_ideology = reactionary
+			}
+		}
+	}
+}
+
+#The Roman Republic
+country_event = {
+	id = 202015
+	title = "EVTNAME202015" 
+	desc = "EVTDESC202015"
+	picture = "roman_republic"
+
+	fire_only_once = yes
+
+	trigger = {
+		war = no
+		tag = PAP
+		FRA = { is_sphere_leader_of = PAP }
+		has_global_flag = pius_IX_reforms
+		NOT = { government = democracy }
+		NOT = { has_global_flag = mazzini_arrested }
+		has_country_modifier = springtime_of_nations
+		OR = {
+			average_militancy = 4
+			any_owned_province = {
+				is_capital = yes
+				controlled_by = REB
+			}
+			revolt_percentage = 0.50
+		}
+	}
+
+	mean_time_to_happen = {
+		months = 1
+		modifier = {
+			factor = 0.1
+			capital_scope = { controlled_by = REB }
+		}
+		modifier = {
+			factor = 0.8
+			average_militancy = 6
+		}
+		modifier = {
+			factor = 0.8
+			average_militancy = 7
+		}
+		modifier = {
+			factor = 0.8
+			average_militancy = 8
+		}
+		modifier = {
+			factor = 0.8
+			average_militancy = 9
+		}
+		modifier = {
+			factor = 0.6
+			revolt_percentage = 0.60
+		}
+		modifier = {
+			factor = 0.6
+			revolt_percentage = 0.70
+		}
+		modifier = {
+			factor = 0.6
+			revolt_percentage = 0.80
+		}
+	}
+
+	immediate = {
+		set_global_flag = roman_republic_occured
+	}
+
+	option = {
+		name = "Long live the Roman Republic!"
+		prestige = 5
+		government = democracy
+		ruling_party_ideology = liberal
+		political_reform = universal_voting
+		political_reform = free_press
+		political_reform = population_equal_weight
+		political_reform = proportional_representation
+		political_reform = non_socialist
+		political_reform = secret_ballots
+		political_reform = yes_meeting
+		clr_country_flag = tory_election_win
+		clr_country_flag = socialist_election_win
+		set_country_flag = liberal_election_win
+		clr_country_flag = communist_election_win
+		clr_country_flag = fascist_election_win
+		clr_country_flag = reactionary_election_win
+		clr_country_flag = anarcho_liberal_election_win
+		random_country = {
+			limit = { is_sphere_leader_of = THIS }
+			release_vassal = THIS
+			leave_alliance = THIS
+			diplomatic_influence = {
+				who = THIS
+				value = -200
+			}
+			relation = {
+				who = THIS
+				value = -100
+			}
+		}
+		any_pop = {
+			ideology = {
+				value = liberal
+				factor = 0.2
+			}
+			scaled_consciousness = {
+				ideology = liberal
+				factor = 2
+			}
+			scaled_militancy = {
+				ideology = liberal
+				factor = -6
+			}
+			scaled_militancy = {
+				ideology = reactionary
+				factor = 4
+			}
+			scaled_militancy = {
+				ideology = conservative
+				factor = 2
+			}
+		}
+		remove_country_modifier = global_liberal_agitation
+		remove_country_modifier = springtime_of_nations
+		clr_country_flag = liberal_revolution_in_progress
+		clr_country_flag = liberal_revolution_fired
+		set_country_flag = had_liberal_revolution
+		FRA = { country_event = 202016 }
+		ai_chance = {
+			factor = 90
+		}
+	}
+	option = {
+		name = "The Swiss Guard will solve that problem!"
+		prestige = -10
+		badboy = 3
+		any_pop = {
+			scaled_consciousness = {
+				ideology = liberal
+				factor = 6
+			}
+			scaled_consciousness = {
+				ideology = reactionary
+				factor = -4
+			}
+			scaled_consciousness = {
+				ideology = conservative
+				factor = -2
+			}
+			scaled_militancy = {
+				ideology = liberal
+				factor = 6
+			}
+			scaled_militancy = {
+				ideology = reactionary
+				factor = -4
+			}
+			scaled_militancy = {
+				ideology = conservative
+				factor = -2
+			}
+		}
+		ai_chance = {
+			factor = 10
+		}
+	}
+}
+
+#French intervention
+country_event = {
+	id = 202016
+	title = "EVTNAME202016" 
+	desc = "EVTDESC202016"
+	picture = "roman_republic"
+
+    is_triggered_only = yes
+
+	option = {
+		name = "We must put the Pope back on the throne!"
+		prestige = 5
+		badboy = 2
+		casus_belli = {
+			target = PAP
+			type = add_to_sphere
+			months = 24
+		}
+		war = {
+			target = PAP
+			attacker_goal = {
+				casus_belli = add_to_sphere 
+			}
+		}
+		ai_chance = {
+			factor = 90
+		}
+	}
+	option = {
+		name = "We have more pressing matters."
+		prestige = -15
+		relation = {
+			who = FROM
+			value = 100
+		}
+		ai_chance = {
+			factor = 10
+		}
+	}
+}
+
+#Pope returns
+country_event = {
+	id = 202017
+	title = "EVTNAME202017" 
+	desc = "EVTDESC202017"
+	picture = "repubblica_romana_fine"
+
+	fire_only_once = yes
+
+	trigger = {
+		war = no
+		tag = PAP
+		government = democracy
+		has_global_flag = roman_republic_occured
+		FRA = { is_sphere_leader_of = PAP }
+		truce_with = FRA
+	}
+
+	mean_time_to_happen = {
+		days = 5
+	}
+
+	option = {
+		name = "France is the protector of Rome."
+		prestige = 5
+		government = absolute_monarchy
+		political_reform = none_voting
+		political_reform = appointed
+		political_reform = state_press
+		political_reform = first_past_the_post
+		political_reform = no_trade_unions
+		political_reform = underground_parties
+		clr_country_flag = tory_election_win
+		clr_country_flag = socialist_election_win
+		clr_country_flag = liberal_election_win
+		clr_country_flag = communist_election_win
+		clr_country_flag = fascist_election_win
+		clr_country_flag = reactionary_election_win
+		clr_country_flag = anarcho_liberal_election_win
+		any_country = {
+			limit = {
+				exists = yes
+				in_sphere = FRA
+			}
+			any_owned = {
+				limit = {
+					is_core = PAP
+				}
+				secede_province = PAP
+			}
+		}
+		any_pop = {
+			limit = {
+				OR = {
+					is_primary_culture = yes
+					is_accepted_culture = yes
+				}
+			}
+			militancy = -6
+			consciousness = -6
+		}
+	}
+}
+
+#Manzoni, I promessi sposi
+country_event = {
+
+	id = 202033
+	title = "EVTNAME202033"
+	desc = "EVTDESC202033"
+	picture = "Manzoni"
+
+	trigger = {
+		tag = AUS
+		has_country_flag = liberal_revolution_in_progress
+		owns = 726 #Milan
+		year = 1842
+	}
+
+	fire_only_once = yes
+ 
+	mean_time_to_happen =  {
+		months = 1
+	}
+
+	option = {
+		name = "It would be better if he wrote in German, who cares about a silly Italian novel?"
+		set_global_flag = Manzoni
+		any_pop = {
+			limit = {
+				has_pop_culture = north_italian
+			}
+			consciousness = 1
+		}
+	}
+}
+
+#Inno Mameli
+country_event = {
+
+	id = 202035
+	title = "EVTNAME202035"
+	desc = "EVTDESC202035"
+	picture = "Mameli"
+
+	trigger = {
+		tag = SAR
+		year = 1847
+	}
+
+	fire_only_once = yes
+ 
+	mean_time_to_happen =  {
+		months = 1
+	}
+
+	option = {
+		name = "Fratelli d'Italia, l'Italia s'è desta!"
+		set_global_flag = Mameli
+		prestige = 2
+		plurality = 2
+		any_pop = {
+			limit = {
+				OR = {
+					has_pop_culture = north_italian
+					has_pop_culture = south_italian
+				}
+			}
+			consciousness = 1
+		}
+		rich_strata = {
+			ideology = {
+				value = liberal
+				factor = 0.01
+			}
+		}
+		middle_strata = {
+			ideology = {
+				value = liberal
+				factor = 0.02
+			}
+		}
+		poor_strata = {
+			ideology = {
+				value = liberal
+				factor = 0.01
+			}
+		}
+        AUS = { country_event = 202037 }
+		ai_chance = {
+			factor = 85
+			modifier = {
+				factor = 0
+				AUS = { is_our_vassal = THIS }
+			}
+		}
+	}
+
+	option = {
+		name = "There should be a law against it..."
+		any_pop = {
+			limit = {
+				OR = {
+					has_pop_culture = north_italian
+					has_pop_culture = south_italian
+				}
+			}
+			militancy = 1
+		}
+		relation = {
+			who = AUS
+			value = 25
+		}
+		ai_chance = {
+			factor = 15
+		}
+	}
+}
+
+#Inno Mameli für Österreich
+country_event = {
+
+	id = 202037
+	title = "EVTNAME202035"
+	desc = "EVTDESC202035"
+	picture = "Mameli"
+
+	is_triggered_only = yes
+
+	option = {
+		name = "There should be a law against it...!"
+		any_pop = {
+			limit = {
+				OR = {
+					has_pop_culture = north_italian
+					has_pop_culture = south_italian
+				}
+			}
+			militancy = 1
+			consciousness = 2
+		}
+	}
+}
+
+#Foscolo
+country_event = {
+
+	id = 202038
+	title = "EVTNAME202038"
+	desc = "EVTDESC202038"
+	picture = "Foscolo"
+
+	trigger = {
+		tag = ITA
+		owns = 749
+		owns = 744
+		war = no
+	}
+
+	fire_only_once = yes
+ 
+	mean_time_to_happen =  {
+		months = 2
+
+	}
+
+	option = {
+		name = "We demand Foscolo!"
+		prestige = 2
+		ENG = { country_event = 202039 }
+		ai_chance = {
+			factor = 90
+		}
+	}
+
+	option = {
+		name = "The Queen may be not amused..."
+		any_pop = {
+			limit = {
+				OR = {
+					has_pop_culture = north_italian
+					has_pop_culture = south_italian
+				}
+			}
+			militancy = 1
+		}
+		ai_chance = {
+			factor = 10
+		}
+	}
+}
+
+#England decides regarding Foscolo
+country_event = {
+
+	id = 202039
+	title = "EVTNAME202038"
+	desc = "EVTDESC202038"
+	picture = "Foscolo"
+
+	is_triggered_only = yes
+
+	option = {
+		name = "They should have their poet. What was his name again?"
+		prestige = 2
+		FROM = { country_event = 202041 }
+		relation = {
+			who = FROM
+			value = 25
+		}
+		ai_chance = {
+			factor = 80
+			modifier = {
+				factor = 0.5
+				truce_with = FROM
+			}
+			modifier = {
+				factor = 0
+				NOT = {
+					relation = {
+						who = FROM
+						value = 1
+					}
+				}
+			}
+		}
+	}
+
+	option = {
+		name = "I don't know this Fosco, but he will stay here."
+		FROM = { country_event = 202040 }
+		prestige = -2
+		badboy = 0.5
+		relation = {
+			who = FROM
+			value = -25
+		}
+		ai_chance = {
+			factor = 20
+		}
+	}
+}
+
+#Foscolo stays in England
+country_event = {
+
+	id = 202040
+	title = "EVTNAME202040"
+	desc = "EVTDESC202040"
+	picture = "Foscolo"
+
+	is_triggered_only = yes
+
+	option = {
+		name = "A scandal!"
+		relation = {
+			who = FROM
+			value = -25
+		}
+	}
+}
+
+#Foscolo returns
+country_event = {
+
+	id = 202041
+	title = "EVTNAME202041"
+	desc = "EVTDESC202041"
+	picture = "Foscolo"
+
+	is_triggered_only = yes
+
+	option = {
+		name = "Welcome home."
+		relation = {
+			who = ENG
+			value = 25
+		}
+	}
+}
+
+
+#Guglielmo Marconi (ENG)
+country_event = {
+
+	id = 202042
+	title = "EVTNAME202042"
+	desc = "EVTDESC202042"
+	picture = "Marconi"
+
+	trigger = {
+		tag = ENG
+		year = 1902
+		behaviorism = 1
+		electricity = 1
+	}
+
+	fire_only_once = yes
+ 
+	mean_time_to_happen =  {
+		months = 2
+
+	}
+
+	option = {
+		name = "Well, I should make a call."
+		prestige = 5
+		USA = { country_event = 202043 }
+		random_country = {
+			limit = {
+				tag = ITA
+				exists = yes
+			}
+            country_event = 202044
+		}
+		random_country = {
+			limit = {
+				tag = ITP
+				exists = yes
+			}
+            country_event = 202044
+		}
+		years_of_research = 0.1
+	}
+}
+
+#Guglielmo Marconi (USA)
+country_event = {
+
+	id = 202043
+	title = "EVTNAME202042"
+	desc = "EVTDESC202042"
+	picture = "Marconi"
+
+	is_triggered_only = yes
+
+	option = {
+		name = "'Hello, Teddy here!'"
+		prestige = 5
+		years_of_research = 0.1
+	}
+}
+
+#Guglielmo Marconi (ITA)
+country_event = {
+
+	id = 202044
+	title = "EVTNAME202042"
+	desc = "EVTDESC202042"
+	picture = "Marconi"
+
+	is_triggered_only = yes
+
+	option = {
+		name = "Marconi is one of the greatest scientists Italy has ever seen!"
+		prestige = 5
+		years_of_research = 0.1
+	}
+}
+
+#Macchi record
+country_event = {
+
+	id = 202046
+	title = "EVTNAME202046"
+	desc = "EVTDESC202046"
+	picture = "Macchi"
+
+	trigger = {
+		OR = {
+            tag = ITA
+			tag = ITP
+		}
+		has_country_flag = porco_rosso
+		year = 1934
+	}
+
+	fire_only_once = yes
+ 
+	mean_time_to_happen =  {
+		months = 1
+	}
+
+	option = {
+		name = "Italian aviation flies in its own class."
+		prestige = 5
+		years_of_research = 0.2
+	}
+}
+
+#Visit in Venice
+country_event = {
+
+	id = 202047
+	title = "EVTNAME202047"
+	desc = "EVTDESC202047"
+	picture = "Sisi"
+
+	trigger = {
+		OR = {
+			tag = AUS
+			tag = KUK
+		}
+		OR = {
+			government = absolute_monarchy
+			government = prussian_constitutionalism
+			government = hms_government
+		}
+		owns = 729
+		year = 1856
+		has_global_flag = venetian_insurrection_occurred
+	}
+
+	fire_only_once = yes
+ 
+	mean_time_to_happen =  {
+		months = 3
+	}
+
+	option = {
+		name = "Charming."
+		prestige = -2
+		any_pop = {
+			limit = {
+				location = { is_core = VEN }
+				has_pop_culture = north_italian
+			}
+			consciousness = 1
+		}
+	}
+}
+
+#Il Padron de casa crumbled!
+country_event = {
+
+	id = 202048
+	title = "EVTNAME202048"
+	desc = "EVTDESC202048"
+	picture = "campanile_san_marco"
+
+	trigger = {
+		owns = 729
+		year = 1902
+	}
+
+	fire_only_once = yes
+ 
+	mean_time_to_happen =  {
+		months = 7
+
+	}
+
+	option = {
+		name = "Rebuild the Campanile - where it was, and like it was."
+		prestige = 2
+		money = -10000
+		ai_chance = {
+			factor = 50
+			modifier = {
+				factor = 1.5
+				tag = ITA
+			}
+			modifier = {
+				factor = 1.5
+				tag = ITP
+			}
+			modifier = {
+				factor = 1.4
+				tag = AUS
+			}
+			modifier = {
+				factor = 1.4
+				tag = KUK
+			}
+			modifier = {
+				factor = 1.4
+				tag = DNB
+			}
+			modifier = {
+				factor = 1.3
+				ruling_party_ideology = reactionary
+			}
+			modifier = {
+				factor = 1.2
+				ruling_party_ideology = conservative
+			}
+		}
+	}
+	option = {
+		name = "Build something new."
+		money = -5000
+		any_pop = {
+			limit = {
+				has_pop_culture = north_italian
+			}
+			consciousness = 1
+		}
+		ai_chance = {
+			factor = 50
+			modifier = {
+				factor = 0
+				tag = VEN
+			}
+			modifier = {
+				factor = 1.5
+				ruling_party_ideology = communist
+			}
+			modifier = {
+				factor = 1.4
+				ruling_party_ideology = socialist
+			}
+			modifier = {
+				factor = 1.3
+				ruling_party_ideology = liberal
+			}
+			modifier = {
+				factor = 1.2
+				government = democracy
+			}
+			modifier = {
+				factor = 2
+				government = proletarian_dictatorship
+			}
+        }
+	}
+}
+
+##############
+# Literature #
+##############
+
+#Leopardi
+country_event = {
+
+	id = 202049
+	title = "EVTNAME202049"
+	desc = "EVTDESC202049"
+	picture = "Leopardi"
+
+	trigger = {       
+		year = 1837
+		tag = SIC
+	}
+
+	fire_only_once = yes
+
+	mean_time_to_happen = {
+		months = 2
+	}
+
+	option = {
+		name = "At least, we got his tomb..."
+		prestige = 1
+		any_pop = {
+			scaled_consciousness = {
+				ideology = liberal
+				factor = 1
+			}
+		}
+	}
+}
+
+#Carducci
+country_event = {
+
+	id = 202050
+	title = "EVTNAME202050"
+	desc = "EVTDESC202050"
+	picture = "Carducci"
+
+	trigger = {
+		tag = ITA
+        year = 1887
+        NOT = { year = 1907 }
+        realism = 1
+	}
+
+	fire_only_once = yes
+
+	mean_time_to_happen = {
+		months = 2
+	}
+
+	option = {
+		name = "Satanic verses. I like stuff like this!"
+		prestige = 2
+		any_pop = {
+			limit = {
+				location = { is_core = THIS }
+				is_primary_culture = yes
+			}
+			dominant_issue = {
+				factor = 0.03
+				value = secularized
+			}
+			dominant_issue = {
+				factor = 0.01
+				value = pro_atheism
+			}
+		}
+    }
+}
+
+#D'Annunzio
+country_event = {
+
+	id = 202052
+	title = "EVTNAME202052"
+	desc = "EVTDESC202052"
+	picture = "Dannunzio"
+
+	trigger = {
+		OR = {
+			tag = ITA
+			tag = ITP
+		}
+		impressionism = 1
+		anti__rationalism = 1
+		aeronautics = 1
+		is_ideology_enabled = fascist
+	}
+
+	fire_only_once = yes
+
+	mean_time_to_happen = {
+		months = 2
+	}
+
+	option = {
+		name = "Nothing beats the will of man and aesthetic itself."
+		prestige = 2
+		set_country_flag = dannunzio
+		rich_strata = {
+			ideology = {
+				value = fascist
+				factor = 0.01
+			}
+		}
+		middle_strata = {
+			ideology = {
+				value = fascist
+				factor = 0.01
+			}
+		}
+	}
+}
+
+#Svevo
+country_event = {
+
+	id = 202053
+	title = "EVTNAME202053"
+	desc = "EVTDESC202053"
+	picture = "Svevo"
+
+	trigger = {       
+		year = 1923
+		NOT = { year = 1929 }
+		primary_culture = north_italian
+		owns = 736
+		mass_culture_n_the_avant_garde = 1
+		psychoanalysis = 1
+	}
+
+	fire_only_once = yes
+
+	mean_time_to_happen = {
+		months = 2
+	}
+
+	option = {
+		name = "Last but not least, he got some attention."
+		prestige = 2
+	}
+}
+
+#########
+# Music #
+#########
+
+#Rossini
+country_event = {
+
+	id = 202054
+	title = "EVTNAME202054"
+	desc = "EVTDESC202054"
+	picture = "Rossini"
+
+	trigger = {       
+		year = 1836
+		tag = PAP
+	}
+
+	fire_only_once = yes
+
+	mean_time_to_happen = {
+		months = 2
+	}
+
+	option = {
+		name = "Well, it is still Rossini."
+		prestige = 2
+	}
+}
+
+#Donizetti
+country_event = {
+
+	id = 202055
+	title = "EVTNAME202055"
+	desc = "EVTDESC202055"
+	picture = "Donizetti"
+
+	trigger = {       
+		year = 1844
+		NOT = { year = 1848 }
+		owns = 754
+		NOT = { press_rights = free_press }
+	}
+
+	fire_only_once = yes
+
+	mean_time_to_happen = {
+		months = 1
+	}
+
+	option = {
+		name = "I'm convinced that the censorship is inculpable for that disaster."
+		prestige = -3
+		any_pop = {
+			limit = { literacy = 0.2 }
+			ideology = {
+				value = liberal
+				factor = 0.01
+			}
+			dominant_issue = {
+				value = free_press
+				factor = 0.05
+			}
+		}
+	}
+}
+
+#Mascagni
+country_event = {
+
+	id = 202056
+	title = "EVTNAME202056"
+	desc = "EVTDESC202056"
+	picture = "Mascagni"
+
+	trigger = {       
+        year = 1890
+		OR = {
+            tag = ITA 
+			tag = ITP
+		}
+        realism = 1
+	}
+
+	fire_only_once = yes
+
+	mean_time_to_happen = {
+		months = 1
+	}
+
+	option = {
+		name = "I like the Intermezzo."
+		prestige = 2
+	}
+}
+
+#Respighi
+country_event = {
+
+	id = 202057
+	title = "EVTNAME202057"
+	desc = "EVTDESC202057"
+	picture = "Respighi"
+
+	trigger = {       
+        year = 1916
+		OR = {
+            tag = ITA
+			tag = ITP
+		}
+        impressionism = 1
+	}
+
+	fire_only_once = yes
+
+	mean_time_to_happen = {
+		months = 1
+	}
+
+	option = {
+		name = "The Trevi Fountain is clearly distinguished from the rest."
+		prestige = 2
+	}
+}
+
+#Puccini
+country_event = {
+
+	id = 202058
+	title = "EVTNAME202058"
+	desc = "EVTDESC202058"
+	picture = "Puccini"
+
+	trigger = {       
+		year = 1926
+		OR = {
+        	tag = ITA
+			tag = ITP
+		}
+		mass_culture_n_the_avant_garde = 1
+	}
+
+	fire_only_once = yes
+
+	mean_time_to_happen = {
+		months = 2
+	}
+
+	option = {
+		name = "But... but how does it end?"
+		prestige = 2
+	}
+}
+
+#Aida (Egypt)
+country_event = {
+
+	id = 202059
+	title = "EVTNAME202059"
+	desc = "EVTDESC202059"
+	picture = "Aida"
+
+	trigger = {       
+		year = 1871
+		NOT = { year = 1900 }
+		tag = EGY
+		OR = {
+        	exists = ITA
+			exists = ITP
+		}
+		is_canal_enabled = 2
+	}
+
+	fire_only_once = yes
+
+	mean_time_to_happen = {
+		months = 2
+	}
+
+	option = {
+		name = "A triumphal march for Egyptian culture!"
+		prestige = 2
+		random_country = {
+			limit = {
+				tag = ITA
+				exists = yes
+			}
+            country_event = 202060
+		}
+		random_country = {
+			limit = {
+				tag = ITP
+				exists = yes
+			}
+            country_event = 202060
+		}
+    }
+}
+
+#Aida (Italy)
+country_event = {
+
+	id = 202060
+	title = "EVTNAME202059"
+	desc = "EVTDESC202059"
+	picture = "Aida"
+
+        is_triggered_only = yes
+
+	option = {
+		name = "A triumphal march for Italian culture!"
+		prestige = 2
+	}
+}
+
+#Rigoletto (Austria)
+country_event = {
+
+	id = 202061
+	title = "EVTNAME202061"
+	desc = "EVTDESC202061"
+	picture = "Rigoletto"
+
+	trigger = {
+		year = 1851
+		NOT = { year = 1900 }
+		OR = {
+			tag = AUS
+			tag = KUK
+		}
+		OR = {
+			government = absolute_monarchy
+			government = prussian_constitutionalism
+		}
+		owns = 729
+	}
+
+	fire_only_once = yes
+
+	mean_time_to_happen = {
+		months = 3
+	}
+
+	option = {
+		name = "Won't this stubborn Italians ever give up?"
+		any_pop = {
+			limit = {
+				has_pop_culture = north_italian
+			}
+			militancy = 1
+			consciousness = 2
+		}
+	}
+}
+
+#Rigoletto (Italy)
+country_event = {
+
+	id = 202062
+	title = "EVTNAME202061"
+	desc = "EVTDESC202061"
+	picture = "Rigoletto"
+
+	trigger = {       
+		year = 1851
+		NOT = { year = 1900 }
+		primary_culture = north_italian
+		owns = 729
+	}
+
+	fire_only_once = yes
+
+	mean_time_to_happen = {
+		months = 3
+	}
+
+	option = {
+		name = "Qual piuma al vento, muta d'accento, e di pensiero!"
+		prestige = 1
+		any_pop = {
+			limit = {
+				has_pop_culture = north_italian
+			}
+			consciousness = 1
+		}
+	}
+}
+
+#Verdi's Requiem
+country_event = {
+
+	id = 202063
+	title = "EVTNAME202063"
+	desc = "EVTDESC202063"
+	picture = "Verdi_Requiem"
+
+	trigger = {       
+		year = 1874
+		NOT = { year = 1900 }
+		OR = {
+            tag = ITA
+			tag = ITP
+		}
+		has_global_flag = Manzoni
+	}
+
+	fire_only_once = yes
+
+	mean_time_to_happen = {
+		months = 3
+	}
+
+	option = {
+		name = "Dies, Dies, Dies Iraeee!"
+		prestige = 2
+	}
+}
+
+#Introduction
+country_event = {
+
+	id = 202065
+
+	trigger = {
+		NOT = { year = 1848 }
+		is_culture_group = italian
+		NOT = { has_country_flag = liberal_revolution_fired }
+		NOT = { has_country_flag = restaurazione }
+	}
+ 
+	mean_time_to_happen =  {
+		days = 1
+	}
+
+	title = "EVTNAME202065"
+	desc = "EVTDESC202065"
+	picture = "Restaurazione"
+
+	option = {
+		name = "Italy is chained..." 
+		any_pop = {
+			limit = { liberal = 5 }
+			consciousness = 0.5
+			dominant_issue = {
+				value = jingoism
+				factor = 0.03
+			}
+		}
+		any_pop = {
+			limit = { is_culture_group = italian }
+			ideology = {
+				value = liberal
+				factor = 0.01
+			}
+		}
+		set_country_flag = restaurazione
+	}	
+}
+
+####################################################
+# Milan insurrection & War of Italian Independence #
+####################################################
+
+
+# Five days of Milan
+country_event = {
+	id = 202000
+	title = "EVTNAME202000" 
+	desc = "EVTDESC202000"
+	picture = "cinque_giornate"
+	
+	fire_only_once = yes
+
+	trigger = {
+		tag = AUS
+		owns = 726
+		has_country_flag = no_lombardo_venetian_independence
+		has_country_modifier = springtime_of_nations
+		726 = {
+			average_militancy = 4
+		}
+		NOT = {
+			exists = LOM
+			has_global_flag = five_days_of_milan_occurred
+			has_country_flag = april_laws
+		}
+	}
+
+	mean_time_to_happen = {
+		days = 5
+	}
+
+	immediate = {
+		set_global_flag = five_days_of_milan_occurred
+	}
+
+	option = {
+		name = "Send Radetzky!"
+		726 = { secede_province = LOM }
+		relation = { who = LOM value = -200 }
+		war = {
+			target = LOM
+			attacker_goal = {
+				casus_belli = annex_core_country
+			}
+		}
+		random_country = {
+			limit = {
+				tag = THIS
+				NOT = { has_leader = "Josef Radetzky" }
+			}
+			define_general = {
+				name = "Josef Wenzel Radetzky"
+				personality = audacious
+				background = natural_born_leader
+			}
+		}
+		LOM = {
+			government = democracy
+			ruling_party_ideology = liberal
+			political_reform = population_equal_weight
+			political_reform = universal_weighted_voting
+			political_reform = yes_meeting
+			political_reform = free_press
+			political_reform = no_trade_unions
+			political_reform = first_past_the_post
+			political_reform = non_secret_ballots
+			clr_country_flag = tory_election_win
+			clr_country_flag = socialist_election_win
+			set_country_flag = liberal_election_win
+			clr_country_flag = communist_election_win
+			clr_country_flag = fascist_election_win
+			clr_country_flag = reactionary_election_win
+			clr_country_flag = anarcho_liberal_election_win
+			add_country_modifier = {
+				name = small_country_draft
+				duration = 365
+			}
+			leadership = 25
+		}
+		ai_chance = {
+			factor = 95
+		}
+	}
+
+	option = {
+		name = "We have no choice but to let them go."
+		set_country_flag = austria_let_milan_go
+		prestige = -25
+		casus_belli = {
+			target = LOM
+			type = conquest
+			months = 60
+		}
+		LOM = {
+			government = democracy
+			ruling_party_ideology = liberal
+			political_reform = population_equal_weight
+			political_reform = universal_weighted_voting
+			political_reform = yes_meeting
+			political_reform = free_press
+			political_reform = no_trade_unions
+			political_reform = first_past_the_post
+			political_reform = non_secret_ballots
+			clr_country_flag = tory_election_win
+			clr_country_flag = socialist_election_win
+			set_country_flag = liberal_election_win
+			clr_country_flag = communist_election_win
+			clr_country_flag = fascist_election_win
+			clr_country_flag = reactionary_election_win
+			clr_country_flag = anarcho_liberal_election_win
+		}
+		any_pop = {
+			limit = {
+				has_pop_culture = romanian
+				location = { is_core = ROM }
+			}
+			militancy = 1
+		}
+		any_pop = {
+			limit = {
+				has_pop_culture = polish
+				location = { is_core = POL }
+			}
+			militancy = 1
+		}
+		random_country = {
+			limit = {
+				tag = THIS
+				NOT = { has_leader = "Josef Radetzky" }
+			}
+			define_general = {
+				name = "Josef Wenzel Radetzky"
+				personality = audacious
+				background = natural_born_leader
+			}
+		}
+		ai_chance = {
+			factor = 5
+			modifier = {
+				factor = 5
+				any_greater_power = { war_with = THIS }
+			}
+		}
+	}
+}
+
+# Sardinian intervention
+country_event = {
+	id = 202001
+	title = "EVTNAME202001" 
+	desc = "EVTDESC202001"
+	picture = "cinque_giornate"
+	
+	fire_only_once = yes
+
+	trigger = {
+		tag = SAR
+		OR = {
+			government = prussian_constitutionalism
+			government = hms_government
+		}
+		has_global_flag = five_days_of_milan_occurred
+		NOT = {
+			has_country_flag = first_war_of_italian_independence_intervention
+			has_country_flag = first_war_of_italian_independence_refused
+			has_country_flag = first_war_of_italian_independence_lost
+			has_country_flag = first_war_of_italian_independence_won
+			truce_with = AUS
+		}
+		AUS = { war_with = LOM }
+		exists = LOM
+		LOM = { owns = 726 }
+	}
+
+	mean_time_to_happen = {
+		days = 5
+	}
+
+	option = {
+		name = "We will intervene. Long live Italy!"
+		set_country_flag = first_war_of_italian_independence_intervention
+		AUS = {
+			end_war = LOM
+			country_event = 202002
+		}
+		military_access = VEN
+		prestige = 15
+		inherit = LOM
+		ai_chance = {
+			factor = 50
+			modifier = {
+				factor = 0
+				war = yes
+			}
+			modifier = {
+				factor = 0
+				war_exhaustion = 15
+			}
+			modifier = {
+				factor = 1.3
+				manpower = 30
+			}
+			modifier = {
+				factor = 1.1
+				war_policy = pro_military
+			}
+			modifier = {
+				factor = 1.2
+				war_policy = jingoism
+			}
+			modifier = {
+				factor = 1.4
+				AUS = { war_with = FRA }
+			}
+			modifier = {
+				factor = 1.4
+				AUS = { war_with = PRU }
+			}
+			modifier = {
+				factor = 1.4
+				AUS = { war_with = RUS }
+			}
+			modifier = {
+				factor = 1.4
+				AUS = { war = yes }
+			}
+		}
+	}
+
+	option = {
+		name = "That is too dangerous."
+		set_country_flag = first_war_of_italian_independence_refused
+		prestige = -5
+		any_pop = {
+			limit = {
+				has_pop_culture = north_italian
+			}
+			militancy = 2
+		}
+		any_pop = {
+			limit = {
+				has_pop_culture = south_italian
+			}
+			militancy = 1
+		}
+		ai_chance = {
+			factor = 50
+		}
+	}
+}
+
+# Message to Austria
+country_event = {
+	id = 202002
+	title = "EVTNAME202002" 
+	desc = "EVTDESC202002"
+	picture = "cinque_giornate"
+	major = yes
+
+	is_triggered_only = yes
+
+	option = {
+		name = "Rebells! Traitors! Bloody Italian scum!"
+		casus_belli = {
+			target = SAR
+			type = acquire_state
+			months = 24
+		}
+		SAR = {
+			war = {
+				target = AUS
+				attacker_goal = {
+					casus_belli = unification_casus_belli 
+					state_province_id = 727
+				}
+				defender_goal = {
+					casus_belli = acquire_state
+					state_province_id = 726
+				}
+			}
+		}
+	}
+}
+
+# Milan occupied by Austria
+country_event = {
+	id = 202003
+	title = "EVTNAME202003" 
+	desc = "EVTDESC202003"
+	picture = "italian_war_of_independence_won"
+	
+	fire_only_once = yes
+
+	trigger = {
+		has_country_flag = first_war_of_italian_independence_intervention
+		owns = 726 
+		AUS = { controls = 726 }
+		AUS = { war_with = THIS }
+	}
+
+	mean_time_to_happen = {
+		days = 1
+	}
+
+	option = {
+		name = "Abdicate and make a peace treaty to prevent damage"
+		set_global_flag = first_war_of_italian_independence_lost
+		prestige = -10
+		end_war = AUS
+		AUS = { country_event = 202004 }
+		ai_chance = {
+			factor = 90
+		}
+	}
+
+	option = {
+		name = "We will never surrender! Viva il Re!"
+		any_pop = {
+			militancy = -2
+			consciousness = 2
+		}
+		ai_chance = {
+			factor = 10
+		}
+	}
+}
+
+# An honourful agreement
+country_event = {
+	id = 202004
+	title = "EVTNAME202004" 
+	desc = "EVTDESC202004"
+	picture = "italian_war_of_independence_won"
+	
+	is_triggered_only = yes
+
+	option = {
+		name = "This treaty is in our interest."
+        prestige = 10
+        end_war = FROM
+		any_country = {
+			limit = {
+				war_with = THIS
+				in_sphere = AUS
+			}
+			end_war = THIS
+		}
+        726 = { secede_province = AUS }
+		any_pop = {
+			limit = {
+				has_pop_culture = north_italian
+			}
+			militancy = -5
+			consciousness = -5
+		}
+		ai_chance = {
+			factor = 95
+		}
+	}
+
+	option = {
+		name = "We are not satisfied."
+		prestige = -10
+		badboy = 5
+		any_pop = {
+			limit = {
+				has_pop_culture = north_italian
+			}
+			militancy = 5
+			consciousness = 5
+		}
+        relation = {
+            who = FROM
+            value = -50
+        }
+		ai_chance = {
+			factor = 5
+		}
+	}
+}
+
+###########################
+# Repubblica di San Marco #
+###########################
+
+
+#Daniele Manin and the constitution
+
+country_event = {
+	
+	id = 202005
+	title = "EVTNAME202005"
+	desc = "EVTDESC202005"
+	picture = "Administration"
+
+	fire_only_once = yes
+
+	trigger = {
+        tag = AUS
+	    has_country_flag = liberal_revolution_in_progress
+		NOT = {
+			has_country_flag = no_lombardo_venetian_independence
+		}
+		is_possible_vassal = LOM
+		is_possible_vassal = VEN
+		OR = {
+			any_state = {
+				any_owned_province = {
+					is_core = LOM
+					culture = north_italian
+					is_primary_culture = no
+				}
+				average_militancy = 5
+			}
+			any_state = {
+				any_owned_province = {
+					is_core = VEN
+					culture = north_italian
+					is_primary_culture = no
+				}
+				average_militancy = 5
+			}
+		}
+	}
+
+	mean_time_to_happen = {
+		months = 6
+		modifier = {
+			factor = 0.5
+			is_greater_power = no
+			is_secondary_power = no
+		}
+		modifier = {
+			factor = 0.8
+			any_state = {
+				any_owned_province = { is_core = LOM }
+				average_militancy = 5
+			}
+		}
+		modifier = {
+			factor = 0.8
+			any_state = {
+				any_owned_province = { is_core = LOM }
+				average_militancy = 6
+			}
+		}
+		modifier = {
+			factor = 0.8
+			any_state = {
+				any_owned_province = { is_core = VEN }
+				average_militancy = 5
+			}
+		}
+		modifier = {
+			factor = 0.8
+			any_state = {
+				any_owned_province = { is_core = VEN }
+				average_militancy = 6
+			}
+		}
+	}
+
+	option = {
+		name = "This is high treason!"
+		set_country_flag = no_lombardo_venetian_independence
+		any_pop = {
+			limit = {
+				location = { is_core = LOM }
+				has_pop_culture = north_italian
+			}
+			militancy = 1
+		}
+		any_pop = {
+			limit = {
+				location = { is_core = VEN }
+				has_pop_culture = north_italian
+			}
+			militancy = 1
+		}
+		any_owned = {
+			limit = { culture = north_italian }
+			add_province_modifier = {
+				name = nationalist_agitation
+				duration = 365
+			}
+		}
+		ai_chance = {
+			factor = 95
+			modifier = {
+				factor = 1.75
+				OR = {
+					government = absolute_monarchy
+					government = prussian_constitutionalism
+				}
+			}
+			modifier = {
+				factor = 1.25
+				is_greater_power = yes
+			}
+			modifier = {
+				factor = 0.5
+				government = democracy
+			}
+			modifier = {
+				factor = 1.5
+				war_policy = jingoism
+			}
+			modifier = {
+				factor = 1.25
+				war_policy = pro_military
+			}
+			modifier = {
+				factor = 0.75
+				war_policy = anti_military
+			}
+			modifier = {
+				factor = 0.5
+				war_policy = pacifism
+			}
+			modifier = {
+				factor = 0.8
+				militancy = 3
+			}
+			modifier = {
+				factor = 0.8
+				militancy = 5
+			}
+		}
+	}
+	option = {
+		name = "Dissolve the Kingdom of Lombardy-Venetia."
+		badboy = -5
+		prestige = -25
+		release_vassal = LOM
+		release_vassal = VEN
+		VEN = {
+			any_owned = {
+				limit = {
+					is_core = AUS
+				}
+				secede_province = AUS
+			}
+		}
+		any_pop = {
+			limit = { has_pop_culture = north_italian }
+			militancy = -3
+		}
+		any_pop = {
+			limit = {
+				NOT = { has_pop_culture = north_italian }
+				is_primary_culture = no
+			}
+			militancy = 1
+		}
+		relation = {
+			who = LOM
+			value = 50
+		}
+		diplomatic_influence = {
+			who = LOM
+			value = 200
+		}
+		relation = {
+			who = VEN
+			value = 50
+		}
+		diplomatic_influence = {
+			who = VEN
+			value = 200
+		}
+		ai_chance = {
+			factor = 5
+			modifier = {
+				factor = 0
+				OR = {
+					government = proletarian_dictatorship
+					government = bourgeois_dictatorship
+					government = fascist_dictatorship
+					government = presidential_dictatorship
+				}
+			}
+			modifier = {
+				factor = 0.25
+				OR = {
+					government = absolute_monarchy
+					government = prussian_constitutionalism
+				}
+			}
+			modifier = {
+				factor = 1.5
+				government = democracy
+			}
+			modifier = {
+				factor = 0.5
+				war_policy = jingoism
+			}
+			modifier = {
+				factor = 0.75
+				war_policy = pro_military
+			}
+			modifier = {
+				factor = 1.25
+				war_policy = anti_military
+			}
+			modifier = {
+				factor = 1.5
+				war_policy = pacifism
+			}
+			modifier = {
+				factor = 0.5
+				is_greater_power = yes
+			}
+			modifier = {
+				factor = 1.2
+				militancy = 3
+			}
+			modifier = {
+				factor = 1.2
+				militancy = 5
+			}
+			
+		}
+	}
+}
+
+#Venetian insurrection
+country_event = {
+	id = 202006
+	title = "EVTNAME202006" 
+	desc = "EVTDESC202006"
+	picture = "repubblica_san_marco"
+	
+	fire_only_once = yes
+
+	trigger = {
+		tag = AUS
+		owns = 729
+		OR = {
+			729 = { controlled_by = AUS }
+			729 = { controlled_by = REB }
+		}
+		has_country_flag = no_lombardo_venetian_independence
+		has_country_modifier = springtime_of_nations
+		any_state = {
+			any_owned_province = {
+				is_core = VEN
+				culture = north_italian
+			}
+			average_militancy = 4
+		}
+		NOT = {
+			exists = VEN
+			has_global_flag = venetian_insurrection_occurred
+			has_country_flag = april_laws
+		}
+	}
+
+	mean_time_to_happen = {
+		days = 5
+	}
+
+	immediate = {
+		set_global_flag = venetian_insurrection_occurred
+	}
+
+	option = {
+		name = "Bring me von Haynau!"
+		any_owned = {
+			limit = {
+				is_core = VEN
+				NOT = { is_core = AUS }
+			}
+			secede_province = VEN
+		}
+		VEN = {
+			government = democracy
+			ruling_party_ideology = liberal
+			political_reform = population_equal_weight
+			political_reform = universal_weighted_voting
+			political_reform = yes_meeting
+			political_reform = free_press
+			political_reform = no_trade_unions
+			political_reform = first_past_the_post
+			political_reform = non_secret_ballots
+			clr_country_flag = tory_election_win
+			clr_country_flag = socialist_election_win
+			set_country_flag = liberal_election_win
+			clr_country_flag = communist_election_win
+			clr_country_flag = fascist_election_win
+			clr_country_flag = reactionary_election_win
+			clr_country_flag = anarcho_liberal_election_win
+			any_pop = {
+				limit = {
+					has_pop_culture = north_italian
+				}
+				militancy = -8
+			}
+			leadership = 50
+		}
+		relation = { who = VEN value = -200 }
+		war = {
+			target = VEN
+			attacker_goal = {
+				casus_belli = annex_core_country
+			}
+		}
+		random_country = {
+			limit = {
+				tag = THIS
+				NOT = { has_leader = "Julius von Haynau" }
+			}
+			define_general = {
+				name = "Julius von Haynau"
+				personality = merciless
+				background = butcher
+			}
+		}
+		ai_chance = {
+			factor = 95
+		}
+	}
+
+	option = {
+		name = "We have more important matters."
+		set_country_flag = austria_let_venice_go
+		any_owned = {
+			limit = {
+				is_core = VEN
+				NOT = { is_core = AUS }
+			}
+			secede_province = VEN
+		}
+		VEN = {
+			government = democracy
+			ruling_party_ideology = liberal
+			political_reform = population_equal_weight
+			political_reform = universal_weighted_voting
+			political_reform = yes_meeting
+			political_reform = free_press
+			political_reform = no_trade_unions
+			political_reform = first_past_the_post
+			political_reform = non_secret_ballots
+			clr_country_flag = tory_election_win
+			clr_country_flag = socialist_election_win
+			set_country_flag = liberal_election_win
+			clr_country_flag = communist_election_win
+			clr_country_flag = fascist_election_win
+			clr_country_flag = reactionary_election_win
+			clr_country_flag = anarcho_liberal_election_win
+			any_pop = {
+				limit = {
+					has_pop_culture = north_italian
+				}
+				militancy = -8
+			}
+		}
+		relation = { who = VEN value = -200 }
+		prestige = -25
+		casus_belli = {
+			target = VEN
+			type = conquest
+			months = 60
+		}
+		any_pop = {
+			limit = {
+				has_pop_culture = romanian
+				location = { is_core = ROM }
+			}
+			militancy = 1
+		}
+		any_pop = {
+			limit = {
+				has_pop_culture = polish
+				location = { is_core = POL }
+			}
+			militancy = 1
+		}
+		random_country = {
+			limit = {
+				tag = THIS
+				NOT = { has_leader = "Julius von Haynau" }
+			}
+			define_general = {
+				name = "Julius von Haynau"
+				personality = merciless
+				background = butcher
+			}
+		}
+		ai_chance = {
+			factor = 5
+			modifier = {
+				factor = 5
+				any_greater_power = { war_with = THIS }
+			}
+		}
+	}
+
+	option = {
+		name = "Viva San Marco!"
+		any_owned = {
+			limit = {
+				is_core = VEN
+				NOT = { is_core = AUS }
+			}
+			secede_province = VEN
+		}
+		VEN = {
+			government = democracy
+			ruling_party_ideology = liberal
+			political_reform = population_equal_weight
+			political_reform = universal_weighted_voting
+			political_reform = yes_meeting
+			political_reform = free_press
+			political_reform = no_trade_unions
+			political_reform = first_past_the_post
+			political_reform = non_secret_ballots
+			clr_country_flag = tory_election_win
+			clr_country_flag = socialist_election_win
+			set_country_flag = liberal_election_win
+			clr_country_flag = communist_election_win
+			clr_country_flag = fascist_election_win
+			clr_country_flag = reactionary_election_win
+			clr_country_flag = anarcho_liberal_election_win
+			any_pop = {
+				limit = {
+					has_pop_culture = north_italian
+				}
+				militancy = -8
+			}
+			leadership = 50
+		}
+		relation = { who = VEN value = -200 }
+		war = {
+			target = VEN
+			attacker_goal = {
+				casus_belli = annex_core_country
+			}
+		}
+		random_country = {
+			limit = {
+				tag = THIS
+				NOT = { has_leader = "Julius von Haynau" }
+			}
+			define_general = {
+				name = "Julius von Haynau"
+				personality = merciless
+				background = butcher
+			}
+		}
+		change_tag_no_core_switch = VEN
+		ai_chance = {
+			factor = 0
+		}
+	}
+}
+
+
+#Venice independence
+country_event = {
+	id = 202007
+	title = "EVTNAME202007" 
+	desc = "EVTDESC202007"
+	picture = "repubblica_san_marco"
+
+	fire_only_once = yes
+	
+	trigger = {
+		tag = VEN
+		war = no
+		AUS = {
+			exists = yes
+			truce_with = THIS
+			NOT = { has_country_flag = austria_let_venice_go }
+		}
+		has_global_flag = venetian_insurrection_occurred
+	}
+
+	mean_time_to_happen = {
+		days = 5
+	}
+
+	option = {
+		name = "Spread your wings, my beloved lion!"
+		prestige = 10
+		any_pop = {
+			limit = { is_primary_culture = yes }
+			militancy = -8
+			consciousness = -5
+		}
+	}
+}
+
+#Venetismo or Italianita
+country_event = {
+	id = 202008
+	title = "EVTNAME202008" 
+	desc = "EVTDESC202008"
+	picture = "repubblica_san_marco"
+
+	fire_only_once = yes
+	
+	trigger = {
+		tag = VEN
+		war = no
+		AUS = {
+			exists = yes
+			truce_with = THIS
+			NOT = { has_country_flag = austria_let_venice_go }
+		}
+		has_global_flag = venetian_insurrection_occurred
+		SAR = {
+			owns = 727
+			has_country_flag = first_war_of_italian_independence_intervention
+			war = no
+		}
+		NOT = {  has_global_flag = first_war_of_italian_independence_lost }
+	}
+
+	mean_time_to_happen = {
+		months = 6
+	}
+
+	option = {
+		name = "We are Italians!"
+		any_owned = {
+			  secede_province = SAR
+		}
+		ai_chance = {
+			factor = 20
+		}
+	}
+	option = {
+		name = "We are Italian, and we will consider an annexation."
+		set_country_flag = we_are_italian
+		all_core = { add_core = ITA }
+		any_pop = {
+			limit = {
+				OR = {
+					has_pop_culture = north_italian
+					has_pop_culture = south_italian
+				}
+			}
+			militancy = -4
+		}
+		random_country = {
+			limit = {
+				is_culture_group = italian
+				is_greater_power = yes
+				NOT = {
+					any_greater_power = {
+						NOT = { is_culture_group = italian }
+						is_sphere_leader_of = THIS
+					}
+				}
+			}
+			diplomatic_influence = {
+				who = THIS
+				value = 100
+			}
+		}
+		random_country = {
+			limit = {
+				is_culture_group = italian
+				is_greater_power = yes
+				any_greater_power = {
+					NOT = { is_culture_group = italian }
+					is_sphere_leader_of = THIS
+				}
+			}
+			diplomatic_influence = {
+				who = THIS
+				value = 200
+			}
+		}
+		any_country = {
+			limit = {
+				is_culture_group = italian
+			}
+			relation = {
+				who = THIS
+				value = 100
+			}
+		}
+		ai_chance = {
+			factor = 50
+		}
+	}
+	option = {
+		name = "We are Venetians!"
+		prestige = 10
+		any_pop = {
+			limit = {
+				OR = {
+					has_pop_culture = north_italian
+					has_pop_culture = south_italian
+				}
+			}
+			militancy = 4
+			consciousness = 4
+		}
+		any_owned = {
+			limit = { is_core = ITA }
+			remove_core = ITA
+		}
+		set_country_flag = does_not_want_to_be_unified
+		ai_chance = {
+			factor = 30
+		}
+	}
+}
+
+###############################
+# End of the Independence War #
+###############################
+
+
+#Italian war of Independence won
+country_event = {
+	id = 202019
+	title = "EVTNAME202019" 
+	desc = "EVTDESC202019"
+	picture = "italian_war_of_independence_won"
+
+	fire_only_once = yes
+	
+	trigger = {
+		tag = SAR
+		war = no
+		OR = { 
+			AUS = {
+				exists = yes
+				truce_with = THIS
+				NOT = { has_country_flag = austria_let_milan_go }
+			}
+			KUK = {
+				exists = yes
+				truce_with = THIS
+				NOT = { has_country_flag = austria_let_milan_go }
+			}
+		}
+		has_global_flag = venetian_insurrection_occurred
+		has_global_flag = five_days_of_milan_occurred
+		has_country_flag = first_war_of_italian_independence_intervention
+		owns = 726
+		owns = 727
+		owns = 728
+	}
+
+	mean_time_to_happen = {
+		days = 2
+	}
+
+	option = {
+		name = "We have shown the world the heroism of the Italian people!"
+		set_global_flag = first_war_of_italian_independence_won
+		prestige = 15
+		726 = { add_core = THIS }
+		727 = { add_core = THIS }
+		728 = { add_core = THIS }
+		any_pop = {
+			limit = { is_primary_culture = yes }
+			militancy = -5
+		}
+	}
+}
+
+#Italian war of Independence White peace (for Austria)
+country_event = {
+	id = 202020
+	title = "EVTNAME202020" 
+	desc = "EVTDESC202020"
+	picture = "italian_war_of_independence_won"
+
+	fire_only_once = yes
+
+	trigger = {
+		war = no
+		OR = {  
+			tag = KUK
+			tag = AUS
+		}
+		has_global_flag = venetian_insurrection_occurred
+		has_global_flag = five_days_of_milan_occurred
+		SAR = { has_country_flag = first_war_of_italian_independence_intervention }
+		truce_with = SAR
+		owns = 727
+		owns = 728
+		NOT = { owns = 726 }
+	}
+
+	mean_time_to_happen = {
+		days = 5
+	}
+
+	option = {
+		name = "Claim Milan!"
+		SAR = { country_event = 202021 }
+		set_global_flag = first_war_of_italian_independence_lost
+	}
+}
+
+#Italian war of Independence White peace (for Sardinia)
+country_event = {
+	id = 202021
+	title = "EVTNAME202020" 
+	desc = "EVTDESC202021"
+	picture = "italian_war_of_independence_won"
+
+	is_triggered_only = yes
+
+	option = {
+		name = "Milan is Austrian territory."
+		prestige = -5
+		badboy = -1
+		FROM = { country_event = 202023 }
+		ai_chance = {
+			factor = 85
+		}
+	}
+	option = {
+		name = "Milan is Sardinian territory."
+		prestige = 5
+		badboy = 5
+		relation = {
+			who = FROM
+			value = -200
+		}
+		any_country = {
+			limit = {
+				is_greater_power = yes
+			}
+			relation = {
+				who = THIS
+				value = -100
+			}
+		}
+		FROM = { country_event = 202022 }
+		ai_chance = {
+			factor = 15
+		}
+	}
+}
+
+#Sardinia stays stubborn
+country_event = {
+	id = 202022
+	title = "EVTNAME202022" 
+	desc = "EVTDESC202022"
+	picture = "italian_war_of_independence_won"
+
+	is_triggered_only = yes
+
+	option = {
+		name = "These Sardinians are clearly mad!"
+		prestige = -5
+		casus_belli = {
+			target = SAR
+			type = acquire_state
+			months = 36
+		}
+		relation = {
+			who = FROM
+			value = -200
+		}
+	}
+}
+
+# An honourful agreement
+country_event = {
+	id = 202023
+	title = "EVTNAME202004" 
+	desc = "EVTDESC202004"
+	picture = "italian_war_of_independence_won"
+	major = yes
+	
+	is_triggered_only = yes
+
+	option = {
+		name = "This treaty is in our interest."
+		prestige = 10
+		726 = { secede_province = THIS }
+		any_pop = {
+			limit = {
+				has_pop_culture = north_italian
+			}
+			militancy = -5
+			consciousness = -5
+		}
+	}
+}
+
+#Italian war of Independence lost (Consequences)
+country_event = {
+	id = 202024
+	title = "EVTNAME202024" 
+	desc = "EVTDESC202024"
+	picture = "italian_war_of_independence_won"
+
+	fire_only_once = yes
+	trigger = {
+		tag = SAR
+		war = no
+		has_global_flag = five_days_of_milan_occurred
+		has_global_flag = first_war_of_italian_independence_lost
+		has_country_flag = first_war_of_italian_independence_intervention
+	}
+
+	mean_time_to_happen = {
+		days = 7
+	}
+
+	option = {
+		name = "We need a change in our politics."
+		prestige = -5
+		any_pop = {
+			scaled_militancy = {
+				ideology = liberal
+				factor = -8
+			}
+			scaled_consciousness = {
+				ideology = liberal
+				factor = -2
+			}
+		}
+		upper_house = {
+			ideology = liberal
+			value = 0.20
+		} 
+		rich_strata = {
+			ideology = {
+				value = liberal
+				factor = 0.05
+			}
+		}
+		ai_chance = {
+			factor = 90
+		}
+	}
+	option = {
+		name = "The crown never failed and will never fail."
+		prestige = -20
+		badboy = 2
+		any_pop = {
+			scaled_consciousness = {
+				ideology = liberal
+				factor = 6
+			}
+			scaled_consciousness = {
+				ideology = reactionary
+				factor = -4
+			}
+			scaled_consciousness = {
+				ideology = conservative
+				factor = -2
+			}
+			scaled_militancy = {
+				ideology = liberal
+				factor = 6
+			}
+			scaled_militancy = {
+				ideology = reactionary
+				factor = -4
+			}
+			scaled_militancy = {
+				ideology = conservative
+				factor = -2
+			}
+		}
+		ai_chance = {
+			factor = 10
+		}
+	}
+}
+
+country_event = {
+	id = 188165
+	title = "EVTNAME188165"
+	desc = "EVTDESC188165"
+	picture = "sicilian_revolution"
+
+	trigger = {
+		tag = SIC
+		OR = {
+			government = absolute_monarchy
+			government = prussian_constitutionalism
+		}
+		has_country_modifier = springtime_of_nations
+		any_owned_province = {
+			is_core = SCY 
+			OR = {
+				average_militancy = 4
+				controlled_by = REB
+			}
+		}
+	}
+		
+	fire_only_once = yes
+
+	mean_time_to_happen = { months = 1 }
+
+	option = {
+		name = "Attack!"
+		release = SCY
+		SCY = {
+			government = democracy
+			ruling_party_ideology = liberal
+			political_reform = population_equal_weight
+			political_reform = universal_weighted_voting
+			political_reform = yes_meeting
+			political_reform = free_press
+			political_reform = no_trade_unions
+			political_reform = first_past_the_post
+			political_reform = non_secret_ballots
+			clr_country_flag = tory_election_win
+			clr_country_flag = socialist_election_win
+			set_country_flag = liberal_election_win
+			clr_country_flag = communist_election_win
+			clr_country_flag = fascist_election_win
+			clr_country_flag = reactionary_election_win
+			clr_country_flag = anarcho_liberal_election_win
+			any_pop = {
+				militancy = -6
+			}
+			leadership = 25
+		}
+		relation = { who = SCY value = -400 }
+		diplomatic_influence = { who = SCY value = -400 }
+		war = {
+			target = SCY
+			attacker_goal = { casus_belli = annex_core_country }	
+		}
+		ai_chance = {
+			factor = 95
+		}
+	}
+	
+	option = {
+		name = "Let them go."
+		prestige = -20
+		release = SCY
+		SCY = {
+			government = democracy
+			ruling_party_ideology = liberal
+			political_reform = population_equal_weight
+			political_reform = universal_weighted_voting
+			political_reform = yes_meeting
+			political_reform = free_press
+			political_reform = no_trade_unions
+			political_reform = first_past_the_post
+			political_reform = non_secret_ballots
+			clr_country_flag = tory_election_win
+			clr_country_flag = socialist_election_win
+			set_country_flag = liberal_election_win
+			clr_country_flag = communist_election_win
+			clr_country_flag = fascist_election_win
+			clr_country_flag = reactionary_election_win
+			clr_country_flag = anarcho_liberal_election_win
+			any_pop = {
+				militancy = -6
+			}
+		}
+		SCY = {	
+			all_core = {
+				remove_core = SIC
+			}
+		}
+		ai_chance = {
+			factor = 5
+		}
+	}
+		
+	option = {
+		name = "Long live Sicily!"
+		release = SCY
+		SCY = {
+			government = democracy
+			ruling_party_ideology = liberal
+			political_reform = population_equal_weight
+			political_reform = universal_weighted_voting
+			political_reform = yes_meeting
+			political_reform = free_press
+			political_reform = no_trade_unions
+			political_reform = first_past_the_post
+			political_reform = non_secret_ballots
+			clr_country_flag = tory_election_win
+			clr_country_flag = socialist_election_win
+			set_country_flag = liberal_election_win
+			clr_country_flag = communist_election_win
+			clr_country_flag = fascist_election_win
+			clr_country_flag = reactionary_election_win
+			clr_country_flag = anarcho_liberal_election_win
+			any_pop = {
+				militancy = -6
+			}
+			leadership = 25
+		}
+		relation = { who = SCY value = -400 }
+		diplomatic_influence = { who = SCY value = -400 }
+		war = {
+			target = SCY
+			attacker_goal = { casus_belli = annex_core_country }	
+		}
+		change_tag_no_core_switch = SCY
+		ai_chance = {
+			factor = 0
+		}
+	}
+}
+
+country_event = {
+	id = 188190
+	title = "EVTNAME188190"
+	desc = "EVTDESC188190"
+	picture = "treaty"
+
+	is_triggered_only = yes
+
+	option = {
+		name = "We agree."
+		prestige = 20
+		badboy = -2
+		treasury = -500000
+		FROM = { prestige = -25 }
+		734 = {
+			secede_province = THIS
+			change_province_name = "Trento"
+		}
+		736 = { secede_province = THIS }
+		737 = { secede_province = THIS }
+		random_country = {
+			limit = {
+				tag = ALB
+				exists = yes
+				in_sphere = FROM
+			}
+			diplomatic_influence = {
+				who = FROM
+				value = -200
+			}
+			diplomatic_influence = {
+				who = THIS
+				value = 400
+			}
+		}
+		relation = {
+			who = FROM
+			value = 400
+		}
+		create_alliance = FROM
+		ai_chance = {
+			factor = 15
+		}
+	}
+
+	option = {
+		name = "We refuse."
+		any_pop = {
+			limit = { is_culture_group = italian }
+			dominant_issue = {
+				factor = 0.1
+				value = jingoism
+			}
+			scaled_militancy = {
+				issue = jingoism
+				factor = 4
+			}
+		}
+		FROM = { country_event = 188241 }
+		ai_chance = {
+			factor = 85
+		}
+	}
+}
+
+country_event = {
+	id = 188241
+	title = "EVTNAME188190"
+	desc = "EVTDESC188241"
+	picture = "treaty"
+
+	is_triggered_only = yes
+
+	option = {
+		name = "Fine, whatever."
+		734 = { add_core = THIS }
+		736 = { add_core = THIS }
+		737 = { add_core = THIS }
+		relation = {
+			who = FROM
+			value = -50
+		}
+		any_pop = {
+			limit = { is_culture_group = italian }
+			militancy = 2
+			consciousness = 2
+		}
+	}
+}

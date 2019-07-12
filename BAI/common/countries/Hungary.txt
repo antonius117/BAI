@@ -1,0 +1,259 @@
+color = { 152  85  92 }
+graphical_culture = AustriaHungaryGC
+
+party = {
+	name = "HUN_liberal"
+	start_date = 1830.1.1
+	end_date = 1875.1.1
+
+	ideology = liberal
+
+	economic_policy = laissez_faire
+	trade_policy = protectionism
+	religious_policy = pluralism
+	citizenship_policy = limited_citizenship
+	war_policy = pro_military
+}
+
+party = {
+	name = "HUN_anarcho_liberal"
+	start_date = 1830.1.1
+	end_date = 2000.1.1
+
+	ideology = anarcho_liberal
+
+	economic_policy = laissez_faire
+	trade_policy = protectionism
+	religious_policy = moralism
+	citizenship_policy = residency
+	war_policy = pro_military
+}
+
+party = {
+	name = "HUN_liberal_2"
+	start_date = 1875.1.1
+	end_date = 2000.1.1
+
+	ideology = liberal
+
+	economic_policy = laissez_faire
+	trade_policy = protectionism
+	religious_policy = moralism
+	citizenship_policy = limited_citizenship
+	war_policy = pro_military
+}
+
+party = {
+	name = "HUN_conservative"
+	start_date = 1830.1.1
+	end_date = 2000.1.1
+
+	ideology = conservative
+
+	economic_policy = interventionism
+	trade_policy = protectionism
+	religious_policy = moralism
+	citizenship_policy = residency
+	war_policy = anti_military
+}
+
+party = {
+	name = "HUN_reactionary"
+	start_date = 1830.1.1
+	end_date = 1881.1.1
+
+	ideology = reactionary
+
+	economic_policy = state_capitalism
+	trade_policy = protectionism
+	religious_policy = pluralism
+	citizenship_policy = residency
+	war_policy = anti_military
+}
+
+party = {
+	name = "HUN_socialist"
+	start_date = 1848.1.1
+	end_date = 1890.1.1
+
+	ideology = socialist
+
+	economic_policy = state_capitalism
+	trade_policy = protectionism
+	religious_policy = secularized
+	citizenship_policy = limited_citizenship
+	war_policy = anti_military
+}
+
+party = {
+	name = "HUN_socialist_2"
+	start_date = 1890.1.1
+	end_date = 2000.1.1
+
+	ideology = socialist
+
+	economic_policy = state_capitalism
+	trade_policy = protectionism
+	religious_policy = secularized
+	citizenship_policy = limited_citizenship
+	war_policy = anti_military
+}
+
+party = {
+	name = "HUN_socialist_3"
+	start_date = 1900.1.1
+	end_date = 2000.1.1
+
+	ideology = socialist
+
+	economic_policy = state_capitalism
+	trade_policy = protectionism
+	religious_policy = secularized
+	citizenship_policy = full_citizenship
+	war_policy = anti_military
+}
+
+party = {
+	name = "HUN_socialist_4"
+	start_date = 1909.1.1
+	end_date = 2000.1.1
+
+	ideology = socialist
+
+	economic_policy = interventionism
+	trade_policy = protectionism
+	religious_policy = secularized
+	citizenship_policy = limited_citizenship
+	war_policy = pro_military
+}
+
+party = {
+	name = "HUN_liberal_3"
+	start_date = 1914.1.1
+	end_date = 2000.1.1
+
+	ideology = liberal
+
+	economic_policy = interventionism
+	trade_policy = protectionism
+	religious_policy = secularized
+	citizenship_policy = limited_citizenship
+	war_policy = pacifism
+}
+
+party = {
+	name = "HUN_communist"
+	start_date = 1848.1.1
+	end_date = 2000.1.1
+
+	ideology = communist
+
+	economic_policy = planned_economy
+	trade_policy = protectionism
+	religious_policy = pro_atheism
+	citizenship_policy = full_citizenship
+	war_policy = jingoism
+}
+
+party = {
+	name = "HUN_conservative_2"
+	start_date = 1895.1.1
+	end_date = 2000.1.1
+
+	ideology = conservative
+
+	economic_policy = interventionism
+	trade_policy = protectionism
+	religious_policy = moralism
+	citizenship_policy = limited_citizenship
+	war_policy = pro_military
+}
+
+party = {
+	name = "HUN_conservative_3"
+	start_date = 1881.1.1
+	end_date = 2000.1.1
+
+	ideology = conservative
+
+	economic_policy = interventionism
+	trade_policy = protectionism
+	religious_policy = pluralism
+	citizenship_policy = full_citizenship
+	war_policy = anti_military
+}
+
+party = {
+	name = "HUN_conservative_4"
+	start_date = 1881.1.1
+	end_date = 2000.1.1
+
+	ideology = conservative
+
+	economic_policy = interventionism
+	trade_policy = protectionism
+	religious_policy = pluralism
+	citizenship_policy = limited_citizenship
+	war_policy = anti_military
+}
+
+party = {
+	name = "HUN_reactionary_2"
+	start_date = 1881.1.1
+	end_date = 2000.1.1
+
+	ideology = reactionary
+
+	economic_policy = laissez_faire
+	trade_policy = protectionism
+	religious_policy = pluralism
+	citizenship_policy = residency
+	war_policy = anti_military
+}
+
+party = {
+	name = "HUN_fascist"
+	start_date = 1900.1.1
+	end_date = 2000.1.1
+
+	ideology = fascist
+
+	economic_policy = state_capitalism
+	trade_policy = protectionism
+	religious_policy = moralism
+	citizenship_policy = residency
+	war_policy = jingoism
+}
+
+unit_names = {
+	dreadnought = {
+		"Szent István" "Szent László" "Szent Imre" Árpád "Hunyadi Mátyás" "Nagy Lajos" "Károly Róbert"
+	}
+	battleship = {
+		Zrínyi Álmos "Hunyadi János" Lehel Csaba "II. Rákóczi Ferenc" "Kinizsi Pál" Botond Géza
+	}
+	ironclad = {
+		Balaton Csepel Tátra Uzsok Maros Lajta Dukla Lika Körös Temes Bodrog Szamos Hargita	
+	}
+	manowar = {
+		"Szent István" "Szent László" "Szent Imre" Árpád "Hunyadi Mátyás" "Nagy Lajos" "Károly Róbert" Zrínyi Álmos "Hunyadi János" Lehel Csaba "II. Rákóczi Ferenc" "Kinizsi Pál" Botond Géza	
+	}
+	cruiser = {
+		Novara Budapest Zenta Szigetvár Kolozsvár Nándorfehérvár Eger Mohács Köszeg Komárom	
+	}
+	frigate = {
+		Balaton Csepel Tátra Uzsok Maros Lajta Dukla Lika Körös Temes Bodrog Szamos Hargita Novara Budapest Zenta Szigetvár Kolozsvár Nándorfehérvár Eger Mohács Köszeg Komárom
+	}
+	monitor = {
+		Kígyó Csikós Huszár Pandúr Réka Turul Fogas Csuka Siófok Sopron Baja Györ
+	}
+	clipper_transport = {
+		"1. Tengeri Szállítóhajóraj" "2. Tengeri Szállítóhajóraj" "3. Tengeri Szállítóhajóraj" "4. Tengeri Szállítóhajóraj" "5. Tengeri Szállítóhajóraj" "6. Tengeri Szállítóhajóraj" "7. Tengeri Szállítóhajóraj" "8. Tengeri Szállítóhajóraj" "9. Tengeri Szállítóhajóraj" "10. Tengeri Szállítóhajóraj" "11. Tengeri Szállítóhajóraj" "12. Tengeri Szállítóhajóraj" "13. Tengeri Szállítóhajóraj" "14. Tengeri Szállítóhajóraj" "15. Tengeri Szállítóhajóraj" "16. Tengeri Szállítóhajóraj" "17. Tengeri Szállítóhajóraj" "18. Tengeri Szállítóhajóraj" "19. Tengeri Szállítóhajóraj" "20. Tengeri Szállítóhajóraj" 
+	}
+	steam_transport = {
+		"1. Tengeri Szállítóhajóraj" "2. Tengeri Szállítóhajóraj" "3. Tengeri Szállítóhajóraj" "4. Tengeri Szállítóhajóraj" "5. Tengeri Szállítóhajóraj" "6. Tengeri Szállítóhajóraj" "7. Tengeri Szállítóhajóraj" "8. Tengeri Szállítóhajóraj" "9. Tengeri Szállítóhajóraj" "10. Tengeri Szállítóhajóraj" "11. Tengeri Szállítóhajóraj" "12. Tengeri Szállítóhajóraj" "13. Tengeri Szállítóhajóraj" "14. Tengeri Szállítóhajóraj" "15. Tengeri Szállítóhajóraj" "16. Tengeri Szállítóhajóraj" "17. Tengeri Szállítóhajóraj" "18. Tengeri Szállítóhajóraj" "19. Tengeri Szállítóhajóraj" "20. Tengeri Szállítóhajóraj" 
+	}
+	commerce_raider = {
+		Kígyó Csikós Huszár Pandúr Réka Turul Fogas Csuka Siófok Sopron Baja Györ
+	}
+}

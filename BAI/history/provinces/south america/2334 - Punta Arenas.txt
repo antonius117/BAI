@@ -1,0 +1,7 @@
+trade_goods = wool
+life_rating = 15
+colonial = 2
+1860.1.1 = {
+	owner = CHL
+	controller = CHL
+}

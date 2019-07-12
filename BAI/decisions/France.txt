@@ -1,0 +1,626 @@
+political_decisions = {
+	liberty_enlightening_the_world = {
+		potential = {
+			NOT = {
+				has_global_flag = statue_of_liberty_has_been_built
+			}
+			tag = FRA
+			exists = FRA
+			exists = USA
+			USA = {
+				government = democracy
+				owns = 232
+			}
+			FRA = {
+				OR = {
+					government = hms_government
+					government = democracy
+				}
+			}	
+			year = 1850
+		}
+	
+		allow = {
+			cheap_steel = 1
+			USA = { slavery = no_slavery }
+		}
+	
+		effect = {
+			set_global_flag = statue_of_liberty_has_been_built
+			any_pop = {
+				militancy = -0.5
+			}
+			relation = {
+				who = USA
+				value = 50
+			}
+			USA = {
+				country_event = { id=19300 days=0 }
+			}
+		}
+		ai_will_do = {
+			factor = 1
+			modifier = {
+				factor = 0
+				NOT = {
+					relation = {
+						who = USA
+						value = -10
+					}
+				}
+			}
+		}
+	}
+	support_french_foreign_legion = {
+		potential = {
+			tag = FRA
+			owns = 1700
+			NOT = {
+				has_country_flag = french_foreign_legion_supported
+			}
+		}
+		allow = {
+			army_professionalism = 1
+		}
+		effect = {
+			add_country_modifier = {
+				name = the_french_foreign_legion
+				duration = -1
+			}
+			set_country_flag = french_foreign_legion_supported
+		}
+	}
+	
+	french_military_mission_to_japan = {
+		potential = {
+			tag = FRA
+			OR = {
+				AND = {
+					exists = JAP
+					JAP = { civilized = no }
+				}
+				AND = {
+					exists = TKG
+					TKG = { civilized = no }
+				}
+			}
+			NOT = {
+				has_country_flag = military_mission_in_japan
+			}
+		}
+		
+		allow = {
+			nationalism_n_imperialism = 1
+			NOT = { war_with = JAP }
+			NOT = { truce_with = JAP }
+			NOT = { war_with = TKG }
+			NOT = { truce_with = TKG }
+		}
+		
+		effect = {
+			random_country = {
+				limit = {
+					OR = {
+						tag = JAP
+						tag = TKG
+					}
+					exists = yes
+				}
+				relation = { who = FRA value = 50 }
+				years_of_research = 0.2
+			}
+			prestige = 20
+			set_country_flag = military_mission_in_japan
+		}
+	}
+	
+	palais_garnier = {
+		potential = {
+			NOT = {
+				has_country_flag = palais_garnier_built
+			}
+			tag = FRA
+			owns = 425
+		}
+		
+		allow = {
+			expressionism = 1
+		}
+		
+		effect = {
+			prestige = 10
+			set_country_flag = palais_garnier_built
+		}
+	}
+	
+	the_lambert_charter = {
+		potential = {
+			NOT = {
+				has_country_flag = lambert_has_been_chartered
+			}
+			tag = FRA
+			exists = MAD
+		}
+		
+		allow = {
+			is_greater_power = yes
+			state_n_government = 1
+			MAD = {
+				civilized = no
+				OR = {
+					in_sphere = FRA
+					part_of_sphere = no
+				}
+			}
+		}
+		
+		effect = {
+			random_country = {
+				limit = {
+					NOT = { tag = THIS }
+					is_sphere_leader_of = MAD
+				}
+				diplomatic_influence = { who = MAD value = -150 }
+			}
+			diplomatic_influence = {
+				who = MAD
+				value = 150
+			}
+			set_country_flag = lambert_has_been_chartered
+		}
+	}
+	
+	end_the_merina_monarchy = {
+		potential = {
+			has_global_flag = berlin_conference
+			is_greater_power = yes
+			capital_scope = { continent = europe }
+			NOT = { has_global_flag = merina_monarchy_is_over }
+			NOT = { has_global_flag = madagascar_organized }
+			any_owned_province = { port = yes }
+			MAD = {
+				exists = yes
+				civilized = no
+			}
+		}
+		
+		allow = {
+			MAD = {
+				in_sphere = THIS
+				war = no
+			}
+			nationalism_n_imperialism = 1
+			invention = mission_to_civilize
+			war = no
+		}
+		
+		effect = {
+			set_global_flag = merina_monarchy_is_over
+			MAD = { country_event = 95505 }
+		}
+	}
+	
+	brazzas_expedition = {
+		potential = {
+			tag = FRA
+			invention = mission_to_civilize
+			is_greater_power = yes
+			LOA = {
+				ai = yes
+				owns = 1977
+				part_of_sphere = no
+			}
+			NOT = { has_country_flag = brazzas_expedition }
+		}
+		
+		allow = {
+			invention = colonial_negotiations
+			nationalism_n_imperialism = 1
+		}
+		
+		effect = {
+			set_country_flag = brazzas_expedition
+			prestige = 5
+			diplomatic_influence = { who = LOA value = 200 }
+			relation = { who = LOA value = 200 }
+		}
+	}
+	
+	the_rhine_crisis = {
+		potential = {
+			tag = FRA
+			exists = PRU
+			RHI = { exists = no }
+			PRU = {
+				owns = 572
+				owns = 575
+			}
+			NOT = {
+				has_country_flag = crisis_on_the_rhine
+			}
+		}
+		
+		allow = {
+			NOT = {
+				war_with = PRU
+				truce_with = PRU
+			}
+			state_n_government = 1
+		}
+		
+		effect = {
+			any_country = {
+				limit = {
+					OR = {
+						primary_culture = north_german
+						primary_culture = south_german
+					}
+				}
+				relation = {
+					who = THIS
+					value = -125
+				}
+			}
+			prestige = 10
+			set_country_flag = crisis_on_the_rhine
+			country_event = 37240
+		}
+		ai_will_do = {
+			factor = 1
+			modifier = {
+				factor = 0
+				badboy = 0.5
+			}
+		}
+	}
+	
+	build_the_eiffel_tower = {
+		potential = {
+			tag = FRA
+			NOT = {
+				has_country_flag = the_eiffel_tower_was_built
+			}
+			has_country_flag = world_fair_planner
+		}
+		
+		allow = {
+			cheap_steel = 1
+			money = 5000
+		}
+		
+		effect = {
+			425 = {
+				add_province_modifier = {
+					name = the_eiffel_tower
+					duration = -1
+				}
+			}
+			prestige = 20
+			set_country_flag = the_eiffel_tower_was_built
+		}
+	}
+	
+	haussmanns_renovations = {
+		potential = {
+			tag = FRA
+			owns = 425
+			NOT = {
+				has_country_flag = extreme_home_makeover
+			}
+			OR = {
+				realism = 1
+				early_railroad = 1
+			}
+		}
+		
+		allow = {
+			impressionism = 1
+			iron_railroad = 1
+			business_banks = 1
+		}
+		
+		effect = {
+			425 = {
+				life_rating = 5
+			}
+			prestige = 10
+			set_country_flag = extreme_home_makeover
+		}
+	}
+	
+	annex_mayotte = {
+		picture = dreams_of_empire
+		potential = {
+			tag = FRA
+			is_greater_power = yes
+			2124 = { empty = yes }
+		}
+		
+		allow = {
+			war = no
+			medicine = 1
+		}
+		
+		effect = {
+			prestige = 3
+			2124 = {
+				secede_province = FRA
+				change_province_name = "Mayotte"
+			}
+		}
+	}
+	
+	claim_savoy = {
+		picture = form_italy
+		potential = {
+			tag = FRA
+			is_greater_power = yes
+			NOT = {
+				465 = { is_core = FRA }
+				has_global_flag = plombieres_refused
+				has_country_flag = claimed_savoy
+			}
+		}
+		
+		allow = {
+			OR = {
+				war_policy = jingoism
+				war_policy = pro_military
+			}
+			NOT = {
+				has_country_modifier = punitive_effects
+				has_country_modifier = no_more_war
+			}
+			OR = {
+				OR = {
+					ITA = {
+						exists = yes
+						NOT = { in_sphere = FRA }
+					}
+					ITP = {
+						exists = yes
+						NOT = { in_sphere = FRA }
+					}
+				}
+				SAR_466 = {
+					owned_by = THIS
+				}
+			}
+		}
+		
+		effect = {
+			set_country_flag = claimed_savoy
+			badboy = 6
+			465 = { add_core = FRA }
+			466 = { add_core = FRA }
+			472 = { add_core = FRA }
+			random_country = {
+				limit = {
+					owns = 465
+					NOT = { tag = FRA }
+				}
+				leave_alliance = THIS
+				relation = { who = THIS value = -100 }
+			}
+		}
+	}
+	
+	annex_new_caledonia = {
+		picture = dreams_of_empire
+		potential = {
+			tag = FRA
+			is_greater_power = yes
+			state_n_government = 1
+			1097 = { empty = yes }
+			OR = {
+				government = hms_government
+				government = prussian_constitutionalism
+				government = absolute_monarchy
+			}
+		}
+		
+		allow = {
+			war = no
+			nationalism_n_imperialism = 1
+		}
+		
+		effect = {
+			prestige = 3
+			1097 = { secede_province = FRA }
+			add_country_modifier = {
+				name = penal_colonies
+				duration = -1
+			}
+		}
+	}
+	
+	embrace_wallonians = {
+		picture = embrace_minority
+		potential = {
+			tag = FRA
+			is_greater_power = yes
+			any_owned_province = {
+				is_core = WLL
+			}
+			NOT = {
+				has_country_flag = embraced_wallonians
+				has_country_flag = enacted_french_schooling
+			}
+		}
+		
+		allow = {
+			war = no
+			state_n_government = 1
+			is_greater_power = yes
+			any_owned_province = {
+				is_core = WLL
+			}
+		}
+		
+		effect = {
+			set_country_flag = embraced_wallonians
+			add_accepted_culture = wallonian
+			badboy = 2
+			any_pop = {
+				limit = { has_pop_culture = wallonian }
+				consciousness = 4
+				militancy = 4
+			}
+			random_country = {
+				limit = {
+					OR = {
+						tag = BEL
+						tag = WLL
+						tag = FLA
+					}
+					exists = yes
+				}
+				relation = { who = FRA value = -150 }
+			}
+		}
+	}
+
+	french_language_schooling = {
+		picture = embrace_minority
+		potential = {
+			tag = FRA
+			any_owned_province = { is_core = BRT }
+			BRT = { exists = no }
+			any_owned_province = { is_core = OCC }
+			OCC = { exists = no }
+			any_owned_province = { is_core = PIC }
+			PIC = { exists = no }
+			NOT = {
+				has_country_flag = enacted_french_schooling
+			}
+		}
+		
+		allow = {
+			war = no
+			invention = biased_multiculturalism
+			invention = social_darwinism
+			NOT = {
+				school_reforms = no_schools
+			}
+		}
+		
+		effect = {
+			set_country_flag = enacted_french_schooling
+			remove_accepted_culture = occitan
+			remove_accepted_culture = picard
+			remove_accepted_culture = wallonian
+			remove_accepted_culture = breton
+			any_owned = {
+				limit = {
+					OR = {
+						is_core = OCC
+						is_core = BRT
+						is_core = PIC
+						culture = picard
+					}
+				}
+				add_province_modifier = {
+					name = french_cultural_unity
+					duration = -1
+				}
+			}
+			OCC = { all_core = { remove_core = OCC } }
+			PIC = { all_core = { remove_core = PIC } }
+			random_owned = {
+				limit = {
+					WLL = { exists = no }
+					BEL = { exists = no }
+					BEL_394 = {
+						owned_by = FRA
+					}
+				}
+				WLL = {
+					all_core = {
+						add_province_modifier = {
+							name = french_cultural_unity
+							duration = -1
+						}
+					}
+					all_core = {
+						limit = {
+							NOT = { culture = wallonian }
+						}
+						remove_core = WLL
+					}
+				}
+			}
+			random_owned = {
+				limit = {
+					BRT = { exists = no }
+				}
+				BRT = {
+					all_core = {
+						limit = {
+							NOT = { culture = breton }
+						}
+						remove_core = BRT
+					}
+				}
+			}
+		}
+	}
+	
+	st_barths_question = {
+		picture = map_caribbean
+		potential = {
+			tag = FRA
+			NOT = { owns = 3246 }
+			NOT = { has_country_flag = st_barths_referendum }
+			revolution_n_counterrevolution = 1
+		}
+		
+		allow = {
+			war = no
+			revolution_n_counterrevolution = 1
+			3246 = { owner = { NOT = { truce_with = THIS } relation = { who = THIS value = 0 } } }
+			money = 55000
+		}
+		
+		effect = {
+			set_country_flag = st_barths_referendum
+			3246 = { owner = { country_event = 36623 } }
+		}
+		ai_will_do = { factor = 1 }
+	}
+	tunisian_colony = {
+		picture = dreams_of_empire
+		potential = {
+			TUN = { exists = yes civilized = no ai = yes } 
+			is_greater_power = yes
+			is_sphere_leader_of = TUN
+			NOT = { is_our_vassal = TUN }
+		}
+		
+		allow = {
+			war = no
+			nationalism_n_imperialism = 1
+			year = 1870
+			TUN = { NOT = { money = 3000 } }
+		}
+		
+		effect = {
+			badboy = 2
+			diplomatic_influence = { who = TUN value = -400 }
+			relation = { who = TUN value = -400 }
+			leave_alliance = TUN
+			end_military_access = TUN
+			TUN = { end_military_access = THIS }
+			any_country = { 
+				limit = { is_our_vassal = TUN }
+				release_vassal = TUN
+				casus_belli = { target = THIS type = free_peoples months = 40 }
+				casus_belli = { target = TUN type = make_puppet months = 40 }
+			}
+			war = { target = TUN attacker_goal = { casus_belli = conquest_any } defender_goal = { casus_belli = status_quo } }
+		}
+		ai_will_do = {
+			factor = 1
+			modifier = { factor = 0 badboy = 0.92 }
+		}
+	}
+}

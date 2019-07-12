@@ -1,0 +1,125 @@
+country_event = {
+
+	id = 31100
+	news = yes
+	news_desc_long = "EVTDESC31100_NEWS_LONG"
+	news_desc_medium = "EVTDESC31100_NEWS_MEDIUM"
+	news_desc_short = "EVTDESC31100_NEWS_SHORT"
+
+	trigger = {
+		year = 1872
+		owns = 865 #Canakkale, where Troy is located
+		NOT = {
+			year = 1875
+		}	
+	}
+	
+	fire_only_once = yes
+ 
+	mean_time_to_happen =  {
+		months = 5
+
+		modifier = {
+			factor = 0.75 #increase likelihood to happen
+			year = 1873
+		}
+
+		modifier = {
+			factor = 0.95 #increase likelihood to happen
+			year = 1874
+		}
+	}
+
+	title = "EVTNAME31100"
+	desc = "EVTDESC31100"
+	picture = "troy"
+
+	option = {
+		name = "EVTOPTA31100" 
+		prestige = 15
+	}
+}
+
+country_event = {
+	id = 31101 #setup by GER33005
+	trigger = {
+		tag = TUR 
+		war = no
+		year = 1903
+		owns = 926 #Baghdad
+		is_vassal = no
+		has_global_flag = BerlinBaghdadRail
+		OR = {
+			government = absolute_monarchy
+			government = prussian_constitutionalism
+			government = hms_government
+		}
+		NOT = {
+			year = 1910
+			alliance_with = ENG
+			alliance_with = FRA
+			alliance_with = RUS
+			has_country_flag = BerlinBaghdadRail
+		}
+	}
+	
+	fire_only_once = yes
+ 
+	mean_time_to_happen =  {
+		months = 5
+
+		modifier = {
+			factor = 0.75 #increase likelihood to happen
+			year = 1904
+		}
+
+
+		modifier = {
+			factor = 0.95 #increase likelihood to happen
+			year = 1908
+		}
+	}
+
+	title = "EVTNAME33005"
+	desc = "EVTDESC33005"
+	picture = "bagdadrailway"
+
+	option = {
+		name = "EVTOPTA31101" 
+		prestige = 10
+		set_country_flag = BerlinBaghdadRail
+		relation = { who = GER value = 100 }
+		relation = { who = ENG value = -75 }
+		relation = { who = RUS value = -75 }
+	}
+}
+
+country_event = {
+		
+	id = 31102 # Flight to Ankara
+	
+	trigger = {
+		tag = TUR
+		NOT = { is_greater_power = yes }
+		capital = 860
+		NOT = { owns = 817 }
+		NOT = { owns = 816 }
+		NOT = { owns = 830 }
+		owns = 876
+
+	}
+
+	mean_time_to_happen = {
+		months = 1
+	}
+
+	title = "EVTNAME31102" #Flight from Istanbul
+	desc = "EVTDESC31102" #Our position in Istanbul is no longer secure. We should move our government to a safer place.
+	picture = "administration"
+		
+	option = {
+		name = "EVTOPTA31102" #We have been ultimately driven from Europe...
+		prestige = -10
+		capital = 876
+	}
+}

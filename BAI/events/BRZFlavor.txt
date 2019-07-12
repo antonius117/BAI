@@ -1,0 +1,151 @@
+country_event = {
+
+	id = 46300
+	news = yes
+	news_desc_long = "EVTDESC46300_NEWS_LONG"
+	news_desc_medium = "EVTDESC46300_NEWS_MEDIUM"
+	news_desc_short = "EVTDESC46300_NEWS_SHORT"
+
+	trigger = {
+		tag = BRZ 
+		year = 1864
+		romanticism = 1 #has romanticism tech
+		slavery = yes_slavery
+		NOT = {
+			year = 1872
+		}
+	}
+	
+	fire_only_once = yes
+ 
+	mean_time_to_happen =  {
+		months = 6
+		modifier = {
+			factor = 0.85 #increase likelihood to happen
+			year = 1865
+		}
+		modifier = {
+			factor = 0.95 #increase likelihood to happen
+			year = 1867
+		}
+	}
+
+	title = "EVTNAME46300"
+	desc = "EVTDESC46300"
+	picture = "NavioNegreiro"
+
+	option = {
+		name = "EVTOPTA46300" 
+		any_pop = {
+			limit = {
+				consciousness = 4
+			}
+			dominant_issue = {
+				value = abolish_slavery
+				factor = 0.3
+			}
+		}
+		slaves = {
+			consciousness = 1
+		}
+		slaves_factory = {
+			consciousness = 1
+		}
+	}
+}
+
+country_event = {
+
+	id = 46301
+	news = yes
+	news_desc_long = "EVTDESC46301_NEWS_LONG"
+	news_desc_medium = "EVTDESC46301_NEWS_MEDIUM"
+	news_desc_short = "EVTDESC46301_NEWS_SHORT"
+
+	trigger = {
+		tag = BRZ 
+		year = 1895
+		NOT = {
+			year = 1910
+		}
+	}
+	
+	fire_only_once = yes
+ 
+	mean_time_to_happen =  {
+		months = 18
+
+		modifier = {
+			factor = 0.55 #increase likelihood to happen
+			year = 1898
+		}
+
+		modifier = {
+			factor = 0.75 #increase likelihood to happen
+			year = 1902
+		}
+	}
+
+	title = "EVTNAME46301"
+	desc = "EVTDESC46301"
+	picture = "football"
+
+	option = {
+		name = "EVTOPTA46301" 
+		set_country_flag = JogoBonito
+		prestige = 1
+		poor_strata = {
+			militancy = -2
+		}
+	}
+}
+
+province_event = {
+
+	id = 46302
+	news = yes
+	news_desc_long = "EVTDESC46302_NEWS_LONG"
+	news_desc_medium = "EVTDESC46302_NEWS_MEDIUM"
+	news_desc_short = "EVTDESC46302_NEWS_SHORT"
+
+	trigger = {
+		province_id = 2436 #Bahia
+		owned_by = BRZ 
+		year = 1837
+		owner = { slavery = yes_slavery } 
+		NOT = {
+			year = 1840
+		}
+	}
+	
+	fire_only_once = yes
+ 
+	mean_time_to_happen =  {
+		months = 18
+
+		modifier = {
+			factor = 0.75 #increase likelihood to happen
+			year = 1838
+		}
+
+		modifier = {
+			factor = 0.80 #increase likelihood to happen
+			year = 1839
+		}
+	}
+
+	title = "EVTNAME46302"
+	desc = "EVTDESC46302"
+	picture = "Slaves"
+
+	option = {
+		name = "EVTOPTA46302" 
+		set_country_flag = Sabinada
+		slaves = {
+			militancy = 6
+		}	
+		slaves_factory = {
+			militancy = 6
+		}	
+	}
+}

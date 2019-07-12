@@ -1,0 +1,3 @@
+owner = MEXcontroller = MEX
+add_core = MEXadd_core = TEXtrade_goods = cotton
+life_rating = 35colonial = 21861.1.1 = {	controller = CSA	owner = CSA	add_core = CSA	add_core = USA	remove_core = MEX	colonial = 0}

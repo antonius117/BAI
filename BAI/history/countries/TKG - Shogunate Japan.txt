@@ -1,0 +1,90 @@
+capital = 1649
+primary_culture = japanese
+religion = shinto
+government = absolute_monarchy
+plurality = 0.0
+nationalvalue = nv_tradition
+literacy = 0.40
+non_state_culture_literacy = 0.04
+
+# Political reforms
+slavery = no_slavery
+upper_house_composition = appointed
+vote_franschise = none_voting
+public_meetings = no_meeting
+press_rights = state_press
+trade_unions = no_trade_unions
+voting_system = jefferson_method
+political_parties = underground_parties
+
+# Social Reforms
+wage_reform = no_minimum_wage
+work_hours = no_work_hour_limit
+safety_regulations = no_safety
+health_care = no_health_care
+unemployment_subsidies = no_subsidies
+pensions = no_pensions
+school_reforms = no_schools
+
+ruling_party = NIP_reactionary
+upper_house = {
+	fascist = 0
+	liberal = 17
+	conservative = 35
+	reactionary = 48
+	anarcho_liberal = 0
+	socialist = 0
+	communist = 0
+}
+
+set_country_flag = existing_country
+set_country_flag = shinto_religion
+
+land_reform = yes_land_reform
+set_country_flag = land_reform
+education_reform = yes_education_reform
+set_country_flag = education_reform
+finance_reform = yes_finance_reform
+set_country_flag = finance_reform_1
+
+# Technologies
+
+# Inventions
+
+# Starting Consciousness
+consciousness = 0
+nonstate_consciousness = 0
+
+oob = "TKG_oob.txt"
+1861.1.1 = {
+	oob = "/1861/TKG_oob.txt"
+	set_country_flag = caved_to_commodore_perry
+	set_country_flag = consulted_fudai
+	set_global_flag = iemochi_shogun
+	set_country_flag = sakuradamon_incident
+	set_country_flag = ansei_purge
+	decision = kobu_gattai
+	decision = switch_to_independence
+}
+1861.1.1 = {
+
+foreign_weapons = yes_foreign_weapons
+set_country_flag = weapons_reform
+army_schools = yes_army_schools
+set_country_flag = army_schools_reform
+foreign_navies = yes_foreign_navies
+set_country_flag = navy_reform
+naval_schools = yes_naval_schools
+set_country_flag = naval_school_reform
+land_reform = yes_land_reform
+set_country_flag = land_reform
+finance_reform = finance_reform_two
+set_country_flag = finance_reform_2
+
+# Technologies
+flintlock_rifles = 1
+post_nelsonian_thought = 1
+
+# Inventions
+
+}

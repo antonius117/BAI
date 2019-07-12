@@ -1,0 +1,25 @@
+RYU = { value = 125 }
+SUL = { value = 100 }
+BRU = { value = 100 }
+USA = { value = 0 }
+
+army = {
+	name = "Imperial Guard"
+	location = 1657
+	regiment = {
+		name= "1.Guard"
+		type = cavalry
+		home = 1657
+	}
+	regiment = {
+		name= "2.Guard"
+		type = cavalry
+		home = 1655
+	}
+	regiment = {
+		name= "3.Guard"
+		type = cavalry
+		home = 1659
+	}
+}
+

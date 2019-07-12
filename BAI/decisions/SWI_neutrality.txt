@@ -1,0 +1,162 @@
+political_decisions = {
+	declare_neutrality = {
+		potential = {
+			tag = SWI
+			NOT = {
+				has_country_modifier = neutrality
+				has_country_flag = abandoned_neutrality
+				has_country_flag = neutrality_violated
+			}	
+		}		
+		allow = {
+			prestige = 10
+			NOT = { military_score = 50 }
+			NOT = { badboy = 1 }		
+		}
+		
+		effect = {
+			add_country_modifier = {
+				name = neutrality
+				duration = -1
+			}
+			neutrality = yes
+		}
+		
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+
+	abandon_neutrality = {
+		picture = declare_neutrality
+		potential = {
+			tag = SWI
+			has_country_modifier = neutrality
+			NOT = { has_country_flag = abandoned_neutrality }
+		}
+		
+		allow = {
+			prestige = 30
+			military_score = 50
+		}
+		
+		effect = {
+			set_country_flag = abandoned_neutrality
+			prestige = -20
+			remove_country_modifier = neutrality
+		}
+		
+		ai_will_do = {
+			factor = 1
+			modifier = {
+				factor = 0
+				is_greater_power = no
+			}
+		}
+	}
+	
+	violate_neutrality = {
+		picture = declare_neutrality
+		alert = no
+		potential = {
+			ai = no
+			SWI = {
+				neighbour = THIS
+				has_country_modifier = neutrality
+			}
+		}
+		
+		allow = {
+			SWI = { has_country_modifier = neutrality }
+			war_policy = jingoism
+			NOT = {
+				is_sphere_leader_of = SWI
+				truce_with = SWI
+				alliance_with = SWI
+			}
+		}
+		
+		effect = {
+			badboy = 25
+			SWI = {
+				set_country_flag = neutrality_violated
+				remove_country_modifier = neutrality
+				relation = { who = THIS value = -200 }
+			}
+			diplomatic_influence = { who = SWI value = -200 }
+			any_country = {
+				limit = {
+					OR = {
+						alliance_with = SWI
+						is_sphere_leader_of = SWI
+						relation = { who = SWI value = 50 }
+					}
+				}
+				leave_alliance = THIS
+				relation = { who = THIS value = -200 }
+				casus_belli = {
+					target = THIS
+					type = cut_down_to_size
+					months = 60
+				}
+			}
+		}
+	}
+
+	enforce_neutrality = {
+		picture = declare_neutrality
+		potential = {
+			tag = SWI
+			ai = yes
+			has_country_modifier = neutrality
+		}
+		
+		allow = {
+			OR = {
+				any_greater_power = { NOT = { is_sphere_leader_of = THIS } military_access = THIS }
+				any_neighbor_country = { NOT = { is_sphere_leader_of = THIS } military_access = THIS }
+				AND = {
+					sphere_owner = { NOT = { alliance_with = THIS } }
+					num_of_allies = 1
+				}
+				AND = {
+					sphere_owner = { alliance_with = THIS }
+					num_of_allies = 2
+				}
+				war = yes
+			}
+		}
+		
+		effect = {
+			any_country = {
+				limit = { NOT = { is_sphere_leader_of = THIS } OR = { military_access = THIS alliance_with = THIS } }
+				relation = { who = THIS value = -50 }
+			}
+			any_country = { limit = { alliance_with = THIS NOT = { is_sphere_leader_of = THIS } } leave_alliance = THIS }
+			any_country = { limit = { war_with = THIS NOT = { is_sphere_leader_of = THIS } } end_war = THIS }
+			any_country = { limit = { military_access = THIS NOT = { is_sphere_leader_of = THIS } } end_military_access = THIS }
+			any_country = {
+				limit = {
+					exists = no
+					has_country_flag = existing_country
+				}
+				clr_country_flag = existing_country
+			}
+			any_country = {
+				limit = {
+					exists = no
+					has_country_flag = vassal_nation_cb
+				}
+				clr_country_flag = vassal_nation_cb
+			}
+			any_country = {
+				limit = {
+					exists = no
+					has_country_flag = occupied_provinces
+				}
+				clr_country_flag = occupied_provinces
+			}
+		}
+	}
+}

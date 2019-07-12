@@ -1,0 +1,4 @@
+Alternative flags when you form Italy with Lombardia/Venice/Tuscany/Two Sicilies
+Rename the flag to ITA_monarchy and replace the file in Victoria 2/mod/BAI/gfx/flags folder. Make sure to backup the original file before doing that.
+Delete the flag cache if it doesn't show up in Documents and Settings/Paradox Interactive/Victoria II/BAI/gfx
+Made by Alternative Flag Pack guy

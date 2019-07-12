@@ -1,0 +1,4133 @@
+#############################
+#        Exploration        #
+#############################
+
+## Discovery of the Source of the Nile
+country_event = {
+
+	id =  23200 # First attempt
+
+	trigger = {
+		NOT = { has_global_flag = NileDiscovered }
+		NOT = { has_country_flag = NoGoToNile }
+		NOT = { has_country_flag = YesGoToNileAgain }
+		NOT = { has_country_flag = YesGoToNile }
+		NOT = { has_country_flag = YesGoToNileThird }
+		NOT = { owns = 2019 } # Entebbe, where direct source of Nile is located
+		is_greater_power = yes # Nation is a great power
+		year = 1866 # Will happen sometime after 1866
+	}
+
+	mean_time_to_happen =  {
+		months = 12
+
+		modifier = {
+			factor = 0.6
+			year = 1870
+		}
+		modifier = {
+			factor = 0.6
+			year = 1875
+		}
+		modifier = {
+			factor = 0.6
+			year = 1880
+		}
+	}
+
+	title = "EVTNAME23200"
+	desc = "EVTDESC23200"
+	picture = "Nile"
+	
+
+	option = {
+		name = "EVTOPTA23200" # Support the mission
+		ai_chance = {
+			factor = 45
+			modifier = {
+				factor = 0
+				NOT = { money = 1100 }
+			}
+		}
+		money = -1000
+		set_country_flag = YesGoToNile
+	}
+	option = {
+		name = "EVTOPTB23200" # Consider the idea later
+		ai_chance = {
+			factor = 35
+			modifier = {
+				factor = 70
+				NOT = { money = 1100 }
+			}
+		}
+		prestige = -5
+	}
+	option = {
+		name = "EVTOPTC23200" # Reject the idea
+		ai_chance = {
+			factor = 20
+			modifier = {
+				factor = 30
+				NOT = { money = 1100 }
+			}
+		}
+		set_country_flag = NoGoToNile
+		prestige = -10
+	}
+}
+
+country_event = {
+	
+	id = 23201 # First attempt fails, try again?
+	
+	trigger = {
+		has_country_flag = YesGoToNile
+		NOT = { has_global_flag = NileDiscovered }
+		NOT = { has_country_flag = NoGoToNile }
+		year = 1868 # Will happen sometime after 1868
+	}
+	
+	mean_time_to_happen =  {
+		months = 12
+
+		modifier = {
+			factor = 0.6
+			year = 1870
+		}
+		modifier = {
+			factor = 0.6
+			year = 1874
+		}
+		modifier = {
+			factor = 0.6
+			year = 1878
+		}
+	}
+
+	title = "EVTNAME23201"
+	desc = "EVTDESC23201"
+	picture = "Nile"
+
+	option = {
+		name = "EVTOPTA23201" # Fund second attempt
+		ai_chance = {
+			factor = 65
+			modifier = {
+				factor = 0
+				NOT = { money = 2100 }
+			}
+		}
+		
+		money = -2000
+		set_country_flag = YesGoToNileAgain
+		clr_country_flag = YesGoToNile
+	}
+	option = {
+		name = "EVTOPTB23201" # Reject second attempt
+		ai_chance = {
+			factor = 35
+			modifier = {
+				factor = 100
+				NOT = { money = 2100 }
+			}
+		}
+		clr_country_flag = YesGoToNile
+		set_country_flag = NoGoToNile
+		prestige = -25
+	}
+}
+
+country_event = {
+
+	id = 23202 # Our Mission to the Nile is lost
+
+	trigger = {
+		has_country_flag = YesGoToNileAgain
+		NOT = { has_global_flag = NileDiscovered }
+		NOT = { has_country_flag = NoGoToNile }
+		year = 1869 # Will happen sometime after 1869
+	}
+
+	mean_time_to_happen =  {
+		months = 24
+
+		modifier = {
+			factor = 0.3
+			year = 1873
+		}
+		modifier = {
+			factor = 0.6
+			year = 1874
+		}
+		modifier = {
+			factor = 0.8
+			year = 1877
+		}
+	}
+
+	title = "EVTNAME23202"
+	desc = "EVTDESC23202"
+	picture = "Nile"
+
+	option = {
+		name = "EVTOPTA23201" # Fund third attempt
+		ai_chance = {
+			factor = 65
+			modifier = {
+				factor = 0
+				NOT = { money = 2100 }
+			}
+		}
+		money = -2000
+		set_country_flag = YesGoToNileThird
+		clr_country_flag = YesGoToNileAgain
+	}
+	option = {
+		name = "EVTOPTB23201" # Reject second attempt
+		ai_chance = {
+			factor = 35
+			modifier = {
+				factor = 100
+				NOT = { money = 2100 }
+			}
+		}
+		clr_country_flag = YesGoToNileAgain
+		set_country_flag = NoGoToNile
+		prestige = -25
+	}
+}
+
+country_event = {
+
+	id = 23203 # The Nile Source is discovered!
+	news = yes
+	news_desc_long = "EVTDESC23203_NEWS_LONG"
+	news_desc_medium = "EVTDESC23203_NEWS_MEDIUM"
+	news_desc_short = "EVTDESC23203_NEWS_SHORT"
+
+	trigger = {
+		or = {
+			has_country_flag = YesGoToNileAgain
+			has_country_flag = YesGoToNileThird
+		}
+		NOT = { has_global_flag = NileDiscovered }
+		NOT = { has_country_flag = NoGoToNile }
+		year = 1870 # Will happen sometime after 1870
+	}
+
+	mean_time_to_happen =  {
+		months = 12
+
+		modifier = {
+			factor = 0.4
+			year = 1872
+		}
+		modifier = {
+			factor = 0.7
+			year = 1874
+		}
+		modifier = {
+			factor = 0.9
+			year = 1876
+		}
+	}
+
+	title = "EVTNAME23203"
+	desc = "EVTDESC23203"
+	picture = "Nile"
+
+	option = {
+		name = "EVTOPTA23203" # Success
+		prestige = 100
+		set_global_flag = NileDiscovered
+		clr_country_flag = YesGoToNileAgain
+		clr_country_flag = YesGoToNileThird
+	}
+}
+
+
+## Discovery of the North Pole
+country_event = {
+
+	id = 23204 # First attempt
+
+	trigger = {
+		NOT = { has_global_flag = NorthPoleDiscovered }
+		NOT = { has_country_flag = NoGoToNorthPole }
+		NOT = { has_country_flag = YesGoToNorthPole }
+		NOT = { has_country_flag = YesGoToNorthPole }
+		NOT = { has_country_flag = YesGoToNorthPoleThird }
+		is_greater_power = yes # Nation is a great power
+		year = 1895 # Will happen sometime after 1895
+	}
+
+	mean_time_to_happen =  {
+		months = 12
+
+		modifier = {
+			factor = 0.6
+			year = 1897
+		}
+		modifier = {
+			factor = 0.6
+			year = 1899
+		}
+		modifier = {
+			factor = 0.6
+			year = 1900
+		}
+	}
+	
+	title = "EVTNAME23204"
+	desc = "EVTDESC23204"
+	picture = "NorthPole1"
+
+	option = {
+		name = "EVTOPTA23200" # Support the mission
+		ai_chance = {
+			factor = 45
+			modifier = {
+				factor = 0
+				NOT = { money = 1100 }
+			}
+		}
+		money = -1000
+		set_country_flag = YesGoToNorthPole
+	}
+	option = {
+		name = "EVTOPTB23200" # Consider the idea later
+		ai_chance = {
+			factor = 35
+			modifier = {
+				factor = 70
+				NOT = { money = 1100 }
+			}
+		}
+		prestige = -5
+	}
+	option = {
+		name = "EVTOPTC23204" # Reject the idea
+		ai_chance = {
+			factor = 20
+			modifier = {
+				factor = 30
+				NOT = { money = 1100 }
+			}
+		}
+		set_country_flag = NoGoToNorthPole
+		prestige = -10
+	}
+}
+
+country_event = {
+
+	id = 23205 # First attempt fails, try again?
+
+	trigger = {
+		has_country_flag = YesGoToNorthPole
+		NOT = { has_global_flag = NorthPoleDiscovered }
+		NOT = { has_country_flag = NoGoToNorthPole }
+		year = 1897 # Will happen sometime after 1897
+	}
+
+	mean_time_to_happen = {
+		months = 12
+		modifier = {
+			factor = 0.6
+			year = 1898
+		}
+		modifier = {
+			factor = 0.6
+			year = 1900
+		}
+		modifier = {
+			factor = 0.6
+			year = 1904
+		}
+	}
+
+	title = "EVTNAME23201"
+	desc = "EVTDESC23205"
+	picture = "NorthPole2"
+
+	option = {
+		name = "EVTOPTA23201" # Fund second attempt
+		ai_chance = {
+			factor = 65
+			modifier = {
+				factor = 0
+				NOT = { money = 2100 }
+			}
+		}
+		money = -2000
+		set_country_flag = YesGoToNorthPoleAgain
+		clr_country_flag = YesGoToNorthPole
+	}
+	option = {
+		name = "EVTOPTB23201" # Reject second attempt
+		ai_chance = {
+			factor = 35
+			modifier = {
+				factor = 100
+				NOT = { money = 2100 }
+			}
+		}
+		clr_country_flag = YesGoToNorthPole
+		set_country_flag = NoGoToNorthPole
+		prestige = -25
+	}
+}
+
+country_event = {
+
+	id = 23206 # Our Mission to the North Pole is lost
+
+	trigger = {
+		has_country_flag = YesGoToNorthPoleAgain
+		NOT = { has_global_flag = NorthPoleDiscovered }
+		NOT = { has_country_flag = NoGoToNorthPole }
+		year = 1899 # Will happen sometime after 1899
+	}
+
+	mean_time_to_happen = {
+		months = 24
+
+		modifier = {
+			factor = 0.3
+			year = 1900
+		}
+		modifier = {
+			factor = 0.6
+			year = 1902
+		}
+		modifier = {
+			factor = 0.8
+			year = 1905
+		}
+	}
+
+	title = "EVTNAME23202"
+	desc = "EVTDESC23206"
+	picture = "NorthPole2"
+
+	option = {
+		name = "EVTOPTA23201" # Fund third attempt
+		ai_chance = {
+			factor = 65
+			modifier = {
+				factor = 0
+				NOT = { money = 2100 }
+			}
+		}
+		money = -2000
+		set_country_flag = YesGoToNorthPoleThird
+		clr_country_flag = YesGoToNorthPoleAgain
+	}
+	option = {
+		name = "EVTOPTB23201" # Reject second attempt
+		ai_chance = {
+			factor = 35
+			modifier = {
+				factor = 100
+				NOT = { money = 2100 }
+			}
+		}
+		clr_country_flag = YesGoToNorthPoleAgain
+		set_country_flag = NoGoToNorthPole
+		prestige = -25
+	}
+}
+
+country_event = {
+
+	id = 23207 # The North Pole is discovered!
+	news = yes
+	news_desc_long = "EVTDESC23207_NEWS_LONG"
+	news_desc_medium = "EVTDESC23207_NEWS_MEDIUM"
+	news_desc_short = "EVTDESC23207_NEWS_SHORT"
+
+	trigger = {
+		or = {
+			has_country_flag = YesGoToNorthPoleAgain
+			has_country_flag = YesGoToNorthPoleThird
+		}
+		NOT = { has_global_flag = NorthPoleDiscovered }
+		NOT = { has_country_flag = NoGoToNorthPole }
+		year = 1900 # Will happen sometime after 1900
+	}
+
+	mean_time_to_happen =  {
+		months = 12
+
+		modifier = {
+			factor = 0.4
+			year = 1902
+		}
+		modifier = {
+			factor = 0.7
+			year = 1905
+		}
+		modifier = {
+			factor = 0.9
+			year = 1908
+		}
+	}
+
+	title = "EVTNAME23207"
+	desc = "EVTDESC23207"
+	picture = "NorthPole3"
+
+	option = {
+		name = "EVTOPTA23203" # Success!
+		prestige = 100
+		set_global_flag = NorthPoleDiscovered
+		clr_country_flag = YesGoToNorthPoleAgain
+		clr_country_flag = YesGoToNorthPoleThird
+	}
+}
+
+## Discovery of the South Pole
+country_event = {
+
+	id = 23208 # First attempt
+
+	trigger = {
+		NOT = { has_global_flag = SouthPoleDiscovered }
+		NOT = { has_country_flag = NoGoToSouthPole }
+		NOT = { has_country_flag = YesGoToSouthPoleAgain }
+		NOT = { has_country_flag = YesGoToSouthPole }
+		NOT = { has_country_flag = YesGoToSouthPoleThird }
+		is_greater_power = yes # Nation is a great power
+		year = 1906 # Will happen sometime after 1906
+	}
+
+	mean_time_to_happen =  {
+		months = 12
+
+		modifier = {
+			factor = 0.6
+			year = 1908
+		}
+		modifier = {
+			factor = 0.6
+			year = 1910
+		}
+		modifier = {
+			factor = 0.6
+			year = 1912
+		}
+	}
+
+	title = "EVTNAME23208"
+	desc = "EVTDESC23208"
+	picture = "SouthPole1"
+
+	option = {
+		name = "EVTOPTA23200" # Support the mission
+		ai_chance = {
+			factor = 45
+			modifier = {
+				factor = 0
+				NOT = { money = 1100 }
+			}
+		}
+		money = -1000
+		set_country_flag = YesGoToSouthPole
+	}
+	option = {
+		name = "EVTOPTB23200" # Consider the idea later
+		ai_chance = {
+			factor = 35
+			modifier = {
+				factor = 70
+				NOT = { money = 1100 }
+			}
+		}
+		prestige = -5
+	}
+	option = {
+		name = "EVTOPTC23208" # Reject the idea
+		ai_chance = {
+			factor = 20
+			modifier = {
+				factor = 30
+				NOT = { money = 1100 }
+			}
+		}
+		set_country_flag = NoGoToSouthPole
+		prestige = -10
+	}
+}
+
+country_event = {
+
+	id = 23209 # First attempt fails, try again?
+
+	trigger = {
+		has_country_flag = YesGoToSouthPole
+		NOT = { has_global_flag = SouthPoleDiscovered }
+		NOT = { has_country_flag = NoGoToSouthPole }
+		year = 1908 # Will happen sometime after 1908
+	}
+
+	mean_time_to_happen =  {
+		months = 12
+
+		modifier = {
+			factor = 0.6
+			year = 1909
+		}
+		modifier = {
+			factor = 0.6
+			year = 1910
+		}
+		modifier = {
+			factor = 0.6
+			year = 1911
+		}
+	}
+
+	title = "EVTNAME23201"
+	desc = "EVTDESC23209"
+	picture = "SouthPole2"
+
+	option = {
+		name = "EVTOPTA23201" # Fund second attempt
+		ai_chance = {
+			factor = 65
+			modifier = {
+				factor = 0
+				NOT = { money = 2100 }
+			}
+		}
+		money = -2000
+		set_country_flag = YesGoToSouthPoleAgain
+		clr_country_flag = YesGoToSouthPole
+	}
+	option = {
+		name = "EVTOPTB23201" # Reject second attempt
+		ai_chance = {
+			factor = 35
+			modifier = {
+				factor = 100
+				NOT = { money = 2100 }
+			}
+		}
+		clr_country_flag = YesGoToSouthPole
+		set_country_flag = NoGoToSouthPole
+		prestige = -25
+	}
+}
+
+country_event = {
+
+	id = 23210 # Our Mission to the South Pole is lost
+
+	trigger = {
+		has_country_flag = YesGoToSouthPoleAgain
+		NOT = { has_global_flag = SouthPoleDiscovered }
+		NOT = { has_country_flag = NoGoToSouthPole }
+		year = 1910 # Will happen sometime after 1910
+	}
+
+	mean_time_to_happen =  {
+		months = 24
+
+		modifier = {
+			factor = 0.3
+			year = 1911
+		}
+		modifier = {
+			factor = 0.6
+			year = 1912
+		}
+		modifier = {
+			factor = 0.8
+			year = 1913
+		}
+	}
+
+	title = "EVTNAME23202"
+	desc = "EVTDESC23210"
+	picture = "SouthPole2"
+
+	option = {
+		name = "EVTOPTA23201" # Fund third attempt
+		ai_chance = {
+			factor = 65
+			modifier = {
+				factor = 0
+				NOT = { money = 2100 }
+			}
+		}
+		money = -2000
+		set_country_flag = YesGoToSouthPoleThird
+		clr_country_flag = YesGoToSouthPoleAgain
+	}
+	option = {
+		name = "EVTOPTB23201" # Reject second attempt
+		ai_chance = {
+			factor = 35
+			modifier = {
+				factor = 100
+				NOT = { money = 2100 }
+			}
+		}
+		clr_country_flag = YesGoToSouthPoleAgain
+		set_country_flag = NoGoToSouthPole
+		prestige = -25
+	}
+}
+
+country_event = {
+
+	id = 23211 # The North Pole is discovered!
+	news = yes
+	news_desc_long = "EVTDESC23211_NEWS_LONG"
+	news_desc_medium = "EVTDESC23211_NEWS_MEDIUM"
+	news_desc_short = "EVTDESC23211_NEWS_SHORT"
+
+	trigger = {
+		or = {
+			has_country_flag = YesGoToSouthPoleAgain
+			has_country_flag = YesGoToSouthPoleThird
+		}
+		NOT = { has_global_flag = SouthPoleDiscovered }
+		NOT = { has_country_flag = NoGoToSouthPole }
+		year = 1910 # Will happen sometime after 1910
+	}
+
+	mean_time_to_happen =  {
+		months = 12
+
+		modifier = {
+			factor = 0.4
+			year = 1912
+		}
+		modifier = {
+			factor = 0.7
+			year = 1913
+		}
+		modifier = {
+			factor = 0.9
+			year = 1914
+		}
+	}
+
+	title = "EVTNAME23211"
+	desc = "EVTDESC23211"
+	picture = "SouthPole3"
+
+	option = {
+		name = "EVTOPTA23203" # Success!
+		prestige = 100
+		set_global_flag = SouthPoleDiscovered
+		clr_country_flag = YesGoToSouthPoleAgain
+		clr_country_flag = YesGoToSouthPoleThird
+	}
+}
+
+# comet sighted
+country_event = {
+
+	id = 23212
+
+	trigger = { 
+		civilized = yes
+	}
+
+	mean_time_to_happen = {
+		months = 1200
+	}
+
+	title = "EVTNAME23212"
+	desc = "EVTDESC23212"
+	picture = "sight"
+
+	option = {
+		name = "EVTOPTA23212"
+		years_of_research = 0.01
+	}
+	option = {
+		name = "EVTOPTB23212"
+		years_of_research = 0.01
+	}
+	option = {
+		name = "EVTOPTC23212"
+		years_of_research = 0.01
+	}
+}
+
+country_event = {
+
+	id = 23213 # Oh dear
+	news = yes
+	news_desc_long = "EVTDESC23213_NEWS_LONG"
+	news_desc_medium = "EVTDESC23213_NEWS_MEDIUM"
+	news_desc_short = "EVTDESC23213_NEWS_SHORT"
+
+	trigger = {
+		has_country_flag = YesGoToSouthPole
+		NOT = { has_global_flag = SouthPoleDiscovered }
+		NOT = { has_country_flag = NoGoToSouthPole }
+		year = 1908 # Will happen sometime after 1908
+	}
+
+	mean_time_to_happen =  {
+		months = 120
+	}
+
+	title = "EVTNAME23213"
+	desc = "EVTDESC23213"
+	picture = "SouthPole2"
+
+	option = {
+		name = "EVTOPTA23213" #
+		prestige = -5
+		clr_country_flag = YesGoToSouthPole
+		#Game over effect. Sanity points -100
+	}
+
+}
+
+## Discovery of Lake Victoria - Generic
+country_event = {
+
+	id = 231999999
+	title = "EVTNAME232000000"
+	desc = "EVTDESC232000003"
+	picture = "Nile"
+
+	
+	trigger = {
+		NOT = { has_global_flag = lake_victoria_discovered }
+		NOT = { has_country_flag = NoGoToNile }
+		OR = {
+			has_country_flag = YesGoToNileAgain
+			has_country_flag = YesGoToNile
+			has_country_flag = YesGoToNileThird
+				owns = 2044
+				owns = 2019
+				owns = 2023
+				owns = 2018
+		}
+		is_greater_power = yes # Nation is a great power
+		NOT = {
+			primary_culture = british
+			primary_culture = north_italian
+			primary_culture = south_italian
+			primary_culture = north_german
+			capital = 619
+			capital = 599
+			primary_culture = russian
+			primary_culture = spanish
+			primary_culture = french
+			tag = TUR
+			primary_culture = dutch
+			primary_culture = portuguese
+			primary_culture = swedish
+			primary_culture = danish
+			primary_culture = wallonian
+			is_culture_group = arab
+			primary_culture = hungarian
+			primary_culture = polish
+			primary_culture = yankee
+			primary_culture = czech
+			primary_culture = brazilian
+			primary_culture = mexican
+			primary_culture = bulgarian
+			primary_culture = greek
+			primary_culture = croat
+			tag = PAP
+			tag = ITP
+			primary_culture = serb
+			primary_culture = japanese
+			primary_culture = dixie
+			primary_culture = armenian
+			primary_culture = georgian
+			primary_culture = albanian
+		}
+	}
+
+	mean_time_to_happen =  {
+		months = 500
+
+		modifier = {
+			factor = 0.9
+			year = 1860
+		}
+		modifier = {
+			factor = 0.9
+			year = 1862
+		}
+		modifier = {
+			factor = 0.9
+			year = 1864
+		}
+		
+		modifier = {
+			factor = 0.6
+			rank = 1
+			NOT = { rank = 2 }
+		}
+		
+		modifier = {
+			factor = 1.5
+			NOT = { capital_scope = { continent = europe } }
+		}
+		
+		modifier = {
+			factor = 0.01
+			OR = {
+				owns = 2044
+				owns = 2019
+				owns = 2023
+				owns = 2018
+			}
+		}
+	}
+
+	immediate = {
+		set_global_flag = lake_victoria_discovered
+	}
+
+	option = {
+		name = "EVTOPTA232000003" # Name it ruler
+		prestige = 40
+		3102 = { change_province_name = "Lake Victoria" }
+	}
+}
+
+
+## Discovery of Lake Victoria - English
+country_event = {
+
+	id = 232000000
+	title = "EVTNAME232000000"
+	desc = "EVTDESC232000000"
+	picture = "Nile"
+
+	
+	trigger = {
+		NOT = { has_global_flag = lake_victoria_discovered }
+		NOT = { has_country_flag = NoGoToNile }
+		OR = {
+			has_country_flag = YesGoToNileAgain
+			has_country_flag = YesGoToNile
+			has_country_flag = YesGoToNileThird
+			owns = 2044
+			owns = 2019
+			owns = 2023
+			owns = 2018
+		}
+		is_greater_power = yes # Nation is a great power
+		primary_culture = british
+	}
+
+	mean_time_to_happen =  {
+		months = 300
+
+		modifier = {
+			factor = 0.6
+			year = 1860
+		}
+		modifier = {
+			factor = 0.6
+			year = 1862
+		}
+		modifier = {
+			factor = 0.6
+			year = 1864
+		}
+		
+		modifier = {
+			factor = 0.01
+			OR = {
+				owns = 2044
+				owns = 2019
+				owns = 2023
+				owns = 2018
+			}
+		}
+		
+		modifier = {
+			factor = 0.3
+			rank = 1
+			NOT = { rank = 2 }
+		}
+		
+		modifier = {
+			factor = 1.5
+			NOT = { capital_scope = { continent = europe } }
+		}
+	}
+
+	immediate = {
+		set_global_flag = lake_victoria_discovered
+	}	
+
+	option = {
+		name = "EVTOPTA232000000" # Name it Victoria
+		prestige = 40
+		3102 = { change_province_name = "Lake Victoria" }
+		ai_chance = { factor = 75 }
+	}
+
+	option = {
+		name = "EVTOPTB232000000" # Name it Wellesley
+		prestige = 40
+		3102 = { change_province_name = "Lake Wellesley" }
+		ai_chance = { factor = 5 }
+	}
+
+	option = {
+		name = "EVTOPTC232000000" # Name it Waterloo
+		prestige = 40
+		3102 = { change_province_name = "Lake Waterloo" }
+		ai_chance = { factor = 5 }
+	}
+
+	option = {
+		name = "EVTOPTD232000000" # Name it Britannia
+		prestige = 40
+		3102 = { change_province_name = "Lake Britannia" }
+		ai_chance = { factor = 10 }
+	}
+
+	option = {
+		name = "EVTOPTE232000000" # Name it London
+		prestige = 40
+		3102 = { change_province_name = "Lake London" }
+		ai_chance = { factor = 5 }
+	}
+}
+	
+## Discovery of Lake Victoria - Prussian/NGF
+country_event = {
+
+	id = 232000001
+	title = "EVTNAME232000000"
+	desc = "EVTDESC232000000"
+	picture = "Nile"
+
+	
+	trigger = {
+		NOT = { has_global_flag = lake_victoria_discovered }
+		NOT = { has_country_flag = NoGoToNile }
+		OR = {
+			has_country_flag = YesGoToNileAgain
+			has_country_flag = YesGoToNile
+			has_country_flag = YesGoToNileThird
+				owns = 2044
+				owns = 2019
+				owns = 2023
+				owns = 2018
+		}
+		is_greater_power = yes # Nation is a great power
+		primary_culture = north_german
+	}
+
+	mean_time_to_happen =  {
+		months = 300
+
+		modifier = {
+			factor = 0.9
+			year = 1860
+		}
+		modifier = {
+			factor = 0.9
+			year = 1862
+		}
+		modifier = {
+			factor = 0.9
+			year = 1864
+		}
+		
+		modifier = {
+			factor = 0.3
+			rank = 1
+			NOT = { rank = 2 }
+		}
+		
+		modifier = {
+			factor = 0.01
+			OR = {
+				owns = 2044
+				owns = 2019
+				owns = 2023
+				owns = 2018
+			}
+		}
+		
+		modifier = {
+			factor = 1.5
+			NOT = { capital_scope = { continent = europe } }
+		}
+	}
+
+	immediate = {
+		set_global_flag = lake_victoria_discovered
+	}	
+
+	option = {
+		name = "EVTOPTA232000000" # Name it ruler
+		prestige = 40
+		3102 = { change_province_name = "Lake Wilhelm" }
+		ai_chance = { factor = 30 }
+	}
+
+	option = {
+		name = "EVTOPTB232000001" # Name it politician
+		prestige = 40
+		3102 = { change_province_name = "Lake Bismarck" }
+		ai_chance = { factor = 10 }
+	}
+
+	option = {
+		name = "EVTOPTC232000001" # Name it battle
+		prestige = 40
+		3102 = { change_province_name = "Lake Von Moltke" }
+		ai_chance = { factor = 5 }
+	}
+
+	option = {
+		name = "EVTOPTD232000000" # Name it personification
+		prestige = 40
+		3102 = { change_province_name = "Lake Germania" }
+		ai_chance = { factor = 50 }
+	}
+
+	option = {
+		name = "EVTOPTE232000000" # Name it Capital
+		prestige = 40
+		3102 = { change_province_name = "Lake Berlin" }
+		ai_chance = { factor = 5 }
+	}
+}
+	
+## Discovery of Lake Victoria - Austria
+country_event = {
+
+	id = 232000002
+	title = "EVTNAME232000000"
+	desc = "EVTDESC232000000"
+	picture = "Nile"
+
+	
+	trigger = {
+		NOT = { has_global_flag = lake_victoria_discovered }
+		NOT = { has_country_flag = NoGoToNile }
+		OR = {
+			has_country_flag = YesGoToNileAgain
+			has_country_flag = YesGoToNile
+			has_country_flag = YesGoToNileThird
+				owns = 2044
+				owns = 2019
+				owns = 2023
+				owns = 2018
+		}
+		is_greater_power = yes # Nation is a great power
+		primary_culture = south_german
+		capital = 619
+	}
+
+	mean_time_to_happen =  {
+		months = 300
+
+		modifier = {
+			factor = 0.01
+			OR = {
+				owns = 2044
+				owns = 2019
+				owns = 2023
+				owns = 2018
+			}
+		}
+		
+		modifier = {
+			factor = 0.9
+			year = 1860
+		}
+		modifier = {
+			factor = 0.9
+			year = 1862
+		}
+		modifier = {
+			factor = 0.9
+			year = 1864
+		}
+		
+		modifier = {
+			factor = 0.3
+			rank = 1
+			NOT = { rank = 2 }
+		}
+		
+		modifier = {
+			factor = 1.5
+			NOT = { capital_scope = { continent = europe } }
+		}
+	}
+
+	immediate = {
+		set_global_flag = lake_victoria_discovered
+	}
+
+	option = {
+		name = "EVTOPTA232000000" # Name it ruler
+		prestige = 40
+		3102 = { change_province_name = "Lake Franz Joseph" }
+		ai_chance = { factor = 70 }
+	}
+
+	option = {
+		name = "EVTOPTB232000001" # Name it politician
+		prestige = 40
+		3102 = { change_province_name = "Lake Metternich" }
+		ai_chance = { factor = 5 }
+		}
+
+	option = {
+		name = "EVTOPTC232000002" # Name it battle
+		prestige = 40
+		3102 = { change_province_name = "Lake Habsburg" }
+		ai_chance = { factor = 10 }
+	}
+
+	option = {
+		name = "EVTOPTD232000000" # Name it personification
+		prestige = 40
+		3102 = { change_province_name = "Lake Österreich" }
+		ai_chance = { factor = 5 }
+	}
+
+	option = {
+		name = "EVTOPTE232000000" # Name it Capital
+		prestige = 40
+		3102 = { change_province_name = "Lake Vienna" }
+		ai_chance = { factor = 10 }
+	}
+}
+
+## Discovery of Lake Victoria - Italy
+country_event = {
+
+	id = 232000003
+	title = "EVTNAME232000000"
+	desc = "EVTDESC232000000"
+	picture = "Nile"
+
+	
+	trigger = {
+		NOT = { has_global_flag = lake_victoria_discovered }
+		NOT = { has_country_flag = NoGoToNile }
+		OR = {
+			has_country_flag = YesGoToNileAgain
+			has_country_flag = YesGoToNile
+			has_country_flag = YesGoToNileThird
+				owns = 2044
+				owns = 2019
+				owns = 2023
+				owns = 2018
+		}
+		is_greater_power = yes # Nation is a great power
+		OR = {
+			primary_culture = north_italian
+			primary_culture = south_italian
+		}
+		NOT = {
+			tag = PAP
+			tag = ITP
+		}
+	}
+
+	mean_time_to_happen =  {
+		months = 300
+
+		modifier = {
+			factor = 0.9
+			year = 1860
+		}
+		modifier = {
+			factor = 0.9
+			year = 1862
+		}
+		modifier = {
+			factor = 0.9
+			year = 1864
+		}
+		
+		modifier = {
+			factor = 0.3
+			rank = 1
+			NOT = { rank = 2 }
+		}
+		
+		modifier = {
+			factor = 1.5
+			NOT = { capital_scope = { continent = europe } }
+		}
+		
+		modifier = {
+			factor = 0.01
+			OR = {
+				owns = 2044
+				owns = 2019
+				owns = 2023
+				owns = 2018
+			}
+		}
+	}
+
+	immediate = {
+		set_global_flag = lake_victoria_discovered
+	}	
+
+	option = {
+		name = "EVTOPTA232000000" # Name it ruler
+		prestige = 40
+		random_owned = { limit = { owner = { primary_culture = north_italian } } 3102 = { change_province_name = "Lake Vittorio" } }
+		random_owned = { limit = { owner = { primary_culture = south_italian } } 3102 = { change_province_name = "Lake Francesco" } }
+		ai_chance = { factor = 30 }
+	}
+
+	option = {
+		name = "EVTOPTB232000001" # Name it politician
+		prestige = 40
+		random_owned = { limit = { owner = { primary_culture = north_italian } } 3102 = { change_province_name = "Lake Cavour" } }
+		random_owned = { limit = { owner = { primary_culture = south_italian } } 3102 = { change_province_name = "Lake Ferdinando" } }
+		ai_chance = { factor = 5 }
+	}
+
+	option = {
+		name = "EVTOPTB232000000" # Name it battle
+		prestige = 40
+		3102 = { change_province_name = "Lake Garibaldi" }
+		ai_chance = { factor = 30 }
+	}
+
+	option = {
+		name = "EVTOPTD232000000" # Name it personification
+		prestige = 40
+		3102 = { change_province_name = "Lake Italia" }
+		ai_chance = { factor = 30 }
+	}
+
+	option = {
+		name = "EVTOPTE232000000" # Name it Capital
+		prestige = 40
+		3102 = { change_province_name = "Lake Rome" }
+		ai_chance = { factor = 5 }
+	}
+}
+	
+## Discovery of Lake Victoria - Russia/slavs
+country_event = {
+
+	id = 232000004
+	title = "EVTNAME232000000"
+	desc = "EVTDESC232000000"
+	picture = "Nile"
+
+	
+	trigger = {
+		NOT = { has_global_flag = lake_victoria_discovered }
+		NOT = { has_country_flag = NoGoToNile }
+		OR = {
+			has_country_flag = YesGoToNileAgain
+			has_country_flag = YesGoToNile
+			has_country_flag = YesGoToNileThird
+			owns = 2044
+			owns = 2019
+			owns = 2023
+			owns = 2018
+		}
+		
+		is_greater_power = yes # Nation is a great power
+		primary_culture = russian
+	}
+
+	mean_time_to_happen =  {
+		months = 300
+		
+		modifier = {
+			factor = 0.01
+			OR = {
+				owns = 2044
+				owns = 2019
+				owns = 2023
+				owns = 2018
+			}
+		}
+
+		modifier = {
+			factor = 0.9
+			year = 1860
+		}
+		modifier = {
+			factor = 0.9
+			year = 1862
+		}
+		modifier = {
+			factor = 0.9
+			year = 1864
+		}
+		
+		modifier = {
+			factor = 0.3
+			rank = 1
+			NOT = { rank = 2 }
+		}
+		
+		modifier = {
+			factor = 1.5
+			NOT = { capital_scope = { continent = europe } }
+		}
+	}
+
+	immediate = {
+		set_global_flag = lake_victoria_discovered
+	}
+
+	option = {
+		name = "EVTOPTC232000002" # Name it ruler
+		prestige = 40
+		3102 = { change_province_name = "Lake Romanov" }
+		ai_chance = { factor = 75 }
+	}
+
+	option = {
+		name = "EVTOPTB232000001" # Name it politician
+		prestige = 40
+		3102 = { change_province_name = "Lake Yekaterina" }
+		ai_chance = { factor = 5 }
+	}
+
+	option = {
+		name = "EVTOPTB232000000" # Name it battle
+		prestige = 40
+		3102 = { change_province_name = "Lake Pyotr" }
+		ai_chance = { factor = 10 }
+	}
+
+	option = {
+		name = "EVTOPTD232000000" # Name it personification
+		prestige = 40
+		3102 = { change_province_name = "Lake Rus" }
+		ai_chance = { factor = 5 }
+	}
+
+	option = {
+		name = "EVTOPTE232000000" # Name it Capital
+		prestige = 40
+		3102 = { change_province_name = "Lake Petrograd" }
+		ai_chance = { factor = 5 }
+	}
+}
+
+## Discovery of Lake Victoria - Spanish
+country_event = {
+
+	id = 232000005
+	title = "EVTNAME232000000"
+	desc = "EVTDESC232000000"
+	picture = "Nile"
+
+	
+	trigger = {
+		NOT = { has_global_flag = lake_victoria_discovered }
+		NOT = { has_country_flag = NoGoToNile }
+		OR = {
+			has_country_flag = YesGoToNileAgain
+			has_country_flag = YesGoToNile
+			has_country_flag = YesGoToNileThird
+				owns = 2044
+				owns = 2019
+				owns = 2023
+				owns = 2018
+		}
+		is_greater_power = yes # Nation is a great power
+		primary_culture = spanish
+	}
+
+	mean_time_to_happen =  {
+		months = 300
+
+		modifier = {
+			factor = 0.01
+			OR = {
+				owns = 2044
+				owns = 2019
+				owns = 2023
+				owns = 2018
+			}
+		}
+		
+		modifier = {
+			factor = 0.9
+			year = 1860
+		}
+		modifier = {
+			factor = 0.9
+			year = 1862
+		}
+		modifier = {
+			factor = 0.9
+			year = 1864
+		}
+		
+		modifier = {
+			factor = 0.3
+			rank = 1
+			NOT = { rank = 2 }
+		}
+		
+		modifier = {
+			factor = 1.5
+			NOT = { capital_scope = { continent = europe } }
+		}
+	}
+
+	immediate = {
+		set_global_flag = lake_victoria_discovered
+	}
+
+	option = {
+		name = "EVTOPTA232000001" # Name it ruler
+		prestige = 40
+		3102 = { change_province_name = "Lake Carlos" }
+		ai_chance = { factor = 20 }
+	}
+
+	option = {
+		name = "EVTOPTA232000001" # Name it politician
+		prestige = 40
+		3102 = { change_province_name = "Lake Isabella" }
+		ai_chance = { factor = 45 }
+	}
+
+	option = {
+		name = "EVTOPTC232000000" # Name it battle
+		prestige = 40
+		3102 = { change_province_name = "Lake Granada" }
+		ai_chance = { factor = 10 }
+	}
+
+	option = {
+		name = "EVTOPTD232000000" # Name it personification
+		prestige = 40
+		3102 = { change_province_name = "Lake Hispania" }
+		ai_chance = { factor = 20 }
+	}
+
+	option = {
+		name = "EVTOPTE232000000" # Name it Capital
+		prestige = 40
+		3102 = { change_province_name = "Lake Madrid" }
+		ai_chance = { factor = 5 }
+	}
+}
+
+## Discovery of Lake Victoria - French
+country_event = {
+
+	id = 232000006
+	title = "EVTNAME232000000"
+	desc = "EVTDESC232000000"
+	picture = "Nile"
+
+	
+	trigger = {
+		NOT = { has_global_flag = lake_victoria_discovered }
+		NOT = { has_country_flag = NoGoToNile }
+		OR = {
+			has_country_flag = YesGoToNileAgain
+			has_country_flag = YesGoToNile
+			has_country_flag = YesGoToNileThird
+				owns = 2044
+				owns = 2019
+				owns = 2023
+				owns = 2018
+		}
+		is_greater_power = yes # Nation is a great power
+		primary_culture = french
+	}
+
+	mean_time_to_happen =  {
+		months = 300
+
+		modifier = {
+			factor = 0.01
+			OR = {
+				owns = 2044
+				owns = 2019
+				owns = 2023
+				owns = 2018
+			}
+		}
+		
+		modifier = {
+			factor = 0.9
+			year = 1860
+		}
+		modifier = {
+			factor = 0.9
+			year = 1862
+		}
+		modifier = {
+			factor = 0.9
+			year = 1864
+		}
+		
+		modifier = {
+			factor = 0.3
+			rank = 1
+			NOT = { rank = 2 }
+		}
+		
+		modifier = {
+			factor = 1.5
+			NOT = { capital_scope = { continent = europe } }
+		}
+	}
+
+	immediate = {
+		set_global_flag = lake_victoria_discovered
+	}
+
+	option = {
+		name = "EVTOPTC232000002" # Name it ruler
+		prestige = 40
+		3102 = { change_province_name = "Lake Bourbon" }
+		ai_chance = { factor = 20 }
+	}
+
+	option = {
+		name = "EVTOPTA232000001" # Name it politician
+		prestige = 40
+		3102 = { change_province_name = "Lake Napoleon" }
+		ai_chance = { factor = 50 }
+	}
+
+	option = {
+		name = "EVTOPTB232000008" # Name it battle
+		prestige = 40
+		3102 = { change_province_name = "Lake Voltaire" }
+		ai_chance = { factor = 5 }
+	}
+
+	option = {
+		name = "EVTOPTD232000000" # Name it personification
+		prestige = 40
+		3102 = { change_province_name = "Lake Gallia" }
+		ai_chance = { factor = 20 }
+	}
+
+	option = {
+		name = "EVTOPTE232000000" # Name it Capital
+		prestige = 40
+		3102 = { change_province_name = "Lake Paris" }
+		ai_chance = { factor = 5 }
+	}
+}
+
+## Discovery of Lake Victoria - Turks
+country_event = {
+
+	id = 232000007
+	title = "EVTNAME232000000"
+	desc = "EVTDESC232000000"
+	picture = "Nile"
+
+	
+	trigger = {
+		NOT = { has_global_flag = lake_victoria_discovered }
+		NOT = { has_country_flag = NoGoToNile }
+		OR = {
+			has_country_flag = YesGoToNileAgain
+			has_country_flag = YesGoToNile
+			has_country_flag = YesGoToNileThird
+				owns = 2044
+				owns = 2019
+				owns = 2023
+				owns = 2018
+		}
+		is_greater_power = yes # Nation is a great power
+		tag = TUR
+	}
+
+	mean_time_to_happen =  {
+		months = 300
+
+		modifier = {
+			factor = 0.9
+			year = 1860
+		}
+		modifier = {
+			factor = 0.9
+			year = 1862
+		}
+		modifier = {
+			factor = 0.9
+			year = 1864
+		}
+		
+		modifier = {
+			factor = 0.3
+			rank = 1
+			NOT = { rank = 2 }
+		}
+		
+		modifier = {
+			factor = 1.5
+			NOT = { capital_scope = { continent = europe } }
+		}
+		
+		modifier = {
+			factor = 0.01
+			OR = {
+				owns = 2044
+				owns = 2019
+				owns = 2023
+				owns = 2018
+			}
+		}
+		
+	}
+
+	immediate = {
+		set_global_flag = lake_victoria_discovered
+	}
+
+	option = {
+		name = "EVTOPTC232000002" # Name it ruler
+		prestige = 40
+		3102 = { change_province_name = "Lake Osmanli" }
+		ai_chance = { factor = 50 }
+	}
+
+	option = {
+		name = "EVTOPTA232000001" # Name it politician
+		prestige = 40
+		3102 = { change_province_name = "Lake Mehmed" }
+		ai_chance = { factor = 10 }
+	}
+
+	option = {
+		name = "EVTOPTA232000009" # Name it prophet
+		prestige = 40
+		3102 = { change_province_name = "Lake Muhammad" }
+		ai_chance = { factor = 30 }
+	}
+
+	option = {
+		name = "EVTOPTC232000001" # Name it personification
+		prestige = 40
+		3102 = { change_province_name = "Lake Arslan" }
+		ai_chance = { factor = 5 }
+	}
+
+	option = {
+		name = "EVTOPTE232000000" # Name it Capital
+		prestige = 40
+		3102 = { change_province_name = "Lake Istanbul" }
+		ai_chance = { factor = 5 }
+	}
+}
+
+## Discovery of Lake Victoria - Dutch
+country_event = {
+
+	id = 232000008
+	title = "EVTNAME232000000"
+	desc = "EVTDESC232000000"
+	picture = "Nile"
+
+	
+	trigger = {
+		NOT = { has_global_flag = lake_victoria_discovered }
+		NOT = { has_country_flag = NoGoToNile }
+		OR = {
+			has_country_flag = YesGoToNileAgain
+			has_country_flag = YesGoToNile
+			has_country_flag = YesGoToNileThird
+				owns = 2044
+				owns = 2019
+				owns = 2023
+				owns = 2018
+		}
+		is_greater_power = yes # Nation is a great power
+		primary_culture = dutch
+	}
+
+	mean_time_to_happen =  {
+		months = 300
+
+		modifier = {
+			factor = 0.9
+			year = 1860
+		}
+		modifier = {
+			factor = 0.9
+			year = 1862
+		}
+		modifier = {
+			factor = 0.9
+			year = 1864
+		}
+		
+		modifier = {
+			factor = 0.3
+			rank = 1
+			NOT = { rank = 2 }
+		}
+		
+		modifier = {
+			factor = 1.5
+			NOT = { capital_scope = { continent = europe } }
+		}
+		
+		modifier = {
+			factor = 0.01
+			OR = {
+				owns = 2044
+				owns = 2019
+				owns = 2023
+				owns = 2018
+			}
+		}
+		
+	}
+
+	immediate = {
+		set_global_flag = lake_victoria_discovered
+	}
+
+	option = {
+		name = "EVTOPTC232000002" # Name it ruler
+		prestige = 40
+		3102 = { change_province_name = "Lake Orange" }
+		ai_chance = { factor = 50 }
+	}
+
+	option = {
+		name = "EVTOPTA232000001" # Name it politician
+		prestige = 40
+		3102 = { change_province_name = "Lake Rembrandt" }
+		ai_chance = { factor = 15 }
+	}
+
+	option = {
+		name = "EVTOPTB232000000" # Name it battle
+		prestige = 40
+		3102 = { change_province_name = "Lake Maurice" }
+		ai_chance = { factor = 20 }
+	}
+
+	option = {
+		name = "EVTOPTA232000000" # Name it personification
+		prestige = 40
+		3102 = { change_province_name = "Lake Willem" }
+		ai_chance = { factor = 10 }
+	}
+
+	option = {
+		name = "EVTOPTE232000000" # Name it Capital
+		prestige = 40
+		3102 = { change_province_name = "Lake Amsterdam" }
+		ai_chance = { factor = 5 }
+	}
+}
+
+## Discovery of Lake Victoria - Portugese
+country_event = {
+
+	id = 232000009
+	title = "EVTNAME232000000"
+	desc = "EVTDESC232000000"
+	picture = "Nile"
+
+	
+	trigger = {
+		NOT = { has_global_flag = lake_victoria_discovered }
+		NOT = { has_country_flag = NoGoToNile }
+		OR = {
+			has_country_flag = YesGoToNileAgain
+			has_country_flag = YesGoToNile
+			has_country_flag = YesGoToNileThird
+				owns = 2044
+				owns = 2019
+				owns = 2023
+				owns = 2018
+		}
+		is_greater_power = yes # Nation is a great power
+		primary_culture = portuguese
+	}
+
+	mean_time_to_happen =  {
+		months = 300
+
+		modifier = {
+			factor = 0.9
+			year = 1860
+		}
+		modifier = {
+			factor = 0.9
+			year = 1862
+		}
+		modifier = {
+			factor = 0.9
+			year = 1864
+		}
+		
+		modifier = {
+			factor = 0.3
+			rank = 1
+			NOT = { rank = 2 }
+		}
+		
+		modifier = {
+			factor = 1.5
+			NOT = { capital_scope = { continent = europe } }
+		}
+		
+		modifier = {
+			factor = 0.01
+			OR = {
+				owns = 2044
+				owns = 2019
+				owns = 2023
+				owns = 2018
+			}
+		}
+		
+	}
+
+	immediate = {
+		set_global_flag = lake_victoria_discovered
+	}
+
+	option = {
+		name = "EVTOPTA232000000" # Name it ruler
+		prestige = 40
+		3102 = { change_province_name = "Lake Afonso" }
+		ai_chance = { factor = 50 }
+	}
+
+	option = {
+		name = "EVTOPTC232000002" # Name it politician
+		prestige = 40
+		3102 = { change_province_name = "Lake Bragança" }
+		ai_chance = { factor = 20 }
+	}
+
+	option = {
+		name = "EVTOPTB232000000" # Name it battle
+		prestige = 40
+		3102 = { change_province_name = "Lake Sebastião" }
+		ai_chance = { factor = 5 }
+	}
+
+	option = {
+		name = "EVTOPTD232000000" # Name it personification
+		prestige = 40
+		3102 = { change_province_name = "Lake Lusitania" }
+		ai_chance = { factor = 20 }
+	}
+
+	option = {
+		name = "EVTOPTE232000000" # Name it Capital
+		prestige = 40
+		3102 = { change_province_name = "Lake Lisbon" }
+		ai_chance = { factor = 5 }
+	}
+}
+
+## Discovery of Lake Victoria - Swedish
+country_event = {
+
+	id = 232000010
+	title = "EVTNAME232000000"
+	desc = "EVTDESC232000000"
+	picture = "Nile"
+
+	
+	trigger = {
+		NOT = { has_global_flag = lake_victoria_discovered }
+		NOT = { has_country_flag = NoGoToNile }
+		OR = {
+			has_country_flag = YesGoToNileAgain
+			has_country_flag = YesGoToNile
+			has_country_flag = YesGoToNileThird
+				owns = 2044
+				owns = 2019
+				owns = 2023
+				owns = 2018
+		}
+		is_greater_power = yes # Nation is a great power
+		primary_culture = swedish
+	}
+
+	mean_time_to_happen =  {
+		months = 300
+
+		modifier = {
+			factor = 0.9
+			year = 1860
+		}
+		modifier = {
+			factor = 0.9
+			year = 1862
+		}
+		modifier = {
+			factor = 0.9
+			year = 1864
+		}
+		
+		modifier = {
+			factor = 0.3
+			rank = 1
+			NOT = { rank = 2 }
+		}
+		
+		modifier = {
+			factor = 1.5
+			NOT = { capital_scope = { continent = europe } }
+		}
+		
+		modifier = {
+			factor = 0.01
+			OR = {
+				owns = 2044
+				owns = 2019
+				owns = 2023
+				owns = 2018
+			}
+		}
+		
+	}
+
+	immediate = {
+		set_global_flag = lake_victoria_discovered
+	}
+
+	option = {
+		name = "EVTOPTA232000000" # Name it ruler
+		prestige = 40
+		3102 = { change_province_name = "Lake Gustavus" }
+		ai_chance = { factor = 30 }
+	}
+
+	option = {
+		name = "EVTOPTC232000002" # Name it politician
+		prestige = 40
+		3102 = { change_province_name = "Lake Vasa" }
+		ai_chance = { factor = 40 }
+	}
+
+	option = {
+		name = "EVTOPTB232000000" # Name it battle
+		prestige = 40
+		3102 = { change_province_name = "Lake Eric" }
+		ai_chance = { factor = 15 }
+	}
+
+	option = {
+		name = "EVTOPTD232000000" # Name it personification
+		prestige = 40
+		3102 = { change_province_name = "Lake Suecia" }
+		ai_chance = { factor = 10 }
+	}
+
+	option = {
+		name = "EVTOPTE232000000" # Name it Capital
+		prestige = 40
+		3102 = { change_province_name = "Lake Stockholm" }
+		ai_chance = { factor = 5 }
+	}
+}
+
+## Discovery of Lake Victoria - Danish
+country_event = {
+
+	id = 232000011
+	title = "EVTNAME232000000"
+	desc = "EVTDESC232000000"
+	picture = "Nile"
+
+	
+	trigger = {
+		NOT = { has_global_flag = lake_victoria_discovered }
+		NOT = { has_country_flag = NoGoToNile }
+		OR = {
+			has_country_flag = YesGoToNileAgain
+			has_country_flag = YesGoToNile
+			has_country_flag = YesGoToNileThird
+				owns = 2044
+				owns = 2019
+				owns = 2023
+				owns = 2018
+		}
+		is_greater_power = yes # Nation is a great power
+		primary_culture = danish
+	}
+
+	mean_time_to_happen =  {
+		months = 300
+
+		modifier = {
+			factor = 0.9
+			year = 1860
+		}
+		modifier = {
+			factor = 0.9
+			year = 1862
+		}
+		modifier = {
+			factor = 0.9
+			year = 1864
+		}
+		
+		modifier = {
+			factor = 0.3
+			rank = 1
+			NOT = { rank = 2 }
+		}
+		
+		modifier = {
+			factor = 1.5
+			NOT = { capital_scope = { continent = europe } }
+		}
+		
+		modifier = {
+			factor = 0.01
+			OR = {
+				owns = 2044
+				owns = 2019
+				owns = 2023
+				owns = 2018
+			}
+		}
+		
+	}
+
+	immediate = {
+		set_global_flag = lake_victoria_discovered
+	}
+
+	option = {
+		name = "EVTOPTA232000000" # Name it ruler
+		prestige = 40
+		3102 = { change_province_name = "Lake Frederick" }
+		ai_chance = { factor = 70 }
+	}
+
+	option = {
+		name = "EVTOPTC232000002" # Name it politician
+		prestige = 40
+		3102 = { change_province_name = "Lake Reventlow" }
+		ai_chance = { factor = 10 }
+	}
+
+	option = {
+		name = "EVTOPTB232000000" # Name it battle
+		prestige = 40
+		3102 = { change_province_name = "Lake Harthacnut" }
+		ai_chance = { factor = 5 }
+	}
+
+	option = {
+		name = "EVTOPTD232000000" # Name it personification
+		prestige = 40
+		3102 = { change_province_name = "Lake Dania" }
+		ai_chance = { factor = 10 }
+	}
+
+	option = {
+		name = "EVTOPTE232000000" # Name it Capital
+		prestige = 40
+		3102 = { change_province_name = "Lake Copenhagen" }
+		ai_chance = { factor = 5 }
+	}
+}
+
+## Discovery of Lake Victoria - Wallonian
+country_event = {
+
+	id = 232000012
+	title = "EVTNAME232000000"
+	desc = "EVTDESC232000000"
+	picture = "Nile"
+
+	
+	trigger = {
+		NOT = { has_global_flag = lake_victoria_discovered }
+		NOT = { has_country_flag = NoGoToNile }
+		OR = {
+			has_country_flag = YesGoToNileAgain
+			has_country_flag = YesGoToNile
+			has_country_flag = YesGoToNileThird
+				owns = 2044
+				owns = 2019
+				owns = 2023
+				owns = 2018
+		}
+		is_greater_power = yes # Nation is a great power
+		primary_culture = wallonian
+	}
+
+	mean_time_to_happen =  {
+		months = 300
+
+		modifier = {
+			factor = 0.9
+			year = 1860
+		}
+		modifier = {
+			factor = 0.9
+			year = 1862
+		}
+		modifier = {
+			factor = 0.9
+			year = 1864
+		}
+		
+		modifier = {
+			factor = 0.3
+			rank = 1
+			NOT = { rank = 2 }
+		}
+		
+		modifier = {
+			factor = 1.5
+			NOT = { capital_scope = { continent = europe } }
+		}
+		
+		modifier = {
+			factor = 0.01
+			OR = {
+				owns = 2044
+				owns = 2019
+				owns = 2023
+				owns = 2018
+			}
+		}
+		
+	}
+
+	immediate = {
+		set_global_flag = lake_victoria_discovered
+	}
+
+	option = {
+		name = "EVTOPTA232000000" # Name it ruler
+		prestige = 40
+		3102 = { change_province_name = "Lake Leopold" }
+		ai_chance = { factor = 70 }
+	}
+
+	option = {
+		name = "EVTOPTC232000002" # Name it politician
+		prestige = 40
+		3102 = { change_province_name = "Lake Saxe-Cobourg" }
+		ai_chance = { factor = 5 }
+	}
+
+	option = {
+		name = "EVTOPTA232000001" # Name it battle
+		prestige = 40
+		3102 = { change_province_name = "Lake Mercator" }
+		ai_chance = { factor = 10 }
+	}
+
+	option = {
+		name = "EVTOPTD232000000" # Name it personification
+		prestige = 40
+		3102 = { change_province_name = "Lake Belgica" }
+		ai_chance = { factor = 10 }
+	}
+
+	option = {
+		name = "EVTOPTE232000000" # Name it Capital
+		prestige = 40
+		3102 = { change_province_name = "Lake Brussels" }
+		ai_chance = { factor = 5 }
+	}
+}
+
+## Discovery of Lake Victoria - Arab
+country_event = {
+
+	id = 232000013
+	title = "EVTNAME232000000"
+	desc = "EVTDESC232000000"
+	picture = "Nile"
+
+	
+	trigger = {
+		NOT = { has_global_flag = lake_victoria_discovered }
+		NOT = { has_country_flag = NoGoToNile }
+		OR = {
+			has_country_flag = YesGoToNileAgain
+			has_country_flag = YesGoToNile
+			has_country_flag = YesGoToNileThird
+				owns = 2044
+				owns = 2019
+				owns = 2023
+				owns = 2018
+		}
+		is_greater_power = yes # Nation is a great power
+		is_culture_group = arab
+	}
+
+	mean_time_to_happen =  {
+		months = 300
+
+		modifier = {
+			factor = 0.9
+			year = 1860
+		}
+		modifier = {
+			factor = 0.9
+			year = 1862
+		}
+		modifier = {
+			factor = 0.9
+			year = 1864
+		}
+		
+		modifier = {
+			factor = 0.3
+			rank = 1
+			NOT = { rank = 2 }
+		}
+		
+		modifier = {
+			factor = 1.5
+			NOT = { capital_scope = { continent = europe } }
+		}
+		
+		modifier = {
+			factor = 0.01
+			OR = {
+				owns = 2044
+				owns = 2019
+				owns = 2023
+				owns = 2018
+			}
+		}
+		
+	}
+
+	immediate = {
+		set_global_flag = lake_victoria_discovered
+	}
+
+	option = {
+		name = "EVTOPTA232000009" # Name it ruler
+		prestige = 40
+		3102 = { change_province_name = "Lake Muhammad" }
+		ai_chance = { factor = 30 }
+	}
+
+	option = {
+		name = "EVTOPTC232000001" # Name it politician
+		prestige = 40
+		3102 = { change_province_name = "Lake al-Walid" }
+		ai_chance = { factor = 5 }
+	}
+
+	option = {
+		name = "EVTOPTA232000001" # Name it battle
+		prestige = 40
+		3102 = { change_province_name = "Lake Fatimah" }
+		ai_chance = { factor = 50 }
+	}
+
+	option = {
+		name = "EVTOPTD232000000" # Name it personification
+		prestige = 40
+		3102 = { change_province_name = "Lake Arabia" }
+		ai_chance = { factor = 5 }
+	}
+
+	option = {
+		name = "EVTOPTE232000000" # Name it Capital
+		prestige = 40
+		3102 = { change_province_name = "Lake Mecca" }
+		ai_chance = { factor = 10 }
+	}
+}
+
+## Discovery of Lake Victoria - South German
+country_event = {
+
+	id = 232000014
+	title = "EVTNAME232000000"
+	desc = "EVTDESC232000000"
+	picture = "Nile"
+
+	
+	trigger = {
+		NOT = { has_global_flag = lake_victoria_discovered }
+		NOT = { has_country_flag = NoGoToNile }
+		OR = {
+			has_country_flag = YesGoToNileAgain
+			has_country_flag = YesGoToNile
+			has_country_flag = YesGoToNileThird
+				owns = 2044
+				owns = 2019
+				owns = 2023
+				owns = 2018
+		}
+		is_greater_power = yes # Nation is a great power
+		capital = 599
+	}
+
+	mean_time_to_happen =  {
+		months = 300
+
+		modifier = {
+			factor = 0.9
+			year = 1860
+		}
+		modifier = {
+			factor = 0.9
+			year = 1862
+		}
+		modifier = {
+			factor = 0.9
+			year = 1864
+		}
+		
+		modifier = {
+			factor = 0.3
+			rank = 1
+			NOT = { rank = 2 }
+		}
+		
+		modifier = {
+			factor = 1.5
+			NOT = { capital_scope = { continent = europe } }
+		}
+		
+		modifier = {
+			factor = 0.01
+			OR = {
+				owns = 2044
+				owns = 2019
+				owns = 2023
+				owns = 2018
+			}
+		}
+		
+	}
+
+	immediate = {
+		set_global_flag = lake_victoria_discovered
+	}
+
+	option = {
+		name = "EVTOPTA232000000" # Name it ruler
+		prestige = 40
+		3102 = { change_province_name = "Lake Franz" }
+		ai_chance = { factor = 50 }
+	}
+
+	option = {
+		name = "EVTOPTC232000002" # Name it politician
+		prestige = 40
+		3102 = { change_province_name = "Lake Wittelsbach" }
+		ai_chance = { factor = 30 }
+	}
+
+	option = {
+		name = "EVTOPTA232000001" # Name it battle
+		prestige = 40
+		3102 = { change_province_name = "Lake Boniface" }
+		ai_chance = { factor = 5 }
+	}
+
+	option = {
+		name = "EVTOPTD232000000" # Name it personification
+		prestige = 40
+		3102 = { change_province_name = "Lake Bayern" }
+		ai_chance = { factor = 10 }
+	}
+
+	option = {
+		name = "EVTOPTE232000000" # Name it Capital
+		prestige = 40
+		3102 = { change_province_name = "Lake Munich" }
+		ai_chance = { factor = 5 }
+	}
+}
+
+## Discovery of Lake Victoria - Hungarian
+country_event = {
+
+	id = 232000015
+	title = "EVTNAME232000000"
+	desc = "EVTDESC232000000"
+	picture = "Nile"
+
+	
+	trigger = {
+		NOT = { has_global_flag = lake_victoria_discovered }
+		NOT = { has_country_flag = NoGoToNile }
+		OR = {
+			has_country_flag = YesGoToNileAgain
+			has_country_flag = YesGoToNile
+			has_country_flag = YesGoToNileThird
+				owns = 2044
+				owns = 2019
+				owns = 2023
+				owns = 2018
+		}
+		is_greater_power = yes # Nation is a great power
+		primary_culture = hungarian
+	}
+
+	mean_time_to_happen =  {
+		months = 300
+
+		modifier = {
+			factor = 0.9
+			year = 1860
+		}
+		modifier = {
+			factor = 0.9
+			year = 1862
+		}
+		modifier = {
+			factor = 0.9
+			year = 1864
+		}
+		
+		modifier = {
+			factor = 0.3
+			rank = 1
+			NOT = { rank = 2 }
+		}
+		
+		modifier = {
+			factor = 1.5
+			NOT = { capital_scope = { continent = europe } }
+		}
+		
+		modifier = {
+			factor = 0.01
+			OR = {
+				owns = 2044
+				owns = 2019
+				owns = 2023
+				owns = 2018
+			}
+		}
+		
+	}
+
+	immediate = {
+		set_global_flag = lake_victoria_discovered
+	}
+
+	option = {
+		name = "EVTOPTB232000000" # Name it ruler
+		prestige = 40
+		3102 = { change_province_name = "Lake Szent István" }
+		ai_chance = { factor = 70 }
+	}
+
+	option = {
+		name = "EVTOPTC232000002" # Name it dynasty
+		prestige = 40
+		3102 = { change_province_name = "Lake Árpád" }
+		ai_chance = { factor = 10 }
+	}
+
+	option = {
+		name = "EVTOPTC232000001" # Name it general
+		prestige = 40
+		3102 = { change_province_name = "Lake Hunyadi" }
+		ai_chance = { factor = 10 }
+	}
+
+	option = {
+		name = "EVTOPTD232000000" # Name it personification
+		prestige = 40
+		3102 = { change_province_name = "Lake Hungaria" }
+		ai_chance = { factor = 5 }
+	}
+
+	option = {
+		name = "EVTOPTE232000000" # Name it Capital
+		prestige = 40
+		3102 = { change_province_name = "Lake Budapest" }
+		ai_chance = { factor = 5 }
+	}
+}
+
+## Discovery of Lake Victoria - Polish
+country_event = {
+
+	id = 232000016
+	title = "EVTNAME232000000"
+	desc = "EVTDESC232000000"
+	picture = "Nile"
+
+	
+	trigger = {
+		NOT = { has_global_flag = lake_victoria_discovered }
+		NOT = { has_country_flag = NoGoToNile }
+		OR = {
+			has_country_flag = YesGoToNileAgain
+			has_country_flag = YesGoToNile
+			has_country_flag = YesGoToNileThird
+				owns = 2044
+				owns = 2019
+				owns = 2023
+				owns = 2018
+		}
+		is_greater_power = yes # Nation is a great power
+		primary_culture = polish
+	}
+
+	mean_time_to_happen =  {
+		months = 300
+
+		modifier = {
+			factor = 0.9
+			year = 1860
+		}
+		modifier = {
+			factor = 0.9
+			year = 1862
+		}
+		modifier = {
+			factor = 0.9
+			year = 1864
+		}
+		
+		modifier = {
+			factor = 0.3
+			rank = 1
+			NOT = { rank = 2 }
+		}
+		
+		modifier = {
+			factor = 1.5
+			NOT = { capital_scope = { continent = europe } }
+		}
+		
+		modifier = {
+			factor = 0.01
+			OR = {
+				owns = 2044
+				owns = 2019
+				owns = 2023
+				owns = 2018
+			}
+		}
+		
+	}
+
+	immediate = {
+		set_global_flag = lake_victoria_discovered
+	}
+
+	option = {
+		name = "EVTOPTB232000000" # Name it ruler
+		prestige = 40
+		3102 = { change_province_name = "Lake Koœciuszko" }
+		ai_chance = { factor = 20 }
+	}
+		
+	option = {
+		name = "EVTOPTC232000002" # Name it politician
+		prestige = 40
+		3102 = { change_province_name = "Lake Piast" }
+		ai_chance = { factor = 50 }
+	}
+		
+	option = {
+		name = "EVTOPTC232000000" # Name it battle
+		prestige = 40
+		3102 = { change_province_name = "Lake Grunwald" }
+		ai_chance = { factor = 20 }
+	}
+		
+	option = {
+		name = "EVTOPTD232000000" # Name it personification
+		prestige = 40
+		3102 = { change_province_name = "Lake Polonia" }
+		ai_chance = { factor = 5 }
+	}
+		
+	option = {
+		name = "EVTOPTE232000000" # Name it Capital
+		prestige = 40
+		3102 = { change_province_name = "Lake Warsaw" }
+		ai_chance = { factor = 5 }
+	}
+}
+
+## Discovery of Lake Victoria - USA
+country_event = {
+
+	id = 232000017
+	title = "EVTNAME232000000"
+	desc = "EVTDESC232000000"
+	picture = "Nile"
+
+	
+	trigger = {
+		NOT = { has_global_flag = lake_victoria_discovered }
+		NOT = { has_country_flag = NoGoToNile }
+		OR = {
+			has_country_flag = YesGoToNileAgain
+			has_country_flag = YesGoToNile
+			has_country_flag = YesGoToNileThird
+				owns = 2044
+				owns = 2019
+				owns = 2023
+				owns = 2018
+		}
+		is_greater_power = yes # Nation is a great power
+		primary_culture = yankee
+	}
+
+	mean_time_to_happen =  {
+		months = 300
+
+		modifier = {
+			factor = 0.9
+			year = 1860
+		}
+		modifier = {
+			factor = 0.9
+			year = 1862
+		}
+		modifier = {
+			factor = 0.9
+			year = 1864
+		}
+		
+		modifier = {
+			factor = 0.3
+			rank = 1
+			NOT = { rank = 2 }
+		}
+		
+		modifier = {
+			factor = 1.5
+			NOT = { capital_scope = { continent = europe } }
+		}
+		
+		modifier = {
+			factor = 0.01
+			OR = {
+				owns = 2044
+				owns = 2019
+				owns = 2023
+				owns = 2018
+			}
+		}
+		
+	}
+
+	immediate = {
+		set_global_flag = lake_victoria_discovered
+	}
+
+	option = {
+		name = "EVTOPTA232000001" # Name it ruler
+		prestige = 40
+		3102 = { change_province_name = "Lake Jefferson" }
+		ai_chance = { factor = 20 }
+	}
+		
+	option = {
+		name = "EVTOPTC232000002" # Name it politician
+		prestige = 40
+		3102 = { change_province_name = "Lake Lincoln" }
+		ai_chance = { factor = 20 }
+	}
+		
+	option = {
+		name = "EVTOPTD232000000" # Name it country
+		prestige = 40
+		3102 = { change_province_name = "Lake America" }
+		ai_chance = { factor = 15 }
+	}
+		
+	option = {
+		name = "EVTOPTD232000017" # Name it philosophy
+		prestige = 40
+		3102 = { change_province_name = "Lake Liberty" }
+		ai_chance = { factor = 20 }
+	}
+		
+	option = {
+		name = "EVTOPTE232000000" # Name it Capital
+		prestige = 40
+		3102 = { change_province_name = "Lake Washington" }
+		ai_chance = { factor = 25 }
+	}
+}
+
+## Discovery of Lake Victoria - Czech
+country_event = {
+
+	id = 232000018
+	title = "EVTNAME232000000"
+	desc = "EVTDESC232000000"
+	picture = "Nile"
+
+	
+	trigger = {
+		NOT = { has_global_flag = lake_victoria_discovered }
+		NOT = { has_country_flag = NoGoToNile }
+		OR = {
+			has_country_flag = YesGoToNileAgain
+			has_country_flag = YesGoToNile
+			has_country_flag = YesGoToNileThird
+				owns = 2044
+				owns = 2019
+				owns = 2023
+				owns = 2018
+		}
+		is_greater_power = yes # Nation is a great power
+		primary_culture = czech
+	}
+
+	mean_time_to_happen =  {
+		months = 300
+
+		modifier = {
+			factor = 0.9
+			year = 1860
+		}
+		modifier = {
+			factor = 0.9
+			year = 1862
+		}
+		modifier = {
+			factor = 0.9
+			year = 1864
+		}
+		
+		modifier = {
+			factor = 0.3
+			rank = 1
+			NOT = { rank = 2 }
+		}
+		
+		modifier = {
+			factor = 1.5
+			NOT = { capital_scope = { continent = europe } }
+		}
+		
+		modifier = {
+			factor = 0.01
+			OR = {
+				owns = 2044
+				owns = 2019
+				owns = 2023
+				owns = 2018
+			}
+		}
+		
+	}
+
+	immediate = {
+		set_global_flag = lake_victoria_discovered
+	}
+
+	option = {
+		name = "EVTOPTB232000000" # Name it ruler
+		prestige = 40
+		3102 = { change_province_name = "Lake Ottokar" }
+		ai_chance = { factor = 20 }
+	}
+		
+	option = {
+		name = "EVTOPTC232000002" # Name it politician
+		prestige = 40
+		3102 = { change_province_name = "Lake Pøemysl" }
+		ai_chance = { factor = 30 }
+	}
+		
+	option = {
+		name = "EVTOPTA232000001" # Name it battle
+		prestige = 40
+		3102 = { change_province_name = "Lake Hus" }
+		ai_chance = { factor = 20 }
+	}
+		
+	option = {
+		name = "EVTOPTD232000000" # Name it personification
+		prestige = 40
+		3102 = { change_province_name = "Lake Czechia" }
+		ai_chance = { factor = 10 }
+	}
+		
+	option = {
+		name = "EVTOPTE232000000" # Name it Capital
+		prestige = 40
+		3102 = { change_province_name = "Lake Prague" }
+		ai_chance = { factor = 20 }
+	}
+}
+
+## Discovery of Lake Victoria - Brazil
+country_event = {
+
+	id = 232000019
+	title = "EVTNAME232000000"
+	desc = "EVTDESC232000000"
+	picture = "Nile"
+
+	
+	trigger = {
+		NOT = { has_global_flag = lake_victoria_discovered }
+		NOT = { has_country_flag = NoGoToNile }
+		OR = {
+			has_country_flag = YesGoToNileAgain
+			has_country_flag = YesGoToNile
+			has_country_flag = YesGoToNileThird
+				owns = 2044
+				owns = 2019
+				owns = 2023
+				owns = 2018
+		}
+		is_greater_power = yes # Nation is a great power
+		primary_culture = brazilian
+	}
+
+	mean_time_to_happen =  {
+		months = 300
+
+		modifier = {
+			factor = 0.9
+			year = 1860
+		}
+		modifier = {
+			factor = 0.9
+			year = 1862
+		}
+		modifier = {
+			factor = 0.9
+			year = 1864
+		}
+		
+		modifier = {
+			factor = 0.3
+			rank = 1
+			NOT = { rank = 2 }
+		}
+		
+		modifier = {
+			factor = 1.5
+			NOT = { capital_scope = { continent = europe } }
+		}
+		
+		modifier = {
+			factor = 0.01
+			OR = {
+				owns = 2044
+				owns = 2019
+				owns = 2023
+				owns = 2018
+			}
+		}
+		
+	}
+
+	immediate = {
+		set_global_flag = lake_victoria_discovered
+	}
+
+	option = {
+		name = "EVTOPTA232000000" # Name it ruler
+		prestige = 40
+		3102 = { change_province_name = "Lake Dom Pedro" }
+		ai_chance = { factor = 50 }
+	}
+
+	option = {
+		name = "EVTOPTC232000002" # Name it politician
+		prestige = 40
+		3102 = { change_province_name = "Lake Bragança" }
+		ai_chance = { factor = 20 }
+	}
+
+	option = {
+		name = "EVTOPTB232000000" # Name it hero
+		prestige = 40
+		3102 = { change_province_name = "Lake Tiradentes" }
+		ai_chance = { factor = 5 }
+	}
+
+	option = {
+		name = "EVTOPTD232000000" # Name it personification
+		prestige = 40
+		3102 = { change_province_name = "Lake Brasil" }
+		ai_chance = { factor = 20 }
+	}
+
+	option = {
+		name = "EVTOPTE232000000" # Name it Capital
+		prestige = 40
+		3102 = { change_province_name = "Lake Rio de Janeiro" }
+		ai_chance = { factor = 5 }
+	}
+}
+
+## Discovery of Lake Victoria - Mexico
+country_event = {
+
+	id = 232000020
+	title = "EVTNAME232000000"
+	desc = "EVTDESC232000000"
+	picture = "Nile"
+
+	
+	trigger = {
+		NOT = { has_global_flag = lake_victoria_discovered }
+		NOT = { has_country_flag = NoGoToNile }
+		OR = {
+			has_country_flag = YesGoToNileAgain
+			has_country_flag = YesGoToNile
+			has_country_flag = YesGoToNileThird
+				owns = 2044
+				owns = 2019
+				owns = 2023
+				owns = 2018
+		}
+		is_greater_power = yes # Nation is a great power
+		primary_culture = mexican
+	}
+
+	mean_time_to_happen =  {
+		months = 300
+
+		modifier = {
+			factor = 0.9
+			year = 1860
+		}
+		modifier = {
+			factor = 0.9
+			year = 1862
+		}
+		modifier = {
+			factor = 0.9
+			year = 1864
+		}
+		
+		modifier = {
+			factor = 0.3
+			rank = 1
+			NOT = { rank = 2 }
+		}
+		
+		modifier = {
+			factor = 1.5
+			NOT = { capital_scope = { continent = europe } }
+		}
+		
+		modifier = {
+			factor = 0.01
+			OR = {
+				owns = 2044
+				owns = 2019
+				owns = 2023
+				owns = 2018
+			}
+		}
+		
+	}
+
+	immediate = {
+		set_global_flag = lake_victoria_discovered
+	}
+
+	option = {
+		name = "EVTOPTB232000001" # Name it politician
+		prestige = 40
+		3102 = { change_province_name = "Lake Díaz" }
+		ai_chance = { factor = 35 }
+	}
+
+	option = {
+		name = "EVTOPTC232000001" # Name it general
+		prestige = 40
+		3102 = { change_province_name = "Lake Santa Anna" }
+		ai_chance = { factor = 5 }
+	}
+
+	option = {
+		name = "EVTOPTB232000000" # Name it hero
+		prestige = 40
+		3102 = { change_province_name = "Lake Hidalgo" }
+		ai_chance = { factor = 25 }
+	}
+
+	option = {
+		name = "EVTOPTD232000000" # Name it personification
+		prestige = 40
+		3102 = { change_province_name = "Lake Mexico" }
+		ai_chance = { factor = 20 }
+	}
+
+	option = {
+		name = "EVTOPTE232000000" # Name it Capital
+		prestige = 40
+		3102 = { change_province_name = "Lake Tenochtitlan" }
+		ai_chance = { factor = 15 }
+	}
+}
+
+## Discovery of Lake Victoria - Bulgaria
+country_event = {
+
+	id = 232000021
+	title = "EVTNAME232000000"
+	desc = "EVTDESC232000000"
+	picture = "Nile"
+
+	
+	trigger = {
+		NOT = { has_global_flag = lake_victoria_discovered }
+		NOT = { has_country_flag = NoGoToNile }
+		OR = {
+			has_country_flag = YesGoToNileAgain
+			has_country_flag = YesGoToNile
+			has_country_flag = YesGoToNileThird
+				owns = 2044
+				owns = 2019
+				owns = 2023
+				owns = 2018
+		}
+		is_greater_power = yes # Nation is a great power
+		primary_culture = bulgarian
+	}
+
+	mean_time_to_happen =  {
+		months = 300
+
+		modifier = {
+			factor = 0.9
+			year = 1860
+		}
+		modifier = {
+			factor = 0.9
+			year = 1862
+		}
+		modifier = {
+			factor = 0.9
+			year = 1864
+		}
+		
+		modifier = {
+			factor = 0.3
+			rank = 1
+			NOT = { rank = 2 }
+		}
+		
+		modifier = {
+			factor = 1.5
+			NOT = { capital_scope = { continent = europe } }
+		}
+		
+		modifier = {
+			factor = 0.01
+			OR = {
+				owns = 2044
+				owns = 2019
+				owns = 2023
+				owns = 2018
+			}
+		}
+		
+	}
+
+	immediate = {
+		set_global_flag = lake_victoria_discovered
+	}
+
+	option = {
+		name = "EVTOPTA232000000" # Name it ruler
+		prestige = 40
+		3102 = { change_province_name = "Lake Ferdinand" }
+		ai_chance = { factor = 40 }
+	}
+
+	option = {
+		name = "EVTOPTC232000002" # Name it dynasty
+		prestige = 40
+		3102 = { change_province_name = "Lake Asen" }
+		ai_chance = { factor = 5 }
+	}
+
+	option = {
+		name = "EVTOPTB232000000" # Name it hero
+		prestige = 40
+		3102 = { change_province_name = "Lake Simeon" }
+		ai_chance = { factor = 25 }
+	}
+
+	option = {
+		name = "EVTOPTD232000000" # Name it personification
+		prestige = 40
+		3102 = { change_province_name = "Lake Thracia" }
+		ai_chance = { factor = 15 }
+	}
+
+	option = {
+		name = "EVTOPTE232000000" # Name it Capital
+		prestige = 40
+		3102 = { change_province_name = "Lake Sofia" }
+		ai_chance = { factor = 15 }
+	}
+}
+
+## Discovery of Lake Victoria - Greek
+country_event = {
+
+	id = 232000022
+	title = "EVTNAME232000000"
+	desc = "EVTDESC232000000"
+	picture = "Nile"
+
+	
+	trigger = {
+		NOT = { has_global_flag = lake_victoria_discovered }
+		NOT = { has_country_flag = NoGoToNile }
+		OR = {
+			has_country_flag = YesGoToNileAgain
+			has_country_flag = YesGoToNile
+			has_country_flag = YesGoToNileThird
+				owns = 2044
+				owns = 2019
+				owns = 2023
+				owns = 2018
+		}
+		is_greater_power = yes # Nation is a great power
+		primary_culture = greek
+	}
+
+	mean_time_to_happen =  {
+		months = 300
+
+		modifier = {
+			factor = 0.9
+			year = 1860
+		}
+		modifier = {
+			factor = 0.9
+			year = 1862
+		}
+		modifier = {
+			factor = 0.9
+			year = 1864
+		}
+		
+		modifier = {
+			factor = 0.3
+			rank = 1
+			NOT = { rank = 2 }
+		}
+		
+		modifier = {
+			factor = 1.5
+			NOT = { capital_scope = { continent = europe } }
+		}
+		
+		modifier = {
+			factor = 0.01
+			OR = {
+				owns = 2044
+				owns = 2019
+				owns = 2023
+				owns = 2018
+			}
+		}
+		
+	}
+
+	immediate = {
+		set_global_flag = lake_victoria_discovered
+	}
+
+	option = {
+		name = "EVTOPTA232000000" # Name it ruler
+		prestige = 40
+		3102 = { change_province_name = "Lake Constantine" }
+		ai_chance = { factor = 35 }
+	}
+
+	option = {
+		name = "EVTOPTC232000001" # Name it general
+		prestige = 40
+		3102 = { change_province_name = "Lake Alexandros" }
+		ai_chance = { factor = 20 }
+	}
+
+	option = {
+		name = "EVTOPTB232000000" # Name it hero
+		prestige = 40
+		3102 = { change_province_name = "Lake Basileios" }
+		ai_chance = { factor = 25 }
+	}
+
+	option = {
+		name = "EVTOPTD232000000" # Name it personification
+		prestige = 40
+		3102 = { change_province_name = "Lake Hellas" }
+		ai_chance = { factor = 15 }
+	}
+
+	option = {
+		name = "EVTOPTE232000000" # Name it Capital
+		prestige = 40
+		3102 = { change_province_name = "Lake Athens" }
+		ai_chance = { factor = 5 }
+	}
+}
+
+## Discovery of Lake Victoria - Croatia
+country_event = {
+
+	id = 232000023
+	title = "EVTNAME232000000"
+	desc = "EVTDESC232000000"
+	picture = "Nile"
+
+	
+	trigger = {
+		NOT = { has_global_flag = lake_victoria_discovered }
+		NOT = { has_country_flag = NoGoToNile }
+		OR = {
+			has_country_flag = YesGoToNileAgain
+			has_country_flag = YesGoToNile
+			has_country_flag = YesGoToNileThird
+				owns = 2044
+				owns = 2019
+				owns = 2023
+				owns = 2018
+		}
+		is_greater_power = yes # Nation is a great power
+		primary_culture = croat
+	}
+
+	mean_time_to_happen =  {
+		months = 300
+
+		modifier = {
+			factor = 0.9
+			year = 1860
+		}
+		modifier = {
+			factor = 0.9
+			year = 1862
+		}
+		modifier = {
+			factor = 0.9
+			year = 1864
+		}
+		
+		modifier = {
+			factor = 0.3
+			rank = 1
+			NOT = { rank = 2 }
+		}
+		
+		modifier = {
+			factor = 1.5
+			NOT = { capital_scope = { continent = europe } }
+		}
+		
+		modifier = {
+			factor = 0.01
+			OR = {
+				owns = 2044
+				owns = 2019
+				owns = 2023
+				owns = 2018
+			}
+		}
+		
+	}
+
+	immediate = {
+		set_global_flag = lake_victoria_discovered
+	}
+
+	option = {
+		name = "EVTOPTA232000000" # Name it ruler
+		prestige = 40
+		3102 = { change_province_name = "Lake Tomislav" }
+		ai_chance = { factor = 35 }
+	}
+
+	option = {
+		name = "EVTOPTC232000002" # Name it dynasty
+		prestige = 40
+		3102 = { change_province_name = "Lake Trpimiroviæ" }
+		ai_chance = { factor = 20 }
+	}
+
+	option = {
+		name = "EVTOPTB232000000" # Name it hero
+		prestige = 40
+		3102 = { change_province_name = "Lake Jelaèiæ" }
+		ai_chance = { factor = 20 }
+	}
+
+	option = {
+		name = "EVTOPTD232000000" # Name it personification
+		prestige = 40
+		3102 = { change_province_name = "Lake Illyria" }
+		ai_chance = { factor = 20 }
+	}
+
+	option = {
+		name = "EVTOPTE232000000" # Name it Capital
+		prestige = 40
+		3102 = { change_province_name = "Lake Zagreb" }
+		ai_chance = { factor = 5 }
+	}
+}
+
+## Discovery of Lake Victoria - Pope
+country_event = {
+
+	id = 232000024
+	title = "EVTNAME232000000"
+	desc = "EVTDESC232000000"
+	picture = "Nile"
+
+	
+	trigger = {
+		NOT = { has_global_flag = lake_victoria_discovered }
+		NOT = { has_country_flag = NoGoToNile }
+		OR = {
+			has_country_flag = YesGoToNileAgain
+			has_country_flag = YesGoToNile
+			has_country_flag = YesGoToNileThird
+				owns = 2044
+				owns = 2019
+				owns = 2023
+				owns = 2018
+		}
+		is_greater_power = yes # Nation is a great power
+		OR = {
+			tag = PAP
+			tag = ITP
+		}
+	}
+
+	mean_time_to_happen =  {
+		months = 300
+
+		modifier = {
+			factor = 0.9
+			year = 1860
+		}
+		modifier = {
+			factor = 0.9
+			year = 1862
+		}
+		modifier = {
+			factor = 0.9
+			year = 1864
+		}
+		
+		modifier = {
+			factor = 0.3
+			rank = 1
+			NOT = { rank = 2 }
+		}
+		
+		modifier = {
+			factor = 1.5
+			NOT = { capital_scope = { continent = europe } }
+		}
+		
+		modifier = {
+			factor = 0.01
+			OR = {
+				owns = 2044
+				owns = 2019
+				owns = 2023
+				owns = 2018
+			}
+		}
+		
+	}
+
+	immediate = {
+		set_global_flag = lake_victoria_discovered
+	}
+
+	option = {
+		name = "EVTOPTA232000000" # Name it ruler
+		prestige = 40
+		3102 = { change_province_name = "Lake Pius" }
+		ai_chance = { factor = 20 }
+	}
+
+	option = {
+		name = "EVTOPTB232000000" # Name it hero
+		prestige = 40
+		3102 = { change_province_name = "Lake God" }
+		ai_chance = { factor = 20 }
+	}
+
+	option = {
+		name = "EVTOPTB232000008" # Name it philosopher
+		prestige = 40
+		3102 = { change_province_name = "Lake Jesus Christ" }
+		ai_chance = { factor = 20 }
+	}
+
+	option = {
+		name = "EVTOPTA232000001" # Name it person
+		prestige = 40
+		3102 = { change_province_name = "Lake St Peter" }
+		ai_chance = { factor = 35 }
+	}
+
+	option = {
+		name = "EVTOPTE232000000" # Name it Capital
+		prestige = 40
+		3102 = { change_province_name = "Lake Rome" }
+		ai_chance = { factor = 5 }
+	}
+}
+
+## Discovery of Lake Victoria - Serb
+country_event = {
+
+	id = 232000025
+	title = "EVTNAME232000000"
+	desc = "EVTDESC232000000"
+	picture = "Nile"
+
+	
+	trigger = {
+		NOT = { has_global_flag = lake_victoria_discovered }
+		NOT = { has_country_flag = NoGoToNile }
+		OR = {
+			has_country_flag = YesGoToNileAgain
+			has_country_flag = YesGoToNile
+			has_country_flag = YesGoToNileThird
+				owns = 2044
+				owns = 2019
+				owns = 2023
+				owns = 2018
+		}
+		is_greater_power = yes # Nation is a great power
+		primary_culture = serb
+		NOT = { tag = MON }
+	}
+
+	mean_time_to_happen =  {
+		months = 300
+
+		modifier = {
+			factor = 0.9
+			year = 1860
+		}
+		modifier = {
+			factor = 0.9
+			year = 1862
+		}
+		modifier = {
+			factor = 0.9
+			year = 1864
+		}
+		
+		modifier = {
+			factor = 0.3
+			rank = 1
+			NOT = { rank = 2 }
+		}
+		
+		modifier = {
+			factor = 1.5
+			NOT = { capital_scope = { continent = europe } }
+		}
+		
+		modifier = {
+			factor = 0.01
+			OR = {
+				owns = 2044
+				owns = 2019
+				owns = 2023
+				owns = 2018
+			}
+		}
+		
+	}
+
+	immediate = {
+		set_global_flag = lake_victoria_discovered
+	}
+
+	option = {
+		name = "EVTOPTA232000000" # Name it ruler
+		prestige = 40
+		3102 = { change_province_name = "Lake Stefan" }
+		ai_chance = { factor = 35 }
+	}
+
+	option = {
+		name = "EVTOPTC232000002" # Name it dynasty
+		prestige = 40
+		3102 = { change_province_name = "Lake Nemanjiæ" }
+		ai_chance = { factor = 20 }
+	}
+
+	option = {
+		name = "EVTOPTC232000000" # Name it battle
+		prestige = 40
+		3102 = { change_province_name = "Lake Kosovo Polje" }
+		ai_chance = { factor = 20 }
+	}
+
+	option = {
+		name = "EVTOPTB232000000" # Name it person
+		prestige = 40
+		3102 = { change_province_name = "Lake Karaðorðe" }
+		ai_chance = { factor = 20 }
+	}
+
+	option = {
+		name = "EVTOPTE232000000" # Name it Capital
+		prestige = 40
+		3102 = { change_province_name = "Lake Belgrade" }
+		ai_chance = { factor = 5 }
+	}
+}
+
+## Discovery of Lake Victoria - Japan
+country_event = {
+
+	id = 232000026
+	title = "EVTNAME232000000"
+	desc = "EVTDESC232000000"
+	picture = "Nile"
+
+	
+	trigger = {
+		NOT = { has_global_flag = lake_victoria_discovered }
+		NOT = { has_country_flag = NoGoToNile }
+		OR = {
+			has_country_flag = YesGoToNileAgain
+			has_country_flag = YesGoToNile
+			has_country_flag = YesGoToNileThird
+				owns = 2044
+				owns = 2019
+				owns = 2023
+				owns = 2018
+		}
+		is_greater_power = yes # Nation is a great power
+		primary_culture = japanese
+	}
+
+	mean_time_to_happen =  {
+		months = 300
+
+		modifier = {
+			factor = 0.9
+			year = 1860
+		}
+		modifier = {
+			factor = 0.9
+			year = 1862
+		}
+		modifier = {
+			factor = 0.9
+			year = 1864
+		}
+		
+		modifier = {
+			factor = 0.3
+			rank = 1
+			NOT = { rank = 2 }
+		}
+		
+		modifier = {
+			factor = 1.5
+			NOT = { capital_scope = { continent = europe } }
+		}
+		
+		modifier = {
+			factor = 0.01
+			OR = {
+				owns = 2044
+				owns = 2019
+				owns = 2023
+				owns = 2018
+			}
+		}
+		
+	}
+
+	immediate = {
+		set_global_flag = lake_victoria_discovered
+	}
+
+	option = {
+		name = "EVTOPTA232000000" # Name it ruler
+		prestige = 40
+		3102 = { change_province_name = "Lake Meiji" }
+		ai_chance = { factor = 40 }
+	}
+
+	option = {
+		name = "EVTOPTC232000002" # Name it dynasty
+		prestige = 40
+		3102 = { change_province_name = "Lake Yamato" }
+		ai_chance = { factor = 25 }
+	}
+
+	option = {
+		name = "EVTOPTB232000000" # Name it hero
+		prestige = 40
+		3102 = { change_province_name = "Lake Jimmu" }
+		ai_chance = { factor = 20 }
+	}
+
+	option = {
+		name = "EVTOPTD232000000" # Name it country
+		prestige = 40
+		3102 = { change_province_name = "Lake Nippon" }
+		ai_chance = { factor = 10 }
+	}
+
+	option = {
+		name = "EVTOPTE232000000" # Name it Capital
+		prestige = 40
+		3102 = { change_province_name = "Lake Tokyo" }
+		ai_chance = { factor = 5 }
+	}
+}
+
+## Discovery of Lake Victoria - CSA
+country_event = {
+
+	id = 232000027
+	title = "EVTNAME232000000"
+	desc = "EVTDESC232000000"
+	picture = "Nile"
+
+	
+	trigger = {
+		NOT = { has_global_flag = lake_victoria_discovered }
+		NOT = { has_country_flag = NoGoToNile }
+		OR = {
+			has_country_flag = YesGoToNileAgain
+			has_country_flag = YesGoToNile
+			has_country_flag = YesGoToNileThird
+				owns = 2044
+				owns = 2019
+				owns = 2023
+				owns = 2018
+		}
+		is_greater_power = yes # Nation is a great power
+		primary_culture = dixie
+	}
+
+	mean_time_to_happen =  {
+		months = 300
+
+		modifier = {
+			factor = 0.9
+			year = 1860
+		}
+		modifier = {
+			factor = 0.9
+			year = 1862
+		}
+		modifier = {
+			factor = 0.9
+			year = 1864
+		}
+		
+		modifier = {
+			factor = 0.3
+			rank = 1
+			NOT = { rank = 2 }
+		}
+		
+		modifier = {
+			factor = 1.5
+			NOT = { capital_scope = { continent = europe } }
+		}
+		
+		modifier = {
+			factor = 0.01
+			OR = {
+				owns = 2044
+				owns = 2019
+				owns = 2023
+				owns = 2018
+			}
+		}
+		
+	}
+
+	immediate = {
+		set_global_flag = lake_victoria_discovered
+	}
+
+	option = {
+		name = "EVTOPTB232000000" # Name it hero
+		prestige = 40
+		3102 = { change_province_name = "Lake Lee" }
+		ai_chance = { factor = 20 }
+	}
+		
+	option = {
+		name = "EVTOPTB232000001" # Name it politician
+		prestige = 40
+		3102 = { change_province_name = "Lake Davis" }
+		ai_chance = { factor = 20 }
+	}
+		
+	option = {
+		name = "EVTOPTC232000000" # Name it battle
+		prestige = 40
+		3102 = { change_province_name = "Lake Chancellorsville" }
+		ai_chance = { factor = 15 }
+	}
+		
+	option = {
+		name = "EVTOPTC232000001" # Name it general
+		prestige = 40
+		3102 = { change_province_name = "Lake Stonewall Jackson" }
+		ai_chance = { factor = 20 }
+	}
+		
+	option = {
+		name = "EVTOPTE232000000" # Name it Capital
+		prestige = 40
+		3102 = { change_province_name = "Lake Richmond" }
+		ai_chance = { factor = 25 }
+	}
+}
+
+## Discovery of Lake Victoria - Armenian
+country_event = {
+
+	id = 232000028
+	title = "EVTNAME232000000"
+	desc = "EVTDESC232000000"
+	picture = "Nile"
+
+	
+	trigger = {
+		NOT = { has_global_flag = lake_victoria_discovered }
+		NOT = { has_country_flag = NoGoToNile }
+		OR = {
+			has_country_flag = YesGoToNileAgain
+			has_country_flag = YesGoToNile
+			has_country_flag = YesGoToNileThird
+				owns = 2044
+				owns = 2019
+				owns = 2023
+				owns = 2018
+		}
+		is_greater_power = yes # Nation is a great power
+		primary_culture = armenian
+	}
+
+	mean_time_to_happen =  {
+		months = 300
+
+		modifier = {
+			factor = 0.9
+			year = 1860
+		}
+		modifier = {
+			factor = 0.9
+			year = 1862
+		}
+		modifier = {
+			factor = 0.9
+			year = 1864
+		}
+		
+		modifier = {
+			factor = 0.3
+			rank = 1
+			NOT = { rank = 2 }
+		}
+		
+		modifier = {
+			factor = 1.5
+			NOT = { capital_scope = { continent = europe } }
+		}
+		
+		modifier = {
+			factor = 0.01
+			OR = {
+				owns = 2044
+				owns = 2019
+				owns = 2023
+				owns = 2018
+			}
+		}
+		
+	}
+
+	immediate = {
+		set_global_flag = lake_victoria_discovered
+	}
+
+	option = {
+		name = "EVTOPTA232000000" # Name it ruler
+		prestige = 40
+		3102 = { change_province_name = "Lake Tigranes" }
+		ai_chance = { factor = 20 }
+	}
+		
+	option = {
+		name = "EVTOPTC232000002" # Name it dynasty
+		prestige = 40
+		3102 = { change_province_name = "Lake Artaxiad" }
+		ai_chance = { factor = 20 }
+	}
+		
+	option = {
+		name = "EVTOPTB232000000" # Name it hero
+		prestige = 40
+		3102 = { change_province_name = "Lake Hayk" }
+		ai_chance = { factor = 20 }
+	}
+		
+	option = {
+		name = "EVTOPTD232000000" # Name it country
+		prestige = 40
+		3102 = { change_province_name = "Lake Armenia" }
+		ai_chance = { factor = 20 }
+	}
+		
+	option = {
+		name = "EVTOPTE232000000" # Name it Capital
+		prestige = 40
+		3102 = { change_province_name = "Lake Yerevan" }
+		ai_chance = { factor = 20 }
+	}
+}
+
+## Discovery of Lake Victoria - Georgian
+country_event = {
+
+	id = 232000029
+	title = "EVTNAME232000000"
+	desc = "EVTDESC232000000"
+	picture = "Nile"
+
+	
+	trigger = {
+		NOT = { has_global_flag = lake_victoria_discovered }
+		NOT = { has_country_flag = NoGoToNile }
+		OR = {
+			has_country_flag = YesGoToNileAgain
+			has_country_flag = YesGoToNile
+			has_country_flag = YesGoToNileThird
+				owns = 2044
+				owns = 2019
+				owns = 2023
+				owns = 2018
+		}
+		is_greater_power = yes # Nation is a great power
+		primary_culture = georgian
+	}
+
+	mean_time_to_happen =  {
+		months = 300
+
+		modifier = {
+			factor = 0.9
+			year = 1860
+		}
+		modifier = {
+			factor = 0.9
+			year = 1862
+		}
+		modifier = {
+			factor = 0.9
+			year = 1864
+		}
+		
+		modifier = {
+			factor = 0.3
+			rank = 1
+			NOT = { rank = 2 }
+		}
+		
+		modifier = {
+			factor = 1.5
+			NOT = { capital_scope = { continent = europe } }
+		}
+		
+		modifier = {
+			factor = 0.01
+			OR = {
+				owns = 2044
+				owns = 2019
+				owns = 2023
+				owns = 2018
+			}
+		}
+		
+	}
+
+	immediate = {
+		set_global_flag = lake_victoria_discovered
+	}
+
+	option = {
+		name = "EVTOPTA232000000" # Name it ruler
+		prestige = 40
+		3102 = { change_province_name = "Lake David" }
+		ai_chance = { factor = 20 }
+	}
+		
+	option = {
+		name = "EVTOPTC232000002" # Name it dynasty
+		prestige = 40
+		3102 = { change_province_name = "Lake Bagrationi" }
+		ai_chance = { factor = 20 }
+	}
+		
+	option = {
+		name = "EVTOPTA232000001" # Name it person
+		prestige = 40
+		3102 = { change_province_name = "Lake Tamar" }
+		ai_chance = { factor = 20 }
+	}
+		
+	option = {
+		name = "EVTOPTD232000000" # Name it country
+		prestige = 40
+		3102 = { change_province_name = "Lake Georgia" }
+		ai_chance = { factor = 20 }
+	}
+		
+	option = {
+		name = "EVTOPTE232000000" # Name it Capital
+		prestige = 40
+		3102 = { change_province_name = "Lake Tbilisi" }
+		ai_chance = { factor = 20 }
+	}
+}
+
+## Discovery of Lake Victoria - Albanian
+country_event = {
+
+	id = 232000030
+	title = "EVTNAME232000000"
+	desc = "EVTDESC232000000"
+	picture = "Nile"
+
+	
+	trigger = {
+		NOT = { has_global_flag = lake_victoria_discovered }
+		NOT = { has_country_flag = NoGoToNile }
+		OR = {
+			has_country_flag = YesGoToNileAgain
+			has_country_flag = YesGoToNile
+			has_country_flag = YesGoToNileThird
+				owns = 2044
+				owns = 2019
+				owns = 2023
+				owns = 2018
+		}
+		is_greater_power = yes # Nation is a great power
+		primary_culture = albanian
+	}
+
+	mean_time_to_happen =  {
+		months = 300
+
+		modifier = {
+			factor = 0.9
+			year = 1860
+		}
+		modifier = {
+			factor = 0.9
+			year = 1862
+		}
+		modifier = {
+			factor = 0.9
+			year = 1864
+		}
+		
+		modifier = {
+			factor = 0.3
+			rank = 1
+			NOT = { rank = 2 }
+		}
+		
+		modifier = {
+			factor = 1.5
+			NOT = { capital_scope = { continent = europe } }
+		}
+		
+		modifier = {
+			factor = 0.01
+			OR = {
+				owns = 2044
+				owns = 2019
+				owns = 2023
+				owns = 2018
+			}
+		}
+		
+	}
+
+	immediate = {
+		set_global_flag = lake_victoria_discovered
+	}
+
+	option = {
+		name = "EVTOPTB232000000" # Name it hero
+		prestige = 40
+		3102 = { change_province_name = "Lake Skanderbeg" }
+		ai_chance = { factor = 40 }
+	}
+		
+	option = {
+		name = "EVTOPTC232000000" # Name it battle
+		prestige = 40
+		3102 = { change_province_name = "Lake Albulena" }
+		ai_chance = { factor = 15 }
+	}
+		
+	option = {
+		name = "EVTOPTA232000001" # Name it person
+		prestige = 40
+		3102 = { change_province_name = "Lake Veqilharxhi" }
+		ai_chance = { factor = 10 }
+	}
+		
+	option = {
+		name = "EVTOPTD232000000" # Name it country
+		prestige = 40
+		3102 = { change_province_name = "Lake Albani" }
+		ai_chance = { factor = 15 }
+	}
+		
+	option = {
+		name = "EVTOPTE232000000" # Name it Capital
+		prestige = 40
+		3102 = { change_province_name = "Lake Tirana" }
+		ai_chance = { factor = 20 }
+	}
+}

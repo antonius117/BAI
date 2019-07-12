@@ -1,0 +1,17 @@
+XHO = {
+	value = 50
+}
+
+SUA = {
+	value = 50
+}
+
+army = {
+	name = "Royal Army of Matabele"
+	location = 2108
+	regiment = {
+		name= "King's Warriors"
+		type = irregular
+		home = 2108
+	}
+}

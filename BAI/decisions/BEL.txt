@@ -1,0 +1,481 @@
+political_decisions = {
+	colonial_destiny = {
+		picture = rhodesia_charter
+		potential = {
+			has_global_flag = berlin_conference
+			OR = {
+				AND = {
+					is_greater_power = yes
+					tag = BEL
+				}
+				is_secondary_power = yes
+			}
+			capital_scope = { continent = europe }
+			is_vassal = no
+			any_owned_province = {
+				has_building = naval_base
+				is_core = THIS
+			}
+			NOT = {
+				has_country_flag = colonial_beginnings
+				any_owned_province = { continent = africa }
+				OR = {
+					government = proletarian_dictatorship
+					government = bourgeois_dictatorship
+				}
+				OR = {
+					tag = PRU
+					tag = NGF
+					tag = GER
+					tag = GCF
+					tag = RUS
+					tag = TUR
+				}
+			}
+			1983 = {
+				OR = {
+					empty = yes
+					owner = {
+						civilized = no
+						ai = yes
+						OR = {
+							part_of_sphere = no
+							in_sphere = THIS
+						}
+					}
+				}
+			}		
+		}
+
+		allow = {
+			war = no
+			invention = mission_to_civilize
+			invention = colonial_negotiations
+		}
+
+		effect = {
+			set_country_flag = colonial_beginnings
+			prestige = 10
+			1983 = { secede_province = THIS }
+			1982 = { secede_province = THIS }
+			random_country = {
+				limit = {
+					owns = 1982
+					civilized = no
+					NOT = { number_of_states = 2 }
+					THIS = { nationalism_n_imperialism = 1 }
+				}
+				relation = { who = THIS value = -100 }
+				add_casus_belli = {
+					target = THIS
+					type = establish_protectorate_BC_casus_belli
+					months = 60
+				}
+			}
+			random_country = {
+				limit = {
+					owns = 1982
+					civilized = no
+					number_of_states = 2
+					THIS = { nationalism_n_imperialism = 1 }
+				}
+				relation = { who = THIS value = -100 }
+				add_casus_belli = {
+					target = THIS
+					type = demand_concession_BC_casus_belli
+					months = 60
+				}
+			}
+			random_country = {
+				limit = {
+					owns = 1982
+					civilized = no
+					NOT = { number_of_states = 2 }
+					THIS = { NOT = { nationalism_n_imperialism = 1 } }
+				}
+				relation = { who = THIS value = -100 }
+				add_casus_belli = {
+					target = THIS
+					type = establish_protectorate_casus_belli
+					months = 60
+				}
+			}
+			random_country = {
+				limit = {
+					owns = 1982
+					civilized = no
+					number_of_states = 2
+					THIS = { NOT = { nationalism_n_imperialism = 1 } }
+				}
+				relation = { who = THIS value = -100 }
+				add_casus_belli = {
+					target = THIS
+					type = demand_concession_casus_belli
+					months = 60
+				}
+			}
+			random_country = {
+				limit = {
+					owns = 1982
+					civilized = no
+					tag = KON
+					THIS = { is_greater_power = yes }
+				}
+				THIS = {
+					diplomatic_influence = { who = KON value = 100 }
+				}
+			}
+			random_country = {
+				limit = {
+					owns = 1982
+					civilized = yes
+					1982 = { is_colonial = yes }
+				}
+				relation = { who = THIS value = -50 }
+				add_casus_belli = {
+					target = THIS
+					type = place_in_the_sun
+					months = 60
+				}
+			}
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+	
+	force_publique = {
+		potential = {
+			tag = BEL
+			OR = {
+				government = hms_government
+				government = prussian_constitutionalism
+				government = absolute_monarchy
+			}
+			has_country_flag = colonial_beginnings
+			NOT = { has_country_flag = force_publique_formed }
+		}
+		allow = {
+			any_owned_province = { continent = africa }
+			military_logistics = 1
+		}
+		effect = {
+			set_country_flag = force_publique_formed
+			any_pop = {
+				limit = {
+					location = { continent = africa }
+					NOT = {
+						culture = wallonian
+						culture = flemish
+					}
+				}
+				consciousness = 4
+				militancy = 3
+			}
+			any_owned = {
+				limit = { continent = africa }
+				add_province_modifier = {
+					name = force_publique
+					duration = -1
+				}
+			}
+			any_greater_power = {
+				relation = {
+					who = THIS
+					value = -40
+				}
+			}
+		}
+	}
+	
+	rename_the_congo = {
+		potential = {
+			tag = BEL
+			OR = {
+				AND = {
+					exists = CNG
+					CNG = { vassal_of = THIS }
+				}
+				AND = {
+					owns = 1987
+					owns = 1982
+					owns = 1996
+				}
+			}
+			NOT = {
+				has_global_flag = congo_renamed
+			}
+		}
+		
+		allow = {
+			invention = mission_to_civilize
+		}
+		
+		effect = {
+			1987 = {
+				change_province_name = "Elisabethville"
+			}		
+			1982 = {
+				change_province_name = "Leopoldville"
+			}
+			1996 = {
+				change_province_name = "Stanleyville"
+			}
+			prestige = 10
+			set_global_flag = congo_renamed
+		}
+	}
+
+	become_flanders = {
+		picture = become_belgium
+		potential = {
+			tag = BEL
+			NOT = {
+				exists = FLA
+				any_owned_province = { is_core = WLL }
+			}
+		}
+
+		allow = {
+			war = no
+			owns = 387
+		}
+
+		effect = {
+			BEL = {
+				all_core = {
+					add_core = FLA
+					remove_core = BEL
+				}
+			}
+			change_tag = FLA
+			remove_accepted_culture = flemish
+			remove_accepted_culture = wallonian
+			remove_accepted_culture = picard
+			primary_culture = flemish
+			add_accepted_culture = dutch
+			any_pop = {
+				limit = { has_pop_culture = flemish }
+				militancy = -3
+			}
+			any_pop = {
+				limit = { has_pop_culture = wallonian }
+				militancy = 6
+			}
+		}
+
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+	become_wallonia = {
+		potential = {
+			tag = BEL
+			exists = BEL
+			NOT = {
+				exists = WLL
+				any_owned_province = { is_core = FLA }
+			}
+		}
+
+		allow = {
+			war = no
+			owns = 392
+		}
+
+		effect = {
+			BEL = {
+				all_core = {
+					add_core = WLL
+					remove_core = BEL
+				}
+			}
+			change_tag = WLL
+			remove_accepted_culture = flemish
+			remove_accepted_culture = dutch
+			add_accepted_culture = picard
+			capital = 392
+			any_pop = {
+				limit = { has_pop_culture = wallonian }
+				militancy = -3
+			}
+			any_pop = {
+				limit = { has_pop_culture = flemish }
+				militancy = 6
+			}
+		}
+
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+	become_belgium_FLA = {
+		picture = become_belgium
+		potential = {
+			tag = FLA
+			NOT = { exists = BEL }
+		}
+
+		allow = {
+			war = no
+			owns = 387
+			OR = {
+				owns = 392
+				WLL = {
+					war = no
+					exists = yes
+					relation = { who = THIS value = 100 }
+					OR = {
+						part_of_sphere = no
+						sphere_owner = { is_sphere_leader_of = THIS }
+					}
+				}
+			}
+		}
+
+		effect = {
+			prestige = 10
+			BEL_387 = {
+				remove_core = WLL
+				add_core = FLA
+				add_core = BEL
+			}
+			BEL_394 = {
+				remove_core = FLA
+				add_core = WLL
+				add_core = BEL
+			}
+			397 = {
+				remove_core = WLL
+				remove_core = BEL
+			}
+			change_tag = BEL
+			add_accepted_culture = wallonian
+			add_accepted_culture = picard
+			remove_accepted_culture = dutch
+			capital = 387
+			random_country = {
+				limit = {
+					tag = WLL
+					exists = yes
+					ai = yes
+				}
+				THIS = { inherit = WLL }
+			}
+			random_country = {
+				limit = {
+					tag = WLL
+					exists = yes
+					ai = no
+				}
+				country_event = 98650
+			}
+			any_pop = { militancy = -3 }
+		}
+
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+	become_belgium_WLL = {
+		picture = become_belgium
+		potential = {
+			tag = WLL
+			NOT = { exists = BEL }
+		}
+
+		allow = {
+			war = no
+			owns = 392
+			OR = {
+				owns = 387
+				FLA = {
+					war = no
+					exists = yes
+					relation = { who = THIS value = 100 }
+					OR = {
+						part_of_sphere = no
+						sphere_owner = { is_sphere_leader_of = THIS }
+					}
+				}
+			}
+		}
+
+		effect = {
+			prestige = 10
+			BEL_387 = {
+				remove_core = WLL
+				add_core = FLA
+				add_core = BEL
+			}
+			BEL_394 = {
+				remove_core = FLA
+				add_core = WLL
+				add_core = BEL
+			}
+			397 = {
+				remove_core = WLL
+				remove_core = BEL
+			}
+			change_tag = BEL
+			add_accepted_culture = flemish
+			capital = 392
+			random_country = {
+				limit = {
+					tag = FLA
+					exists = yes
+					ai = yes
+				}
+				THIS = { inherit = FLA }
+			}
+			random_country = {
+				limit = {
+					tag = FLA
+					exists = yes
+					ai = no
+				}
+				country_event = 98650
+			}
+			any_pop = { militancy = -3 }
+		}
+
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+	covering_of_the_senne = {
+		potential = {
+			OR = {
+				tag = BEL
+				tag = WLL
+				tag = FLA
+			}
+			owns = 387
+			NOT = {
+				has_global_flag = covering_of_the_senne
+			}
+			OR = {
+				realism = 1
+				early_railroad = 1
+			}
+		}
+		
+		allow = {
+			impressionism = 1
+			iron_railroad = 1
+			business_banks = 1
+		}
+		
+		effect = {
+			387 = {
+				life_rating = 5
+			}
+			prestige = 10
+			set_global_flag = covering_of_the_senne
+		}
+	}
+}

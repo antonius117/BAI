@@ -1,0 +1,120 @@
+#Hispanola Region (209000) #see Haiti.txt for balance of region
+#Santo Domingo (115000/28750 POPS)
+2214 = {
+	aristocrats = {
+		culture = caribeno
+		religion = catholic
+		size = 675
+	}	
+	
+	bureaucrats = {
+		culture = caribeno
+		religion = catholic
+		size = 340
+	}
+	
+	clergymen = {
+		culture = caribeno
+		religion = catholic
+		size = 325
+	}
+
+	artisans = {
+		culture = caribeno
+		religion = catholic
+		size = 800
+	}
+
+	soldiers = {
+		culture = caribeno
+		religion = catholic
+		size = 2870
+	}
+
+	farmers = {
+		culture = caribeno
+		religion = catholic
+		size = 14035
+	}
+
+	clergymen = {
+		culture = afro_caribeno
+		religion = catholic
+		size = 115
+	}
+
+	artisans = {
+		culture = afro_caribeno
+		religion = catholic
+		size = 1140
+	}
+
+	soldiers = {
+		culture = afro_caribeno
+		religion = catholic
+		size = 230
+	}
+
+	farmers = {
+		culture = afro_caribeno
+		religion = catholic
+		size = 21330
+	}
+}
+#La Vega (94000/23500 POPS)
+2216 = {
+	aristocrats = {
+		culture = caribeno
+		religion = catholic
+		size = 570
+	}
+
+	clergymen = {
+		culture = caribeno
+		religion = catholic
+		size = 230
+	}
+
+	artisans = {
+		culture = caribeno
+		religion = catholic
+		size = 905
+	}
+
+	soldiers = {
+		culture = caribeno
+		religion = catholic
+		size = 2875
+	}
+
+	farmers = {
+		culture = caribeno
+		religion = catholic
+		size = 16270
+	}
+
+	clergymen = {
+		culture = afro_caribeno
+		religion = catholic
+		size = 115
+	}
+
+	artisans = {
+		culture = afro_caribeno
+		religion = catholic
+		size = 675
+	}
+
+	soldiers = {
+		culture = afro_caribeno
+		religion = catholic
+		size = 170
+	}
+
+	farmers = {
+		culture = afro_caribeno
+		religion = catholic
+		size = 12625
+	}
+
+}

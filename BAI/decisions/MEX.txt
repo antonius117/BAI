@@ -1,0 +1,43 @@
+political_decisions = {
+	restore_mexican_empire = {
+		potential = {
+			tag = MEX
+			government = democracy
+			liberal = 20
+			NOT = {
+				has_country_flag = we_have_tried_this_once
+				year = 1867
+			}
+		}
+		allow = {
+			war = no
+			OR = {
+				ruling_party_ideology = conservative
+				ruling_party_ideology = reactionary
+			}
+			conservative = 40
+			average_militancy = 4
+		}
+		effect = {
+			government = hms_government
+			set_country_flag = no_constitutional_crisis
+			any_pop = {
+				scaled_militancy = {
+					ideology = liberal
+					factor = 8
+				}
+			}
+			FRA = {
+				relation = {
+					who = THIS
+					value = 100
+				}
+				diplomatic_influence = {
+					who = THIS
+					value = 100
+				}
+			}
+			set_country_flag = we_have_tried_this_once
+		}
+	}
+}

@@ -1,0 +1,7 @@
+owner = XIN
+controller = XIN
+add_core = CHI
+add_core = XIN
+add_core = UYG
+trade_goods = grain
+life_rating = 32

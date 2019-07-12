@@ -1,0 +1,9 @@
+army = {
+	name = "Frankfurt's Militia"
+	location = 564
+	regiment = {
+		name= "1st Division"
+		type = infantry
+		home = 564
+	}
+}

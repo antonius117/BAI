@@ -1,0 +1,12 @@
+owner = USA
+controller = USA
+add_core = USA
+trade_goods = grain
+life_rating = 35
+1861.1.1 = {
+	owner = CSA
+	controller = CSA
+	add_core = CSA
+	add_core = CHE
+	add_core = USA
+}

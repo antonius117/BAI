@@ -1,0 +1,7 @@
+owner = ENG
+controller = ENG
+add_core = CAN
+add_core = QUE
+trade_goods = timber
+life_rating = 15
+colonial = 2

@@ -1,0 +1,89 @@
+leader = {
+	name = "von Heideck"
+	type = land
+	date="1833.1.1"
+	personality = romantic
+	background = poet
+	prestige = 0.1
+}
+
+leader = {
+	name = "Demetrios Kalergis"
+	type = land
+	date="1836.1.1"
+	personality = impetuous
+	background = cavalry_school
+}
+
+leader = {
+	name = "Ioannis Kolokotronis"
+	type = land
+	date="1833.1.1"
+	personality = aweless
+	background = powerful_friends
+	prestige = 0.1
+}
+
+leader = {
+	name = "Antonios Kriezis"
+	type = sea
+	date="1836.1.1"
+	personality = audacious
+	background = expert_raider
+}
+
+army = {
+	name = "Stratós Thessalías"
+	location = 836
+	regiment = {
+		name= "1. Taxiarchia Pezikou"
+		type = infantry
+		home = 834
+	}
+
+	regiment = {
+		name= "2. Taxiarchia Pezikou"
+		type = infantry
+		home = 836
+	}
+
+	regiment = {
+		name= "3. Taxiarchia Pezikou"
+		type = infantry
+		home = 835
+	}
+
+	regiment = {
+		name= "4. Taxiarchia Pezikou"
+		type = infantry
+		home = 838
+	}
+}
+
+army = {
+	name = "Stratós Epeírou"
+	location = 837
+	regiment = {
+		name= "5. Taxiarchia Pezikou"
+		type = infantry
+		home = 837
+	}
+
+	regiment = {
+		name= "6. Taxiarchia Pezikou"
+		type = infantry
+		home = 841
+	}
+}
+
+navy = {
+	name = "Hellenic Navy"
+	location = 834
+
+	ship = {
+		name= "Leda"
+		type = clipper_transport
+	}
+
+}
+

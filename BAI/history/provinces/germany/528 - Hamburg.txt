@@ -1,0 +1,12 @@
+owner = HAM
+controller = HAM
+add_core = HAM
+add_core = GER
+trade_goods = fruit
+life_rating = 40
+naval_base = 1
+state_building = {
+	level = 2
+	building = cement_factory
+	upgrade = yes
+}

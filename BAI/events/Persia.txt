@@ -1,0 +1,296 @@
+################## GENERAL ##################
+
+
+# The Great Famine of 1870-1871
+country_event = {
+	id = 110010
+	title = "EVTNAME110010"
+	desc = "EVTDESC110010"
+	picture = "Cholera"
+
+	trigger = {
+		tag = PER
+		year = 1870
+	}
+	
+	fire_only_once = yes
+	
+	mean_time_to_happen = {
+		months = 12
+	}
+
+	option = {
+		name = "EVT110010OPTA" # "Profit from it!"
+		treasury = 15000
+		any_pop = {
+		reduce_pop = 0.8
+		militancy = 5
+		}
+		ai_chance = {
+			factor = 35
+		}
+	}	
+	option = {
+		name = "EVT110010OPTB" # "We cannot afford to do anything."
+		any_pop = {
+		reduce_pop = 0.9
+		militancy = 3
+		}
+		ai_chance = {
+			factor = 50
+		}
+	}	
+		
+	option = {
+		name = "EVT110010OPTC" # "We must save those poor souls at any cost!"
+		treasury = -30000
+		any_pop = {
+		reduce_pop = 0.95
+		militancy = 1
+		}
+		ai_chance = {
+			factor = 15
+		}
+	}
+}
+
+
+################## FOREIGN COUNTRIES ##################
+
+
+# Funding of the Anglo-Persian Oil Company
+country_event = {
+	id = 110011
+	title = "EVTNAME110011"
+	desc = "EVTDESC110011"
+	picture = "irish_home_rule"
+
+	is_triggered_only = yes
+
+	option = {
+		name = "EVT110011OPTA"
+		treasury = 20000
+		prestige = 5
+		relation = { who = ENG value = 50 }
+		any_pop = {
+			militancy = 1
+		}
+		ai_chance = {
+			factor = 90
+		}
+	}	
+
+	option = {
+		name = "EVT110011OPTB"
+		relation = { who = ENG value = -50 }
+		ENG = {
+			treasury = 20000
+		}
+		any_pop = {
+			militancy = -0.5
+		}
+		ai_chance = {
+			factor = 10
+		}
+	}
+}
+
+#Topple the Qajar dynasty
+country_event = {
+	id = 110016
+	title = "EVTNAME110016"
+	desc = "EVTDESC110016"
+	picture = "cyprus_convention"
+
+	trigger = {
+		is_sphere_leader_of = PER
+		relation = { who = PER value = 180 }
+		revolution_n_counterrevolution = 1
+		PER = { ai = yes }
+		PER = {
+			average_militancy = 4
+			OR = {
+				government = absolute_monarchy
+				government = prussian_constitutionalism
+				government = hms_government
+			} 
+		}
+	}
+	
+	fire_only_once = yes
+	
+	mean_time_to_happen = {
+		months = 120
+	}
+
+	option = {
+		name = "EVT110016OPTA" #"An occasion we can't afford to miss."
+		badboy = 2
+		treasury = -25000
+		create_vassal = PER
+		diplomatic_influence = { who = PER value = -50 }
+		relation = { who = PER value = -80 }
+		any_country = {
+			limit = { neighbour = PER is_greater_power = yes NOT = { tag = THIS } }
+			relation = { who = THIS value = -50 }
+		}
+		any_country = {
+			limit = { neighbour = PER OR = { is_greater_power = yes tag = TUR tag = RUS NOT = { tag = THIS } } }
+			casus_belli = {
+				target = THIS
+				type = release_puppet
+				months = 12
+			}
+		}
+		ai_chance = {
+			factor = 90
+				modifier = {
+				factor = 0
+				badboy = 0.98
+			}
+		}
+	}
+		
+	option = {
+		name = "EVT110016OPTB" #"Not worth it."
+		relation = { who = PER value = 20 }
+		ai_chance = {
+			factor = 10
+				modifier = {
+				factor = 100
+				badboy = 0.98
+			}
+		}
+	}
+}
+
+#The Báb
+country_event = {
+	id = 900022
+	title = "EVTNAME900022"
+	desc = "EVTDESC900022"
+	picture = "siyyid"
+	
+	trigger = {
+		owns = 1135
+		year = 1844
+		month = 5
+	}
+	
+	fire_only_once = yes
+	mean_time_to_happen = { months = 8 }
+	
+	option = {
+		name = "EVT900022OPTA"
+		1135 = { random_pop = { limit = { has_pop_religion = shiite } militancy = 1 } }
+		set_global_flag = the_bab
+	}
+}
+
+#The Báb's Execution
+country_event = {
+	id = 900023
+	title = "EVTNAME900023"
+	desc = "EVTDESC900023"
+	picture = "martyrdomofthebab"
+	
+	trigger = {
+		owns = 1135
+		has_global_flag = the_bab
+	}
+	
+	fire_only_once = yes
+	mean_time_to_happen = { months = 8 }
+	
+	option = {
+		name = "EVT900023OPTA"
+		random_list = {
+			25 = { 1135 = { any_pop = { limit = { has_pop_religion = shiite type = clergymen } militancy = 1 } } }
+			25 = { 1135 = { any_pop = { limit = { has_pop_religion = shiite type = bureaucrats } militancy = 1 } } }
+			25 = { 1135 = { any_pop = { limit = { has_pop_religion = shiite type = aristocrats } militancy = 1 } } }
+			25 = { 1135 = { any_pop = { limit = { has_pop_religion = shiite type = soldiers } militancy = 1 } } }
+			}
+		random_list = {
+			25 = { 1135 = { any_pop = { limit = { has_pop_religion = shiite type = artisans } militancy = 1 } } }
+			25 = { 1135 = { any_pop = { limit = { has_pop_religion = shiite type = farmers } militancy = 1 } } }
+			25 = { 1135 = { any_pop = { limit = { has_pop_religion = shiite type = officers } militancy = 1 } } }
+			25 = { 1135 = { any_pop = { limit = { has_pop_religion = shiite type = clergymen } militancy = 1 } } }
+			}
+		random_list = {
+			25 = { 1108 = { any_pop = { limit = { has_pop_religion = shiite type = aristocrats } militancy = 1 } } }
+			25 = { 1108 = { any_pop = { limit = { has_pop_religion = shiite type = bureaucrats } militancy = 1 } } }
+			25 = { 1108 = { any_pop = { limit = { has_pop_religion = shiite type = officers } militancy = 1 } } }
+			25 = { 1108 = { any_pop = { limit = { has_pop_religion = shiite type = clergymen } militancy = 1 } } }
+			}
+		clr_global_flag = the_bab
+		ai_chance = { factor = 0.85 }
+	}
+	
+	option = {
+		name = "EVT900023OPTB"
+		any_pop = { limit = { type = clergymen has_pop_religion = shiite } militancy = 1 }
+		ai_chance = { factor = 0.15 }
+	}
+}
+	
+#Kevah
+country_event = {
+	id = 100018
+	title = "EVTNAME100018"
+	desc = "EVTDESC100018"
+	picture = "PER_kaveh"
+
+	trigger = {
+		tag = PER
+		civilized = yes
+	}
+	
+	fire_only_once = yes
+	
+	mean_time_to_happen = {
+		months = 60
+	}
+
+	option = {
+		name = "EVT100018OPTA" #"They'll write what we tell them to write."
+		political_reform = state_press
+		ai_chance = { factor = 0.8 }
+	}
+	
+	option = {
+		name = "EVT100018OPTB" #"Just keep an eye on it."
+		political_reform = censored_press
+		ai_chance = { factor = 0.15 }
+	}
+	
+	option = {
+		name = "EVT100018OPTC" #"Freedom is the heart of a great country."
+		political_reform = free_press
+		ai_chance = { factor = 0.05 }
+	}
+}
+
+# Takht-i Tavus, The Peacock Throne
+#country_event = {
+#	id = 110023
+#	news = yes
+#	news_desc_long = "EVTDESC110023_NEWS_LONG"
+#	news_desc_medium = "EVTDESC110023_NEWS_MEDIUM"
+#	news_desc_short = "EVTDESC110023_NEWS_SHORT"
+#	title = "EVTNAME110023"
+#	desc = "EVTDESC110023"
+#	picture = "PER_kaveh"
+#
+#	trigger = {
+#		tag = PER
+#		is_greater_power = yes
+#	}
+#
+#	is_triggered_only = yes
+#
+#	option = {
+#		name = "EVTOPTA110023"
+#		prestige = 5
+#		any_pop = { militancy = -3 }
+#	}
+#}

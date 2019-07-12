@@ -1,0 +1,34 @@
+USA = {
+	value = -75
+}
+CHL = {
+	value = -100
+}
+ARG = {
+	value = -100
+}
+
+leader = {
+	name = "Jose Ballivián"
+	type = land
+	date = 1836.1.1
+	background = generals_aide
+	personality = bold
+}
+
+army = {
+	name = "Ejército de Bolivia"
+	location = 2310 #La Paz
+	regiment = {
+		name= "1. Brigada de Infanteria"
+		type = infantry
+		home = 2313
+	}
+
+	regiment = {
+		name= "2. Brigada de Infanteria"
+		type = infantry
+		home = 2310
+	}
+
+}

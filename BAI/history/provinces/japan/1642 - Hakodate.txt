@@ -1,0 +1,6 @@
+owner = TKG
+controller = TKG
+add_core = AIN
+trade_goods = coal
+life_rating = 20
+colonial = 2

@@ -1,0 +1,282 @@
+#Concordat With The Vatican
+country_event = {
+
+	id = 45100
+
+	trigger = {
+		tag = HAI
+		year = 1860
+		OR = {
+			exists = PAP
+			exists = ITP
+		}
+		NOT = {
+			year = 1863
+		}
+	}
+	
+	fire_only_once = yes
+ 
+	mean_time_to_happen =  {
+		months = 5
+
+		modifier = {
+			factor = 0.75 #increase likelihood to happen
+			year = 1861
+		}
+		
+		modifier = {
+			factor = 0.95 #increase likelihood to happen
+			year = 1862
+		}
+	}
+
+	title = "EVTNAME45100"
+	desc = "EVTDESC45100"
+	picture = "pope"
+
+	option = {
+		name = "EVTOPTA45100" 
+		prestige = 5
+		relation = { who = PAP value = 50 }
+		relation = { who = ITP value = 50 }
+		clergymen = {
+			militancy = -3
+		}
+	}
+}
+
+# Emperor Faustan Soulique
+country_event = {
+
+	id = 45101
+
+	title = "EVTNAME45101"
+	desc = "EVTDESC45101"
+	picture = "monarchy"
+
+	trigger = {
+		tag = HAI
+		year = 1847
+		government = democracy
+		NOT = { year = 1859 }
+	}
+
+	fire_only_once = yes
+
+	mean_time_to_happen = {
+		months = 6
+	}
+
+	option = {
+		name = "EVTOPTA45101"
+		government = absolute_monarchy
+		ruling_party_ideology = reactionary
+		political_reform = none_voting
+		political_reform = party_appointed
+		political_reform = no_meeting
+		political_reform = state_press
+		political_reform = state_controlled
+		political_reform = underground_parties
+		clr_country_flag = tory_election_win
+		clr_country_flag = socialist_election_win
+		clr_country_flag = liberal_election_win
+		clr_country_flag = communist_election_win
+		clr_country_flag = fascist_election_win
+		clr_country_flag = reactionary_election_win
+		clr_country_flag = anarcho_liberal_election_win
+		prestige = -5
+		country_event = 800050
+	}
+}
+
+# La Trinitaria
+country_event = {
+
+	id = 45102
+
+	title = "EVTNAME45102"
+	desc = "EVTDESC45102"
+	picture = "la_trinitaria"
+
+	trigger = {
+		tag = HAI
+		year = 1838
+		owns = 2214
+		owns = 2216
+		NOT = { exists = DOM }
+	}
+
+	fire_only_once = yes
+
+	mean_time_to_happen = {
+		months = 6
+	}				
+			
+	option = {
+		name = "This will not do."
+		any_pop = {
+			limit = {
+				location = { is_core = DOM }
+				OR = {
+					has_pop_culture = caribeno
+					has_pop_culture = afro_caribeno
+				}
+			}
+			militancy = 9
+			consciousness = 5
+		}
+		any_owned = {
+			limit = { is_core = DOM }
+			add_province_modifier = {
+				name = nationalist_agitation
+				duration = 7300
+			}
+		}
+	}
+}
+
+country_event = {
+
+	id = 45103
+
+	title = "EVTNAME45103"
+	desc = "EVTDESC45103"
+	picture = "dominican_revolution"
+
+	fire_only_once = yes
+	
+	trigger = {
+		tag = DOM
+		owns = 2214
+		owns = 2216
+		exists = yes
+		2214 = { is_core = HAI }
+		2216 = { is_core = HAI }
+		war = no
+		year = 1836
+	}
+	
+	mean_time_to_happen = { months = 8 }
+		
+			
+	option = {
+		name = "EVT45103OPTA"
+		prestige = 5
+		relation = {
+			who = HAI
+			value = -100
+		}
+		any_owned = {
+			limit = { is_core = DOM }
+			remove_core = HAI
+			remove_province_modifier = nationalist_agitation
+			any_pop = {
+				militancy = -6
+				consciousness = -6
+			}
+		}
+		HAI = {
+			remove_accepted_culture = afro_caribeno
+		}
+		remove_country_modifier = small_country_draft
+	}
+}
+
+country_event = {
+
+	id = 45104
+
+	title = "EVTNAME45104"
+	desc = "EVTDESC45104"
+	picture = "la_trinitaria"
+
+	fire_only_once = yes
+	
+	trigger = {
+		tag = HAI
+		owns = 2214
+		owns = 2216
+		exists = yes
+		2214 = { is_core = HAI }
+		2216 = { is_core = HAI }
+		year = 1844
+	}
+	
+	mean_time_to_happen = { months = 8 }
+		
+	option = {
+		name = "Hispaniola must be united!"
+		any_owned = {
+			limit = { is_core = DOM }
+			remove_province_modifier = nationalist_agitation
+			any_pop = {
+				militancy = -6
+				consciousness = -6
+			}
+		}
+		release = DOM
+		DOM = {
+			all_core = { add_core = HAI }
+			add_country_modifier = {
+				name = small_country_draft
+				duration = 1095
+			}
+			leadership = 25
+		}
+		relation = {
+			who = DOM
+			value = -400
+		}
+		war = {
+			target = DOM
+			attacker_goal = {
+				casus_belli = civil_war
+			}
+			defender_goal = {
+				casus_belli = status_quo
+			}
+		}
+		ai_chance = {
+			factor = 100
+		}
+	}
+
+	option = {
+		name = "Santo Domingo shall be free once more!"
+		any_owned = {
+			limit = { is_core = DOM }
+			remove_province_modifier = nationalist_agitation
+			any_pop = {
+				militancy = -6
+				consciousness = -6
+			}
+		}
+		release = DOM
+		DOM = {
+			all_core = { add_core = HAI }
+			add_country_modifier = {
+				name = small_country_draft
+				duration = 1095
+			}
+			leadership = 25
+		}
+		relation = {
+			who = DOM
+			value = -400
+		}
+		war = {
+			target = DOM
+			attacker_goal = {
+				casus_belli = civil_war
+			}
+			defender_goal = {
+				casus_belli = status_quo
+			}
+		}
+		change_tag_no_core_switch = DOM
+		ai_chance = {
+			factor = 0
+		}
+	}
+}

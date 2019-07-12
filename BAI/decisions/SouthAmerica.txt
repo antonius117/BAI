@@ -1,0 +1,461 @@
+political_decisions = {
+	fatherland_volunteers = {
+		potential = {
+			tag = BRZ
+			government = hms_government
+			NOT = {
+				has_country_flag = pedro_said_it_best
+			}
+		}
+		allow = {
+			army_decision_making = 1
+			war = yes
+		}
+		effect = {
+			war_exhaustion = -1
+			prestige = 10
+			set_country_flag = pedro_said_it_best
+		}
+	}
+	
+	law_1420_of_general_common_education = {
+		potential = {
+			tag = ARG
+			NOT = {
+				has_country_flag = 1420_passed
+			}
+		}
+		allow = {
+			social_science = 1
+			ruling_party_ideology = conservative
+		}
+		effect = {
+			years_of_research = 0.2
+			random_owned = {
+				limit = {
+					owner = { school_reforms = no_schools }
+				}
+				owner = { social_reform = low_schools }
+			}
+			set_country_flag = 1420_passed
+		}
+	}
+
+	form_caribbean_federation = {
+		picture = west_indies
+		potential = {
+			OR = {
+				tag = TTB
+				tag = JAM
+				tag = PRI
+				tag = DOM
+				tag = HAI
+				tag = CUB
+				tag = BLZ
+				tag = GUY
+			}
+			NOT = {
+				has_global_flag = formed_west_indies
+				has_global_flag = west_indies_organized	
+			}
+		}
+		allow = {
+			prestige = 25
+			state_n_government = 1
+			war = no
+			is_vassal = no
+			2237 = {
+				OR = {
+					owned_by = THIS
+					owner = {
+						tag = TTB
+						OR = {
+							vassal_of = THIS
+							in_sphere = THIS
+						}
+						war = no
+					}
+				}	
+			}
+			2238 = {
+				OR = {
+					owned_by = THIS
+					owner = {
+						tag = TTB
+						OR = {
+							vassal_of = THIS
+							in_sphere = THIS
+						}
+						war = no
+					}
+				}	
+			}
+			2217 = {
+				OR = {
+					owned_by = THIS
+					owner = {
+						tag = JAM
+						OR = {
+							vassal_of = THIS
+							in_sphere = THIS
+						}
+						war = no
+					}
+				}
+			}
+			2218 = { owned_by = THIS }
+			2220 = { owned_by = THIS }
+			2233 = { owned_by = THIS }
+			2409 = { owned_by = THIS }
+			2229 = { owned_by = THIS }
+			2231 = { owned_by = THIS }
+			2232 = { owned_by = THIS }
+			2225 = { owned_by = THIS }
+			2224 = { owned_by = THIS }
+			2227 = { owned_by = THIS }
+		}
+		effect = {
+			prestige = 10
+			ENG_2224 = { add_core = CRB }
+			ENG_2228 = { add_core = CRB }
+			2222 = { remove_core = CRB }
+			NET_2235 = { add_core = CRB }
+			ENG_203 = { add_core = CRB }
+			set_global_flag = formed_west_indies
+			any_owned = {
+				limit = {
+					OR = {
+						region = ENG_1979
+						province_id = 2190
+					}
+				}
+				add_core = CRB
+			}
+			random_country = {
+				limit = {
+					tag = TTB
+					exists = yes
+				}
+				all_core = {
+					add_core = CRB
+				}
+				annex_to = THIS
+			}
+			random_country = {
+				limit = {
+					tag = JAM
+					exists = yes
+				}
+				all_core = {
+					add_core = CRB
+				}
+				annex_to = THIS
+			}
+			random_country = {
+				limit = {
+					tag = BLZ
+					exists = yes
+					OR = {
+						vassal_of = THIS
+						in_sphere = THIS
+					}
+				}
+				all_core = {
+					add_core = CRB
+				}
+				annex_to = THIS
+			}
+			random_country = {
+				limit = {
+					tag = GUY
+					exists = yes
+					OR = {
+						vassal_of = THIS
+						in_sphere = THIS
+					}
+				}
+				all_core = {
+					add_core = CRB
+				}
+				annex_to = THIS
+			}
+			change_tag = CRB
+			add_accepted_culture = afro_caribbean
+			add_accepted_culture = afro_antillean
+			clr_country_flag = post_colonial_country
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+	
+	apply_for_crb_statehood = {
+		picture = west_indies
+		potential = {
+			exists = CRB
+			OR = {
+				is_vassal = no
+				vassal_of = CRB
+			}
+			OR = {
+				tag = BLZ
+				tag = GUY
+			}
+			NOT = { has_country_flag = crbstatehood_we_have_applied }
+		}
+		allow = {
+			war = no
+			CRB = { war = no }
+			OR = {
+				in_sphere = CRB
+				sphere_owner = { is_sphere_leader_of = CRB }
+				relation = { who = CRB value = 50 }
+			}
+			NOT = { truce_with = CRB }
+		}
+		effect = {
+			random_country = {
+				limit = {
+					tag = CRB
+					ai = yes
+					THIS = { ai = yes }
+				}
+				country_event = 188153
+			}
+			random_country = {
+				limit = {
+					tag = CRB
+					ai = yes
+					THIS = { ai = no }
+				}
+				any_owned = { secede_province = THIS }
+				THIS = {
+					random_owned = {
+						limit = { province_id = 2237 }
+						owner = { capital = 2237 }
+					}
+					change_tag = CRB
+				}	
+			}
+			random_country = {
+				limit = {
+					tag = CRB
+					ai = no
+				}
+				country_event = 188153
+			}
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+	
+	sa_dreadnought_race = {
+		picture = dreadnought
+		potential = {
+			tag = BRZ
+			any_owned_province = { has_building = naval_base }
+			is_greater_power = no
+			NOT = {
+				has_global_flag = dreadnought_race
+				high_sea_battle_fleet = 1
+			}
+			iron_steamers = 1
+			blue_and_brown_water_schools = 1
+			any_greater_power = {
+				high_sea_battle_fleet = 1
+				invention = dreadnoughts
+			}
+		}
+
+		allow = {
+			war = no
+			money = 100000
+			NOT = { is_disarmed = yes }
+			NOT = {
+				OR = {
+					war_policy = anti_military
+					war_policy = pacifism
+				}
+			}
+		}
+
+		effect = {
+			set_global_flag = dreadnought_race
+			random_country = {
+				limit = {
+					high_sea_battle_fleet = 1
+					invention = dreadnoughts
+					is_greater_power = yes
+				}
+				country_event = 188158
+			}
+		}
+		ai_will_do = { factor = 1 }
+	}
+
+	sa_dreadnought_race_arg = {
+		picture = dreadnought
+		potential = {
+			OR = {
+				tag = ARG
+				tag = LPL
+			}
+			BRZ = { has_country_flag = dreadnought_race }
+			is_greater_power = no
+			NOT = {
+				high_sea_battle_fleet = 1
+				has_global_flag = dreadnought_race_arg
+			}
+			any_greater_power = {
+				high_sea_battle_fleet = 1
+				invention = dreadnoughts
+			}
+			has_global_flag = dreadnought_race
+		}
+
+		allow = {
+			war = no
+			money = 100000
+			any_owned_province = { has_building = naval_base }
+			blue_and_brown_water_schools = 1
+			iron_steamers = 1
+			NOT = { is_disarmed = yes }
+			NOT = {
+				OR = {
+					war_policy = anti_military
+					war_policy = pacifism
+				}
+			}
+		}
+
+		effect = {
+			set_global_flag = dreadnought_race_arg
+			random_country = {
+				limit = {
+					high_sea_battle_fleet = 1
+					invention = dreadnoughts
+					is_greater_power = yes
+				}
+				country_event = 188158
+			}
+		}
+		ai_will_do = { factor = 1 }
+	}
+
+	sa_dreadnought_race_chl = {
+		picture = dreadnought
+		potential = {
+			tag = CHL
+			BRZ = { has_country_flag = dreadnought_race }
+			is_greater_power = no
+			NOT = {
+				high_sea_battle_fleet = 1
+				has_global_flag = dreadnought_race_chl
+			}
+			any_greater_power = {
+				high_sea_battle_fleet = 1
+				invention = dreadnoughts
+			}
+			has_global_flag = dreadnought_race
+		}
+
+		allow = {
+			war = no
+			money = 100000
+			any_owned_province = { has_building = naval_base }
+			blue_and_brown_water_schools = 1
+			iron_steamers = 1
+			NOT = { is_disarmed = yes }
+			NOT = {
+				OR = {
+					war_policy = anti_military
+					war_policy = pacifism
+				}
+			}
+		}
+
+		effect = {
+			set_global_flag = dreadnought_race_chl
+			random_country = {
+				limit = {
+					high_sea_battle_fleet = 1
+					invention = dreadnoughts
+					is_greater_power = yes
+				}
+				country_event = 188158
+			}
+		}
+		ai_will_do = { factor = 1 }
+	}
+
+	treaty_of_bogota = {
+		picture = colombia_map
+		potential = {
+			tag = BRZ
+			NOT = { has_country_flag = treaty_of_bogota }
+			OR = {
+				is_vassal = no
+				overlord = { NOT = { primary_culture = north_andean } }
+			}
+			OR = {
+				owns = 2401
+				AND = {
+					has_global_flag = great_wars_enabled
+					2401 = { owner = { primary_culture = north_andean } }
+				}
+			}
+			owns = 2403
+			owns = 2407
+		}
+		
+		allow = {
+			war = no
+			nationalism_n_imperialism = 1
+			2401 = { owner = { NOT = { truce_with = THIS } } }
+		}
+		
+		effect = {
+			set_country_flag = treaty_of_bogota
+			2401 = { owner = { country_event = 46626 } }
+		}
+		
+		ai_will_do = { factor = 1 }
+	}
+
+	salomon_lozano_treaty = {
+		picture = colombia_map
+		potential = {
+			OR = {
+				tag = ECU
+				tag = PEU
+			}
+			NOT = { has_global_flag = salomon_lozano_treaty }
+			OR = {
+				is_vassal = no
+				overlord = { NOT = { primary_culture = north_andean } }
+			}
+			OR = {
+				owns = 2289
+				AND = {
+					has_global_flag = great_wars_enabled
+					2289 = { owned_by = CLM }
+				}
+			}
+			owns = 2288
+		}
+		
+		allow = {
+			war = no
+			nationalism_n_imperialism = 1
+			2289 = { owner = { NOT = { truce_with = THIS } } }
+		}
+		
+		effect = {
+			set_global_flag = salomon_lozano_treaty
+			2289 = { owner = { country_event = 46627 } }
+		}
+		
+		ai_will_do = { factor = 1 }
+	}
+}

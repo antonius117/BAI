@@ -1,0 +1,12 @@
+owner = MAT
+controller = MAT
+add_core = MAT
+trade_goods = grain
+life_rating = 35
+terrain = steppe
+1861.1.1 = {
+	owner = TRN
+	controller = TRN
+	add_core = TRN
+	add_core = SAF
+}

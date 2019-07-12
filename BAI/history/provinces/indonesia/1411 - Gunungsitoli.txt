@@ -1,0 +1,6 @@
+owner = NET
+controller = NET
+add_core = SAK
+trade_goods = fish
+life_rating = 30
+colonial = 2

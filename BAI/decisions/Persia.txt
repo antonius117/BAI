@@ -1,0 +1,98 @@
+political_decisions = {
+
+	travel_to_europe = {
+		picture = dreams_of_empire
+
+		potential = {
+			tag = PER 
+			NOT = {	has_country_flag = travel_to_europe }
+		}
+		
+		allow = { 
+			money = 30000
+		}
+		
+		effect = { 
+			treasury = -25000
+			prestige = 2
+			years_of_research = 1
+			relation = {
+				who = ENG
+				value = 50
+			}
+			set_country_flag = travel_to_europe
+		}
+		ai_will_do = { factor = 1 }
+	}
+
+	appoint_mirza = {
+		picture = mirza_taghi
+
+		potential = {
+			tag = PER
+			NOT = {	has_country_flag = appoint_mirza}
+		}
+
+		allow = {
+			admin_reform = yes_admin_reform
+		}
+
+		effect = {
+			set_country_flag = appoint_mirza
+			prestige = 2
+			years_of_research = 2
+		}
+
+		ai_will_do = { factor = 1 }
+	}
+
+	persian_cinema = {
+		picture = fatherland_altar
+	
+		potential = { 
+			tag = PER
+			NOT = { has_country_flag = persian_cinema }
+			year = 1880
+		}
+		
+		allow = {
+			any_greater_power = { invention = the_talkies relation = { who = THIS value = 50 } }
+		}
+		
+		effect = {
+			set_country_flag = persian_cinema
+			prestige = 2
+			years_of_research = 0.5
+			rich_strata = {
+				militancy = -1
+			}
+		}
+	}
+
+	#Establish the Majles
+	establish_the_majles = {
+		picture = caucasus_viceroyalty
+		potential = {
+			tag = PER
+			NOT = { has_country_flag = majles_established }
+		}
+		
+		allow = {
+			OR = {
+				government = prussian_constitutionalism
+				government = hms_government
+				government = democracy
+			}
+		}
+		
+		effect = {
+			set_country_flag = majles_established
+			prestige = 10
+			plurality = 10
+			any_pop = {
+				consciousness = 1
+			}
+		}
+		ai_will_do = { factor = 1 }
+	}
+}

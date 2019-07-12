@@ -1,0 +1,1030 @@
+political_decisions = {
+	enact_dual_monarchy = {
+		potential = {
+			tag = AUS
+			OR = {
+				government = absolute_monarchy
+				government = prussian_constitutionalism
+				government = hms_government
+			}
+			any_owned_province = {
+				is_core = HUN
+			}
+			OR = {
+				NOT = { exists = HUN }
+				HUN = { vassal_of = AUS }
+			}
+			NOT = { has_global_flag = has_become_dual_monarchy }
+		}
+	
+		allow = {
+			war = no
+			OR = {
+				NGF = { exists = yes }
+				GER = { exists = yes }
+				nationalism_n_imperialism = 1
+				is_greater_power = no
+			}
+			has_country_flag = had_liberal_revolution	
+		}
+	
+		effect = {
+			clr_country_flag = wants_to_unify
+			set_global_flag = has_become_dual_monarchy
+			all_core = {
+				remove_core = AUS
+				add_core = KUK
+			}
+			AUS_771 = { remove_core = HUN }
+			HUN = {
+				all_core = { add_core = KUK }
+			}
+			random_country = {
+				limit = {
+					tag = HUN
+					exists = yes
+					vassal_of = THIS
+				}
+				THIS = { inherit = HUN }
+			}
+			any_pop = {
+				limit = { has_pop_culture = hungarian }
+				militancy = -4
+			}
+			any_pop = {
+				limit = {
+					OR = {
+						culture = slovak
+						culture = croat
+						culture = slovene
+						culture = north_italian
+						culture = polish
+						culture = romanian
+						culture = ukrainian
+						culture = czech
+					}
+				}
+				consciousness = 5
+			}
+			change_tag = KUK
+			add_accepted_culture = hungarian
+			set_country_flag = dual_monarchy
+			random_country = {
+				limit = {
+					OR = {
+						tag = NGF
+						tag = PRU
+						tag = GER
+						}
+					exists = yes
+					is_greater_power = yes
+					}
+				relation = { who = THIS value = 50 }
+			}
+		}
+		ai_will_do = {
+			factor = 1
+			modifier = {
+				factor = 0
+				is_greater_power = yes
+				NGF = { exists = no }
+				GER = { exists = no }
+				SGF = { is_greater_power = yes }
+				NOT = {
+					OR = {
+						average_militancy = 6
+						revolt_percentage = .25
+					}
+				}
+			}
+		}
+	}
+	
+	the_grunderzeit = {
+		potential = {
+			capital = 619
+			NOT = {
+				has_country_flag = grunderzeit_we_have_done
+			}
+		}
+		allow = {
+			iron_railroad = 1
+			cheap_iron = 1
+		}
+		effect = {
+			619 = {
+				any_pop = {
+					ideology = {
+						value = liberal
+						factor = 0.2
+					}
+				}
+				life_rating = 5
+			}
+			prestige = 25
+			set_country_flag = grunderzeit_we_have_done
+		}
+	}
+
+	become_austria = {
+		picture = enact_dual_monarchy
+		potential = {
+			tag = KUK
+			NOT = {
+				has_country_modifier = global_liberal_agitation
+				has_country_modifier = springtime_of_nations
+			}
+		}
+	
+		allow = {
+			war = no
+			OR = {
+				AND = {
+					exists = HUN
+					HUN = {
+						NOT = { vassal_of = KUK }
+					}
+				}
+				NOT = {
+					any_owned_province = {
+						is_core = HUN
+					}
+				}
+				NOT = {
+					government = absolute_monarchy
+					government = prussian_constitutionalism
+					government = hms_government
+					government = democracy
+				}
+			}
+		}
+
+		effect = {
+			HUN = {
+				all_core = { remove_core = KUK }
+			}
+			POL = {
+				all_core = { remove_core = KUK }
+			}
+			CRO = {
+				all_core = { remove_core = KUK }
+			}
+			all_core = {
+				remove_core = KUK
+				add_core = AUS
+			}
+			any_pop = {
+				limit = { has_pop_culture = hungarian }
+				militancy = 4
+			}
+			remove_accepted_culture = hungarian
+			remove_accepted_culture = czech
+			remove_accepted_culture = slovene
+			remove_accepted_culture = croat
+			remove_accepted_culture = polish
+			clr_country_flag = dual_monarchy
+			clr_country_flag = embraced_czechs
+			clr_country_flag = embraced_slovenes
+			clr_country_flag = embraced_croats
+			clr_country_flag = embraced_poles
+			change_tag = AUS
+		}
+	}
+	
+	become_hungary = {
+		picture = enact_dual_monarchy
+		potential = {
+			tag = KUK
+			NOT = {
+				owns = 619
+				exists = HUN
+			}
+		}
+	
+		allow = {
+			war = no
+			NOT = { owns = 619 }
+			owns = 641
+		}
+
+		effect = {
+			KUK = {
+				all_core = { remove_core = KUK }
+			}
+			AUS_619 = { add_core = AUS }
+			AUS_612 = { add_core = AUS }
+			AUS_613 = { add_core = AUS }
+			AUS_734 = { add_core = AUS }
+			capital = 641
+			any_pop = {
+				limit = { has_pop_culture = south_german }
+				militancy = 4
+			}
+			any_pop = {
+				limit = { has_pop_culture = hungarian }
+				militancy = -4
+			}
+			primary_culture = hungarian
+			remove_accepted_culture = south_german
+			remove_accepted_culture = czech
+			remove_accepted_culture = slovene
+			remove_accepted_culture = polish
+			remove_accepted_culture = north_german
+			clr_country_flag = dual_monarchy
+			clr_country_flag = embraced_czechs
+			clr_country_flag = embraced_slovenes
+			clr_country_flag = embraced_croats
+			clr_country_flag = embraced_poles
+			change_tag = HUN
+		}
+	}
+	
+	begin_hungarian_revolution = {
+		picture = hun_rev
+		potential = {
+			tag = HUN
+			has_global_flag = hungarian_revolution_occurred
+			NOT = { has_country_flag = hungarian_revolution_began }
+		}
+		
+		allow = {
+			war_with = AUS
+		}
+		
+		effect = {
+			set_country_flag = hungarian_revolution_began
+			small_arms = 100
+			regular_clothes = 100
+			ammunition = 100
+			canned_food = 100
+			wine = 100
+			liquor = 100
+			leadership = 80
+			define_general = {
+				name = "Artúr Görgei"
+				personality = audacious
+				background = school_of_offense
+			}
+			define_general = {
+				name = "Józef Bem"
+				personality = defiant
+				background = expert_raider
+			}
+			add_country_modifier = {
+				name = begin_revolution
+				duration = 365
+			}
+			any_pop = {
+				limit = { has_pop_culture = hungarian }
+				militancy = -8
+			}
+			any_owned = {
+				limit = {
+					is_core = ROM
+					NOT = {
+						province_id = 647
+						province_id = 651
+						province_id = 652
+						province_id = 660
+						province_id = 2533
+					}
+				}
+				any_pop = {
+					limit = { has_pop_culture = romanian }
+					militancy = 6
+				}
+				add_province_modifier = {
+					name = nationalist_agitation
+					duration = 1095
+				}
+			}
+		}
+		
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+	end_of_hungarian_revolution = {
+		potential = {
+			tag = HUN
+			has_global_flag = hungarian_revolution_occurred
+			AUS = {
+				NOT = { has_country_flag = austria_let_hungary_go }
+			}
+			NOT = { year = 1860 }
+			ai = yes
+		}
+
+		allow = {
+			war_with = AUS
+			OR = {
+				AND = {
+					capital_scope = { controlled_by = THIS }
+					national_provinces_occupied = .75
+				}
+				AND = {
+					capital_scope = { NOT = { controlled_by = THIS } }
+					national_provinces_occupied = .50
+				}
+				AND = {
+					is_disarmed = yes
+					national_provinces_occupied = .25
+				}
+			}
+		}
+
+		effect = {
+			AUS = {
+				prestige = 25
+				inherit = HUN
+				any_pop = {
+					scaled_militancy = {
+						ideology = liberal
+						factor = -4
+					}
+				}
+			}
+		}
+
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+	release_galicia = {
+		potential = {
+			OR = {
+				tag = AUS
+				tag = KUK
+			}
+			owns = 702
+			ai = yes
+			NOT = {
+				exists = GLM
+				has_country_flag = released_galicia
+			}
+		}
+		
+		allow = {
+			OR = {
+				NOT = { owns = 631 }
+				NOT = { owns = 2584 }
+			}
+			NOT = { owns = 637 }
+			NOT = { owns = 661 }
+		}
+		
+		effect = {
+			set_country_flag = released_galicia
+			prestige = 10
+			any_owned = {
+				limit = { is_core = GLM }
+				secede_province = GLM
+			}
+			create_vassal = GLM
+			create_alliance = GLM
+			diplomatic_influence = { who = GLM value = 200 }
+			relation = { who = GLM value = 200 }
+		}
+		
+		ai_will_do = {
+			factor = 1
+		}
+	}
+	
+	release_bukovina = {
+		potential = {
+			OR = {
+				tag = AUS
+				tag = KUK
+			}
+			owns = 662
+			ai = yes
+			NOT = {
+				exists = BKV
+				has_country_flag = released_bukovina
+			}
+		}
+		
+		allow = {
+			NOT = { owns = 953 }
+			NOT = { owns = 661 }
+		}
+		
+		effect = {
+			set_country_flag = released_bukovina
+			prestige = 5
+			any_owned = {
+				limit = { is_core = BKV }
+				secede_province = BKV
+			}
+			create_vassal = BKV
+			create_alliance = BKV
+			diplomatic_influence = { who = BKV value = 200 }
+			relation = { who = BKV value = 200 }
+		}
+		
+		ai_will_do = {
+			factor = 1
+		}
+	}
+	
+	release_silesia = {
+		potential = {
+			OR = {
+				tag = AUS
+				tag = KUK
+			}
+			owns = 2584
+			ai = yes
+			NOT = {
+				exists = SLS
+				has_country_flag = released_silesia
+			}
+		}
+		
+		allow = {
+			NOT = { owns = 632 }
+			NOT = { owns = 685 }
+			NOT = { owns = 714 }
+			NOT = { owns = 634 }
+		}
+		
+		effect = {
+			set_country_flag = released_silesia
+			prestige = 5
+			any_owned = {
+				limit = { is_core = SLS }
+				secede_province = SLS
+			}
+			create_vassal = SLS
+			create_alliance = SLS
+			diplomatic_influence = { who = SLS value = 200 }
+			relation = { who = SLS value = 200 }
+		}
+		
+		ai_will_do = {
+			factor = 1
+		}
+	}
+	
+	release_dalmatia = {
+		potential = {
+			OR = {
+				tag = AUS
+				tag = KUK
+			}
+			owns = 781
+			ai = yes
+			NOT = {
+				exists = DLM
+				has_country_flag = released_dalmatia
+			}
+		}
+		
+		allow = {
+			NOT = { owns = 774 } #Senj
+			NOT = { owns = 784 } #Bihac
+			NOT = { owns = 800 } #Ulcinj
+		}
+		
+		effect = {
+			set_country_flag = released_dalmatia
+			prestige = 5
+			any_owned = {
+				limit = { is_core = DLM }
+				secede_province = DLM
+			}
+			create_vassal = DLM
+			create_alliance = DLM
+			diplomatic_influence = { who = DLM value = 200 }
+			relation = { who = DLM value = 200 }
+		}
+		
+		ai_will_do = {
+			factor = 1
+		}
+	}
+	
+	bosnian_annexation = {
+		picture = treaty_signing
+		potential = {
+			OR = {
+				tag = AUS
+				tag = KUK
+				tag = DNB
+				AND = {
+					tag = HUN
+					owns = 771
+				}
+			}
+			BOS = {
+				ai = yes
+				exists = yes
+				vassal_of = THIS
+			}
+			NOT = { has_country_flag = annexed_bosnia }
+		}
+		
+		allow = {
+			war = no
+			OR = {
+				mass_politics = 1
+				BOS = { num_of_revolts = 1 }
+				BOS = { average_militancy = 6 }
+				year = 1908
+			}
+		}
+		
+		effect = {
+			set_country_flag = annexed_bosnia
+			prestige = 10
+			badboy = 5
+			inherit = BOS
+			any_country = {
+				limit = {
+					OR = {
+						tag = RUS
+						is_culture_group = south_slavic
+					}
+				}
+				relation = { who = THIS value = -50 }
+			}
+		}
+	}
+	
+	propose_danube_federation = {
+		potential = {
+			tag = KUK
+			owns = 619
+			owns = 641
+			OR = {
+				any_owned_province = { is_core = BOH }
+				any_owned_province = { is_core = SLO }
+				any_owned_province = { is_core = SLV }
+				any_owned_province = { is_core = POL }
+				any_owned_province = { is_core = ROM }
+				any_owned_province = { is_core = CRO }
+				AND = {
+					any_owned_province = {
+						is_core = SLS
+						NOT = { is_core = BOH }
+					}
+					has_country_flag = austrian_silesia
+				}
+				any_owned_province = { is_core = LVN }
+			}
+			NOT = {
+				exists = DNB
+				exists = HUN
+				has_global_flag = proposed_danube_federation
+			}
+		}
+		
+		allow = {
+			war = no
+			is_greater_power = yes
+			revolution_n_counterrevolution = 1
+			social_science = 1
+			OR = {
+				government = democracy
+				government = hms_government
+			}
+			NOT = {
+				average_militancy = 4
+				num_of_revolts = 1
+			}
+		}
+		
+		effect = {
+			set_global_flag = proposed_danube_federation
+			set_country_flag = danube_proposal_in_progress
+			prestige = 10
+			any_pop = {
+				limit = { is_primary_culture = no }
+				militancy = -2
+			}
+			any_pop = {
+				limit = { is_primary_culture = yes }
+				consciousness = 2
+			}
+		}
+		
+		ai_will_do = {
+			factor = 1
+			modifier = {
+				factor = 0
+				NOT = {
+					OR = {
+						ruling_party_ideology = liberal
+						ruling_party_ideology = socialist
+					}
+				}
+			}
+		}
+	}
+	
+	become_danube_federation = {
+		picture = propose_danube_federation
+		potential = {
+			tag = KUK
+			owns = 619
+			owns = 641
+			has_country_flag = danube_proposal_in_progress
+			OR = {
+				has_global_flag = full_hungarian_approval
+				has_global_flag = partial_hungarian_approval
+				has_global_flag = no_hungarian_approval
+			}
+			OR = {
+				has_global_flag = full_czech_approval
+				has_global_flag = partial_czech_approval
+				has_global_flag = no_czech_approval
+				NOT = { any_owned_province = { is_core = BOH } }
+			}
+			OR = {
+				has_global_flag = full_romanian_approval
+				has_global_flag = partial_romanian_approval
+				has_global_flag = no_romanian_approval
+				NOT = { any_owned_province = { is_core = ROM } }
+			}
+			OR = {
+				has_global_flag = full_croatian_approval
+				has_global_flag = partial_croatian_approval
+				has_global_flag = no_croatian_approval
+				NOT = { any_owned_province = { is_core = CRO } }
+			}
+			OR = {
+				has_global_flag = full_slovene_approval
+				has_global_flag = partial_slovene_approval
+				has_global_flag = no_slovene_approval
+				NOT = { any_owned_province = { is_core = SLO } }
+			}
+			OR = {
+				has_global_flag = full_slovakian_approval
+				has_global_flag = partial_slovakian_approval
+				has_global_flag = no_slovakian_approval
+				NOT = { any_owned_province = { is_core = SLV } }
+			}
+			OR = {
+				has_global_flag = full_polish_approval
+				has_global_flag = partial_polish_approval
+				has_global_flag = no_polish_approval
+				NOT = { any_owned_province = { is_core = POL } }
+			}
+			OR = {
+				has_global_flag = full_silesian_approval
+				has_global_flag = partial_silesian_approval
+				has_global_flag = no_silesian_approval
+				NOT = { any_owned_province = { is_core = SLS } }
+				NOT = { has_country_flag = austrian_silesia }
+			}
+			OR = {
+				has_global_flag = full_italian_approval
+				has_global_flag = partial_italian_approval
+				has_global_flag = no_italian_approval
+				NOT = { any_owned_province = { is_core = LVN } }
+			}
+		}
+		
+		allow = {
+			war = no
+			OR = {
+				government = democracy
+				government = hms_government
+			}
+			NOT = {
+				average_militancy = 4
+				num_of_revolts = 1
+			}
+		}
+		
+		effect = {
+			clr_country_flag = danube_proposal_in_progress
+			prestige = 25
+			political_reform = state_equal_weight
+			all_core = {
+				remove_core = KUK
+				add_core = DNB
+			}
+			change_tag = DNB
+			nationalvalue = nv_equality
+			add_country_modifier = {
+				name = national_confusion
+				duration = 3650
+			}
+		}
+		
+		ai_will_do = {
+			factor = 1
+		}
+	}
+	
+	end_danube_federation = {
+		picture = propose_danube_federation
+		potential = {
+			tag = DNB
+			641 = {
+				NOT = { owned_by = THIS }
+				owner = { NOT = { vassal_of = THIS } }
+			}
+			625 = {
+				NOT = { owned_by = THIS }
+				owner = { NOT = { vassal_of = THIS } }
+			}
+			633 = {
+				NOT = { owned_by = THIS }
+				owner = { NOT = { vassal_of = THIS } }
+			}
+			657 = {
+				NOT = { owned_by = THIS }
+				owner = { NOT = { vassal_of = THIS } }
+			}
+			702 = {
+				NOT = { owned_by = THIS }
+				owner = { NOT = { vassal_of = THIS } }
+			}
+			768 = {
+				NOT = { owned_by = THIS }
+				owner = { NOT = { vassal_of = THIS } }
+			}
+			771 = {
+				NOT = { owned_by = THIS }
+				owner = { NOT = { vassal_of = THIS } }
+			}
+			682 = {
+				NOT = { owned_by = THIS }
+				owner = {
+					NOT = { vassal_of = THIS }
+					has_country_flag = austrian_silesia
+				}
+			}
+		}
+	
+		allow = {
+			war = no
+		}
+
+		effect = {
+			prestige = -20
+			primary_culture = south_german
+			remove_accepted_culture = hungarian
+			remove_accepted_culture = slovak
+			remove_accepted_culture = slovene
+			remove_accepted_culture = czech
+			remove_accepted_culture = romanian
+			remove_accepted_culture = polish
+			remove_accepted_culture = croat
+			remove_accepted_culture = north_german
+			remove_accepted_culture = north_italian
+			AUS_612 = { add_core = AUS }
+			AUS_613 = { add_core = AUS }
+			AUS_619 = { add_core = AUS }
+			AUS_734 = { add_core = AUS }
+			all_core = { remove_core = DNB }
+			change_tag = AUS
+			nationalvalue = nv_order
+			add_country_modifier = {
+				name = national_confusion
+				duration = 3650
+			}
+			clr_country_flag = dual_monarchy
+			any_pop = {
+				limit = { is_primary_culture = yes }
+				militancy = -5
+			}
+		}
+		
+		ai_will_do = {
+			factor = 1
+		}
+	}
+	
+	embrace_czech_minority = {
+		picture = embrace_minority
+		potential = {
+			OR = {
+				tag = KUK
+				tag = DNB
+			}
+			any_owned_province = { is_core = BOH }
+			NOT = {
+				OR = {
+					accepted_culture = czech
+					has_country_flag = embraced_czechs
+				}
+			}
+			NOT = { has_country_flag = danube_proposal_in_progress }
+		}
+		allow = {
+			year = 1860
+			prestige = 50
+			nationalism_n_imperialism = 1
+			experimental_psychology = 1
+		}
+		effect = {
+			set_country_flag = embraced_czechs
+			add_accepted_culture = czech
+			prestige = -25
+			any_pop = {
+				limit = { has_pop_culture = hungarian }
+				consciousness = 4
+				militancy = 4
+			}
+			any_pop = {
+				limit = { has_pop_culture = czech }
+				consciousness = -4
+				militancy = -4
+			}
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+	
+	embrace_slovene_minority = {
+		picture = embrace_minority
+		potential = {
+			OR = {
+				tag = KUK
+				tag = DNB
+			}
+			any_owned_province = { is_core = SLO }
+			NOT = {
+				accepted_culture = slovene
+				has_country_flag = embraced_slovenes
+				has_country_flag = danube_proposal_in_progress
+			}
+			OR = {
+				accepted_culture = croat
+				NOT = { any_owned_province = { is_core = CRO } }
+			}
+		}
+		allow = {
+			year = 1875
+			prestige = 50
+			revolution_n_counterrevolution = 1
+			psychoanalysis = 1
+			social_science = 1
+		}
+		effect = {
+			set_country_flag = embraced_slovenes
+			add_accepted_culture = slovene
+			prestige = -25
+			any_pop = {
+				limit = {
+					OR = {
+						has_pop_culture = hungarian
+						has_pop_culture = czech
+						has_pop_culture = croat
+					}
+				}
+				militancy = 4
+				consciousness = 4
+			}
+			any_pop = {
+				limit = { has_pop_culture = slovene }
+				militancy = -4
+				consciousness = -4
+			}
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+	
+	embrace_croat_minority = {
+		picture = embrace_minority
+		potential = {
+			OR = {
+				tag = KUK
+				tag = DNB
+			}
+			any_owned_province = { is_core = CRO }
+			NOT = {
+				accepted_culture = croat
+				has_country_flag = embraced_croats
+				has_country_flag = danube_proposal_in_progress
+			}
+			OR = {
+				accepted_culture = czech
+				NOT = { any_owned_province = { is_core = BOH } }
+			}
+		}
+		allow = {
+			year = 1870
+			prestige = 50
+			revolution_n_counterrevolution = 1
+			psychoanalysis = 1
+		}
+		effect = {
+			set_country_flag = embraced_croats
+			add_accepted_culture = croat
+			prestige = -25
+			any_pop = {
+				limit = {
+					OR = {
+						has_pop_culture = hungarian
+						has_pop_culture = czech
+					}
+				}
+				militancy = 4
+				consciousness = 4
+			}
+			any_pop = {
+				limit = { has_pop_culture = croat }
+				militancy = -4
+				consciousness = -4
+			}
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+	
+	embrace_polish_minority = {
+		picture = embrace_minority
+		potential = {
+			OR = {
+				tag = KUK
+				tag = DNB
+			}
+			NOT = {
+				accepted_culture = polish
+				has_country_flag = embraced_poles
+				has_country_flag = danube_proposal_in_progress
+			}
+			OR = {
+				accepted_culture = slovene
+				NOT = { any_owned_province = { is_core = SLO } }
+			}
+					
+		}
+		allow = {
+			year = 1900
+			prestige = 50
+			mass_politics = 1
+			behaviorism = 1
+			social_alienation = 1
+		}
+		effect = {
+			set_country_flag = embraced_poles
+			add_accepted_culture = polish
+			prestige = -25
+			any_pop = {
+				limit = {
+					OR = {
+						has_pop_culture = hungarian
+						has_pop_culture = czech
+						has_pop_culture = croat
+						has_pop_culture = slovene
+					}
+				}	
+				militancy = 4
+				consciousness = 4
+			}
+			any_pop = {
+				limit = { has_pop_culture = polish }
+				militancy = -4
+				consciousness = -4
+			}
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+	budapest_united = {
+		picture = budapest_city
+		potential = {
+			OR = {
+				tag = KUK
+				tag = AUS
+				tag = DNB
+				tag = HUN
+			}
+			year = 1870
+			owns = 641
+			NOT = { has_global_flag = budapest_founded }
+		}
+		
+		allow = {
+			revolution_n_counterrevolution = 1
+			money = 25000
+		}
+		
+		effect = {
+			treasury = -20000
+			set_global_flag = budapest_founded
+			641 = {
+				change_province_name = "Budapest"
+				life_rating = 5
+				add_province_modifier = { name = recently_built_city duration = 1825 }
+			}
+		}
+		
+		ai_will_do = { factor = 1 }
+	}
+}
+

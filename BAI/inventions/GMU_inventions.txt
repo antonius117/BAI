@@ -1,0 +1,52 @@
+early_archaeology = {
+	limit = { idealism = 1 }
+	chance = {
+		base = 2
+		modifier = {
+			factor = 2
+			functionalism = 1
+		}
+		modifier = {
+			factor = 2
+			invention = i_empiricism
+		}
+		modifier = {
+			factor = 2
+			has_country_modifier = local_excavations
+		}
+	}
+	effect = {
+		shared_prestige = 5 
+	}
+}
+
+modern_archaeology = {
+	limit = { analytic_philosophy = 1 
+                  invention = early_archaeology }
+	chance = {
+		base = 2
+		modifier = {
+			factor = 2
+			invention = modern_logics
+		}
+		modifier = {
+			factor = 2
+			invention = darwinism
+		}
+		modifier = {
+			factor = 2
+			has_country_modifier = egyptian_excavations
+		}
+		modifier = {
+			factor = 2
+			has_country_modifier = maya_excavations
+		}
+		modifier = {
+			factor = 2
+			has_country_modifier = mycenaean_excavations
+		}
+	}
+	effect = {
+		shared_prestige = 15
+	}
+}

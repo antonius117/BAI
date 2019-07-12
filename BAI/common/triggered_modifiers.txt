@@ -1,0 +1,117 @@
+# Triggered modifiers are here.
+# these are checked for each countries once/month and then applied.
+#
+# Effects are fully scriptable here.
+
+the_british_raj = {
+	trigger = {
+		exists = yes
+		NOT = { is_culture_group = iranian_turanian }
+		NOT = { is_culture_group = south_asian }
+		1236 = {
+			is_colonial = yes
+			owned_by = THIS
+		}
+		1251 = {
+			is_colonial = yes
+			owned_by = THIS
+		}
+		1297 = {
+			is_colonial = yes
+			owned_by = THIS
+		}
+	}
+	research_points = 0.75
+	core_pop_militancy_modifier = -0.05
+	prestige = 0.02
+	icon = 19
+}
+
+dutch_east_india = {
+	trigger = {
+		exists = yes
+		capital_scope = { continent = europe }
+		1413 = {
+			is_colonial = yes
+			owned_by = THIS
+		}
+		1418 = {
+			is_colonial = yes
+			owned_by = THIS
+		}
+	}
+	research_points = 0.5
+	prestige = 0.01
+	icon = 19
+}
+
+vassal_nation = {
+	trigger = {
+		exists = yes
+		is_vassal = yes
+	}
+	icon = 10
+	prestige = -0.1
+}
+
+chinese_substate = {
+	trigger = {
+		exists = yes
+		OR = {
+			substate_of = QNG
+			vassal_of = QNG
+		}
+		civilized = no
+		QNG = {	government = absolute_monarchy }
+	}
+	icon = 10
+	research_points_modifier = -0.2
+	global_pop_consciousness_modifier = 0.05
+}
+
+social_reformed_nation = {
+		trigger = {
+			exists = yes
+			wage_reform = good_minimum_wage
+			work_hours = eight_hours
+			safety_regulations = good_safety
+			unemployment_subsidies = good_subsidies
+			pensions = good_pensions
+			health_care = good_health_care
+			school_reforms = good_schools
+		}
+		
+	social_reform_desire = -0.3
+	icon = 13
+}
+
+educational_spen = {
+	trigger = {
+		ai = yes
+		exists = yes
+		education_spending = 0.74
+	}
+
+	education_efficiency_modifier = 0.25
+	icon = 16
+}
+
+admin_spen = {
+	trigger = {
+		ai = yes
+		exists = yes
+		administration_spending = 0.74
+	}
+
+	administrative_efficiency_modifier = 0.25
+	icon = 16
+}
+
+ai_bonus = {
+	trigger = {
+		ai = yes
+		exists = yes
+	}
+	mobilisation_economy_impact = -0.05
+	tax_efficiency = 0.05
+}

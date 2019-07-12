@@ -1,0 +1,7 @@
+owner = GEL
+controller = GEL
+add_core = GEL
+add_core = MAJ
+add_core = WRS
+trade_goods = cattle
+life_rating = 30

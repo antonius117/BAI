@@ -1,0 +1,38 @@
+
+army = {
+	name = "Circassian Army"
+	location = 1051
+	regiment = {
+		name = "1. Circassian Cavalry"
+		type = cavalry
+		home = 1049
+	}
+
+	regiment = {
+		name = "2. Circassian Cavalry"
+		type = cavalry
+		home = 1049
+	}
+
+	regiment = {
+		name = "1. Circassian Infantry"
+		type = infantry
+		home = 1051
+	}
+
+	regiment = {
+		name = "2. Circassian Infantry"
+		type = infantry
+		home = 1049
+	}
+
+	leader = {
+		name = "Tuguzhuko Kyzbech"
+		picture = arab_general_4
+		type = land
+		date = 1836.1.1
+		background = cursed_luck
+		personality = resolute
+	}
+
+}

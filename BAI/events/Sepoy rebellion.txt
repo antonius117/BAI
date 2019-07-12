@@ -1,0 +1,71 @@
+
+country_event = {
+
+	id = 90040 # Sepoy Rebellion
+
+	title = "EVTNAME90040"
+	desc = "EVTDESC90040"
+	news = yes
+	news_desc_long = "EVTDESC90040_NEWS_LONG"
+	news_desc_medium = "EVTDESC90040_NEWS_MEDIUM"
+	news_desc_short = "EVTDESC90040_NEWS_SHORT"
+	picture = "sepoy"
+
+	trigger = {
+		OR = {
+			tag = ENG
+			tag = ENL
+		}
+		year = 1857
+		OR = {
+			owns = 1236 #Delhi
+			owns = 1251 #Calcutta
+			owns = 1304 #Madras
+			owns = 1297 #Bombay
+			owns = 1247 #Patna
+			owns = 1227 #Lahore
+		}
+	}
+	
+	fire_only_once = yes
+
+	mean_time_to_happen = {
+		months = 6
+	}
+
+	option = {
+		name = "This could mean trouble."
+		set_country_flag = sepoy_rebellion
+		any_owned = {
+			limit = { is_core = HND }
+			random_list = {
+				33 = {
+					poor_strata = {
+						limit = {
+							is_culture_group = south_asian
+						}
+						militancy = 6
+					}
+					add_province_modifier = {
+						name = nationalist_agitation
+						duration = 730
+					}
+				}
+				33 = {
+					poor_strata = {
+						limit = {
+							is_culture_group = south_asian
+						}
+						militancy = 3
+					}
+					add_province_modifier = {
+						name = nationalist_agitation
+						duration = 365
+					}
+				}
+				34 = {
+				}
+			}
+		}									
+	}
+}

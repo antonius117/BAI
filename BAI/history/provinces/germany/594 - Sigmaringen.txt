@@ -1,0 +1,12 @@
+owner = HOH
+controller = HOH
+add_core = HOH
+add_core = GER
+trade_goods = grain
+life_rating = 40
+1861.1.1 = {
+	remove_core = HOH
+	controller = PRU
+	owner = PRU
+}
+
