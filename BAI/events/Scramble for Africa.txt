@@ -1011,6 +1011,17 @@ country_event = {
 	
 	option = {
 		name = "Damn."
+		capital_scope = {
+			add_province_modifier = {
+				name = legation_quarter
+				duration = -1
+			}
+		}
+		remove_country_modifier = uncivilized_isolationism
+		add_country_modifier = {
+			name = "western_influences"
+			duration = -1
+		}
 		FROM = {
 			diplomatic_influence = {
 				who = THIS

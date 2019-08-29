@@ -173,6 +173,7 @@ political_decisions = {
 				remove_core = KUK
 				add_core = AUS
 			}
+			624 = { add_core = AUS }
 			any_pop = {
 				limit = { has_pop_culture = hungarian }
 				militancy = 4
@@ -230,6 +231,7 @@ political_decisions = {
 			remove_accepted_culture = slovene
 			remove_accepted_culture = polish
 			remove_accepted_culture = north_german
+			remove_accepted_culture = north_italian
 			clr_country_flag = dual_monarchy
 			clr_country_flag = embraced_czechs
 			clr_country_flag = embraced_slovenes
@@ -950,6 +952,10 @@ political_decisions = {
 				tag = KUK
 				tag = DNB
 			}
+			OR = {
+				any_owned_province = { is_core = GLM }
+				owns = 702
+			}
 			NOT = {
 				accepted_culture = polish
 				has_country_flag = embraced_poles
@@ -959,7 +965,6 @@ political_decisions = {
 				accepted_culture = slovene
 				NOT = { any_owned_province = { is_core = SLO } }
 			}
-					
 		}
 		allow = {
 			year = 1900
@@ -972,6 +977,14 @@ political_decisions = {
 			set_country_flag = embraced_poles
 			add_accepted_culture = polish
 			prestige = -25
+			random_country = {
+				limit = {
+					tag = KUK
+					exists = yes
+				}
+				AUS_702 = { add_core = KUK }
+				GLM = { all_core = { add_core = KUK } }
+			}
 			any_pop = {
 				limit = {
 					OR = {

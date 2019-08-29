@@ -832,6 +832,7 @@ colonial_reconquest_cb = {
 					tag = CUB
 					tag = PHL
 				}
+				exists = yes
 			}
 			AND = {
 				THIS = { tag = NET }
@@ -840,6 +841,7 @@ colonial_reconquest_cb = {
 					tag = MAL
 					tag = DJA
 				}
+				exists = yes
 			}
 		}
 		NOT = { number_of_states = 3 }

@@ -527,29 +527,23 @@ political_decisions = {
 	burn_the_white_house = {
 		picture = washington_burning
 		potential = {
-			OR = {
-				tag = CSA
-				tag = FSA
-				tag = ENG
-				tag = CAN
-			}
+			NOT = { tag = USA }
 			war_with = USA
-			USA = {
-				owns = 220
-			}
+			USA = { owns = 220 }
+			civilized = yes
+			state_n_government = 1
 			NOT = {
-				has_country_flag = white_house_burned
+				has_global_flag = white_house_burned
 			}
 		}
 		allow = {
-			war_with = USA
 			controls = 220
 		}
 		effect = {
-			prestige = 5
-			set_country_flag = white_house_burned
+			badboy = 3
+			set_global_flag = white_house_burned
 			USA = {
-				prestige = -10
+				prestige = -20
 				war_exhaustion = 10
 				country_event = 182000
 			}
@@ -1288,6 +1282,7 @@ political_decisions = {
 			exists = MEX
 			has_country_flag = texas_final_independence
 			NOT = { has_country_flag = rgr_claimed }
+			NOT = { has_country_flag = texanborders }
 			OR = {
 				NOT = { exists = RGR }
 				AND = {
@@ -1304,12 +1299,13 @@ political_decisions = {
 		allow = {
 			nationalism_n_imperialism = 1
 			prestige = 100
-			OR = {
-				is_secondary_power = yes
-				is_greater_power = yes
-			}
+			is_greater_power = yes
+			is_disarmed = no
 			NOT = {
 				alliance_with = MEX
+			}
+			NOT = {
+				alliance_with = RGR
 			}
 			NOT = {
 				relation = {
@@ -1321,15 +1317,35 @@ political_decisions = {
 		}
 		effect = {
 			set_country_flag = rgr_claimed
-			badboy = 10
-			2147 = {
-				add_core = TEX
+			badboy = 15
+			RGR = {
+				all_core = {
+					add_core = TEX
+				}
 			}
-			2148 = {
-				add_core = TEX
+			any_pop = {
+				limit = {
+					OR = {
+						is_accepted_culture = yes
+						is_primary_culture = yes
+					}
+				}
+				dominant_issue = {
+					factor = 0.05
+					value = jingoism
+				}
+				consciousness = 1
 			}
-			2149 = {
-				add_core = TEX
+			any_country = {
+				limit = {
+					NOT = { tag = THIS }
+					any_owned_province = { is_core = RGR }
+				}
+				relation = {
+					who = THIS
+					value = -100
+				}
+				leave_alliance = THIS
 			}
 		}
 	}

@@ -4,6 +4,8 @@ political_decisions = {
 		potential = {
 			tag = ITA
 			has_country_flag = italia_ulterior
+			735 = { is_core = ITA }
+			770 = { is_core = ITA }
 			NOT = { has_country_flag = second_irredentism }
 		}
 		
@@ -60,6 +62,8 @@ political_decisions = {
 		potential = {
 			tag = ITP
 			has_country_flag = italia_ulterior
+			735 = { is_core = ITP }
+			770 = { is_core = ITP }
 			NOT = { has_country_flag = second_irredentism }
 		}
 		
@@ -622,6 +626,156 @@ political_decisions = {
 		}
 		ai_will_do = {
 			factor = 0.2
+		}
+	}
+
+	reclaim_cores_ITA = {
+		picture = form_italy
+		potential = {
+			tag = ITA
+			OR = {
+				735 = { NOT = { is_core = ITA } }
+				770 = { NOT = { is_core = ITA } }
+			}
+		}
+		
+		allow = {
+			war = no
+			is_disarmed = no
+			NOT = { has_country_modifier = no_more_war }
+			OR = {
+				government = fascist_dictatorship
+				government = proletarian_dictatorship
+				AND = {
+					any_owned_province = {
+						OR = {
+							region = AUS_734
+							region = AUS_736
+						}
+						NOT = { is_core = ITA }
+					}
+					war_policy = jingoism
+				}
+			}
+		}
+		
+		effect = {
+			badboy = 5
+			random_owned = {
+				limit = {
+					OR = {
+						owner = { government = fascist_dictatorship }
+						owner = { government = proletarian_dictatorship }
+					}
+				}
+				AUS_734 = { add_core = ITA }
+				AUS_736 = { add_core = ITA }
+			}
+			any_owned = {
+				limit = {
+					OR = {
+						region = AUS_734
+						region = AUS_736
+					}
+				}
+				add_core = ITA
+			}
+			any_country = {
+				limit = {
+					any_owned_province = {
+						OR = {
+							region = AUS_734
+							region = AUS_736
+						}
+					}
+					NOT = { tag = THIS }
+				}
+				relation = { who = THIS value = -100 }
+				leave_alliance = THIS
+			}
+		}
+		
+		ai_will_do = {
+			factor = 1
+			modifier = {
+				factor = 0
+				badboy = 0.8
+			}
+		}
+	}
+
+	reclaim_cores_ITP = {
+		picture = form_italy
+		potential = {
+			tag = ITP
+			OR = {
+				735 = { NOT = { is_core = ITP } }
+				770 = { NOT = { is_core = ITP } }
+			}
+		}
+		
+		allow = {
+			war = no
+			is_disarmed = no
+			NOT = { has_country_modifier = no_more_war }
+			OR = {
+				government = fascist_dictatorship
+				government = proletarian_dictatorship
+				AND = {
+					any_owned_province = {
+						OR = {
+							region = AUS_734
+							region = AUS_736
+						}
+						NOT = { is_core = ITP }
+					}
+					war_policy = jingoism
+				}
+			}
+		}
+		
+		effect = {
+			badboy = 5
+			random_owned = {
+				limit = {
+					OR = {
+						owner = { government = fascist_dictatorship }
+						owner = { government = proletarian_dictatorship }
+					}
+				}
+				AUS_734 = { add_core = ITP }
+				AUS_736 = { add_core = ITP }
+			}
+			any_owned = {
+				limit = {
+					OR = {
+						region = AUS_734
+						region = AUS_736
+					}
+				}
+				add_core = ITP
+			}
+			any_country = {
+				limit = {
+					any_owned_province = {
+						OR = {
+							region = AUS_734
+							region = AUS_736
+						}
+					}
+					NOT = { tag = THIS }
+				}
+				relation = { who = THIS value = -100 }
+				leave_alliance = THIS
+			}
+		}
+		
+		ai_will_do = {
+			factor = 1
+			modifier = {
+				factor = 0
+				badboy = 0.8
+			}
 		}
 	}
 }

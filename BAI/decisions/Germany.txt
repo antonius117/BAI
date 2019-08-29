@@ -689,7 +689,6 @@ political_decisions = {
 						province_id = 685
 					}
 				}
-				add_core = THIS
 				add_core = GCF
 			}
 			any_country = {
@@ -1702,6 +1701,106 @@ political_decisions = {
 			money = -10000
 			prestige = 5
 			country_event = 200003
+		}
+	}
+
+	claim_togoland = {
+		picture = rhodesia_charter
+		potential = {
+			has_global_flag = berlin_conference
+			OR = {
+				AND = {
+					is_secondary_power = yes
+					OR = {
+						tag = PRU
+						tag = NGF
+						tag = GER
+						tag = GCF
+					}
+				}
+				is_greater_power = yes
+			}
+			capital_scope = { continent = europe }
+			is_vassal = no
+			any_owned_province = {
+				has_building = naval_base
+				is_core = THIS
+			}
+			NOT = {
+				has_country_flag = colonial_beginnings_togo
+				any_owned_province = { continent = africa }
+				OR = {
+					government = proletarian_dictatorship
+					government = bourgeois_dictatorship
+				}
+				OR = {
+					tag = RUS
+					tag = TUR
+				}
+			}
+			1914 = {
+				empty = yes
+			}
+			1915 = {
+				owner = {
+					civilized = no
+					ai = yes
+					war = no
+					OR = {
+						part_of_sphere = no
+						in_sphere = THIS
+					}
+				}
+			}
+			1916 = {
+				owner = {
+					civilized = no
+					ai = yes
+					war = no
+					OR = {
+						part_of_sphere = no
+						in_sphere = THIS
+					}
+				}
+			}
+		}
+
+		allow = {
+			war = no
+			invention = prophylaxis_against_malaria
+			invention = mission_to_civilize
+			invention = colonial_negotiations
+		}
+
+		effect = {
+			set_country_flag = colonial_beginnings_togo
+			prestige = 5
+			random_country = {
+				limit = {
+					OR = {
+						owns = 1915
+						owns = 1916
+					}
+					civilized = no
+				}
+				relation = { who = THIS value = -100 }
+			}
+			1914 = { secede_province = THIS }
+			1915 = { secede_province = THIS }
+			1916 = { secede_province = THIS }
+			1917 = { secede_province = THIS }
+			1918 = { secede_province = THIS }
+		}
+		ai_will_do = {
+			factor = 1
+			modifier = {
+				factor = 0
+				OR = {
+					tag = AUS
+					tag = KUK
+					tag = DNB
+				}
+			}	
 		}
 	}
 }

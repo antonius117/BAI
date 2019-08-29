@@ -3329,6 +3329,17 @@ country_event = {
 		random_owned = {
 			limit = {
 				owner = {
+					government = democracy
+				}
+			}
+			owner = {
+				remove_country_modifier = louis_napoleon_iii
+				remove_country_modifier = dom_pedro_ii
+			}
+		}
+		random_owned = {
+			limit = {
+				owner = {
 					vote_franschise = landed_voting
 				}
 			}
@@ -3524,6 +3535,17 @@ country_event = {
 		random_owned = {
 			limit = {
 				owner = {
+					government = democracy
+				}
+			}
+			owner = {
+				remove_country_modifier = louis_napoleon_iii
+				remove_country_modifier = dom_pedro_ii
+			}
+		}
+		random_owned = {
+			limit = {
+				owner = {
 					vote_franschise = landed_voting
 				}
 			}
@@ -3713,6 +3735,18 @@ country_event = {
 				remove_country_modifier = pig_headed_isolationist
 				remove_country_modifier = ambitious_union_boss
 				remove_country_modifier = dour_economist
+				remove_country_modifier = otto_von_bismarck
+			}
+		}
+		random_owned = {
+			limit = {
+				owner = {
+					government = democracy
+				}
+			}
+			owner = {
+				remove_country_modifier = louis_napoleon_iii
+				remove_country_modifier = dom_pedro_ii
 			}
 		}
 		random_owned = {
@@ -3913,6 +3947,17 @@ country_event = {
 		random_owned = {
 			limit = {
 				owner = {
+					government = democracy
+				}
+			}
+			owner = {
+				remove_country_modifier = louis_napoleon_iii
+				remove_country_modifier = dom_pedro_ii
+			}
+		}
+		random_owned = {
+			limit = {
+				owner = {
 					vote_franschise = landed_voting
 				}
 			}
@@ -4108,6 +4153,17 @@ country_event = {
 		random_owned = {
 			limit = {
 				owner = {
+					government = democracy
+				}
+			}
+			owner = {
+				remove_country_modifier = louis_napoleon_iii
+				remove_country_modifier = dom_pedro_ii
+			}
+		}
+		random_owned = {
+			limit = {
+				owner = {
 					vote_franschise = landed_voting
 				}
 			}
@@ -4288,6 +4344,17 @@ country_event = {
 				remove_country_modifier = pig_headed_isolationist
 				remove_country_modifier = ambitious_union_boss
 				remove_country_modifier = dour_economist
+			}
+		}
+		random_owned = {
+			limit = {
+				owner = {
+					government = democracy
+				}
+			}
+			owner = {
+				remove_country_modifier = louis_napoleon_iii
+				remove_country_modifier = dom_pedro_ii
 			}
 		}
 		random_owned = {
@@ -4483,6 +4550,17 @@ country_event = {
 				remove_country_modifier = ambitious_union_boss
 				remove_country_modifier = dour_economist
 				remove_country_modifier = otto_von_bismarck
+			}
+		}
+		random_owned = {
+			limit = {
+				owner = {
+					government = democracy
+				}
+			}
+			owner = {
+				remove_country_modifier = louis_napoleon_iii
+				remove_country_modifier = dom_pedro_ii
 			}
 		}
 		random_owned = {
@@ -9193,6 +9271,7 @@ country_event = {
 			}
 			owner = {
 				set_country_flag = socialist_election_win
+				remove_country_modifier = otto_von_bismarck
 				any_pop = {
 					limit = {
 						location = { is_colonial = no }
@@ -9257,6 +9336,7 @@ country_event = {
 			}
 			owner = {
 				set_country_flag = liberal_election_win
+				remove_country_modifier = otto_von_bismarck
 				any_pop = {
 					limit = {
 						location = { is_colonial = no }
@@ -9321,6 +9401,7 @@ country_event = {
 			}
 			owner = {
 				set_country_flag = communist_election_win
+				remove_country_modifier = otto_von_bismarck
 				any_pop = {
 					limit = {
 						location = { is_colonial = no }
@@ -9385,6 +9466,7 @@ country_event = {
 			}
 			owner = {
 				set_country_flag = fascist_election_win
+				remove_country_modifier = otto_von_bismarck
 				any_pop = {
 					limit = {
 						location = { is_colonial = no }
@@ -9513,6 +9595,7 @@ country_event = {
 			}
 			owner = {
 				set_country_flag = anarcho_liberal_election_win
+				remove_country_modifier = otto_von_bismarck
 				any_pop = {
 					limit = {
 						location = { is_colonial = no }

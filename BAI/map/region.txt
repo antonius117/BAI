@@ -46,9 +46,9 @@ MEX_100 = { 100 101 102 } #Arizona
 
 MEX_103 = { 103 104 105 } #New Mexico
 
-USA_106 = { 106 107 108 109 } #Colorado
+USA_106 = { 106 108 109 } #Colorado
 
-USA_111 = { 110 111 112 } #Wyoming
+USA_111 = { 110 107 111 112 } #Wyoming
 
 USA_116 = { 116 115 114 113 } #Montana
 

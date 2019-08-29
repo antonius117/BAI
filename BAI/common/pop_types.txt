@@ -438,6 +438,11 @@ colonialmigration_chance = {
 		state_scope = { has_factories = yes }
 	}
 
+	modifier = {
+		factor = 0.1
+		country = { has_country_flag = penal_colonies }
+	}
+
 	group = {
 		modifier = {
 			factor = 0.3

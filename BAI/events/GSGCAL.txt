@@ -219,14 +219,6 @@ country_event = {
 	}
 	
 	option = {
-		name = "Let them have their claims."
-		set_country_flag = caliborders
-		ai_chance = {
-			factor = 10
-		}		
-	}
-	
-	option = {
 		name = "Lets set a more reasonable border."
 		MEX_94 = {
 			remove_core = CAL
@@ -244,8 +236,16 @@ country_event = {
 		clr_global_flag = bearflag
 		ai_chance = {
 			factor = 90
-		}		
-	}	
+		}
+	}
+
+	option = {
+		name = "Let them have their claims."
+		set_country_flag = caliborders
+		ai_chance = {
+			factor = 10
+		}
+	}
 }
 
 country_event = {

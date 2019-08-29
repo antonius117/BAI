@@ -44,8 +44,12 @@ political_decisions = {
 			NOT = {
 				has_country_flag = rus_claim_lodermia
 				exists = UKR
+				exists = RUT
+				government = democracy
+				government = hms_government
+				702 = { is_core = RUS }
 			}
-			nationalism_n_imperialism = 1
+			mass_politics = 1
 			owns = 715
 			owns = 955
 		}
@@ -54,12 +58,15 @@ political_decisions = {
 			invention = national_fraternity
 			invention = the_doctrine_of_fascism
 			is_greater_power = yes
-			prestige = 400
+			prestige = 500
+			war = no
+			is_disarmed = no
 		}
 		
 		effect = {
 			set_country_flag = rus_claim_lodermia
 			prestige = 15
+			badboy = 10
 			702 = { add_core = RUS }
 			952 = { add_core = RUS }
 			951 = { add_core = RUS }
@@ -70,6 +77,10 @@ political_decisions = {
 		
 		ai_will_do = {
 			factor = 1
+			modifier = {
+				factor = 0
+				badboy = 0.6
+			}	
 		}
 	}
 	

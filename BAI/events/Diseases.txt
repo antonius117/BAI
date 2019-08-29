@@ -264,8 +264,10 @@ country_event = {
 		}
 		modifier = {
 			factor = 0.1
+			NOT = { has_country_flag = border_control }
 			any_neighbor_country = {
 				has_country_modifier = pandemic_influenza
+				NOT = { has_country_flag = border_control }
 			}
 		}
 		

@@ -49,6 +49,7 @@ political_decisions = {
 
 		allow = {
 			war = no
+			invention = prophylaxis_against_malaria
 			invention = mission_to_civilize
 			invention = colonial_negotiations
 		}

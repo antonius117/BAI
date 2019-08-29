@@ -43,28 +43,27 @@ country_event = {
 		tag = USA
 		war = no
 		NOT = {	has_country_flag = texanborders }
-		owns = 133
+		TEX = {
+			all_core = { owned_by = THIS }
+		}
 		NOT = { exists = TEX }
 	}
+	
+	fire_only_once = yes
 	
 	mean_time_to_happen = {
 		days = 20
 	}
-	
-	option = {
-		name = "Let them have their claims."
-		set_country_flag = texanborders
-		ai_chance = {
-			factor = 15
-		}		
-	}
-	
+
 	option = {
 		name = "Lets set a more reasonable border."
 		103 = {
 			remove_core = TEX
 		}
 		105 = {
+			remove_core = TEX
+		}
+		107 = {
 			remove_core = TEX
 		}
 		109 = {
@@ -79,8 +78,15 @@ country_event = {
 		set_country_flag = texanborders
 		ai_chance = {
 			factor = 85
-		}		
-	}	
+		}
+	}
+
+	option = {
+		name = "Let them have their claims."
+		ai_chance = {
+			factor = 15
+		}
+	}
 }
 
 #Mexican states gain increased militancy
@@ -1027,6 +1033,25 @@ province_event = {
 					NOT = { badboy = 0.9 }
 				}
 			}
+		}
+	}
+}
+
+country_event = {
+	id = 188244
+	title = "EVTNAME188244"
+	desc = "EVTDESC188244"
+	picture = "statue_of_liberty"
+	
+	is_triggered_only = yes
+
+	option = {
+		name = "We weep for our loss."
+		prestige = -20
+		war_exhaustion = 10
+		remove_country_modifier = the_statue_of_liberty
+		232 = {
+			remove_province_modifier = gateway_to_america
 		}
 	}
 }

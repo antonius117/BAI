@@ -9,7 +9,7 @@ literacy = 0.03
 non_state_culture_literacy = 0.01
 
 # Political reforms
-slavery = yes_slavery
+slavery = no_slavery
 upper_house_composition = appointed
 vote_franschise = none_voting
 public_meetings = no_meeting
@@ -39,6 +39,11 @@ upper_house = {
 }
 
 set_country_flag = sunni_religion
+
+govt_flag = {
+	government = absolute_monarchy
+	flag = chartered_company
+}
 
 1861.1.1 = {
 	oob = "/1861/SWK_oob.txt"

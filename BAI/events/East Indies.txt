@@ -13,7 +13,7 @@ country_event = {
 	news_desc_long = "EVTDESC95250_NEWS_LONG"
 	news_desc_medium = "EVTDESC95250_NEWS_MEDIUM"
 	news_desc_short = "EVTDESC95250_NEWS_SHORT"
-	picture = "Alberdi"
+	picture = "white_rajah"
 
 	trigger = {
 		tag = BRU
@@ -43,7 +43,11 @@ country_event = {
 			remove_core = BRU
 			secede_province = SWK
 		}
-		ENG = {
+		random_country = {
+			limit = {
+				tag = ENG
+				exists = yes
+			}
 			diplomatic_influence = {
 				who = SWK
 				value = 200
@@ -74,7 +78,11 @@ country_event = {
 			add_core = SWK
 			secede_province = SWK
 		}
-		ENG = {
+		random_country = {
+			limit = {
+				tag = ENG
+				exists = yes
+			}
 			diplomatic_influence = {
 				who = SWK
 				value = 100
@@ -98,6 +106,44 @@ country_event = {
 			}
 		}	
 	}
+
+	option = {
+		name = "Long live the White Rajah!"
+		prestige = -5
+		1394 = {
+			add_core = SWK
+			remove_core = BRU
+			secede_province = SWK
+		}
+		1395 = {
+			add_core = SWK
+			remove_core = BRU
+			secede_province = SWK
+		}
+		random_country = {
+			limit = {
+				tag = ENG
+				exists = yes
+			}
+			diplomatic_influence = {
+				who = SWK
+				value = 200
+			}
+			diplomatic_influence = {
+				who = BRU
+				value = 200
+			}
+		}
+		relation = {
+			who = SWK
+			value = 100
+		}
+		create_alliance = SWK
+		change_tag_no_core_switch = SWK
+		ai_chance = {
+			factor = 0
+		}
+	}
 }
 
 country_event = {
@@ -108,74 +154,114 @@ country_event = {
 	picture = "danishgovernment"
 
 	trigger = {
-		tag = NET
+		civilized = yes
+		NOT = { is_culture_group = southeast_asian }
+		owns = 1413
 		war = no
 		is_disarmed = no
+		nationalism_n_imperialism = 1
 		OR = {
 			ATJ = {
 				neighbour = THIS
+				exists = yes
+				civilized = no
 				NOT = { number_of_states = 2 }
 				NOT = { truce_with = THIS }
 				NOT = { vassal_of = THIS }
+				NOT = { in_sphere = THIS }
 			}
 			SAK = {
 				neighbour = THIS
+				exists = yes
+				civilized = no
 				NOT = { number_of_states = 2 }
 				NOT = { truce_with = THIS }
 				NOT = { vassal_of = THIS }
+				NOT = { in_sphere = THIS }
 			}
 			DJA = {
 				neighbour = THIS
+				exists = yes
+				civilized = no
 				NOT = { number_of_states = 2 }
 				NOT = { truce_with = THIS }
 				NOT = { vassal_of = THIS }
+				NOT = { in_sphere = THIS }
 			}
 			SLW = {
 				neighbour = THIS
+				exists = yes
+				civilized = no
 				NOT = { number_of_states = 2 }
 				NOT = { truce_with = THIS }
 				NOT = { vassal_of = THIS }
+				NOT = { in_sphere = THIS }
 			}
 			MAL = {
 				neighbour = THIS
+				exists = yes
+				civilized = no
 				NOT = { number_of_states = 2 }
 				NOT = { truce_with = THIS }
 				NOT = { vassal_of = THIS }
+				NOT = { in_sphere = THIS }
 			}
 			BAL = {
 				neighbour = THIS
+				exists = yes
+				civilized = no
 				NOT = { number_of_states = 2 }
 				NOT = { truce_with = THIS }
 				NOT = { vassal_of = THIS }
+				NOT = { in_sphere = THIS }
 			}
 			BIM = {
 				neighbour = THIS
+				exists = yes
+				civilized = no
 				NOT = { number_of_states = 2 }
 				NOT = { truce_with = THIS }
 				NOT = { vassal_of = THIS }
+				NOT = { in_sphere = THIS }
 			}
 			KTI = {
 				neighbour = THIS
+				exists = yes
+				civilized = no
 				NOT = { number_of_states = 2 }
 				NOT = { truce_with = THIS }
 				NOT = { vassal_of = THIS }
+				NOT = { in_sphere = THIS }
 			}
 			LAN = {
 				neighbour = THIS
+				exists = yes
+				civilized = no
 				NOT = { number_of_states = 2 }
 				NOT = { truce_with = THIS }
 				NOT = { vassal_of = THIS }
+				NOT = { in_sphere = THIS }
 			}
 			KLM = {
 				neighbour = THIS
-				NOT = { number_of_states = 3 }
+				exists = yes
+				civilized = no
+				NOT = { number_of_states = 2 }
 				NOT = { truce_with = THIS }
 				NOT = { vassal_of = THIS }
+				NOT = { in_sphere = THIS }
+			}
+			JAV = {
+				neighbour = THIS
+				exists = yes
+				civilized = no
+				NOT = { number_of_states = 2 }
+				NOT = { truce_with = THIS }
+				NOT = { vassal_of = THIS }
+				NOT = { in_sphere = THIS }
 			}
 		}
 		NOT = {
-			has_country_modifier = punitive_effects
-			war_policy = pacifism
 			casus_belli = ATJ
 			casus_belli = SAK
 			casus_belli = DJA
@@ -186,6 +272,7 @@ country_event = {
 			casus_belli = KTI
 			casus_belli = LAN
 			casus_belli = KLM
+			casus_belli = JAV
 		}
 		NOT = { has_country_modifier = punitive_effects }
 		NOT = { war_policy = pacifism }
@@ -195,7 +282,7 @@ country_event = {
 		months = 40
 		modifier = {
 			factor = 0.5
-			nationalism_n_imperialism = 1
+			revolution_n_counterrevolution = 1
 		}
 		modifier = {
 			factor = 1.5
@@ -219,23 +306,26 @@ country_event = {
 					tag = KTI
 					tag = LAN
 					tag = KLM
+					tag = JAV
 				}
 				exists = yes
-				neighbour = NET
+				neighbour = THIS
+				civilized = no
 				NOT = { number_of_states = 2 }
 				THIS = {
 					NOT = { nationalism_n_imperialism = 1 }
 				}
 				NOT = { truce_with = THIS }
 				NOT = { vassal_of = THIS }
+				NOT = { in_sphere = THIS }
 			}
-			leave_alliance = NET
+			leave_alliance = THIS
 			relation = {
-				who = NET
+				who = THIS
 				value = -100
 			}
 			add_casus_belli = {
-				target = NET
+				target = THIS
 				type = establish_protectorate_casus_belli
 				months = 24
 			}
@@ -253,23 +343,26 @@ country_event = {
 					tag = KTI
 					tag = LAN
 					tag = KLM
+					tag = JAV
 				}
 				exists = yes
-				neighbour = NET
+				neighbour = THIS
+				civilized = no
 				THIS = {
 					nationalism_n_imperialism = 1
 					NOT = { has_global_flag = berlin_conference }
 				}
 				NOT = { truce_with = THIS }
 				NOT = { vassal_of = THIS }
+				NOT = { in_sphere = THIS }
 			}
-			leave_alliance = NET
+			leave_alliance = THIS
 			relation = {
-				who = NET
+				who = THIS
 				value = -100
 			}
 			add_casus_belli = {
-				target = NET
+				target = THIS
 				type = establish_protectorate_NI_casus_belli
 				months = 24
 			}
@@ -287,23 +380,26 @@ country_event = {
 					tag = KTI
 					tag = LAN
 					tag = KLM
+					tag = JAV
 				}
 				exists = yes
-				neighbour = NET
+				neighbour = THIS
+				civilized = no
 				THIS = {
 					nationalism_n_imperialism = 1
 					has_global_flag = berlin_conference
 				}
 				NOT = { truce_with = THIS }
 				NOT = { vassal_of = THIS }
+				NOT = { in_sphere = THIS }
 			}
-			leave_alliance = NET
+			leave_alliance = THIS
 			relation = {
-				who = NET
+				who = THIS
 				value = -100
 			}
 			add_casus_belli = {
-				target = NET
+				target = THIS
 				type = establish_protectorate_BC_casus_belli
 				months = 24
 			}
@@ -332,11 +428,12 @@ country_event = {
 					tag = KTI
 					tag = LAN
 					tag = KLM
+					tag = JAV
 				}
 				exists = yes
 			}
 			relation = {
-				who = NET
+				who = THIS
 				value = 25
 			}
 		}
@@ -516,12 +613,6 @@ province_event = {
 			region = NET_1423 #East Borneo
 			region = BRU_1396 #North Borneo
 			region = BRU_1394 #West Borneo
-			region = NET_1446 #Timor
-			region = NET_1449 #Celebes
-			region = NET_1447 #Mollucas
-			region = NET_1451 #Western New Guinea
-			region = AST_2528 #Southern New Guina
-			region = GER_2530 #Northern New Guinea
 		}
 		owned_by = THIS
 		controlled_by = THIS
