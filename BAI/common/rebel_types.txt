@@ -6341,7 +6341,7 @@ partisans = {
 	reinforcing = yes				# Receives reinforcements
 	general = yes					# Uses generals
 	smart = yes						# Assaults forts, tactically withdraws from battle, etc.
-	unit_transfer = yes				# Units do remain after enforcing demands.
+	unit_transfer = no				# Units do remain after enforcing demands.
 	
 	occupation_mult = 1.0			# The amount of strength this rebel gains from taking provinces	
 
@@ -6639,5 +6639,15 @@ partisans = {
 	}
 	demands_enforced_effect = {
 		war_exhaustion = -5
+		any_owned = {
+			limit = {
+				OR = {
+					has_province_modifier = partisan_victory
+					has_province_modifier = occupied_province
+				}
+			}
+			remove_province_modifier = occupied_province
+			remove_province_modifier = partisan_victory
+		}
 	}
 }

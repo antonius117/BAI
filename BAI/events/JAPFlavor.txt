@@ -3179,64 +3179,6 @@ country_event = {
 }
 
 country_event = {
-	id = 97682
-	title = "EVTNAME97682" #The Ezo Republic
-	desc = "EVTDESC97682"
-	picture = "ezo_republic"
-	
-	fire_only_once = yes
-	
-	trigger = {
-		tag = JAP
-		has_global_flag = boshin_war_has_happened
-		civilized = yes
-		NOT = { has_country_flag = peaceful_transition_to_japan }
-		EZO = {
-			is_core = 1642
-			election = no
-			exists = yes
-			}
-		}
-	
-	mean_time_to_happen = { days = 10 }
-	
-	option = {
-		name = "EVT97682OPTA" #Deny their request.
-		release_vassal = EZO
-		relation = {
-			who = EZO
-			value = -400
-		}
-		set_country_flag = ezo_republic	
-		ai_chance = {
-			factor = 0.95
-			}
-		}
-		
-	option = {
-		name = "EVT97682OPTB" #Agree
-		add_tax_relative_income = 0.5
-		ai_chance = {
-			factor = 0.04
-			}
-		}
-		
-	option = {
-		name = "EVT97682OPTC" #Set them completely free
-		EZO = { all_core = { remove_core = THIS } }
-		release_vassal = EZO
-		relation = {
-			who = EZO
-			value = 400
-			}
-		ai_chance = {
-			factor = 0.01
-			}
-		}
-		
-	}
-	
-country_event = {
 	id = 97683
 	title = "EVTNAME97683" #The Ezo Republic - Cores
 	desc = "EVTDESC97683"
@@ -3253,8 +3195,7 @@ country_event = {
 		NOT = { has_country_flag = peaceful_transition_to_japan }
 		EZO = {
 			NOT = { is_core = 1642 }
-			exists = no 
-			election = no
+			exists = no
 		}
 	}
 	
@@ -3262,7 +3203,7 @@ country_event = {
 	
 	option = {
 		name = "EVT97683OPTA"
-		JAP_1086 = { add_core = EZO }
+		JAP_1088 = { add_core = EZO }
 		random_owned = { limit = { province_id = 1089 } add_core = EZO }
 		random_owned = { limit = { province_id = 1087 } add_core = EZO }
 		random_owned = { limit = { province_id = 1088 } add_core = EZO }
@@ -3295,10 +3236,10 @@ country_event = {
 			ammunition = 50
 			artillery = 50
 			treasury = 50000
-		define_general = {
-			name = "Hijikata Toshizo"
-			personality = implacable
-			background = school_of_firepower
+			define_general = {
+				name = "Hijikata Toshizo"
+				personality = implacable
+				background = school_of_firepower
 			}
 		}
 		ai_chance = {
@@ -3308,7 +3249,7 @@ country_event = {
 	
 	option = {
 		name = "EVT97683OPTB"
-		JAP_1086 = { add_core = EZO }
+		JAP_1088 = { add_core = EZO }
 		random_owned = { limit = { province_id = 1089 } add_core = EZO }
 		random_owned = { limit = { province_id = 1087 } add_core = EZO }
 		random_owned = { limit = { province_id = 1088 } add_core = EZO }
@@ -3353,7 +3294,114 @@ country_event = {
 		}
 	}
 }
+
+country_event = {
+	id = 97682
+	title = "EVTNAME97682" #The Ezo Republic
+	desc = "EVTDESC97682"
+	picture = "ezo_republic"
 	
+	fire_only_once = yes
+	
+	trigger = {
+		tag = JAP
+		has_global_flag = boshin_war_has_happened
+		civilized = yes
+		NOT = { has_country_flag = peaceful_transition_to_japan }
+		EZO = {
+			is_core = 1642
+			election = no
+			exists = yes
+		}
+	}
+
+	mean_time_to_happen = { days = 10 }
+	
+	option = {
+		name = "EVT97682OPTA" #Deny their request.
+		prestige = 5
+		relation = {
+			who = EZO
+			value = -400
+		}
+		set_country_flag = ezo_republic	
+		ai_chance = {
+			factor = 85
+		}
+	}
+
+	option = {
+		name = "EVT97682OPTB" #Agree
+		prestige = -5
+		add_tax_relative_income = 0.5
+		diplomatic_influence = { who = EZO value = 300 }
+		relation = {
+			who = EZO
+			value = 200
+		}
+		ai_chance = {
+			factor = 10
+		}
+	}
+
+	option = {
+		name = "EVT97682OPTC" #Set them completely free
+		prestige = -15
+		badboy = -2
+		EZO = { all_core = { remove_core = THIS } }
+		release_vassal = EZO
+		relation = {
+			who = EZO
+			value = 400
+		}
+		ai_chance = {
+			factor = 5
+		}
+	}
+}
+
+country_event = {
+	id = 188111
+	title = "The Fate of Ezo"
+	desc = "We let these samurais control Hokkaido for too long, now it's time to reclaim the Emperor's rightful land."
+	picture = "ezo_republic"
+	
+	fire_only_once = yes
+	
+	trigger = {
+		tag = JAP
+		has_global_flag = boshin_war_has_happened
+		civilized = yes
+		EZO = {
+			exists = yes
+		}
+		has_country_flag = ezo_republic
+	}
+	
+	mean_time_to_happen = { months = 3 }
+
+	option = {
+		name = "This samurai menace needs to stop NOW."
+		release_vassal = EZO
+		diplomatic_influence = { who = EZO value = -300 }
+		relation = {
+			who = EZO
+			value = -400
+		}
+		JAP = {
+			war = {
+				target = EZO
+				attacker_goal = {
+					casus_belli = conquest_any
+				}
+				defender_goal = {
+					casus_belli = status_quo
+				}
+			}
+		}
+	}
+}
+
 country_event = {
 	id = 97684
 	title = "EVTNAME97684" #The Ezo Republic - Remove Cores
@@ -3401,63 +3449,6 @@ country_event = {
 			}
 		}
 	}
-}
-
-country_event = {
-	id = 188111
-	title = "The Fate of Ezo"
-	desc = "We let these samurais control Hokkaido for too long, now it's time to reclaim the Emperor's rightful land."
-	picture = "ezo_republic"
-	
-	fire_only_once = yes
-	
-	trigger = {
-		tag = JAP
-		has_global_flag = boshin_war_has_happened
-		civilized = yes
-		EZO = {
-			exists = yes
-		}
-		has_country_flag = ezo_republic
-		NOT = {	has_country_flag = ezo_war }
-	}
-	
-	mean_time_to_happen = { months = 5 }
-	
-	option = {
-		name = "This samurai menace needs to stop NOW."
-		relation = {
-			who = EZO
-			value = -400
-		}
-		JAP = {
-			war = {
-				target = EZO
-				attacker_goal = {
-					casus_belli = conquest_any
-				}
-				defender_goal = {
-					casus_belli = status_quo
-				}
-			}
-		}
-		set_country_flag = ezo_war
-		ai_chance = {
-			factor = 95
-		}
-	}	
-	option = {
-		name = "Let them go."
-		EZO = { all_core = { remove_core = THIS } }
-		relation = {
-			who = EZO
-			value = 300
-		}
-		set_country_flag = ezo_war
-		ai_chance = {
-			factor = 5
-		}
-	}	
 }
 
 country_event = {

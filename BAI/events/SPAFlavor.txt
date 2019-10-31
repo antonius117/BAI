@@ -2272,7 +2272,6 @@ country_event = {
 			AND = {
 				tag = IBR
 				primary_culture = spanish
-				is_greater_power = no
 			}
 		}
 		year = 1865
@@ -2717,16 +2716,10 @@ country_event = {
 			government = hms_government
 		}
 		OR = {
-			AND = {
-				war_with = FRA
-				average_militancy = 3
-			}
-			average_militancy = 4
+			war_with = FRA
+			average_militancy = 3
 			num_of_revolts = 1
-			AND = {
-				has_recently_lost_war = yes
-				average_militancy = 3
-			}
+			has_recently_lost_war = yes
 		}
 		NOT = { year = 1890 }
 		NOT = {
@@ -3148,7 +3141,7 @@ country_event = {
 		government = democracy
 		OR = {
 			487 = { NOT = { controlled_by = THIS } }
-			average_militancy = 4
+			average_militancy = 3
 			num_of_revolts = 1
 		}
 		NOT = { year = 1900 }
@@ -3272,6 +3265,26 @@ country_event = {
 			any_pop = { militancy = -6 }
 		}
 		random_owned = {
+			limit = {
+				province_id = 2214
+				NOT = { exists = DOM }
+			}
+			owner = { release = DOM }
+			DOM = {
+				set_country_flag = dominican_restoration_over
+				clr_global_flag = dominican_restoration
+			}
+		}
+		random_country = {
+			limit = {
+				tag = DOM
+				vassal_of = THIS
+			}
+			THIS = { release_vassal = DOM }
+			set_country_flag = dominican_restoration_over
+			clr_global_flag = dominican_restoration
+		}
+		random_owned = {
 			limit = { province_id = 2222 }
 			secede_province = USA
 		}
@@ -3280,6 +3293,7 @@ country_event = {
 				tag = PRI
 				vassal_of = THIS
 			}
+			THIS = { release_vassal = PRI }
 			FROM = { create_vassal = PRI }
 		}
 		any_owned = {
@@ -3298,6 +3312,7 @@ country_event = {
 				tag = PHL
 				vassal_of = THIS
 			}
+			THIS = { release_vassal = PHL }
 			FROM = { create_vassal = PHL }
 		}
 		any_pop = {
@@ -3358,6 +3373,23 @@ country_event = {
 			who = CUB
 			value = 200
 		}
+		random_country = {
+			limit = {
+				tag = DOM
+				exists = yes
+				has_country_flag = dominican_restoration_over
+			}
+			THIS = {
+				relation = {
+					who = DOM
+					value = 200
+				}
+				diplomatic_influence = {
+					who = DOM
+					value = 200
+				}
+			}
+		}
 	}
 }
 
@@ -3415,6 +3447,8 @@ country_event = {
 						region = SPA_1463
 						province_id = 2517
 						province_id = 2222
+						province_id = 2214
+						province_id = 2216
 					}
 				}
 				add_core = USA
@@ -3427,6 +3461,7 @@ country_event = {
 					is_our_vassal = PHL
 					is_our_vassal = CUB
 					is_our_vassal = PRI
+					is_our_vassal = DOM
 				}
 			}
 			add_casus_belli = {
@@ -3486,7 +3521,28 @@ country_event = {
 				tag = PRI
 				vassal_of = THIS
 			}
+			THIS = { release_vassal = PRI }
 			FROM = { create_vassal = PRI }
+		}
+		random_owned = {
+			limit = {
+				province_id = 2214
+				NOT = { exists = DOM }
+			}
+			owner = { release = DOM }
+			DOM = {
+				set_country_flag = dominican_restoration_over
+				clr_global_flag = dominican_restoration
+			}
+		}
+		random_country = {
+			limit = {
+				tag = DOM
+				vassal_of = THIS
+			}
+			THIS = { release_vassal = DOM }
+			set_country_flag = dominican_restoration_over
+			clr_global_flag = dominican_restoration
 		}
 		any_owned = {
 			limit = {
@@ -3504,6 +3560,7 @@ country_event = {
 				tag = PHL
 				vassal_of = THIS
 			}
+			THIS = { release_vassal = PHL }
 			FROM = { create_vassal = PHL }
 		}
 		any_pop = {
@@ -3631,6 +3688,8 @@ country_event = {
 						region = SPA_1463
 						province_id = 2517
 						province_id = 2222
+						province_id = 2214
+						province_id = 2216
 					}
 				}
 				add_core = USA
@@ -3648,6 +3707,7 @@ country_event = {
 					is_our_vassal = PHL
 					is_our_vassal = CUB
 					is_our_vassal = PRI
+					is_our_vassal = DOM
 				}
 			}
 			add_casus_belli = {
@@ -3986,7 +4046,13 @@ country_event = {
 			factor = 80
 			modifier = {
 				factor = 0.1
-				tag = SPC
+				OR = {
+					tag = SPC
+					AND = {
+						tag = IBR
+						has_global_flag = carlist_iberia
+					}
+				}
 			}
 		}
 	}
@@ -4050,10 +4116,16 @@ country_event = {
 			}
 		}
 		ai_chance = {
-			factor = 35
+			factor = 30
 			modifier = {
 				factor = 0.1
-				tag = SPC
+				OR = {
+					tag = SPC
+					AND = {
+						tag = IBR
+						has_global_flag = carlist_iberia
+					}
+				}
 			}
 		}		
 	}
@@ -4096,7 +4168,7 @@ country_event = {
 			}
 		}
 		ai_chance = {
-			factor = 65
+			factor = 70
 			modifier = {
 				factor = 2
 				tag = IBR
@@ -4163,7 +4235,13 @@ country_event = {
 			factor = 25
 			modifier = {
 				factor = 0
-				tag = SPC
+				OR = {
+					tag = SPC
+					AND = {
+						tag = IBR
+						has_global_flag = carlist_iberia
+					}
+				}
 			}
 		}
 	}
@@ -4481,7 +4559,7 @@ country_event = {
 		months = 48
 		modifier = {
 			factor = 0.1
-			war = yes
+			HAI = { casus_belli = DOM }
 		}
 	}
 	
@@ -4498,7 +4576,7 @@ country_event = {
 		}
 		ai_chance = {
 			factor = 60
-		}		
+		}
 	}
 	
 	option = {
@@ -4506,13 +4584,7 @@ country_event = {
 		prestige = -5
 		USA = { country_event = 974000 }
 		ai_chance = {
-			factor = 25
-			modifier = {
-				factor = 0.25
-				USA = {
-					war = yes
-				}
-			}
+			factor = 20
 		}
 	}
 	
@@ -4531,16 +4603,15 @@ country_event = {
 			country_event = 974001
 		}
 		ai_chance = {
-			factor = 15
+			factor = 20
 		}
-	}	
-	
+	}
 }
 
 country_event = {
 	id = 974000
 	title = "The Dominican Request" #Appeal to America?
-	desc = "The Dominicans are requesting to join our state, should we accept?"
+	desc = "Facing with an economic crisis as well as the possibility of renewed attack from Haiti, the Dominicans are requesting to join our state, should we accept?"
 	picture = "annexation_santo_domingo"
 	
 	is_triggered_only = yes
@@ -4550,7 +4621,7 @@ country_event = {
 		prestige = -2
 		DOM = { country_event = 974002 }
 		ai_chance = {
-			factor = 25
+			factor = 50
 		}		
 	}
 	
@@ -4566,6 +4637,7 @@ country_event = {
 		}
 		any_pop = {
 			limit = {
+				location = { is_core = DOM }
 				OR = {
 					culture = afro_caribeno
 					culture = caribeno
@@ -4574,8 +4646,15 @@ country_event = {
 			militancy = 6
 			consciousness = 4
 		}
+		any_owned = {
+			limit = { is_core = DOM }
+			add_province_modifier = {
+				name = nationalist_agitation
+				duration = 3650
+			}
+		}
 		ai_chance = {
-			factor = 50
+			factor = 35
 		}
 	}
 	
@@ -4584,13 +4663,23 @@ country_event = {
 		prestige = 5
 		inherit = DOM
 		add_accepted_culture = caribeno
+		any_pop = {
+			limit = {
+				location = { is_core = DOM }
+				OR = {
+					culture = afro_caribeno
+					culture = caribeno
+				}
+			}
+			militancy = 2
+			consciousness = 1
+		}
 		2216 = { add_core = USA }
 		2214 = { add_core = USA }		
 		ai_chance = {
-			factor = 25
+			factor = 15
 		}
-	}	
-	
+	}
 }
 
 country_event = {
@@ -4605,13 +4694,12 @@ country_event = {
 		name = "Bastards."
 		prestige = -5	
 	}
-	
 }
 
 country_event = {
 	id = 974001
 	title = "The Dominican Request" #Appeal to Spain?
-	desc = "The Dominicans are requesting to join our nation, should we accept?"
+	desc = "Faced with an economic crisis as well as the possibility of renewed attack from Haiti, the Dominicans have asked us to retake control of the country, should we accept?"
 	picture = "annexation_santo_domingo"
 	
 	is_triggered_only = yes
@@ -4622,11 +4710,12 @@ country_event = {
 		DOM = { country_event = 974002 }
 		ai_chance = {
 			factor = 25
-		}		
+		}
 	}
 	
 	option = {
 		name = "They shall become a colony once more."
+		set_global_flag = dominican_restoration
 		prestige = 5
 		DOM = {
 			civilized = no
@@ -4637,6 +4726,7 @@ country_event = {
 		}
 		any_pop = {
 			limit = {
+				location = { is_core = DOM }
 				OR = {
 					culture = afro_caribeno
 					culture = caribeno
@@ -4645,8 +4735,15 @@ country_event = {
 			militancy = 6
 			consciousness = 4
 		}
+		any_owned = {
+			limit = { is_core = DOM }
+			add_province_modifier = {
+				name = nationalist_agitation
+				duration = 3650
+			}
+		}
 		ai_chance = {
-			factor = 70
+			factor = 60
 		}
 	}
 	
@@ -4656,6 +4753,7 @@ country_event = {
 		inherit = DOM
 		any_pop = {
 			limit = {
+				location = { is_core = DOM }
 				OR = {
 					culture = afro_caribeno
 					culture = caribeno
@@ -4668,7 +4766,7 @@ country_event = {
 		2216 = { add_core = THIS }
 		2214 = { add_core = THIS }
 		ai_chance = {
-			factor = 5
+			factor = 15
 		}
 	}
 }

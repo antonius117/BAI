@@ -92,8 +92,8 @@ country_event = {
 
 	option = {
 		name = "Egypt is part of the Empire!"
-		prestige = 10
 		set_global_flag = oriental_crisis
+		prestige = 10
 		relation = {
 			who = EGY
 			value = -100
@@ -172,7 +172,7 @@ country_event = {
 			militancy = 4
 		}
 		ai_chance = {
-			factor = 30
+			factor = 25
 		}
 	}
 	
@@ -181,7 +181,7 @@ country_event = {
 		prestige = -5
 		TUR = { country_event = 90079 }
 		ai_chance = {
-			factor = 70
+			factor = 75
 		}
 	}
 }
@@ -198,7 +198,7 @@ country_event = {
 		name = "This is for the best."
 		set_global_flag = abandoned_holy_land
 		set_global_flag = oriental_crisis_sick_man
-		prestige = -10
+		prestige = -25
 		badboy = -5
 		RUS = {
 			diplomatic_influence = { who = TUR value = -100 }
@@ -259,8 +259,8 @@ country_event = {
 	
 	option = {
 		name = "So must it be."
-		set_global_flag = oriental_crisis
 		prestige = -15
+		set_global_flag = oriental_crisis
 		relation = {
 			who = EGY
 			value = -100
@@ -484,7 +484,7 @@ country_event = {
 	option = {
 		name = "We shall rule them directly."
 		set_country_flag = egypt_rule_restored
-		badboy = 10
+		badboy = 5
 		prestige = 10
 		EGY = {
 			all_core = {
@@ -728,27 +728,10 @@ country_event = {
 		capital_scope = { continent = europe }
 		has_global_flag = oriental_crisis
 		TUR = { war_with = EGY }
-		OR = {
-			AND = {
-				TUR = {	national_provinces_occupied = .015 }
-				check_variable = { which = oriental_crisis_OE_support value = 0 }
-			}
-			AND = {
-				TUR = {	national_provinces_occupied = .03 }
-				check_variable = { which = oriental_crisis_OE_support value = 1 }
-			}
-			AND = {
-				TUR = {	national_provinces_occupied = .06 }
-				check_variable = { which = oriental_crisis_OE_support value = 2 }
-			}
-			TUR = {	national_provinces_occupied = .10 }
-		}
+		TUR = {	national_provinces_occupied = .01 }
 		OR = {
 			alliance_with = TUR
-			AND = {
-				relation = { who = TUR value = 50 }
-				NOT = { relation = { who = EGY value = 100 } }
-			}
+			relation = { who = TUR value = 50 }
 			NOT = { relation = { who = EGY 	value = -50 } }
 		}
 		NOT = {
@@ -763,11 +746,34 @@ country_event = {
 			has_country_flag = oriental_crisis_support_Egypt
 			has_country_flag = oriental_crisis_neutral
 			has_global_flag = egypt_submitted_to_ottomans
+			relation = { who = EGY value = 50 }
 		}
 	}
 
 	mean_time_to_happen = {
-		months = 1
+		months = 2
+		modifier = {
+			factor = 0.5
+			alliance_with = TUR
+		}
+		modifier = {
+			factor = 4
+			NOT = {
+				TUR = {	national_provinces_occupied = .10 }
+			}
+		}
+		modifier = {
+			factor = 2
+			EGY = {	national_provinces_occupied = .01 }
+		}
+		modifier = {
+			factor = 0.5
+			TUR = {	national_provinces_occupied = .10 }
+		}
+		modifier = {
+			factor = 0.5
+			TUR = {	national_provinces_occupied = .15 }
+		}
 	}
 
 	option = {
@@ -811,6 +817,10 @@ country_event = {
 			modifier = {
 				factor = 1.25
 				TUR = { has_recently_lost_war = yes }
+			}
+			modifier = {
+				factor = 1.5
+				TUR = {	national_provinces_occupied = .10 }
 			}
 			modifier = {
 				factor = 1.25
@@ -1024,6 +1034,8 @@ country_event = {
 			}
 			annex_to = TUR
 		}
+		create_vassal = EGY
+		create_alliance = EGY
 		relation = { who = EGY value = 300 }
 		diplomatic_influence = { who = EGY value = 200 }
 		relation = { who = RUS value = -200 }
@@ -1063,7 +1075,7 @@ country_event = {
 				NOT = { tag = RUS }
 			}
 			diplomatic_influence = { who = EGY value = 200 }
-			relation = { who = EGY value = 100 }
+			relation = { who = EGY value = 200 }
 			relation = { who = TUR value = 50 }
 		}
 		any_greater_power = {
@@ -1163,7 +1175,6 @@ country_event = {
 		is_greater_power = yes
 		capital_scope = { continent = europe }
 		has_global_flag = oriental_crisis
-		has_global_flag = oriental_crisis_sick_man
 		TUR = { war_with = EGY }
 		OR = {
 			alliance_with = EGY
@@ -1196,7 +1207,7 @@ country_event = {
 	}
 
 	mean_time_to_happen = {
-		months = 1
+		months = 2
 		modifier = {
 			factor = 0.5
 			alliance_with = EGY
@@ -1409,7 +1420,7 @@ country_event = {
 			}
 		}
 		ai_chance = {
-			factor = 60
+			factor = 75
 			modifier = {
 				factor = 0
 				war_with = FROM
@@ -1430,22 +1441,16 @@ country_event = {
 			months = 12
 		}
 		ai_chance = {
-			factor = 40
+			factor = 25
 			modifier = {
 				factor = 0
 				has_country_flag = oriental_crisis_neutral
 			}
 			modifier = {
-				factor = 0.25
+				factor = 0.5
 				check_variable = {
 					which = oriental_crisis_OE_support
 					value = 2
-				}
-				NOT = {
-					any_greater_power = {
-						has_country_flag = oriental_crisis_support_Egypt
-						war = yes
-					}
 				}
 			}
 			modifier = {
@@ -1453,12 +1458,6 @@ country_event = {
 				check_variable = {
 					which = oriental_crisis_OE_support
 					value = 3
-				}
-				NOT = {
-					any_greater_power = {
-						has_country_flag = oriental_crisis_support_Egypt
-						war = yes
-					}
 				}
 			}
 		}

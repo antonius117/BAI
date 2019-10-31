@@ -1544,6 +1544,7 @@ political_decisions = {
 			OR = {
 				tag = JAP
 				tag = TKG
+				tag = EZO
 			}
 			OR = {
 				owns = 1086 #Pogobi
@@ -1605,6 +1606,7 @@ political_decisions = {
 					OR = {
 						tag = TKG
 						tag = JAP
+						tag = EZO
 					}
 					exists = yes
 				}

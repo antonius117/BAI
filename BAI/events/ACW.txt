@@ -2504,6 +2504,10 @@ province_event = {
 					}
 				}
 			}
+			AND = {
+				is_core = MEX
+				owner = { has_country_flag = mexico_annexation }
+			}
 		}
 		OR = {
 			any_neighbor_province = { is_core = CSA }
@@ -2585,6 +2589,10 @@ province_event = {
 				province_id = 2213
 				province_id = 2216
 				province_id = 2214
+			}
+			AND = {
+				is_core = MEX
+				owner = { has_country_flag = mexico_annexation }
 			}
 		}
 		yes_slavery = 10

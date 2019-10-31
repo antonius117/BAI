@@ -3,7 +3,6 @@ political_decisions = {
 		picture = map_africa
 		potential = {
 			tag = TUR
-			exists = EGY
 			year = 1860
 			is_greater_power = yes
 			EGY = {
@@ -17,15 +16,15 @@ political_decisions = {
 		}
 
 		allow = {
-			prestige = 50
+			prestige = 100
 			nationalism_n_imperialism = 1
 			war = no
 			EGY = {
-				civilized = no
 				OR = {
 					AND = {
 						vassal_of = THIS
 						in_sphere = THIS
+						war = no
 					}
 					all_core = {
 						owned_by = TUR
@@ -48,6 +47,12 @@ political_decisions = {
 						}
 					}
 					add_core = TUR
+				}
+			}
+			random_country = {
+				limit = {
+					tag = EGY
+					exists = yes
 				}
 				country_event = 986500
 			}
@@ -76,21 +81,14 @@ political_decisions = {
 		}
 
 		allow = {
-			prestige = 25
+			prestige = 50
 			nationalism_n_imperialism = 1
 			war = no
 			TUN = {
-				civilized = no
-				OR = {
-					AND = {
-						vassal_of = THIS
-						in_sphere = THIS
-						neighbour = THIS
-					}				
-					all_core = {
-						owned_by = TUR
-					}
-				}
+				vassal_of = THIS
+				in_sphere = THIS
+				neighbour = THIS
+				war = no
 			}
 			NOT = {
 				truce_with = TUN
@@ -140,6 +138,7 @@ political_decisions = {
 						vassal_of = THIS
 						in_sphere = THIS
 						civilized = no
+						war = no
 					}
 				}
 			}
@@ -218,7 +217,7 @@ political_decisions = {
 					NOT = {
 						war_exhaustion = 20
 					}
-					badboy = 18
+					badboy = 0.7
 				}
 			}
 		}
@@ -236,9 +235,14 @@ political_decisions = {
 			is_greater_power = yes
 		}
 		allow = {
-			prestige = 50
+			prestige = 100
 			nationalism_n_imperialism = 1
 			war = no
+			TUR = {
+				all_core = {
+					owned_by = THIS
+				}
+			}
 		}
 		effect = {
 			relation = {
@@ -277,9 +281,14 @@ political_decisions = {
 		}
 		
 		allow = {
-			prestige = 25
+			prestige = 50
 			state_n_government = 1
 			war = no
+			TUR = {
+				all_core = {
+					owned_by = THIS
+				}
+			}
 		}
 		
 		effect = {
@@ -303,7 +312,7 @@ political_decisions = {
 		ai_will_do = {
 			factor = 1 
 			modifier = {
-				factor = 100
+				factor = 10
 				has_country_flag = wallachia_annexed
 				has_country_flag = moldavia_annexed
 			}
@@ -324,9 +333,14 @@ political_decisions = {
 			NOT = { has_global_flag = oriental_crisis_sick_man }
 		}
 		allow = {
-			prestige = 150
+			prestige = 300
 			war = no
 			revolution_n_counterrevolution = 1
+			TUR = {
+				all_core = {
+					owned_by = THIS
+				}
+			}
 		}
 		effect = {
 			relation = {
@@ -389,7 +403,7 @@ political_decisions = {
 		}
 		
 		allow = {
-			prestige = 25
+			prestige = 50
 			is_greater_power = yes
 			state_n_government = 1
 			war = no
@@ -447,7 +461,7 @@ political_decisions = {
 		}
 		
 		allow = {
-			prestige = 25
+			prestige = 50
 			is_greater_power = yes
 			state_n_government = 1
 			war = no
@@ -504,7 +518,7 @@ political_decisions = {
 		}
 		
 		allow = {
-			prestige = 25
+			prestige = 50
 			is_greater_power = yes
 			nationalism_n_imperialism = 1
 			war = no
@@ -558,7 +572,7 @@ political_decisions = {
 			is_greater_power = yes
 		}
 		allow = {
-			prestige = 25
+			prestige = 50
 			state_n_government = 1
 			war = no
 		}
@@ -606,7 +620,7 @@ political_decisions = {
 		}
 
 		allow = {
-			prestige = 50
+			prestige = 75
 			nationalism_n_imperialism = 1
 			war = no
 		}
@@ -667,9 +681,14 @@ political_decisions = {
 		}
 
 		allow = {
-			prestige = 75
+			prestige = 150
 			nationalism_n_imperialism = 1
 			war = no
+			TUR = {
+				all_core = {
+					owned_by = THIS
+				}
+			}
 		}
 
 		effect = {
@@ -721,9 +740,14 @@ political_decisions = {
 		}
 
 		allow = {
-			prestige = 100
+			prestige = 200
 			revolution_n_counterrevolution = 1
 			war = no
+			TUR = {
+				all_core = {
+					owned_by = THIS
+				}
+			}
 		}
 
 		effect = {

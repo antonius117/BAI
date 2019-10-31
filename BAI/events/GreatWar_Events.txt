@@ -3651,7 +3651,12 @@ country_event = {
 			}
 			THIS = {
 				any_owned = {
-					limit = { region = BAV_599 }
+					limit = {
+						OR = {
+							region = BAV_595
+							region = BAV_599
+						}
+					}
 					add_core = BAV
 					secede_province = AUS
 				}
@@ -3676,7 +3681,12 @@ country_event = {
 			}
 			THIS = {
 				any_owned = {
-					limit = { region = BAV_599 }
+					limit = {
+						OR = {
+							region = BAV_595
+							region = BAV_599
+						}
+					}
 					add_core = BAV
 					secede_province = KUK
 				}
@@ -11127,17 +11137,25 @@ country_event = {
 			FRA_412 = { secede_province = BAV }
 		}
 
-		any_country = {
+		any_owned = {
 			limit = {
-				tag = SWI
-				exists = yes
+				OR = {
+					province_id = 465
+					province_id = 466
+				}
+				is_core = THIS
 			}
-			random = {
-				chance = 5
-				country_event = 960602
+			random_country = {
+				limit = {
+					tag = SWI
+					exists = yes
+				}
+				random = {
+					chance = 5
+					country_event = 960602
+				}
 			}
 		}
-
 
 		#Add Italian cores, if Italy is in a truce
 		random_country = {
@@ -12675,7 +12693,7 @@ country_event = {
 			}
 			add_core = RUS
 		}
-				
+		
 		#if any Polish cores owned, re-add cores to Germany
 		any_owned = {
 			limit = {
@@ -12794,14 +12812,20 @@ country_event = {
 			country_event = 96015
 		}
 
-		any_country = {
+		any_owned = {
 			limit = {
-				tag = SWI
-				exists = yes
+				province_id = 614
+				is_core = THIS
 			}
-			random = {
-				chance = 15
-				country_event = 960601
+			random_country = {
+				limit = {
+					tag = SWI
+					exists = yes
+				}
+				random = {
+					chance = 15
+					country_event = 960601
+				}
 			}
 		}
 

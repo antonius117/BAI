@@ -831,6 +831,10 @@ colonial_reconquest_cb = {
 					tag = PRI
 					tag = CUB
 					tag = PHL
+					AND = {
+						tag = DOM
+						has_global_flag = dominican_restoration
+					}
 				}
 				exists = yes
 			}

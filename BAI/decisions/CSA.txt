@@ -1282,7 +1282,7 @@ political_decisions = {
 			exists = MEX
 			has_country_flag = texas_final_independence
 			NOT = { has_country_flag = rgr_claimed }
-			NOT = { has_country_flag = texanborders }
+			NOT = { has_global_flag = texanborders }
 			OR = {
 				NOT = { exists = RGR }
 				AND = {

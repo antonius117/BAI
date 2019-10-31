@@ -918,7 +918,10 @@ country_event = {
 				militancy = 2
 				consciousness = 4
 		}
-		FROM = { inherit = THIS }
+		FROM = {
+			release_vassal = THIS
+			inherit = THIS
+		}
 		ai_chance = { 
 			factor = 10
 			modifier = {

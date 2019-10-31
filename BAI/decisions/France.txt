@@ -588,43 +588,6 @@ political_decisions = {
 		ai_will_do = { factor = 1 }
 	}
 
-	tunisian_colony = {
-		picture = dreams_of_empire
-		potential = {
-			TUN = { exists = yes civilized = no ai = yes } 
-			is_greater_power = yes
-			is_sphere_leader_of = TUN
-			NOT = { is_our_vassal = TUN }
-		}
-		
-		allow = {
-			war = no
-			nationalism_n_imperialism = 1
-			year = 1870
-			TUN = { NOT = { money = 3000 } }
-		}
-		
-		effect = {
-			badboy = 2
-			diplomatic_influence = { who = TUN value = -400 }
-			relation = { who = TUN value = -400 }
-			leave_alliance = TUN
-			end_military_access = TUN
-			TUN = { end_military_access = THIS }
-			any_country = { 
-				limit = { is_our_vassal = TUN }
-				release_vassal = TUN
-				casus_belli = { target = THIS type = free_peoples months = 40 }
-				casus_belli = { target = TUN type = make_puppet months = 40 }
-			}
-			war = { target = TUN attacker_goal = { casus_belli = conquest_any } defender_goal = { casus_belli = status_quo } }
-		}
-		ai_will_do = {
-			factor = 1
-			modifier = { factor = 0 badboy = 0.92 }
-		}
-	}
-
 	luxembourg_crisis = {
 		picture = restore_alsace
 		potential = {

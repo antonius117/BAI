@@ -356,34 +356,39 @@ political_decisions = {
 	fsa_shermans_march_to_the_sea = {
 		picture = shermans_march_to_the_sea
 		potential = {
-			tag = FSA
-			war_with = CSA
+			tag = USA
+			war_with = FSA
 			NOT = { has_country_flag = sherman_marched_to_the_sea }
+			FSA = {
+				owns = 243
+				owns = 245
+				owns = 241
+			}
 		}		
 		allow = {
-			controls = 201
-			controls = 2555
-			controls = 204
+			controls = 243
+			controls = 245
+			controls = 241
 		}
 		
 		effect = {
 			set_country_flag = sherman_marched_to_the_sea
-			201 = {
+			243 = {
 				any_pop = {
 					reduce_pop = 0.70
 				}
 			}
-			2555 = {
+			241 = {
 				any_pop = {
 					reduce_pop = 0.90
 				}
 			}
-			204 = {
+			245 = {
 				any_pop = {
 					reduce_pop = 0.90
 				}
 			}
-			CSA = {
+			FSA = {
 				war_exhaustion = 4
 			}
 		}

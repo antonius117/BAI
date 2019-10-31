@@ -150,16 +150,14 @@ country_event = {
 		tag = DOM
 		owns = 2214
 		owns = 2216
-		exists = yes
 		2214 = { is_core = HAI }
 		2216 = { is_core = HAI }
 		war = no
-		year = 1836
+		NOT = { truce_with = HAI }
 	}
 	
-	mean_time_to_happen = { months = 8 }
-		
-			
+	mean_time_to_happen = { months = 6 }
+	
 	option = {
 		name = "EVT45103OPTA"
 		prestige = 5

@@ -42,7 +42,7 @@ country_event = {
 	trigger = {
 		tag = USA
 		war = no
-		NOT = {	has_country_flag = texanborders }
+		NOT = {	has_global_flag = texanborders }
 		TEX = {
 			all_core = { owned_by = THIS }
 		}
@@ -75,7 +75,7 @@ country_event = {
 		129 = {
 			remove_core = TEX
 		}
-		set_country_flag = texanborders
+		set_global_flag = texanborders
 		ai_chance = {
 			factor = 85
 		}
@@ -100,6 +100,7 @@ country_event = {
 	trigger = {
 		tag = USA
 		has_country_flag = mexico_annexation
+		MEX = { exists = no }
 		NOT = { has_country_flag = mexico_resistance }
 	}
 
@@ -220,12 +221,12 @@ country_event = {
 		}
 		country_event = { id = 993889 days = 120 }
 		ai_chance = {
-			factor = 85
+			factor = 75
 		}
 	}
+
 	option = {
 		name = "Agreed."
-		set_country_flag = mexico_independence
 		prestige = -15
 		release_vassal = MEX
 		diplomatic_influence = { who = MEX value = 200 }
@@ -239,10 +240,79 @@ country_event = {
 			liquor = 500
 		}
 		ai_chance = {
-			factor = 15
+			factor = 25
 		}
 	}
 }
+
+country_event = {
+	
+	id = 993890
+	title = "Mexican Freedom"
+	desc = "Our intelligence reports that, with the civil turmoil that looms over our nation, Mexican nationalists are considering whether to secede as well. We may be able to avoid their ambitions by granting a certain amount of autonomy to the Mexican provinces."
+	picture = "mexico_soldiers"
+	
+	trigger = {
+		tag = USA
+		war_with = FSA
+		has_global_flag = alt_american_civil_war_has_happened
+		has_country_flag = mexico_annexation
+		NOT = { has_country_flag = mexico_independence }
+		NOT = { exists = MEX }
+	}
+
+	fire_only_once = yes
+
+	mean_time_to_happen = {
+		days = 5
+	}
+
+	option = {
+		name = "This nation will not be divided."
+		set_country_flag = mexico_independence
+		any_owned = { 
+			limit = {
+				is_core = MEX #Remove cores so USA can't just cheesily peace out nations and gobble them up later individually
+			}
+			remove_core = USA
+		}
+		release_vassal = MEX
+		diplomatic_influence = { who = MEX value = 200 }
+		MEX = {
+			leadership = 100
+			small_arms = 750
+			canned_food = 1500
+			artillery = 750
+			luxury_clothes = 250
+			wine = 500
+			liquor = 500
+		}
+		country_event = 993889
+		ai_chance = {
+			factor = 75
+		}
+	}
+
+	option = {
+		name = "Agreed."
+		prestige = -15
+		release_vassal = MEX
+		diplomatic_influence = { who = MEX value = 200 }
+		MEX = {
+			leadership = 100
+			small_arms = 750
+			canned_food = 1500
+			artillery = 750
+			luxury_clothes = 250
+			wine = 500
+			liquor = 500
+		}
+		ai_chance = {
+			factor = 25
+		}
+	}
+}
+
 #Actual war declaration of MEX on USA
 country_event = {
 	id = 993889
@@ -272,6 +342,7 @@ country_event = {
 		}
 	}
 }
+
 #Since the USA has been a bad boy annexing beyond historical amounts, the UK gets the option to dismantle the American upstarts.
 country_event = {
 	id = 993891
@@ -285,12 +356,18 @@ country_event = {
 		USA = {
 			OR = {
 				AND = {
-					war_with = CSA
+					OR = {
+						war_with = CSA
+						war_with = FSA
+					}
 					war_with = MEX
 					has_country_flag = mexico_independence
 				}
 				AND = {
-					war_with = CSA
+					OR = {
+						war_with = CSA
+						war_with = FSA
+					}
 					badboy = 1
 				}
 			}
@@ -320,19 +397,20 @@ country_event = {
 		prestige = 15
 		badboy = 5
 		ai_chance = {
-			factor = 60
+			factor = 30
 		}
 	}
+
 	option = {
 		name = "Not right now."
-		prestige = -15
+		prestige = -5
 		casus_belli = {
 			target = USA
 			type = cut_down_to_size
 			months = 24
 		}
 		ai_chance = {
-			factor = 40
+			factor = 70
 		}
 	}
 }
@@ -347,23 +425,22 @@ country_event = {
 	trigger = {
 		tag = USA
 		war = no
-		has_country_flag = mexico_annexation
+		has_country_flag = mexico_independence
 		has_global_flag = american_civil_war_has_happened
 		NOT = { exists = MEX }
 		NOT = { has_country_flag = mexico_cores }
-		2167 = { NOT = { average_militancy = 2 } }
-		2172 = { NOT = { average_militancy = 2 } }
-		
+		NOT = { has_country_flag = no_mexico_cores }
 	}
 
 	fire_only_once = yes
 
 	mean_time_to_happen = {
-		months = 600
+		days = 14
 	}
 	
 	option = {
 		name = "Excellent!"
+		prestige = 15
 		any_owned = { 
 			limit = {
 				is_core = MEX
@@ -372,6 +449,41 @@ country_event = {
 		}
 		set_country_flag = mexico_cores
 		badboy = 10
+	}
+}
+
+country_event = {
+	id = 993892
+	title = "Civil War in Mexico Has Ended"
+	desc = "With our loss in the Civil War our control of Mexico is now over."
+	picture = "mexico_soldiers"
+	
+	trigger = {
+		tag = USA
+		war = no
+		has_country_flag = mexico_independence
+		has_global_flag = american_civil_war_has_happened
+		exists = MEX
+		truce_with = MEX
+		NOT = { has_country_flag = mexico_cores }
+		NOT = { has_country_flag = no_mexico_cores }
+	}
+
+	fire_only_once = yes
+
+	mean_time_to_happen = {
+		days = 14
+	}
+	
+	option = {
+		name = "Damn."
+		set_country_flag = no_mexico_cores
+		prestige = -20
+		MEX = { 
+			all_core = {
+				remove_core = USA
+			}
+		}
 	}
 }
 
