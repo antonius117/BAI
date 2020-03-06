@@ -3,7 +3,7 @@ primary_culture = finnish
 culture = swedish
 culture = sami
 religion = protestant
-government = prussian_constitutionalism
+government = absolute_monarchy
 plurality = 0.5
 nationalvalue = nv_equality
 literacy = 0.6
@@ -11,13 +11,13 @@ civilized = yes
 
 # Political reforms
 slavery = no_slavery
-upper_house_composition = state_equal_weight
-vote_franschise = landed_voting
+upper_house_composition = appointed
+vote_franschise = none_voting
 public_meetings = yes_meeting
-press_rights = free_press
+press_rights = state_press
 trade_unions = no_trade_unions
 voting_system = jefferson_method
-political_parties = non_secret_ballots
+political_parties = underground_parties
 
 # Social Reforms
 wage_reform = no_minimum_wage
@@ -32,9 +32,9 @@ ruling_party = FIN_conservative
 set_country_flag = tory_election_win
 upper_house = {
 	fascist = 0
-	liberal = 23
+	liberal = 0
 	conservative = 40
-	reactionary = 37
+	reactionary = 60
 	anarcho_liberal = 0
 	socialist = 0
 	communist = 0

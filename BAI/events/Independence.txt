@@ -3183,7 +3183,6 @@ country_event = {
 		tag = RUS
 		NOT = { has_country_flag = no_grand_duchy_finland }
 		is_our_vassal = FIN
-		owns = 343
 		nationalism_n_imperialism = 1
 		OR = {
 			government = absolute_monarchy
@@ -3216,44 +3215,62 @@ country_event = {
 		modifier = {
 			factor = 2
 			NOT = {
-				any_state = {
-					any_owned_province = { is_core = FIN }
-					average_militancy = 1
+				FIN = {
+					any_state = {
+						any_owned_province = { is_core = FIN }
+						average_militancy = 1
+					}
 				}
 			}
 		}
 		modifier = {
 			factor = 0.9
-			any_state = {
-				any_owned_province = { is_core = FIN }
-				average_militancy = 3
+			FIN = {
+				any_state = {
+					any_owned_province = { is_core = FIN }
+					average_militancy = 3
+				}
 			}
 		}
 		modifier = {
 			factor = 0.9
-			any_state = {
-				any_owned_province = { is_core = FIN }
-				average_militancy = 4
+			FIN = {
+				any_state = {
+					any_owned_province = { is_core = FIN }
+					average_militancy = 4
+				}
 			}
 		}
 		modifier = {
 			factor = 0.9
-			any_state = {
-				any_owned_province = { is_core = FIN }
-				average_militancy = 5
+			FIN = {
+				any_state = {
+					any_owned_province = { is_core = FIN }
+					average_militancy = 5
+				}
 			}
 		}
 		modifier = {
 			factor = 0.9
-			any_state = {
-				any_owned_province = { is_core = FIN }
-				average_militancy = 6
+			FIN = {
+				any_state = {
+					any_owned_province = { is_core = FIN }
+					average_militancy = 6
+				}
 			}
 		}
 	}
 
 	option = {
 		name = "This is unnecessary."
+		FIN = {
+			any_pop = {
+				limit = {
+					has_pop_culture = finnish
+				}
+				militancy = 6
+			}
+		}
 		any_pop = {
 			limit = {
 				location = { is_core = FIN }
@@ -3366,6 +3383,7 @@ country_event = {
 	option = {
 		name = "Never!"
 		set_country_flag = no_grand_duchy_finland
+		badboy = 1
 		any_pop = {
 			limit = {
 				location = { is_core = FIN }
@@ -3375,15 +3393,15 @@ country_event = {
 		}
 		FIN = {
 			any_owned = {
-			limit = { culture = finnish }
-			add_province_modifier = {
-				name = nationalist_agitation
-				duration = 3650
+				limit = { culture = finnish }
+				add_province_modifier = {
+					name = nationalist_agitation
+					duration = 3650
+				}
 			}
-		}
 			any_pop = {
-			limit = {
-				has_pop_culture = finnish
+				limit = {
+					has_pop_culture = finnish
 				}
 				militancy = 9
 				consciousness = 9
@@ -3412,6 +3430,7 @@ country_event = {
 	picture = "danishgovernment"
 
 	trigger = {
+		is_culture_group = scandinavian
 		war = no
 		owns = 252
 		OR = {
@@ -3579,10 +3598,14 @@ country_event = {
 	picture = "danishgovernment"
 
 	trigger = {
+		is_culture_group = scandinavian
 		war = no
 		is_our_vassal = NOR
 		revolution_n_counterrevolution = 1
 		year = 1900
+		NOT = {
+			tag = SCA
+		}
 	}
 
 	mean_time_to_happen = {

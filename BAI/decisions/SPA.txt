@@ -491,7 +491,7 @@ political_decisions = {
 					any_owned_province = { is_core = POR }
 				}
 			}	
-			NOT = { has_global_flag = carlist_iberia }
+			487 = { is_core = SPA }
 		}
 
 		allow = {
@@ -534,7 +534,7 @@ political_decisions = {
 					any_owned_province = { is_core = POR }
 				}
 			}	
-			has_global_flag = carlist_iberia
+			487 = { is_core = SPC }
 		}
 
 		allow = {
@@ -573,14 +573,11 @@ political_decisions = {
 			tag = IBR
 			OR = {
 				SPA = { exists = yes }
-				SPC = { exists = yes }
 				NOT = {
 					any_owned_province = { is_core = SPA }
 				}
-				NOT = {
-					any_owned_province = { is_core = SPC }
-				}
 			}	
+			487 = { is_core = SPA }
 		}
 
 		allow = {
@@ -588,10 +585,51 @@ political_decisions = {
 			owns = 521
 			OR = {
 				SPA = { exists = yes }
-				SPC = { exists = yes }
 				NOT = {
 					any_owned_province = { is_core = SPA }
 				}
+			}
+		}
+
+		effect = {
+			capital = 521
+			prestige = 5
+			primary_culture = portuguese
+			remove_accepted_culture = spanish
+			remove_accepted_culture = catalan
+			remove_accepted_culture = basque
+			remove_accepted_culture = galician
+			all_core = { remove_core = IBR }
+			change_tag = POR
+			any_pop = {
+				limit = { has_pop_culture = portuguese }
+				militancy = -4
+			}
+		}
+
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+	end_of_iberia_portugal2 = {
+		picture = create_iberia
+		potential = {
+			tag = IBR
+			OR = {
+				SPC = { exists = yes }
+				NOT = {
+					any_owned_province = { is_core = SPC }
+				}
+			}	
+			487 = { is_core = SPC }
+		}
+
+		allow = {
+			war = no
+			owns = 521
+			OR = {
+				SPC = { exists = yes }
 				NOT = {
 					any_owned_province = { is_core = SPC }
 				}

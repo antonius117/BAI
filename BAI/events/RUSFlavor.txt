@@ -1448,6 +1448,7 @@ country_event = {
 			add_core = FIN
 			secede_province = FIN
 		}
+		FIN = { all_core = { remove_core = RUS } }
 		ai_chance = { factor = 75 }
 	}
 	
@@ -1478,8 +1479,9 @@ country_event = {
 			}
 			militancy = 3
 		}
-		339 = { secede_province = RUS 
-		change_province_name = "Vyborg"
+		339 = {
+			secede_province = RUS 
+			change_province_name = "Vyborg"
 		}
 	}
 	
@@ -1498,7 +1500,6 @@ country_event = {
 			}
 			relation = { who = FIN value = 100 }
 		}
-
 	}
 }
 

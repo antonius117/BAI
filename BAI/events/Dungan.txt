@@ -547,7 +547,6 @@ country_event = {
 		name = "But for how long?"
 		prestige = 10
 		QNG = { prestige = -10 }
-		relation = { who = RUS value = 400 }
 		clr_global_flag = dungan_rebellion
 	}
 }

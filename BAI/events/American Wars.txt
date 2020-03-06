@@ -455,12 +455,7 @@ country_event = {
 			war_with = ENG
 			has_country_flag = oregon_treaty
 		}
-		OR = {
-			has_country_flag = hasmanifestdestiny
-			78 = {
-				owned_by = ENG
-			}
-		}
+		has_country_flag = hasmanifestdestiny
 		election = yes
 	}
 	
@@ -507,6 +502,10 @@ country_event = {
 			modifier = {
 				factor = 0.25
 				relation = { who = ENG value = 50 }
+			}
+			modifier = {
+				factor = 4
+				owns = 21
 			}
 			modifier = {
 				factor = 0.5
@@ -769,6 +768,7 @@ country_event = {
 		prestige = 5
 		relation = { who = ENG value = -100 }
 		USA_78 = { add_core = USA }
+		USA_81 = { add_core = USA }
 		CAN_13 = { add_core = USA }
 		any_pop = {
 			scaled_consciousness = {

@@ -826,6 +826,24 @@ country_event = {
 						culture_has_union_tag = yes
 					}
 				}
+				NOT = {
+					AND = {
+						tag = SPA
+						is_primary_culture = THIS
+					}
+				}
+				NOT = {
+					AND = {
+						tag = SPC
+						is_primary_culture = THIS
+					}
+				}
+				NOT = {
+					AND = {
+						tag = POR
+						is_primary_culture = THIS
+					}
+				}
 				NOT = { has_country_flag = post_colonial_country }
 			}
 			all_core = {

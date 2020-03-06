@@ -10,10 +10,7 @@ country_event = {
 	option = {
 		name = "We do need the money, tell them we accept."
 		FROM = {
-			country_event = {
-				id = 209702
-				days = 2
-			}
+			country_event = 209702
 		}
 		ai_chance = {
 			factor = 95
@@ -22,10 +19,7 @@ country_event = {
 	option = {
 		name = "We refuse, Aden is a valuable port to us."
 		FROM = {
-			country_event = {
-				id = 209703
-				days = 2
-			}
+			country_event = 209703
 		}
 		ai_chance = {
 			factor = 5

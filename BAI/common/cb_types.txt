@@ -849,7 +849,6 @@ colonial_reconquest_cb = {
 			}
 		}
 		NOT = { number_of_states = 3 }
-		part_of_sphere = no
 		is_vassal = no
 		THIS = {
 			OR = {
@@ -922,6 +921,7 @@ restore_america = {
 
 	can_use = {
 		NOT = { is_our_vassal = THIS }
+		NOT = { has_country_modifier = neutrality }
 		THIS = {
 			OR = {
 				primary_culture = yankee
@@ -1151,6 +1151,7 @@ unification_casus_belli = {
 	can_use = {
 		is_vassal = no
 		NOT = { is_our_vassal = THIS }
+		NOT = { has_country_modifier = neutrality }
 		THIS = {
 			culture_has_union_tag = yes
 			nationalism_n_imperialism = 1
@@ -1167,6 +1168,7 @@ unification_casus_belli = {
 				THIS = { NOT = { tag = AUS } }
 				THIS = { NOT = { tag = KUK } }
 				THIS = { NOT = { tag = DNB } }
+				THIS = { NOT = { tag = SWI } }
 			}
 		}
 		number_of_states = 2
@@ -1304,6 +1306,7 @@ unification_annex_casus_belli = {
 	can_use = {
 		is_vassal = no
 		NOT = { is_our_vassal = THIS }
+		NOT = { has_country_modifier = neutrality }
 		THIS = {
 			culture_has_union_tag = yes
 			nationalism_n_imperialism = 1
@@ -1319,6 +1322,7 @@ unification_annex_casus_belli = {
 				THIS = { NOT = { tag = AUS } }
 				THIS = { NOT = { tag = KUK } }
 				THIS = { NOT = { tag = DNB } }
+				THIS = { NOT = { tag = SWI } }
 			}
 		}
 		NOT = { number_of_states = 2 }
@@ -1546,6 +1550,7 @@ unification_humiliate_cb = {
 
 	can_use = {
 		NOT = { is_our_vassal = THIS }
+		NOT = { has_country_modifier = neutrality }
 		THIS = {
 			culture_has_union_tag = yes
 			state_n_government = 1
@@ -1557,6 +1562,7 @@ unification_humiliate_cb = {
 			}
 			NOT = { tag = KUK }
 			NOT = { tag = DNB }
+			NOT = { tag = SWI }
 		}
 		is_greater_power = yes
 		is_culture_group = THIS
@@ -1637,6 +1643,7 @@ unification_GP_humiliate = {
 			NOT = { has_country_modifier = neutrality }
 			NOT = { tag = KUK }
 			NOT = { tag = DNB }
+			NOT = { tag = SWI }
 		}
 		NOT = { has_country_modifier = neutrality }
 		is_vassal = no
@@ -1711,6 +1718,7 @@ unification_release_puppet_cb = {
 	can_use = {
 		NOT = { is_our_vassal = THIS }
 		num_of_vassals_no_substates = 1
+		NOT = { has_country_modifier = neutrality }
 		THIS = {
 			culture_has_union_tag = yes
 			nationalism_n_imperialism = 1
@@ -1721,6 +1729,7 @@ unification_release_puppet_cb = {
 			}
 			NOT = { tag = KUK }
 			NOT = { tag = DNB }
+			NOT = { tag = SWI }
 		}
 		NOT = {
 			is_cultural_union = yes
@@ -1804,6 +1813,7 @@ unification_add_to_sphere = {
 			nationalism_n_imperialism = 1
 			NOT = { tag = KUK }
 			NOT = { tag = DNB }
+			NOT = { tag = SWI }
 			NOT = {
 				has_country_modifier = no_more_war
 				has_country_modifier = neutrality
@@ -3945,8 +3955,42 @@ great_game_cb = {
 			in_sphere = THIS
 		}
 		OR = {
-			neighbour = THIS
-			any_neighbor_country = { vassal_of = THIS }
+			AND = {
+				neighbour = ENG
+				NOT = { tag = UYG }
+				THIS = { tag = ENG }
+			}
+			AND = {
+				neighbour = RUS
+				NOT = { tag = TIB }
+				THIS = { tag = RUS }
+			}
+			AND = {
+				any_neighbor_country = { vassal_of = ENG }
+				NOT = { tag = UYG }
+				THIS = { tag = ENG }
+			}
+			AND = {
+				any_neighbor_country = { vassal_of = RUS }
+				NOT = { tag = TIB }
+				THIS = { tag = RUS }
+			}
+			AND = {
+				tag = UYG
+				OR = {
+					any_owned_province = { any_neighbor_province = { is_core = TIB owned_by = ENG } }
+					any_neighbor_country = { tag = TIB vassal_of = ENG }
+				}
+				THIS = { tag = ENG }
+			}
+			AND = {
+				tag = TIB
+				OR = {
+					any_owned_province = { any_neighbor_province = { is_core = UYG owned_by = RUS } }
+					any_neighbor_country = { tag = UYG vassal_of = RUS }
+				}
+				THIS = { tag = RUS }
+			}
 		}
 		OR = {
 			tag = SIN
@@ -3961,6 +4005,8 @@ great_game_cb = {
 				tag = PNJ
 				has_country_flag = ranjit_singh_dead
 			}
+			tag = UYG
+			tag = TIB
 		}
 		ENG = { is_greater_power = yes }
 		RUS = { is_greater_power = yes }
@@ -4073,6 +4119,8 @@ restore_british_raj = {
 			tag = BHO
 			tag = BNG
 			tag = BUN
+			tag = GWA
+			tag = HYD
 			tag = IND
 			tag = JAI
 			tag = JAS
@@ -4085,6 +4133,8 @@ restore_british_raj = {
 			tag = ORI
 			tag = TRA
 			tag = KUT
+			tag = KRN
+			tag = SRI
 		}
 		THIS = {
 			tag = ENG

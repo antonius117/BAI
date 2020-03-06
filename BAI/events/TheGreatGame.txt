@@ -144,6 +144,34 @@ country_event = {
 					truce_with = THIS
 				}
 			}
+			UYG = {
+				exists = yes
+				civilized = no
+				is_vassal = no
+				OR = {
+					any_owned_province = { any_neighbor_province = { is_core = TIB owned_by = ENG } }
+					any_neighbor_country = { tag = TIB vassal_of = ENG }
+				}
+				NOT = {
+					has_country_modifier = border_incident
+					in_sphere = THIS
+					truce_with = THIS
+				}
+			}
+			TIB = {
+				exists = yes
+				civilized = no
+				is_vassal = no
+				OR = {
+					neighbour = ENG
+					any_neighbor_country = { vassal_of = ENG }
+				}
+				NOT = {
+					has_country_modifier = border_incident
+					in_sphere = THIS
+					truce_with = THIS
+				}
+			}
 		}
 		NOT = {
 			any_greater_power = { war_with = THIS }
@@ -159,6 +187,9 @@ country_event = {
 			casus_belli = KOK
 			casus_belli = KHI
 			casus_belli = BUK
+			casus_belli = PNJ
+			casus_belli = UYG
+			casus_belli = TIB
 			war_with = SIN
 			war_with = KAL
 			war_with = MAK
@@ -167,6 +198,9 @@ country_event = {
 			war_with = KOK
 			war_with = KHI
 			war_with = BUK
+			war_with = PNJ
+			war_with = UYG
+			war_with = TIB
 		}
 	}
 	
@@ -192,7 +226,7 @@ country_event = {
 	
 	option = {
 		name = "It remains a possibility."
-		badboy = 3
+		badboy = 1
 		random_country = {
 			limit = {
 				exists = yes
@@ -215,6 +249,8 @@ country_event = {
 						tag = PNJ
 						has_country_flag = ranjit_singh_dead
 					}
+					tag = UYG
+					tag = TIB
 				}
 				NOT = {
 					has_country_modifier = border_incident
@@ -222,8 +258,21 @@ country_event = {
 					truce_with = THIS
 				}
 				OR = {
-					neighbour = ENG
-					any_neighbor_country = { vassal_of = ENG }
+					AND = {
+						neighbour = ENG
+						NOT = { tag = UYG }
+					}
+					AND = {
+						any_neighbor_country = { vassal_of = ENG }
+						NOT = { tag = UYG }
+					}
+					AND = {
+						tag = UYG
+						OR = {
+							any_owned_province = { any_neighbor_province = { is_core = TIB owned_by = ENG } }
+							any_neighbor_country = { tag = TIB vassal_of = ENG }
+						}
+					}
 				}
 			}
 			leave_alliance = THIS
@@ -275,6 +324,8 @@ country_event = {
 						tag = PNJ
 						has_country_flag = ranjit_singh_dead
 					}
+					tag = UYG
+					tag = TIB
 				}
 				NOT = {
 					has_country_modifier = border_incident
@@ -282,8 +333,21 @@ country_event = {
 					truce_with = THIS
 				}
 				OR = {
-					neighbour = ENG
-					any_neighbor_country = { vassal_of = ENG }
+					AND = {
+						neighbour = ENG
+						NOT = { tag = UYG }
+					}
+					AND = {
+						any_neighbor_country = { vassal_of = ENG }
+						NOT = { tag = UYG }
+					}
+					AND = {
+						tag = UYG
+						OR = {
+							any_owned_province = { any_neighbor_province = { is_core = TIB owned_by = ENG } }
+							any_neighbor_country = { tag = TIB vassal_of = ENG }
+						}
+					}
 				}
 			}
 			relation = {
@@ -456,6 +520,37 @@ country_event = {
 					truce_with = THIS
 				}
 			}
+			UYG = {
+				exists = yes
+				civilized = no
+				is_vassal = no
+				OR = {
+					neighbour = RUS
+					any_neighbor_country = { vassal_of = RUS }
+				}
+				NOT = {
+					has_country_modifier = border_incident
+					in_sphere = THIS
+					truce_with = THIS
+				}
+			}
+			TIB = {
+				exists = yes
+				civilized = no
+				is_vassal = no
+				OR = {
+					any_owned_province = { any_neighbor_province = { is_core = UYG owned_by = RUS } }
+					any_neighbor_country = {
+						tag = UYG
+						vassal_of = RUS
+					}
+				}
+				NOT = {
+					has_country_modifier = border_incident
+					in_sphere = THIS
+					truce_with = THIS
+				}
+			}
 		}
 		NOT = {
 			any_greater_power = { war_with = THIS }
@@ -472,6 +567,8 @@ country_event = {
 			casus_belli = KHI
 			casus_belli = BUK
 			casus_belli = PNJ
+			casus_belli = UYG
+			casus_belli = TIB
 			war_with = SIN
 			war_with = KAL
 			war_with = MAK
@@ -480,6 +577,9 @@ country_event = {
 			war_with = KOK
 			war_with = KHI
 			war_with = BUK
+			war_with = PNJ
+			war_with = UYG
+			war_with = TIB
 		}
 	}
 	
@@ -505,7 +605,7 @@ country_event = {
 	
 	option = {
 		name = "It remains a possibility."
-		badboy = 3
+		badboy = 1
 		random_country = {
 			limit = {
 				exists = yes
@@ -528,6 +628,8 @@ country_event = {
 						tag = PNJ
 						has_country_flag = ranjit_singh_dead
 					}
+					tag = UYG
+					tag = TIB
 				}
 				NOT = {
 					has_country_modifier = border_incident
@@ -535,8 +637,21 @@ country_event = {
 					truce_with = THIS
 				}
 				OR = {
-					neighbour = RUS
-					any_neighbor_country = { vassal_of = RUS }
+					AND = {
+						neighbour = RUS
+						NOT = { tag = TIB }
+					}
+					AND = {
+						any_neighbor_country = { vassal_of = RUS }
+						NOT = { tag = TIB }
+					}
+					AND = {
+						tag = TIB
+						OR = {
+							any_owned_province = { any_neighbor_province = { is_core = UYG owned_by = RUS } }
+							any_neighbor_country = { tag = UYG vassal_of = RUS }
+						}
+					}
 				}
 			}
 			leave_alliance = THIS
@@ -588,6 +703,8 @@ country_event = {
 						tag = PNJ
 						has_country_flag = ranjit_singh_dead
 					}
+					tag = UYG
+					tag = TIB
 				}
 				NOT = {
 					has_country_modifier = border_incident
@@ -595,8 +712,21 @@ country_event = {
 					truce_with = THIS
 				}
 				OR = {
-					neighbour = RUS
-					any_neighbor_country = { vassal_of = RUS }
+					AND = {
+						neighbour = RUS
+						NOT = { tag = TIB }
+					}
+					AND = {
+						any_neighbor_country = { vassal_of = RUS }
+						NOT = { tag = TIB }
+					}
+					AND = {
+						tag = TIB
+						OR = {
+							any_owned_province = { any_neighbor_province = { is_core = UYG owned_by = RUS } }
+							any_neighbor_country = { tag = UYG vassal_of = RUS }
+						}
+					}
 				}
 			}
 			relation = {
@@ -649,6 +779,8 @@ country_event = {
 				tag = PNJ
 				has_country_flag = ranjit_singh_dead
 			}
+			tag = UYG
+			tag = TIB
 		}
 		war = no
 		civilized = no
@@ -660,10 +792,36 @@ country_event = {
 			has_country_modifier = border_incident
 		}
 		OR = {
-			neighbour = ENG
-			neighbour = RUS
-			any_neighbor_country = { vassal_of = ENG }
-			any_neighbor_country = { vassal_of = RUS }
+			AND = {
+				neighbour = ENG
+				NOT = { tag = UYG }
+			}
+			AND = {
+				neighbour = RUS
+				NOT = { tag = TIB }
+			}
+			AND = {
+				any_neighbor_country = { vassal_of = ENG }
+				NOT = { tag = UYG }
+			}
+			AND = {
+				any_neighbor_country = { vassal_of = RUS }
+				NOT = { tag = TIB }
+			}
+			AND = {
+				tag = UYG
+				OR = {
+					any_owned_province = { any_neighbor_province = { is_core = TIB owned_by = ENG } }
+					any_neighbor_country = { tag = TIB vassal_of = ENG }
+				}
+			}
+			AND = {
+				tag = TIB
+				OR = {
+					any_owned_province = { any_neighbor_province = { is_core = UYG owned_by = RUS } }
+					any_neighbor_country = { tag = UYG vassal_of = RUS }
+				}
+			}
 		}
 		OR = {
 			RUS = {
@@ -812,6 +970,7 @@ country_event = {
 				owner = { NOT = { nationalism_n_imperialism = 1 } }
 				FROM = { number_of_states = 2 }
 				FROM = { NOT = { tag = AFG } }
+				FROM = { NOT = { tag = TIB } }
 			}
 			owner = {
 				casus_belli = {
@@ -829,6 +988,7 @@ country_event = {
 				}
 				FROM = { number_of_states = 2 }
 				FROM = { NOT = { tag = AFG } }
+				FROM = { NOT = { tag = TIB } }
 			}
 			owner = {
 				casus_belli = {
@@ -846,6 +1006,7 @@ country_event = {
 				}
 				FROM = { number_of_states = 2 }
 				FROM = { NOT = { tag = AFG } }
+				FROM = { NOT = { tag = TIB } }
 			}
 			owner = {
 				casus_belli = {
@@ -941,6 +1102,7 @@ country_event = {
 			primary_culture = kirgiz
 			primary_culture = turkmen
 			primary_culture = tajik
+			primary_culture = uighur
 		}
 		NOT = { has_country_flag = no_russian_doctrine }
 	}

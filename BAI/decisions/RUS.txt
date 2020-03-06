@@ -955,6 +955,7 @@ political_decisions = {
 				government = prussian_constitutionalism
 				government = hms_government
 			}
+			NOT = { has_global_flag = berlin_conference }
 		}
 		
 		allow = {

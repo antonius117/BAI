@@ -151,15 +151,10 @@ country_event = {
 		release_vassal = HUN
 		diplomatic_influence = { who = HUN value = -200 }
 		relation = { who = HUN value = -200 }
-		casus_belli = {
-			target = HUN
-			type = conquest
-			months = 24
-		}
 		war = {
 			target = HUN
 			attacker_goal = {
-				casus_belli = conquest
+				casus_belli = conquest_any
 			}
 			defender_goal = {
 				casus_belli = become_independent
@@ -226,15 +221,10 @@ country_event = {
 		release_vassal = HUN
 		diplomatic_influence = { who = HUN value = -200 }
 		relation = { who = HUN value = -200 }
-		casus_belli = {
-			target = HUN
-			type = conquest
-			months = 24
-		}
 		war = {
 			target = HUN
 			attacker_goal = {
-				casus_belli = conquest
+				casus_belli = conquest_any
 			}
 			defender_goal = {
 				casus_belli = become_independent

@@ -9,7 +9,6 @@ political_decisions = {
 				tag = DES
 				tag = CAL
 				tag = LSK
-				tag = CAS
 			}
 			OR = {
 				is_vassal = no
@@ -325,16 +324,12 @@ political_decisions = {
 			romanticism = 1
 			state_n_government = 1
 			NOT = { truce_with = MEX }
+			NOT = { war_policy = pacifism }
 			OR = {
 				TEX = { in_sphere = THIS }
 				TEX = { exists = no }
 				invention = manifest_destiny
 				any_owned_province = { is_core = MEX }
-			}
-			OR = { 
-				USA_81 = { owned_by = THIS }
-				USA_78 = { owned_by = THIS }
-				MEX_85 = { owned_by = THIS }
 			}
 		}
 		effect = {
@@ -397,7 +392,6 @@ political_decisions = {
 						tag = CAL
 						tag = TEX
 						tag = DES
-						tag = CAS
 					}
 					OR = {
 						in_sphere = THIS
@@ -565,6 +559,7 @@ political_decisions = {
 				has_country_flag = ostend_manifesto_published
 				has_global_flag = american_civil_war_has_happened
 				owns = 2209
+				exists = CUB
 			}
 		}
 		
@@ -842,13 +837,19 @@ political_decisions = {
 		}
 		effect = {
 			war_exhaustion = -5
+			add_accepted_culture = dixie
+			add_accepted_culture = texan
 			any_pop = {
 				limit = {
-					has_pop_culture = dixie
+					OR = {
+						has_pop_culture = dixie
+						has_pop_culture = texan
+					}
 				}
 				consciousness = -5
 				militancy = -5
 			}
+			CSA = { all_core = { remove_core = CSA } }
 			clr_country_flag = the_slavery_debate
 			remove_country_modifier = the_slavery_debate
 			set_country_flag = has_used_radical_reconstruction
@@ -977,6 +978,43 @@ political_decisions = {
 				NOT = { year = 1842 }
 				NOT = { badboy = 0.2 }
 			}
+		}
+	}
+
+	rio_grande_treaty = {
+		potential = {
+			tag = USA
+			any_owned_province = { is_core = TEX }
+			RGR = {
+				exists = yes
+				any_owned_province = { is_core = USA }
+			}
+			NOT = { has_country_flag = rio_grande_treaty }
+		}
+		allow = {
+			war = no
+			money = 100000
+			RGR = {
+				war = no
+				NOT = { truce_with = USA }
+				in_sphere = USA
+			}
+		}
+		effect = {
+			set_country_flag = rio_grande_treaty
+			treasury = -100000
+			relation = { who = RGR value = 100 }
+			create_alliance = RGR
+			RGR = {
+				treasury = 100000
+				any_owned = {
+					limit = { is_core = USA }
+					secede_province = USA
+				}
+			}
+		}
+		ai_will_do = {
+			factor = 1
 		}
 	}
 }

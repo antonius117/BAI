@@ -9143,6 +9143,7 @@ country_event = {
 		}
 		NOT = { has_country_flag = no_constitutional_crisis }
 		NOT = { has_country_flag = political_showdown }
+		NOT = { has_country_flag = election_initialized }
 	}
 	
 	mean_time_to_happen = {

@@ -26,10 +26,7 @@ political_decisions = {
 			set_global_flag = asked_for_port_of_aden
 			1412 = {
 				owner = {
-					country_event = {
-						id = 209701
-						days = 2
-					}
+					country_event = 209701
 				}
 			}
 		}

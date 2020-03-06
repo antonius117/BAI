@@ -75,3 +75,19 @@ BRIGADES_COMPARE_SMALLER;Brigades comparison factor of two countries is less tha
 chartered_company;Chartered Company;Chartered Company;Chartered Company;;Chartered Company;;;;;;;;;x;;;;
 chartered_company_ruler;Director;Director;Director;;Director;;;;;;;;;x;;;;
 BUY_FROM_STOCKPILE_DESC;Allow pops/factories to buy from country stockpile.\n\n§YNOTE: §ROnly use it with automatic trade or else it will crash the economy.§W;;;;;;;;;x
+catholic_religion;Catholic state religion;;;;;;;;;;;x
+protestant_religion;Protestant state religion;;;;;;;;;;;x
+orthodox_religion;Orthodox state religion;;;;;;;;;;;x
+mormon_religion;Mormon state religion;;;;;;;;;;;x
+coptic_religion;Coptic state religion;;;;;;;;;;;x
+sunni_religion;Sunni state religion;;;;;;;;;;;x
+shiite_religion;Shiite state religion;;;;;;;;;;;x
+shinto_religion;Shinto state religion;;;;;;;;;;;x
+mahayana_religion;Mahayana state religion;;;;;;;;;;;x
+gelugpa_religion;Gelugpa state religion;;;;;;;;;;;x
+theravada_religion;Theravada state religion;;;;;;;;;;;x
+hindu_religion;Hindu state religion;;;;;;;;;;;x
+confucian_religion;Confucian state religion;;;;;;;;;;;x
+sikh_religion;Sikh state religion;;;;;;;;;;;x
+jewish_religion;Jewish state religion;;;;;;;;;;;x
+animist_religion;Animist state religion;;;;;;;;;;;x

@@ -1497,14 +1497,32 @@ country_event = {
 		name = "EVTOPTA232000001" # Name it ruler
 		prestige = 40
 		3102 = { change_province_name = "Lake Carlos" }
-		ai_chance = { factor = 20 }
+		ai_chance = {
+			factor = 20
+			modifier = {
+				factor = 0
+				OR = {
+					tag = SPA
+					NOT = { has_global_flag = carlist_iberia }
+				}
+			}
+		}
 	}
 
 	option = {
 		name = "EVTOPTA232000001" # Name it politician
 		prestige = 40
 		3102 = { change_province_name = "Lake Isabella" }
-		ai_chance = { factor = 45 }
+		ai_chance = {
+			factor = 45
+			modifier = {
+				factor = 0
+				OR = {
+					tag = SPC
+					has_global_flag = carlist_iberia
+				}
+			}
+		}
 	}
 
 	option = {

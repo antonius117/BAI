@@ -202,10 +202,6 @@ political_decisions = {
 					tag = DES
 					has_country_flag = usstatehood_we_have_applied
 				}
-				AND = {
-					tag = DES
-					has_country_flag = usstatehood_we_have_applied
-				}
 				tag = NEN
 				tag = UIL
 				tag = UNB
@@ -454,6 +450,7 @@ political_decisions = {
 		}
 		effect = {
 			war_exhaustion = -3
+			add_accepted_culture = yankee
 			any_pop = {
 				limit = {
 					has_pop_culture = yankee
@@ -465,6 +462,7 @@ political_decisions = {
 				limit = { is_slave = no }
 				is_slave = yes
 			}
+			FSA = { all_core = { remove_core = FSA } }
 			clr_global_flag = alt_american_civil_war_has_happened
 			set_country_flag = has_used_radical_reconstruction
 		}
@@ -891,16 +889,10 @@ political_decisions = {
 		allow = {
 			war = no
 			nationalism_n_imperialism = 1
-			CSA = {
-				OR = {
-					is_greater_power = yes
-					is_secondary_power = yes
-				}
-			}
 			OR = {
-				is_greater_power = no
 				CSA = { military_score = THIS }
-
+				war_exhaustion = 60
+				is_greater_power = no
 			}
 		}
 		effect = {
@@ -950,7 +942,7 @@ political_decisions = {
 			nationalism_n_imperialism = 1
 		}
 		effect = {
-			prestige = 20
+			prestige = 30
 			set_global_flag = declaration2
 			any_pop = {
 				limit = {
@@ -969,7 +961,7 @@ political_decisions = {
 					value = 50
 				}
 			}
-			USA = { prestige = -20 }
+			USA = { prestige = -30 }
 		}
 		ai_will_do = {
 			factor = 1

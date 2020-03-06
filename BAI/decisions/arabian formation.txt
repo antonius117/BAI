@@ -196,7 +196,14 @@ political_decisions = {
 						tag = QAT
 					}
 				}
+				all_core = { add_core = ARA }
 				annex_to = THIS
+			}
+			any_country = {
+				limit = {
+					tag = ZAN
+				}
+				all_core = { remove_core = ARA }
 			}
 			any_owned = {
 				limit = {

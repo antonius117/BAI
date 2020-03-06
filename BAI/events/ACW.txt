@@ -122,6 +122,15 @@ country_event = {
 			add_country_modifier = { name = neutrality duration = 120 }
 		}
 		capital = 220
+		remove_accepted_culture = dixie
+		random_owned = {
+			limit = {
+				133 = { owned_by = CSA }
+			}
+			USA = {
+				remove_accepted_culture = texan
+			}
+		}
 		country_event = { id = 16002 days = 120 }
 		set_global_flag = american_civil_war_happening
 		ai_chance = { factor = 100 }
@@ -198,9 +207,18 @@ country_event = {
 			add_country_modifier = { name = neutrality duration = 120 }
 		}
 		capital = 220
-		change_tag_no_core_switch = CSA
+		remove_accepted_culture = dixie
+		random_owned = {
+			limit = {
+				133 = { owned_by = CSA }
+			}
+			USA = {
+				remove_accepted_culture = texan
+			}
+		}
 		country_event = { id = 16002 days = 120 }
 		set_global_flag = american_civil_war_happening
+		change_tag_no_core_switch = CSA
 		ai_chance = { factor = 0 }
 	}
 }
@@ -242,7 +260,7 @@ country_event = {
 			}
 		}
 		modifier = {
-			factor = 1.1
+			factor = 2.5
 			year = 1855
 			NOT = {
 				year = 1860
@@ -270,6 +288,7 @@ country_event = {
 		}
 	}
 }
+
 country_event = {
 	id = 16002
 	title = "EVTNAME16002"
@@ -338,7 +357,7 @@ country_event = {
 	}
 	
 	mean_time_to_happen = {
-		months = 5
+		months = 10
 		modifier = {
 			factor = 20
 			NOT = {
@@ -411,7 +430,7 @@ country_event = {
 	}
 	
 	mean_time_to_happen = {
-		months = 5
+		months = 10
 		modifier = {
 			factor = 20
 			NOT = {
@@ -2970,11 +2989,7 @@ country_event = {
 	trigger = {
 		owns = 105
 		year = 1840
-		OR = {
-			tag = USA
-			tag = CSA
-			tag = TEX
-		}
+		is_culture_group = american_cultures
 		NOT = {
 			has_global_flag = apache_wars
 		}
@@ -3050,11 +3065,7 @@ country_event = {
 	fire_only_once = yes
 	
 	trigger = {
-		OR = {
-			tag = USA
-			tag = CSA
-			tag = TEX
-		}
+		is_culture_group = american_cultures
 		year = 1886
 		has_global_flag = apache_wars
 	}

@@ -1701,12 +1701,6 @@ country_event = {
 		name = "Transfer ownership to the Spanish."
 		prestige = 10
 		badboy = -4
-		relation = { who = SPA value = 100 }
-		diplomatic_influence = { who = SPA value = 200 }
-		relation = { who = SPC value = 100 }
-		diplomatic_influence = { who = SPC value = 200 }
-		relation = { who = IBR value = 100 }
-		diplomatic_influence = { who = IBR value = 200 }
 		random_country = {
 			limit = {
 				tag = IBR
@@ -1716,6 +1710,10 @@ country_event = {
 			1687 = { secede_province = IBR }
 			1688 = { secede_province = IBR }
 			1695 = { secede_province = IBR }
+			FRA = {
+				relation = { who = IBR value = 100 }
+				diplomatic_influence = { who = IBR value = 200 }
+			}
 		}
 		random_country = {
 			limit = {
@@ -1726,6 +1724,10 @@ country_event = {
 			1687 = { secede_province = SPA }
 			1688 = { secede_province = SPA }
 			1695 = { secede_province = SPA }
+			FRA = {
+				relation = { who = SPA value = 100 }
+				diplomatic_influence = { who = SPA value = 200 }
+			}
 		}
 		random_country = {
 			limit = {
@@ -1736,6 +1738,10 @@ country_event = {
 			1687 = { secede_province = SPC }
 			1688 = { secede_province = SPC }
 			1695 = { secede_province = SPC }
+			FRA = {
+				relation = { who = SPC value = 100 }
+				diplomatic_influence = { who = SPC value = 200 }
+			}
 		}
 
 		ai_chance = {
@@ -1834,6 +1840,7 @@ country_event = {
 					primary_culture = north_german 
 					primary_culture = south_german
 				}
+				NOT = { tag = SWI }
 			}
 			casus_belli = {
 				target = FRA
@@ -1852,6 +1859,7 @@ country_event = {
 					primary_culture = north_german 
 					primary_culture = south_german
 				}
+				NOT = { tag = SWI }
 			}
 			casus_belli = {
 				target = FRA
@@ -1897,6 +1905,7 @@ country_event = {
 					primary_culture = north_german 
 					primary_culture = south_german
 				}
+				NOT = { tag = SWI }
 			}
 			casus_belli = {
 				target = FRA
@@ -1915,6 +1924,7 @@ country_event = {
 					primary_culture = north_german 
 					primary_culture = south_german
 				}
+				NOT = { tag = SWI }
 			}
 			casus_belli = {
 				target = FRA
@@ -1959,6 +1969,7 @@ country_event = {
 					primary_culture = north_german 
 					primary_culture = south_german
 				}
+				NOT = { tag = SWI }
 			}
 			relation = { who = FRA value = 25 }
 		}

@@ -890,6 +890,10 @@ country_event = {
 		ZAN = {
 			war = no
 			civilized = no
+			OR = {
+				is_vassal = no
+				vassal_of = THIS
+			}
 			any_owned_province = {
 				OR = {
 					region = ENG_2024

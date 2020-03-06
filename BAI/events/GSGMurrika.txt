@@ -6,34 +6,6 @@
 
 country_event = {
 	
-	id = 999886
-	title = "Victory over the North"
-	desc = "Now that we have emerged as the victor in the civil war, we've inherited some of the USAs international prestige and harmed their own greatly."
-	picture = "csa"
-	
-	trigger = {
-		tag = CSA
-		war = no
-		NOT = {	has_country_flag = csaprestigebuff }
-		has_global_flag = american_civil_war_has_happened
-	}
-	
-	mean_time_to_happen = {
-		days = 20
-	}
-	
-	option = {
-		name = "Victory has never been so sweet."
-		prestige = 25
-		USA = {
-			prestige = -25
-		}
-		set_country_flag = csaprestigebuff
-	}
-}
-
-country_event = {
-	
 	id = 993886
 	title = "Setting the Borders of Texas"
 	desc = "Now that we have integrated Texas, we need to set some official borders for the state."
