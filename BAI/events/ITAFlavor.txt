@@ -850,7 +850,7 @@ country_event = {
 country_event = {
 
 	id = 90038
-	title = "EVTNAME90038" #The Pact of Plombières
+	title = "EVTNAME90038" #The Pact of PlombiÃ¨res
 	desc = "EVTDESC90038"
 	news = yes
 	news_desc_long = "EVTDESC90038_NEWS_LONG"
@@ -862,7 +862,7 @@ country_event = {
 
 	option = {
 		name = "We will agree to the pact."
-		diplomatic_influence = { who = SAR value = 100 }
+		diplomatic_influence = { who = FROM value = 100 }
 		random_owned = {
 			limit = {
 				owner = {
@@ -888,7 +888,7 @@ country_event = {
 			}
 			owner = { badboy = 3 }
 		}
-		SAR = {
+		FROM = {
 			prestige = 10
 			relation = {
 				who = FRA
@@ -1155,8 +1155,8 @@ country_event = {
 country_event = {
 	
 	id = 96161
-	title = "Failure of Plombières"
-	desc = "The Pact of Plombières has failed, and our deal with France is broken."
+	title = "Failure of PlombiÃ¨res"
+	desc = "The Pact of PlombiÃ¨res has failed, and our deal with France is broken."
 	picture = "pact_of_piombieres"
 	
 	trigger = {
@@ -2872,7 +2872,7 @@ country_event = {
 	}
 
 	option = {
-		name = "Fratelli d'Italia, l'Italia s'è desta!"
+		name = "Fratelli d'Italia, l'Italia s'Ã¨ desta!"
 		set_global_flag = Mameli
 		prestige = 2
 		plurality = 2
@@ -2934,7 +2934,7 @@ country_event = {
 	}
 }
 
-#Inno Mameli für Österreich
+#Inno Mameli fÃ¼r Ã–sterreich
 country_event = {
 
 	id = 202037
