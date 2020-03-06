@@ -4274,7 +4274,7 @@ place_in_the_sun = {
 		THIS = {
 			NOT = { has_country_modifier = neutrality }
 			OR = {
-				num_of_ports = 1
+				any_owned_province = { port = yes }
 				any_owned_province = { any_neighbor_province = { NOT = { owned_by = THIS } is_colonial = yes } }
 			}
 		}
@@ -4399,7 +4399,7 @@ take_colony = {
 		}
 		THIS = {
 			OR = {
-				num_of_ports = 1
+				any_owned_province = { port = yes }
 				any_owned_province = { any_neighbor_province = { NOT = { owned_by = THIS } is_colonial = yes } }
 			}
 		}
@@ -5984,8 +5984,8 @@ demand_concession_casus_belli = {
 		NOT = { is_our_vassal = THIS }
 		OR = {
 			AND = { 
-				THIS = { num_of_ports = 1 } 
-				num_of_ports = 1
+				THIS = { any_owned_province = { port = yes } } 
+				any_owned_province = { port = yes }
 			}
 			neighbour = THIS
 		}
@@ -6246,7 +6246,6 @@ demand_african_port_casus_belli = {
 		NOT = { has_country_modifier = neutrality }
 		civilized = no
 		is_vassal = no
-		num_of_ports = 1
 		any_owned_province = { port = yes is_capital = no }
 		OR = {
 			war_with = THIS
@@ -6528,8 +6527,8 @@ demand_concession_BC_casus_belli = {
 	can_use = {
 		OR = {
 			AND = { 
-				THIS = { num_of_ports = 1 } 
-				num_of_ports = 1
+				THIS = { any_owned_province = { port = yes } } 
+				any_owned_province = { port = yes }
 			}
 			neighbour = THIS
 		}
@@ -7225,8 +7224,8 @@ establish_protectorate_casus_belli = {
 	can_use = {
 		OR = {
 			AND = { 
-				THIS = { num_of_ports = 1 } 
-				num_of_ports = 1
+				THIS = { any_owned_province = { port = yes } } 
+				any_owned_province = { port = yes }
 			}
 			neighbour = THIS
 		}
@@ -7338,8 +7337,8 @@ establish_protectorate_NI_casus_belli = {
 	can_use = {
 		OR = {
 			AND = { 
-				THIS = { num_of_ports = 1 } 
-				num_of_ports = 1
+				THIS = { any_owned_province = { port = yes } } 
+				any_owned_province = { port = yes }
 			}
 			neighbour = THIS
 		}
@@ -7421,8 +7420,8 @@ establish_protectorate_BC_casus_belli = {
 	can_use = {
 		OR = {
 			AND = { 
-				THIS = { num_of_ports = 1 } 
-				num_of_ports = 1
+				THIS = { any_owned_province = { port = yes } } 
+				any_owned_province = { port = yes }
 			}
 			neighbour = THIS
 		}
