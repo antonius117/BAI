@@ -6,6 +6,6 @@ For more info visit the Mod DB page.
 https://www.moddb.com/mods/blood-and-iron-mod/news/changes-and-plans
 # How to download
 - Go to the release tab and download the .7z files, or
-- Click on Clone or Download, then Download ZIP
+- Click on Code, then Download ZIP
 
 HoD 3.03 players download the compatibility patch from the Miscellaneous folder!
