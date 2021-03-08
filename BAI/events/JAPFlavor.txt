@@ -3486,19 +3486,19 @@ country_event = {
 	mean_time_to_happen = {
 		months = 24
 		modifier = {
-			factor = 2
+			factor = 0.6
 			year = 1860
 		}
 		modifier = {
-			factor = 4
+			factor = 0.4
 			year = 1861
 		}
 		modifier = {
-			factor = 6
+			factor = 0.2
 			year = 1862
 		}
 		modifier = {
-			factor = 0.5
+			factor = 1.5
 			war = yes
 		}
 	}

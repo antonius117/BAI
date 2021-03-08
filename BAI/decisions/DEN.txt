@@ -85,7 +85,6 @@ political_decisions = {
 	
 	selling_danish_virgin_islands = {
 	picture = map_caribbean
-	alert = no
 		potential = {
 			OR = {
 				tag = USA

@@ -1,4 +1,5 @@
 color = { 125  171  84 }
+proletarian_dictatorship = { 109 94 73 }
 fascist_dictatorship = { 150 200 110}
 graphical_culture = ItalianGC
 

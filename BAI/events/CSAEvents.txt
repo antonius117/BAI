@@ -754,13 +754,23 @@ country_event = {
 	}
 	
 	mean_time_to_happen = {
-		months = 7
+		months = 3
 	}
 	
 	option = {
 		name = "EVTOPTA187700"
 		plurality = 5
 		prestige = 15
+		any_pop = {
+			limit = {
+				OR = {
+					is_primary_culture = yes
+					is_accepted_culture = yes
+				}
+			}
+			consciousness = -1
+			militancy = -1
+		}
 	}
 }
 

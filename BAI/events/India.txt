@@ -581,6 +581,7 @@ country_event = {
 	title = "EVTNAME97121" #Britain Retreats From India!
 	desc = "EVTDESC97121"
 	picture = "administration"
+	major = yes
 
 	is_triggered_only = yes
 

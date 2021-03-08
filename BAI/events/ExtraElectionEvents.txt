@@ -3330,11 +3330,23 @@ country_event = {
 			limit = {
 				owner = {
 					government = democracy
+					NOT = { tag = FRA }
+				}
+			}
+			owner = {
+				remove_country_modifier = dom_pedro_ii
+			}
+		}
+		random_owned = {
+			limit = {
+				owner = {
+					government = democracy
+					tag = FRA
+					has_country_flag = 2nd_empire
 				}
 			}
 			owner = {
 				remove_country_modifier = louis_napoleon_iii
-				remove_country_modifier = dom_pedro_ii
 			}
 		}
 		random_owned = {
@@ -3536,11 +3548,23 @@ country_event = {
 			limit = {
 				owner = {
 					government = democracy
+					NOT = { tag = FRA }
+				}
+			}
+			owner = {
+				remove_country_modifier = dom_pedro_ii
+			}
+		}
+		random_owned = {
+			limit = {
+				owner = {
+					government = democracy
+					tag = FRA
+					has_country_flag = 2nd_empire
 				}
 			}
 			owner = {
 				remove_country_modifier = louis_napoleon_iii
-				remove_country_modifier = dom_pedro_ii
 			}
 		}
 		random_owned = {
@@ -3742,11 +3766,23 @@ country_event = {
 			limit = {
 				owner = {
 					government = democracy
+					NOT = { tag = FRA }
+				}
+			}
+			owner = {
+				remove_country_modifier = dom_pedro_ii
+			}
+		}
+		random_owned = {
+			limit = {
+				owner = {
+					government = democracy
+					tag = FRA
+					has_country_flag = 2nd_empire
 				}
 			}
 			owner = {
 				remove_country_modifier = louis_napoleon_iii
-				remove_country_modifier = dom_pedro_ii
 			}
 		}
 		random_owned = {
@@ -3948,11 +3984,23 @@ country_event = {
 			limit = {
 				owner = {
 					government = democracy
+					NOT = { tag = FRA }
+				}
+			}
+			owner = {
+				remove_country_modifier = dom_pedro_ii
+			}
+		}
+		random_owned = {
+			limit = {
+				owner = {
+					government = democracy
+					tag = FRA
+					has_country_flag = 2nd_empire
 				}
 			}
 			owner = {
 				remove_country_modifier = louis_napoleon_iii
-				remove_country_modifier = dom_pedro_ii
 			}
 		}
 		random_owned = {
@@ -4154,11 +4202,23 @@ country_event = {
 			limit = {
 				owner = {
 					government = democracy
+					NOT = { tag = FRA }
+				}
+			}
+			owner = {
+				remove_country_modifier = dom_pedro_ii
+			}
+		}
+		random_owned = {
+			limit = {
+				owner = {
+					government = democracy
+					tag = FRA
+					has_country_flag = 2nd_empire
 				}
 			}
 			owner = {
 				remove_country_modifier = louis_napoleon_iii
-				remove_country_modifier = dom_pedro_ii
 			}
 		}
 		random_owned = {
@@ -4350,11 +4410,23 @@ country_event = {
 			limit = {
 				owner = {
 					government = democracy
+					NOT = { tag = FRA }
+				}
+			}
+			owner = {
+				remove_country_modifier = dom_pedro_ii
+			}
+		}
+		random_owned = {
+			limit = {
+				owner = {
+					government = democracy
+					tag = FRA
+					has_country_flag = 2nd_empire
 				}
 			}
 			owner = {
 				remove_country_modifier = louis_napoleon_iii
-				remove_country_modifier = dom_pedro_ii
 			}
 		}
 		random_owned = {
@@ -4556,11 +4628,23 @@ country_event = {
 			limit = {
 				owner = {
 					government = democracy
+					NOT = { tag = FRA }
+				}
+			}
+			owner = {
+				remove_country_modifier = dom_pedro_ii
+			}
+		}
+		random_owned = {
+			limit = {
+				owner = {
+					government = democracy
+					tag = FRA
+					has_country_flag = 2nd_empire
 				}
 			}
 			owner = {
 				remove_country_modifier = louis_napoleon_iii
-				remove_country_modifier = dom_pedro_ii
 			}
 		}
 		random_owned = {

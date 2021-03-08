@@ -413,6 +413,8 @@ province_event = {
 		remove_province_modifier = local_electricity
 		remove_province_modifier = local_nitroglycerin
 		remove_province_modifier = local_machine_tools
+		remove_province_modifier = blood_and_iron_mine
+		remove_province_modifier = silk_famine
 	}
 }
 
@@ -489,6 +491,8 @@ province_event = {
 		remove_province_modifier = local_electricity
 		remove_province_modifier = local_nitroglycerin
 		remove_province_modifier = local_machine_tools
+		remove_province_modifier = blood_and_iron_mine
+		remove_province_modifier = silk_famine
 	}
 }
 

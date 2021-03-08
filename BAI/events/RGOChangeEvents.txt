@@ -115,6 +115,7 @@ province_event = {
 		}
 		remove_province_modifier = local_tractors
 		remove_province_modifier = local_distribution_channels
+		remove_province_modifier = silk_famine
 		ai_chance = { factor = 100 }
 	}
 	
@@ -235,6 +236,7 @@ province_event = {
 		}
 		remove_province_modifier = local_tractors
 		remove_province_modifier = local_distribution_channels
+		remove_province_modifier = silk_famine
 		ai_chance = { factor = 100 }
 	}
 	
@@ -355,6 +357,7 @@ province_event = {
 		}
 		remove_province_modifier = local_tractors
 		remove_province_modifier = local_distribution_channels
+		remove_province_modifier = silk_famine
 		ai_chance = { factor = 100 }
 	}
 	
@@ -480,6 +483,8 @@ province_event = {
 		remove_province_modifier = local_electricity
 		remove_province_modifier = local_nitroglycerin
 		remove_province_modifier = local_machine_tools
+		remove_province_modifier = blood_and_iron_mine
+		remove_province_modifier = silk_famine
 		ai_chance = { factor = 100 }
 	}
 	
@@ -603,6 +608,8 @@ province_event = {
 		remove_province_modifier = local_electricity
 		remove_province_modifier = local_nitroglycerin
 		remove_province_modifier = local_machine_tools
+		remove_province_modifier = blood_and_iron_mine
+		remove_province_modifier = silk_famine
 		ai_chance = { factor = 100 }
 	}
 	
@@ -722,6 +729,8 @@ province_event = {
 		remove_province_modifier = local_electricity
 		remove_province_modifier = local_nitroglycerin
 		remove_province_modifier = local_machine_tools
+		remove_province_modifier = blood_and_iron_mine
+		remove_province_modifier = silk_famine
 		ai_chance = { factor = 100 }
 	}
 	
@@ -842,6 +851,8 @@ province_event = {
 		remove_province_modifier = local_electricity
 		remove_province_modifier = local_nitroglycerin
 		remove_province_modifier = local_machine_tools
+		remove_province_modifier = blood_and_iron_mine
+		remove_province_modifier = silk_famine
 		ai_chance = { factor = 100 }
 	}
 	
@@ -958,6 +969,8 @@ province_event = {
 		remove_province_modifier = local_electricity
 		remove_province_modifier = local_nitroglycerin
 		remove_province_modifier = local_machine_tools
+		remove_province_modifier = blood_and_iron_mine
+		remove_province_modifier = silk_famine
 		ai_chance = { factor = 100 }
 	}
 	
@@ -1074,6 +1087,8 @@ province_event = {
 		remove_province_modifier = local_electricity
 		remove_province_modifier = local_nitroglycerin
 		remove_province_modifier = local_machine_tools
+		remove_province_modifier = blood_and_iron_mine
+		remove_province_modifier = silk_famine
 		ai_chance = { factor = 100 }
 	}
 	
@@ -1202,6 +1217,7 @@ province_event = {
 		remove_province_modifier = local_electricity
 		remove_province_modifier = local_nitroglycerin
 		remove_province_modifier = local_machine_tools
+		remove_province_modifier = blood_and_iron_mine
 		ai_chance = { factor = 100 }
 	}
 	
@@ -1316,6 +1332,8 @@ province_event = {
 		remove_province_modifier = local_electricity
 		remove_province_modifier = local_nitroglycerin
 		remove_province_modifier = local_machine_tools
+		remove_province_modifier = blood_and_iron_mine
+		remove_province_modifier = silk_famine
 		ai_chance = { factor = 100 }
 	}
 	
@@ -1432,6 +1450,8 @@ province_event = {
 		remove_province_modifier = local_electricity
 		remove_province_modifier = local_nitroglycerin
 		remove_province_modifier = local_machine_tools
+		remove_province_modifier = blood_and_iron_mine
+		remove_province_modifier = silk_famine
 		ai_chance = { factor = 100 }
 	}
 	
@@ -1541,6 +1561,8 @@ province_event = {
 		remove_province_modifier = local_electricity
 		remove_province_modifier = local_nitroglycerin
 		remove_province_modifier = local_machine_tools
+		remove_province_modifier = blood_and_iron_mine
+		remove_province_modifier = silk_famine
 		ai_chance = { factor = 100 }
 	}
 	
@@ -1653,6 +1675,8 @@ province_event = {
 		remove_province_modifier = local_electricity
 		remove_province_modifier = local_nitroglycerin
 		remove_province_modifier = local_machine_tools
+		remove_province_modifier = blood_and_iron_mine
+		remove_province_modifier = silk_famine
 		ai_chance = { factor = 100 }
 	}
 	
@@ -1775,6 +1799,8 @@ province_event = {
 		remove_province_modifier = local_electricity
 		remove_province_modifier = local_nitroglycerin
 		remove_province_modifier = local_machine_tools
+		remove_province_modifier = blood_and_iron_mine
+		remove_province_modifier = silk_famine
 		ai_chance = { factor = 100 }
 	}
 	

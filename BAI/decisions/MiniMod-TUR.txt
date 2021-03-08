@@ -617,12 +617,18 @@ political_decisions = {
 				has_global_flag = oriental_crisis_sick_man
 			}
 			is_greater_power = yes
+			has_country_flag = claim_arabia
 		}
 
 		allow = {
 			prestige = 75
 			nationalism_n_imperialism = 1
 			war = no
+			TUR = {
+				all_core = {
+					owned_by = THIS
+				}
+			}
 		}
 
 		effect = {
