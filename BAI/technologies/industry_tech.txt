@@ -39,8 +39,11 @@ water_wheel_power = {
 			industrial_score = 25
 		}
 		modifier = {
-			factor = 1.02
-			tech_school = industrial_tech_school
+			factor = 1.2
+			OR = {
+				tech_school = industrial_tech_school
+				tech_school = prussian_tech_school
+			}
 		}
 	}	
 }
@@ -71,19 +74,22 @@ practical_steam_engine = {
 			year = 1850
 		}
 		modifier = {
-			factor = 1.02
-			tech_school = industrial_tech_school
+			factor = 1.2
+			OR = {
+				tech_school = industrial_tech_school
+				tech_school = prussian_tech_school
+			}
 		}
 		modifier = {
-			factor = 1.02
+			factor = 1.2
 			is_greater_power = yes
 		}
 		modifier = {
-			factor = 1.02
+			factor = 1.2
 			industrial_score = 100
 		}
 		modifier = {
-			factor = 1.02
+			factor = 1.2
 			industrial_score = 150
 		}
 	}
@@ -96,7 +102,7 @@ high_n_low_pressure_steam_engines = {
 	mine_rgo_eff = 0.1
 	farm_rgo_eff = 0.15
 	ai_chance = {
-		factor = 1.01
+		factor = 1.05
 		modifier = {
 			factor = 2
 			OR = {
@@ -115,8 +121,11 @@ high_n_low_pressure_steam_engines = {
 			year = 1865
 		}
 		modifier = {
-			factor = 1.02
-			tech_school = industrial_tech_school
+			factor = 1.2
+			OR = {
+				tech_school = industrial_tech_school
+				tech_school = prussian_tech_school
+			}
 		}
 		modifier = {
 			factor = 1.2
@@ -140,7 +149,7 @@ steam_turbine = {
 	mine_rgo_eff = 0.1
 	farm_rgo_eff = 0.1
 	ai_chance = {
-		factor = 1.01
+		factor = 1.05
 		modifier = {
 			factor = 2
 			OR = {
@@ -155,8 +164,11 @@ steam_turbine = {
 			}
 		}
 		modifier = {
-			factor = 1.02
-			tech_school = industrial_tech_school
+			factor = 1.2
+			OR = {
+				tech_school = industrial_tech_school
+				tech_school = prussian_tech_school
+			}
 		}
 		modifier = {
 			factor = 1.2
@@ -203,8 +215,11 @@ combustion_engine = {
 			year = 1900
 		}
 		modifier = {
-			factor = 1.02
-			tech_school = industrial_tech_school
+			factor = 1.2
+			OR = {
+				tech_school = industrial_tech_school
+				tech_school = prussian_tech_school
+			}
 		}
 		modifier = {
 			factor = 1.2
@@ -244,8 +259,11 @@ electrical_power_generation = {
 			}
 		}
 		modifier = {
-			factor = 1.02
-			tech_school = industrial_tech_school
+			factor = 1.2
+			OR = {
+				tech_school = industrial_tech_school
+				tech_school = prussian_tech_school
+			}
 		}
 		modifier = {
 			factor = 1.2
@@ -289,8 +307,11 @@ publishing_industry = {
 			literacy = 0.6
 		}
 		modifier = {
-			factor = 1.02
-			tech_school = industrial_tech_school
+			factor = 1.2
+			OR = {
+				tech_school = industrial_tech_school
+				tech_school = prussian_tech_school
+			}
 		}
 		modifier = {
 			factor = 1.2
@@ -344,8 +365,11 @@ mechanical_production = {
 			industrial_score = 50
 		}
 		modifier = {
-			factor = 1.02
-			tech_school = industrial_tech_school
+			factor = 1.2
+			OR = {
+				tech_school = industrial_tech_school
+				tech_school = prussian_tech_school
+			}
 		}
 	}	
 }
@@ -379,8 +403,11 @@ interchangeable_parts = {
 			literacy = 0.6
 		}
 		modifier = {
-			factor = 1.02
-			tech_school = industrial_tech_school
+			factor = 1.2
+			OR = {
+				tech_school = industrial_tech_school
+				tech_school = prussian_tech_school
+			}
 		}
 	}	
 }
@@ -413,8 +440,11 @@ semi_automatization = {
 			literacy = 0.6
 		}
 		modifier = {
-			factor = 1.02
-			tech_school = industrial_tech_school
+			factor = 1.2
+			OR = {
+				tech_school = industrial_tech_school
+				tech_school = prussian_tech_school
+			}
 		}
 	}	
 }
@@ -439,8 +469,11 @@ assembly_line = {
 			industrial_score = 750
 		}
 		modifier = {
-			factor = 1.02
-			tech_school = industrial_tech_school
+			factor = 1.2
+			OR = {
+				tech_school = industrial_tech_school
+				tech_school = prussian_tech_school
+			}
 		}
 	}	
 }
@@ -467,8 +500,11 @@ shift_work = {
 			industrial_score = 1500
 		}
 		modifier = {
-			factor = 1.02
-			tech_school = industrial_tech_school
+			factor = 1.2
+			OR = {
+				tech_school = industrial_tech_school
+				tech_school = prussian_tech_school
+			}
 		}
 	}	
 }
@@ -529,8 +565,11 @@ mechanized_mining = {
 			}
 		}
 		modifier = {
-			factor = 1.02
-			tech_school = industrial_tech_school
+			factor = 1.2
+			OR = {
+				tech_school = industrial_tech_school
+				tech_school = prussian_tech_school
+			}
 		}
 	}
 }
@@ -565,8 +604,11 @@ clean_coal = {
 			OR = {
 			tag = NGF
 			tag = GER
+			tag = GCF
 			tag = PRU
 			tag = FRA
+			tag = AUS
+			tag = KUK
 			}
 		}
 		modifier = {
@@ -606,8 +648,11 @@ clean_coal = {
 			}
 		}
 		modifier = {
-			factor = 1.02
-			tech_school = industrial_tech_school
+			factor = 1.2
+			OR = {
+				tech_school = industrial_tech_school
+				tech_school = prussian_tech_school
+			}
 		}
 	}
 }
@@ -638,8 +683,11 @@ cheap_iron = {
 			OR = {
 			tag = NGF
 			tag = GER
+			tag = GCF
 			tag = PRU
 			tag = FRA
+			tag = AUS
+			tag = KUK
 			}
 		}
 		modifier = {
@@ -679,8 +727,11 @@ cheap_iron = {
 			}
 		}
 		modifier = {
-			factor = 1.02
-			tech_school = industrial_tech_school
+			factor = 1.2
+			OR = {
+				tech_school = industrial_tech_school
+				tech_school = prussian_tech_school
+			}
 		}
 	}
 }
@@ -709,7 +760,10 @@ cheap_steel = {
 				tag = FRA
 				tag = NGF
 				tag = GER
+				tag = GCF
 				tag = PRU
+				tag = AUS
+				tag = KUK
 			}
 		}
 		modifier = {
@@ -749,8 +803,11 @@ cheap_steel = {
 			}
 		}
 		modifier = {
-			factor = 1.02
-			tech_school = industrial_tech_school
+			factor = 1.2
+			OR = {
+				tech_school = industrial_tech_school
+				tech_school = prussian_tech_school
+			}
 		}
 	}
 }
@@ -811,8 +868,11 @@ advanced_metallurgy = {
 			}
 		}
 		modifier = {
-			factor = 1.02
-			tech_school = industrial_tech_school
+			factor = 1.2
+			OR = {
+				tech_school = industrial_tech_school
+				tech_school = prussian_tech_school
+			}
 		}
 	}
 }
@@ -870,8 +930,11 @@ electric_furnace = {
 			}
 		}
 		modifier = {
-			factor = 1.02
-			tech_school = industrial_tech_school
+			factor = 1.2
+			OR = {
+				tech_school = industrial_tech_school
+				tech_school = prussian_tech_school
+			}
 		}
 	}
 }
@@ -892,7 +955,10 @@ experimental_railroad = {
 			OR = {
 				tag = NGF
 				tag = GER
+				tag = GCF
 				tag = PRU
+				tag = AUS
+				tag = KUK
 			}
 		}
 		modifier = {
@@ -900,13 +966,24 @@ experimental_railroad = {
 			is_greater_power = yes
 		}
 		modifier = {
+			factor = 1.25
+			is_greater_power = no
+			is_secondary_power = yes
+		}
+		modifier = {
 			factor = 2
-			is_greater_power = yes
+			OR = {
+				is_greater_power = yes
+				is_secondary_power = yes
+			}
 			year = 1845
 		}
 		modifier = {
-			factor = 1.02
-			tech_school = industrial_tech_school
+			factor = 1.2
+			OR = {
+				tech_school = industrial_tech_school
+				tech_school = prussian_tech_school
+			}
 		}
 	}
 }
@@ -920,17 +997,39 @@ early_railroad = {
 	ai_chance = {
 		factor = 2
 		modifier = {
+			factor = 10
+			OR = {
+				tag = NGF
+				tag = GER
+				tag = GCF
+				tag = PRU
+				tag = AUS
+				tag = KUK
+			}
+		}
+		modifier = {
 			factor = 1.5
 			is_greater_power = yes
 		}
 		modifier = {
+			factor = 1.25
+			is_greater_power = no
+			is_secondary_power = yes
+		}
+		modifier = {
 			factor = 2
-			is_greater_power = yes
+			OR = {
+				is_greater_power = yes
+				is_secondary_power = yes
+			}
 			year = 1855
 		}
 		modifier = {
-			factor = 1.02
-			tech_school = industrial_tech_school
+			factor = 1.2
+			OR = {
+				tech_school = industrial_tech_school
+				tech_school = prussian_tech_school
+			}
 		}
 	}
 }
@@ -947,13 +1046,24 @@ iron_railroad = {
 			is_greater_power = yes
 		}
 		modifier = {
+			factor = 1.25
+			is_greater_power = no
+			is_secondary_power = yes
+		}
+		modifier = {
 			factor = 2
-			is_greater_power = yes
+			OR = {
+				is_greater_power = yes
+				is_secondary_power = yes
+			}
 			year = 1865
 		}
 		modifier = {
-			factor = 1.02
-			tech_school = industrial_tech_school
+			factor = 1.2
+			OR = {
+				tech_school = industrial_tech_school
+				tech_school = prussian_tech_school
+			}
 		}
 	}
 }
@@ -970,13 +1080,24 @@ steel_railroad = {
 			is_greater_power = yes
 		}
 		modifier = {
+			factor = 1.25
+			is_greater_power = no
+			is_secondary_power = yes
+		}
+		modifier = {
 			factor = 2
-			is_greater_power = yes
+			OR = {
+				is_greater_power = yes
+				is_secondary_power = yes
+			}
 			year = 1885
 		}
 		modifier = {
-			factor = 1.02
-			tech_school = industrial_tech_school
+			factor = 1.2
+			OR = {
+				tech_school = industrial_tech_school
+				tech_school = prussian_tech_school
+			}
 		}
 	}
 }
@@ -993,13 +1114,24 @@ integral_rail_system = {
 			is_greater_power = yes
 		}
 		modifier = {
+			factor = 1.25
+			is_greater_power = no
+			is_secondary_power = yes
+		}
+		modifier = {
 			factor = 2
-			is_greater_power = yes
+			OR = {
+				is_greater_power = yes
+				is_secondary_power = yes
+			}
 			year = 1905
 		}
 		modifier = {
-			factor = 1.02
-			tech_school = industrial_tech_school
+			factor = 1.2
+			OR = {
+				tech_school = industrial_tech_school
+				tech_school = prussian_tech_school
+			}
 		}
 	}
 }
@@ -1020,8 +1152,16 @@ limited_access_roads = {
 			is_greater_power = yes
 		}
 		modifier = {
-			factor = 1.02
-			tech_school = industrial_tech_school
+			factor = 1.25
+			is_greater_power = no
+			is_secondary_power = yes
+		}
+		modifier = {
+			factor = 1.2
+			OR = {
+				tech_school = industrial_tech_school
+				tech_school = prussian_tech_school
+			}
 		}
 	}
 }
@@ -1041,8 +1181,11 @@ basic_chemistry = {
 			civilized = yes
 		}
 		modifier = {
-			factor = 1.02
-			tech_school = industrial_tech_school
+			factor = 1.2
+			OR = {
+				tech_school = industrial_tech_school
+				tech_school = prussian_tech_school
+			}
 		}
 	}
 }
@@ -1060,8 +1203,11 @@ medicine = {
 			civilized = yes
 		}
 		modifier = {
-			factor = 1.02
-			tech_school = industrial_tech_school
+			factor = 1.2
+			OR = {
+				tech_school = industrial_tech_school
+				tech_school = prussian_tech_school
+			}
 		}
 		modifier = {
 			factor = 15
@@ -1079,8 +1225,11 @@ inorganic_chemistry = {
 	ai_chance = {
 		factor = 5
 		modifier = {
-			factor = 1.02
-			tech_school = industrial_tech_school
+			factor = 1.2
+			OR = {
+				tech_school = industrial_tech_school
+				tech_school = prussian_tech_school
+			}
 		}
 		modifier = {
 			factor = 15
@@ -1115,7 +1264,10 @@ organic_chemistry = {
 		factor = 5
 		modifier = {
 			factor = 2
-			tech_school = industrial_tech_school
+			OR = {
+				tech_school = industrial_tech_school
+				tech_school = prussian_tech_school
+			}
 		}
 		modifier = {
 			factor = 2
@@ -1148,8 +1300,11 @@ electricity = {
 	ai_chance = {
 		factor = 5
 		modifier = {
-			factor = 1.02
-			tech_school = industrial_tech_school
+			factor = 1.2
+			OR = {
+				tech_school = industrial_tech_school
+				tech_school = prussian_tech_school
+			}
 		}
 		modifier = {
 			factor = 2
@@ -1183,8 +1338,11 @@ synthetic_polymers = {
 	ai_chance = {
 		factor = 5
 		modifier = {
-			factor = 1.02
-			tech_school = industrial_tech_school
+			factor = 1.2
+			OR = {
+				tech_school = industrial_tech_school
+				tech_school = prussian_tech_school
+			}
 		}
 		modifier = {
 			factor = 2

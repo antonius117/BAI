@@ -57,6 +57,7 @@ country_event = {
 					region = MEX_97
 					region = MEX_85
 					region = MEX_100
+					region = USA_106
 					region = USA_111
 					region = USA_129
 					region = USA_126

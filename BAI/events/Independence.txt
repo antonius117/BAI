@@ -23,7 +23,7 @@ country_event = {
 				culture = hungarian
 				is_primary_culture = no
 			}
-			average_militancy = 2
+			average_militancy = 3
 		}
 	}
 
@@ -91,7 +91,7 @@ country_event = {
 			}
 		}
 		ai_chance = {
-			factor = 70
+			factor = 80
 			modifier = {
 				factor = 1.75
 				government = absolute_monarchy
@@ -177,7 +177,7 @@ country_event = {
 			value = 200
 		}
 		ai_chance = {
-			factor = 30
+			factor = 20
 			modifier = {
 				factor = 0
 				OR = {
@@ -265,6 +265,8 @@ country_event = {
 		NOT = {
 			exists = LOM
 			has_country_flag = no_lombardy_independence
+			primary_culture = north_italian
+			tag = ITP
 		}
 		is_possible_vassal = LOM
 		revolution_n_counterrevolution = 1
@@ -335,7 +337,7 @@ country_event = {
 			}
 		}
 		ai_chance = {
-			factor = 70
+			factor = 80
 			modifier = {
 				factor = 1.75
 				government = absolute_monarchy
@@ -405,7 +407,7 @@ country_event = {
 			value = 200
 		}
 		ai_chance = {
-			factor = 30
+			factor = 20
 			modifier = {
 				factor = 0
 				OR = {
@@ -490,6 +492,7 @@ country_event = {
 		NOT = {
 			exists = CRO
 			has_country_flag = no_croatia_independence
+			primary_culture = croat
 		}
 		is_possible_vassal = CRO
 		revolution_n_counterrevolution = 1
@@ -560,7 +563,7 @@ country_event = {
 			}
 		}
 		ai_chance = {
-			factor = 70
+			factor = 80
 			modifier = {
 				factor = 1.75
 				government = absolute_monarchy
@@ -634,7 +637,7 @@ country_event = {
 			value = 200
 		}
 		ai_chance = {
-			factor = 70
+			factor = 20
 			modifier = {
 				factor = 0
 				OR = {
@@ -719,6 +722,7 @@ country_event = {
 		NOT = {
 			exists = SLO
 			has_country_flag = no_slovene_independence
+			primary_culture = slovene
 		}
 		is_possible_vassal = SLO
 		revolution_n_counterrevolution = 1
@@ -793,7 +797,7 @@ country_event = {
 			}
 		}
 		ai_chance = {
-			factor = 70
+			factor = 80
 			modifier = {
 				factor = 1.75
 				government = absolute_monarchy
@@ -863,7 +867,7 @@ country_event = {
 			value = 200
 		}
 		ai_chance = {
-			factor = 30
+			factor = 20
 			modifier = {
 				factor = 0
 				OR = {
@@ -948,6 +952,7 @@ country_event = {
 		NOT = {
 			exists = BOH
 			has_country_flag = no_bohemia_independence
+			primary_culture = czech
 		}
 		is_possible_vassal = BOH
 		revolution_n_counterrevolution = 1
@@ -1015,7 +1020,7 @@ country_event = {
 			}
 		}
 		ai_chance = {
-			factor = 70
+			factor = 80
 			modifier = {
 				factor = 1.75
 				government = absolute_monarchy
@@ -1085,7 +1090,7 @@ country_event = {
 			value = 200
 		}
 		ai_chance = {
-			factor = 30
+			factor = 20
 			modifier = {
 				factor = 0
 				OR = {
@@ -1170,6 +1175,7 @@ country_event = {
 		NOT = {
 			exists = SLV
 			has_country_flag = no_slovakia_independence
+			primary_culture = slovak
 		}
 		is_possible_vassal = SLV
 		revolution_n_counterrevolution = 1
@@ -1242,7 +1248,7 @@ country_event = {
 			}
 		}
 		ai_chance = {
-			factor = 70
+			factor = 80
 			modifier = {
 				factor = 1.75
 				government = absolute_monarchy
@@ -1312,7 +1318,7 @@ country_event = {
 			value = 200
 		}
 		ai_chance = {
-			factor = 30
+			factor = 20
 			modifier = {
 				factor = 0
 				OR = {
@@ -1468,7 +1474,7 @@ country_event = {
 				}
 			}
 		}
-		ai_chance = { factor = 50 }
+		ai_chance = { factor = 75 }
 	}
 	
 	option = {
@@ -1498,7 +1504,7 @@ country_event = {
 			}
 		}
 		ai_chance = {
-			factor = 50
+			factor = 25
 			modifier = {
 				factor = 0
 				KRA = { ai = yes }
@@ -1624,6 +1630,7 @@ country_event = {
 		NOT = {
 			exists = BUL
 			has_country_flag = no_bulgaria_independence
+			primary_culture = bulgarian
 		}
 		is_possible_vassal = BUL
 		nationalism_n_imperialism = 1
@@ -1633,7 +1640,7 @@ country_event = {
 				culture = bulgarian
 				is_primary_culture = no
 			}
-			average_militancy = 2
+			average_militancy = 3
 		}
 	}
 
@@ -1699,7 +1706,7 @@ country_event = {
 			}
 		}
 		ai_chance = {
-			factor = 70
+			factor = 75
 			modifier = {
 				factor = 1.75
 				government = absolute_monarchy
@@ -1769,7 +1776,7 @@ country_event = {
 			value = 200
 		}
 		ai_chance = {
-			factor = 30
+			factor = 25
 			modifier = {
 				factor = 0
 				OR = {
@@ -1854,7 +1861,7 @@ country_event = {
 				culture = albanian
 				is_primary_culture = no
 			}
-			average_militancy = 2
+			average_militancy = 3
 		}
 	}
 
@@ -1915,7 +1922,7 @@ country_event = {
 			}
 		}
 		ai_chance = {
-			factor = 70
+			factor = 75
 			modifier = {
 				factor = 1.75
 				government = absolute_monarchy
@@ -1985,7 +1992,7 @@ country_event = {
 			value = 200
 		}
 		ai_chance = {
-			factor = 30
+			factor = 25
 			modifier = {
 				factor = 0
 				OR = {
@@ -2060,6 +2067,7 @@ country_event = {
 		NOT = {
 			exists = BOS
 			has_country_flag = no_bosnia_independence
+			primary_culture = bosniak
 		}
 		is_possible_vassal = BOS
 		revolution_n_counterrevolution = 1
@@ -2123,7 +2131,7 @@ country_event = {
 			}
 		}
 		ai_chance = {
-			factor = 70
+			factor = 75
 			modifier = {
 				factor = 1.75
 				government = absolute_monarchy
@@ -2193,7 +2201,7 @@ country_event = {
 			value = 200
 		}
 		ai_chance = {
-			factor = 30
+			factor = 25
 			modifier = {
 				factor = 0
 				OR = {
@@ -2268,6 +2276,7 @@ country_event = {
 		NOT = {
 			exists = IRQ
 			has_country_flag = no_iraq_independence
+			primary_culture = mashriqi
 		}
 		is_possible_vassal = IRQ
 		revolution_n_counterrevolution = 1
@@ -2331,7 +2340,7 @@ country_event = {
 			}
 		}
 		ai_chance = {
-			factor = 70
+			factor = 75
 			modifier = {
 				factor = 1.75
 				government = absolute_monarchy
@@ -2401,7 +2410,7 @@ country_event = {
 			value = 200
 		}
 		ai_chance = {
-			factor = 30
+			factor = 25
 			modifier = {
 				factor = 0
 				OR = {
@@ -2476,6 +2485,7 @@ country_event = {
 		NOT = {
 			exists = CRE
 			has_country_flag = no_crete_independence
+			primary_culture = greek
 		}
 		is_possible_vassal = CRE
 		revolution_n_counterrevolution = 1
@@ -2539,7 +2549,7 @@ country_event = {
 			}
 		}
 		ai_chance = {
-			factor = 70
+			factor = 75
 			modifier = {
 				factor = 1.75
 				government = absolute_monarchy
@@ -2609,7 +2619,7 @@ country_event = {
 			value = 200
 		}
 		ai_chance = {
-			factor = 30
+			factor = 25
 			modifier = {
 				factor = 0
 				OR = {

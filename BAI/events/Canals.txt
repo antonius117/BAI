@@ -221,6 +221,7 @@ country_event = {
 		prestige = 40
 		research_points = 120
 		enable_canal = 1
+		369 = { set_province_flag = kiel_canal }
 		set_country_flag = built_kiel
 		369 = { 
 			add_province_modifier = {
@@ -650,6 +651,7 @@ country_event = {
 		research_points = 300
 		1755 = { secede_province = THIS }
 		enable_canal = 2
+		1755 = { set_province_flag = suez_canal }
 		set_global_flag = suez_canal_built
 		set_country_flag = built_suez
 		1755 = {
@@ -1312,6 +1314,7 @@ country_event = {
 		1723 = { secede_province = THIS }
 		enable_canal = 3
 		2325 = { remove_province_modifier = gateway_to_harbor }
+		1723 = { set_province_flag = panama_canal }
 		1723 = {
 			add_province_modifier = {
 				name = panama_canal

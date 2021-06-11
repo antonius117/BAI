@@ -17,7 +17,7 @@ classicism_n_early_romanticism = {
 			not = { literacy = 0.3 }
 		}
 		modifier = {
-			factor = 1.02
+			factor = 1.2
 			tech_school = culture_tech_school
 		}
 	}
@@ -180,7 +180,7 @@ late_enlightenment_philosophy = {
 	ai_chance = {
 		factor = 150
 		modifier = {
-			factor = 1.02
+			factor = 1.2
 			tech_school = culture_tech_school
 		}
 		modifier = {
@@ -214,7 +214,7 @@ idealism = {
 	ai_chance = {
 		factor = 150
 		modifier = {
-			factor = 1.02
+			factor = 1.2
 			tech_school = culture_tech_school
 		}
 		modifier = {
@@ -249,7 +249,7 @@ empiricism = {
 	ai_chance = {
 		factor = 150
 		modifier = {
-			factor = 1.02
+			factor = 1.2
 			tech_school = culture_tech_school
 		}
 		modifier = {
@@ -275,7 +275,7 @@ analytic_philosophy = {
 	ai_chance = {
 		factor = 150
 		modifier = {
-			factor = 1.02
+			factor = 1.2
 			tech_school = culture_tech_school
 		}
 		modifier = {
@@ -297,7 +297,7 @@ phenomenology_n_hermeneutic = {
 	ai_chance = {
 		factor = 150
 		modifier = {
-			factor = 1.02
+			factor = 1.2
 			tech_school = culture_tech_school
 		}
 		modifier = {
@@ -319,7 +319,7 @@ anti__rationalism = {
 	ai_chance = {
 		factor = 150
 		modifier = {
-			factor = 1.02
+			factor = 1.2
 			tech_school = culture_tech_school
 		}
 		modifier = {
@@ -358,7 +358,7 @@ malthusian_thought = {
 			not = { literacy = 0.25 }
 		}
 		modifier = {
-			factor = 1.02
+			factor = 1.2
 			tech_school = culture_tech_school
 		}
 	}
@@ -384,7 +384,7 @@ positivism = {
 			not = { literacy = 0.25 }
 		}
 		modifier = {
-			factor = 1.02
+			factor = 1.2
 			tech_school = culture_tech_school
 		}
 	}
@@ -412,7 +412,7 @@ functionalism = {
 			not = { literacy = 0.25 }
 		}
 		modifier = {
-			factor = 1.02
+			factor = 1.2
 			tech_school = culture_tech_school
 		}
 	}
@@ -440,7 +440,7 @@ biologism = {
 			not = { literacy = 0.25 }
 		}
 		modifier = {
-			factor = 1.02
+			factor = 1.2
 			tech_school = culture_tech_school
 		}
 	}
@@ -468,7 +468,7 @@ social_science = {
 			not = { literacy = 0.25 }
 		}
 		modifier = {
-			factor = 1.02
+			factor = 1.2
 			tech_school = culture_tech_school
 		}
 	}
@@ -500,7 +500,7 @@ social_alienation = {
 			not = { literacy = 0.25 }
 		}
 		modifier = {
-			factor = 1.02
+			factor = 1.2
 			tech_school = culture_tech_school
 		}
 	}
@@ -519,7 +519,7 @@ enlightenment_thought = {
 	ai_chance = {
 		factor = 11
 		modifier = {
-			factor = 1.02
+			factor = 1.2
 			tech_school = culture_tech_school
 		}
 		modifier = {
@@ -556,7 +556,7 @@ ideological_thought = {
 			year = 1850
 		}
 		modifier = {
-			factor = 1.02
+			factor = 1.2
 			tech_school = culture_tech_school
 		}
 	}
@@ -587,7 +587,7 @@ state_n_government = {
 			year = 1860
 		}
 		modifier = {
-			factor = 1.02
+			factor = 1.2
 			tech_school = culture_tech_school
 		}
 	}
@@ -619,7 +619,6 @@ nationalism_n_imperialism = {
 		}
 		modifier = {
 			factor = 51
-			rank = 16
 			year = 1870
 		}
 		modifier = {
@@ -627,7 +626,7 @@ nationalism_n_imperialism = {
 			total_pops = 3000000
 		}
 		modifier = {
-			factor = 1.02
+			factor = 1.2
 			tech_school = culture_tech_school
 		}
 		modifier = {
@@ -644,17 +643,26 @@ revolution_n_counterrevolution = {
 	max_national_focus = 1
 	diplomatic_points = 0.25
 	ai_chance = {
-		factor = 1.1
+		factor = 11
 		modifier = {
 			factor = 1.5
 			is_greater_power = yes
+		}
+		modifier = {
+			factor = 11
+			rank = 16
+			year = 1880
+		}
+		modifier = {
+			factor = 51
+			year = 1890
 		}
 		modifier = {
 			factor = 5
 			total_pops = 4000000
 		}
 		modifier = {
-			factor = 1.02
+			factor = 1.2
 			tech_school = culture_tech_school
 		}
 	}
@@ -672,11 +680,20 @@ mass_politics = {
 			is_greater_power = yes
 		}
 		modifier = {
+			factor = 11
+			rank = 16
+			year = 1910
+		}
+		modifier = {
+			factor = 51
+			year = 1920
+		}
+		modifier = {
 			factor = 5
 			total_pops = 5000000
 		}
 		modifier = {
-			factor = 1.02
+			factor = 1.2
 			tech_school = culture_tech_school
 		}
 	}	
@@ -700,7 +717,7 @@ introspectionism = {
 			is_greater_power = yes
 		}
 		modifier = {
-			factor = 1.02
+			factor = 1.2
 			tech_school = culture_tech_school
 		}
 		modifier = {
@@ -729,7 +746,7 @@ associationism = {
 			is_greater_power = yes
 		}
 		modifier = {
-			factor = 1.02
+			factor = 1.2
 			tech_school = culture_tech_school
 		}
 		modifier = {
@@ -757,7 +774,7 @@ phenomenalism = {
 			is_greater_power = yes
 		}
 		modifier = {
-			factor = 1.02
+			factor = 1.2
 			tech_school = culture_tech_school
 		}
 		modifier = {
@@ -785,7 +802,7 @@ experimental_psychology = {
 			is_greater_power = yes
 		}
 		modifier = {
-			factor = 1.02
+			factor = 1.2
 			tech_school = culture_tech_school
 		}
 		modifier = {
@@ -813,7 +830,7 @@ psychoanalysis = {
 			is_greater_power = yes
 		}
 		modifier = {
-			factor = 1.02
+			factor = 1.2
 			tech_school = culture_tech_school
 		}
 		modifier = {
@@ -842,7 +859,7 @@ behaviorism = {
 			is_greater_power = yes
 		}
 		modifier = {
-			factor = 1.02
+			factor = 1.2
 			tech_school = culture_tech_school
 		}
 		modifier = {

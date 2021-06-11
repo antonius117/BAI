@@ -86,4 +86,47 @@ political_decisions = {
 			factor = 1
 		}
 	}
+
+	destroy_the_eiffel_tower = {
+		picture = build_the_eiffel_tower
+		potential = {
+			NOT = { tag = FRA }
+			war_with = FRA
+			FRA = {
+				owns = 425
+			}
+			425 = { has_province_modifier = the_eiffel_tower }
+			is_greater_power = yes
+			revolution_n_counterrevolution = 1
+			NOT = {
+				has_global_flag = eiffel_tower_destroyed
+			}
+		}
+
+		allow = {
+			controls = 425
+			invention = nitroglycerin
+		}
+
+		effect = {
+			badboy = 3
+			set_global_flag = eiffel_tower_destroyed
+			FRA = {
+				country_event = 188246
+			}
+		}
+
+		ai_will_do = {
+			factor = 1
+			modifier = {
+				factor = 0
+				NOT = {
+					relation = {
+						who = FRA
+						value = -150
+					}
+				}
+			}
+		}
+	}
 }

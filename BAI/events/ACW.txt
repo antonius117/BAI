@@ -2468,7 +2468,10 @@ province_event = {
 	
 	trigger = {
 		NOT = { is_core = CSA }
-		is_core = USA
+		OR = {
+			is_core = USA
+			province_id = 2209
+		}
 		continent = north_america
 		owner = {
 			tag = USA

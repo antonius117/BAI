@@ -847,6 +847,10 @@ country_event = {
 			primary_culture = armenian
 			primary_culture = georgian
 			primary_culture = albanian
+			primary_culture = lithuanian
+			tag = SWI
+			primary_culture = romanian
+			tag = ARG
 		}
 	}
 
@@ -1085,7 +1089,7 @@ country_event = {
 	}
 
 	option = {
-		name = "EVTOPTC232000001" # Name it battle
+		name = "EVTOPTC232000001" # Name it general
 		prestige = 40
 		3102 = { change_province_name = "Lake Von Moltke" }
 		ai_chance = { factor = 5 }
@@ -1189,7 +1193,7 @@ country_event = {
 		}
 
 	option = {
-		name = "EVTOPTC232000002" # Name it battle
+		name = "EVTOPTC232000002" # Name it dynasty
 		prestige = 40
 		3102 = { change_province_name = "Lake Habsburg" }
 		ai_chance = { factor = 10 }
@@ -1301,7 +1305,7 @@ country_event = {
 	}
 
 	option = {
-		name = "EVTOPTB232000000" # Name it battle
+		name = "EVTOPTB232000000" # Name it hero
 		prestige = 40
 		3102 = { change_province_name = "Lake Garibaldi" }
 		ai_chance = { factor = 30 }
@@ -1391,7 +1395,7 @@ country_event = {
 	}
 
 	option = {
-		name = "EVTOPTC232000002" # Name it ruler
+		name = "EVTOPTC232000002" # Name it dynasty
 		prestige = 40
 		3102 = { change_province_name = "Lake Romanov" }
 		ai_chance = { factor = 75 }
@@ -1405,7 +1409,7 @@ country_event = {
 	}
 
 	option = {
-		name = "EVTOPTB232000000" # Name it battle
+		name = "EVTOPTB232000000" # Name it hero
 		prestige = 40
 		3102 = { change_province_name = "Lake Pyotr" }
 		ai_chance = { factor = 10 }
@@ -1494,7 +1498,7 @@ country_event = {
 	}
 
 	option = {
-		name = "EVTOPTA232000001" # Name it ruler
+		name = "EVTOPTA232000000" # Name it ruler
 		prestige = 40
 		3102 = { change_province_name = "Lake Carlos" }
 		ai_chance = {
@@ -1510,7 +1514,7 @@ country_event = {
 	}
 
 	option = {
-		name = "EVTOPTA232000001" # Name it politician
+		name = "EVTOPTA232000000" # Name it ruler
 		prestige = 40
 		3102 = { change_province_name = "Lake Isabella" }
 		ai_chance = {
@@ -1615,21 +1619,21 @@ country_event = {
 	}
 
 	option = {
-		name = "EVTOPTC232000002" # Name it ruler
+		name = "EVTOPTC232000002" # Name it dynasty
 		prestige = 40
 		3102 = { change_province_name = "Lake Bourbon" }
 		ai_chance = { factor = 20 }
 	}
 
 	option = {
-		name = "EVTOPTA232000001" # Name it politician
+		name = "EVTOPTA232000001" # Name it person
 		prestige = 40
 		3102 = { change_province_name = "Lake Napoleon" }
 		ai_chance = { factor = 50 }
 	}
 
 	option = {
-		name = "EVTOPTB232000008" # Name it battle
+		name = "EVTOPTB232000008" # Name it philosopher
 		prestige = 40
 		3102 = { change_province_name = "Lake Voltaire" }
 		ai_chance = { factor = 5 }
@@ -1719,14 +1723,14 @@ country_event = {
 	}
 
 	option = {
-		name = "EVTOPTC232000002" # Name it ruler
+		name = "EVTOPTC232000002" # Name it dynasty
 		prestige = 40
 		3102 = { change_province_name = "Lake Osmanli" }
 		ai_chance = { factor = 50 }
 	}
 
 	option = {
-		name = "EVTOPTA232000001" # Name it politician
+		name = "EVTOPTA232000001" # Name it person
 		prestige = 40
 		3102 = { change_province_name = "Lake Mehmed" }
 		ai_chance = { factor = 10 }
@@ -1740,7 +1744,7 @@ country_event = {
 	}
 
 	option = {
-		name = "EVTOPTC232000001" # Name it personification
+		name = "EVTOPTC232000001" # Name it general
 		prestige = 40
 		3102 = { change_province_name = "Lake Arslan" }
 		ai_chance = { factor = 5 }
@@ -1823,28 +1827,28 @@ country_event = {
 	}
 
 	option = {
-		name = "EVTOPTC232000002" # Name it ruler
+		name = "EVTOPTC232000002" # Name it dynasty
 		prestige = 40
 		3102 = { change_province_name = "Lake Orange" }
 		ai_chance = { factor = 50 }
 	}
 
 	option = {
-		name = "EVTOPTA232000001" # Name it politician
+		name = "EVTOPTA232000001" # Name it person
 		prestige = 40
 		3102 = { change_province_name = "Lake Rembrandt" }
 		ai_chance = { factor = 15 }
 	}
 
 	option = {
-		name = "EVTOPTB232000000" # Name it battle
+		name = "EVTOPTB232000000" # Name it hero
 		prestige = 40
 		3102 = { change_province_name = "Lake Maurice" }
 		ai_chance = { factor = 20 }
 	}
 
 	option = {
-		name = "EVTOPTA232000000" # Name it personification
+		name = "EVTOPTA232000000" # Name it ruler
 		prestige = 40
 		3102 = { change_province_name = "Lake Willem" }
 		ai_chance = { factor = 10 }
@@ -1934,14 +1938,14 @@ country_event = {
 	}
 
 	option = {
-		name = "EVTOPTC232000002" # Name it politician
+		name = "EVTOPTC232000002" # Name it dynasty
 		prestige = 40
 		3102 = { change_province_name = "Lake Bragança" }
 		ai_chance = { factor = 20 }
 	}
 
 	option = {
-		name = "EVTOPTB232000000" # Name it battle
+		name = "EVTOPTB232000000" # Name it hero
 		prestige = 40
 		3102 = { change_province_name = "Lake Sebastião" }
 		ai_chance = { factor = 5 }
@@ -2038,14 +2042,14 @@ country_event = {
 	}
 
 	option = {
-		name = "EVTOPTC232000002" # Name it politician
+		name = "EVTOPTC232000002" # Name it dynasty
 		prestige = 40
 		3102 = { change_province_name = "Lake Vasa" }
 		ai_chance = { factor = 40 }
 	}
 
 	option = {
-		name = "EVTOPTB232000000" # Name it battle
+		name = "EVTOPTB232000000" # Name it hero
 		prestige = 40
 		3102 = { change_province_name = "Lake Eric" }
 		ai_chance = { factor = 15 }
@@ -2142,14 +2146,14 @@ country_event = {
 	}
 
 	option = {
-		name = "EVTOPTC232000002" # Name it politician
+		name = "EVTOPTC232000002" # Name it dynasty
 		prestige = 40
 		3102 = { change_province_name = "Lake Reventlow" }
 		ai_chance = { factor = 10 }
 	}
 
 	option = {
-		name = "EVTOPTB232000000" # Name it battle
+		name = "EVTOPTB232000000" # Name it hero
 		prestige = 40
 		3102 = { change_province_name = "Lake Harthacnut" }
 		ai_chance = { factor = 5 }
@@ -2246,14 +2250,14 @@ country_event = {
 	}
 
 	option = {
-		name = "EVTOPTC232000002" # Name it politician
+		name = "EVTOPTC232000002" # Name it dynasty
 		prestige = 40
 		3102 = { change_province_name = "Lake Saxe-Cobourg" }
 		ai_chance = { factor = 5 }
 	}
 
 	option = {
-		name = "EVTOPTA232000001" # Name it battle
+		name = "EVTOPTA232000001" # Name it person
 		prestige = 40
 		3102 = { change_province_name = "Lake Mercator" }
 		ai_chance = { factor = 10 }
@@ -2343,21 +2347,21 @@ country_event = {
 	}
 
 	option = {
-		name = "EVTOPTA232000009" # Name it ruler
+		name = "EVTOPTA232000009" # Name it prophet
 		prestige = 40
 		3102 = { change_province_name = "Lake Muhammad" }
 		ai_chance = { factor = 30 }
 	}
 
 	option = {
-		name = "EVTOPTC232000001" # Name it politician
+		name = "EVTOPTC232000001" # Name it general
 		prestige = 40
 		3102 = { change_province_name = "Lake al-Walid" }
 		ai_chance = { factor = 5 }
 	}
 
 	option = {
-		name = "EVTOPTA232000001" # Name it battle
+		name = "EVTOPTA232000001" # Name it person
 		prestige = 40
 		3102 = { change_province_name = "Lake Fatimah" }
 		ai_chance = { factor = 50 }
@@ -2454,14 +2458,14 @@ country_event = {
 	}
 
 	option = {
-		name = "EVTOPTC232000002" # Name it politician
+		name = "EVTOPTC232000002" # Name it dynasty
 		prestige = 40
 		3102 = { change_province_name = "Lake Wittelsbach" }
 		ai_chance = { factor = 30 }
 	}
 
 	option = {
-		name = "EVTOPTA232000001" # Name it battle
+		name = "EVTOPTA232000001" # Name it person
 		prestige = 40
 		3102 = { change_province_name = "Lake Boniface" }
 		ai_chance = { factor = 5 }
@@ -2551,7 +2555,7 @@ country_event = {
 	}
 
 	option = {
-		name = "EVTOPTB232000000" # Name it ruler
+		name = "EVTOPTB232000000" # Name it hero
 		prestige = 40
 		3102 = { change_province_name = "Lake Szent István" }
 		ai_chance = { factor = 70 }
@@ -2655,14 +2659,14 @@ country_event = {
 	}
 
 	option = {
-		name = "EVTOPTB232000000" # Name it ruler
+		name = "EVTOPTB232000000" # Name it hero
 		prestige = 40
 		3102 = { change_province_name = "Lake Koœciuszko" }
 		ai_chance = { factor = 20 }
 	}
 		
 	option = {
-		name = "EVTOPTC232000002" # Name it politician
+		name = "EVTOPTC232000002" # Name it dynasty
 		prestige = 40
 		3102 = { change_province_name = "Lake Piast" }
 		ai_chance = { factor = 50 }
@@ -2759,21 +2763,21 @@ country_event = {
 	}
 
 	option = {
-		name = "EVTOPTA232000001" # Name it ruler
+		name = "EVTOPTA232000001" # Name it person
 		prestige = 40
 		3102 = { change_province_name = "Lake Jefferson" }
 		ai_chance = { factor = 20 }
 	}
 		
 	option = {
-		name = "EVTOPTC232000002" # Name it politician
+		name = "EVTOPTB232000001" # Name it politician
 		prestige = 40
 		3102 = { change_province_name = "Lake Lincoln" }
 		ai_chance = { factor = 20 }
 	}
 		
 	option = {
-		name = "EVTOPTD232000000" # Name it country
+		name = "EVTOPTD232000000" # Name it personification
 		prestige = 40
 		3102 = { change_province_name = "Lake America" }
 		ai_chance = { factor = 15 }
@@ -2863,21 +2867,21 @@ country_event = {
 	}
 
 	option = {
-		name = "EVTOPTB232000000" # Name it ruler
+		name = "EVTOPTB232000000" # Name it hero
 		prestige = 40
 		3102 = { change_province_name = "Lake Ottokar" }
 		ai_chance = { factor = 20 }
 	}
 		
 	option = {
-		name = "EVTOPTC232000002" # Name it politician
+		name = "EVTOPTC232000002" # Name it dynasty
 		prestige = 40
 		3102 = { change_province_name = "Lake Pøemysl" }
 		ai_chance = { factor = 30 }
 	}
 		
 	option = {
-		name = "EVTOPTA232000001" # Name it battle
+		name = "EVTOPTA232000001" # Name it person
 		prestige = 40
 		3102 = { change_province_name = "Lake Hus" }
 		ai_chance = { factor = 20 }
@@ -2974,7 +2978,7 @@ country_event = {
 	}
 
 	option = {
-		name = "EVTOPTC232000002" # Name it politician
+		name = "EVTOPTC232000002" # Name it dynasty
 		prestige = 40
 		3102 = { change_province_name = "Lake Bragança" }
 		ai_chance = { factor = 20 }
@@ -3616,7 +3620,7 @@ country_event = {
 	}
 
 	option = {
-		name = "EVTOPTB232000000" # Name it person
+		name = "EVTOPTB232000000" # Name it hero
 		prestige = 40
 		3102 = { change_province_name = "Lake Karaðorðe" }
 		ai_chance = { factor = 20 }
@@ -3720,7 +3724,7 @@ country_event = {
 	}
 
 	option = {
-		name = "EVTOPTD232000000" # Name it country
+		name = "EVTOPTD232000000" # Name it personification
 		prestige = 40
 		3102 = { change_province_name = "Lake Nippon" }
 		ai_chance = { factor = 10 }
@@ -3928,7 +3932,7 @@ country_event = {
 	}
 		
 	option = {
-		name = "EVTOPTD232000000" # Name it country
+		name = "EVTOPTD232000000" # Name it personification
 		prestige = 40
 		3102 = { change_province_name = "Lake Armenia" }
 		ai_chance = { factor = 20 }
@@ -4032,7 +4036,7 @@ country_event = {
 	}
 		
 	option = {
-		name = "EVTOPTD232000000" # Name it country
+		name = "EVTOPTD232000000" # Name it personification
 		prestige = 40
 		3102 = { change_province_name = "Lake Georgia" }
 		ai_chance = { factor = 20 }
@@ -4136,7 +4140,7 @@ country_event = {
 	}
 		
 	option = {
-		name = "EVTOPTD232000000" # Name it country
+		name = "EVTOPTD232000000" # Name it personification
 		prestige = 40
 		3102 = { change_province_name = "Lake Albani" }
 		ai_chance = { factor = 15 }
@@ -4146,6 +4150,422 @@ country_event = {
 		name = "EVTOPTE232000000" # Name it Capital
 		prestige = 40
 		3102 = { change_province_name = "Lake Tirana" }
+		ai_chance = { factor = 20 }
+	}
+}
+
+## Discovery of Lake Victoria - Lithuanian
+country_event = {
+
+	id = 232000031
+	title = "EVTNAME232000000"
+	desc = "EVTDESC232000000"
+	picture = "Nile"
+
+	
+	trigger = {
+		NOT = { has_global_flag = lake_victoria_discovered }
+		NOT = { has_country_flag = NoGoToNile }
+		OR = {
+			has_country_flag = YesGoToNileAgain
+			has_country_flag = YesGoToNile
+			has_country_flag = YesGoToNileThird
+				owns = 2044
+				owns = 2019
+				owns = 2023
+				owns = 2018
+		}
+		is_greater_power = yes # Nation is a great power
+		primary_culture = lithuanian
+	}
+
+	mean_time_to_happen =  {
+		months = 300
+
+		modifier = {
+			factor = 0.9
+			year = 1860
+		}
+		modifier = {
+			factor = 0.9
+			year = 1862
+		}
+		modifier = {
+			factor = 0.9
+			year = 1864
+		}
+		
+		modifier = {
+			factor = 0.3
+			rank = 1
+			NOT = { rank = 2 }
+		}
+		
+		modifier = {
+			factor = 1.5
+			NOT = { capital_scope = { continent = europe } }
+		}
+		
+		modifier = {
+			factor = 0.01
+			OR = {
+				owns = 2044
+				owns = 2019
+				owns = 2023
+				owns = 2018
+			}
+		}
+		
+	}
+
+	immediate = {
+		set_global_flag = lake_victoria_discovered
+	}
+
+	option = {
+		name = "EVTOPTC232000002" # Name it dynasty
+		prestige = 40
+		3102 = { change_province_name = "Lake Jagiellon" }
+		ai_chance = { factor = 25 }
+	}
+
+	option = {
+		name = "EVTOPTB232000000" # Name it hero
+		prestige = 40
+		3102 = { change_province_name = "Lake Mindaugas" }
+		ai_chance = { factor = 25 }
+	}
+		
+	option = {
+		name = "EVTOPTC232000000" # Name it battle
+		prestige = 40
+		3102 = { change_province_name = "Lake Žalgiris" }
+		ai_chance = { factor = 15 }
+	}
+		
+	option = {
+		name = "EVTOPTD232000000" # Name it personification
+		prestige = 40
+		3102 = { change_province_name = "Lake Litua" }
+		ai_chance = { factor = 15 }
+	}
+		
+	option = {
+		name = "EVTOPTE232000000" # Name it Capital
+		prestige = 40
+		3102 = { change_province_name = "Lake Vilnius" }
+		ai_chance = { factor = 20 }
+	}
+}
+
+## Discovery of Lake Victoria - Swiss
+country_event = {
+
+	id = 232000032
+	title = "EVTNAME232000000"
+	desc = "EVTDESC232000000"
+	picture = "Nile"
+
+	
+	trigger = {
+		NOT = { has_global_flag = lake_victoria_discovered }
+		NOT = { has_country_flag = NoGoToNile }
+		OR = {
+			has_country_flag = YesGoToNileAgain
+			has_country_flag = YesGoToNile
+			has_country_flag = YesGoToNileThird
+				owns = 2044
+				owns = 2019
+				owns = 2023
+				owns = 2018
+		}
+		is_greater_power = yes # Nation is a great power
+		tag = SWI
+	}
+
+	mean_time_to_happen =  {
+		months = 300
+
+		modifier = {
+			factor = 0.9
+			year = 1860
+		}
+		modifier = {
+			factor = 0.9
+			year = 1862
+		}
+		modifier = {
+			factor = 0.9
+			year = 1864
+		}
+		
+		modifier = {
+			factor = 0.3
+			rank = 1
+			NOT = { rank = 2 }
+		}
+		
+		modifier = {
+			factor = 1.5
+			NOT = { capital_scope = { continent = europe } }
+		}
+		
+		modifier = {
+			factor = 0.01
+			OR = {
+				owns = 2044
+				owns = 2019
+				owns = 2023
+				owns = 2018
+			}
+		}
+		
+	}
+
+	immediate = {
+		set_global_flag = lake_victoria_discovered
+	}
+
+	option = {
+		name = "EVTOPTB232000000" # Name it hero
+		prestige = 40
+		3102 = { change_province_name = "Lake Tell" }
+		ai_chance = { factor = 20 }
+	}
+
+	option = {
+		name = "EVTOPTC232000000" # Name it battle
+		prestige = 40
+		3102 = { change_province_name = "Lake Morgarten" }
+		ai_chance = { factor = 20 }
+	}
+		
+	option = {
+		name = "EVTOPTA232000001" # Name it person
+		prestige = 40
+		3102 = { change_province_name = "Lake Calvin" }
+		ai_chance = { factor = 15 }
+	}
+		
+	option = {
+		name = "EVTOPTD232000000" # Name it personification
+		prestige = 40
+		3102 = { change_province_name = "Lake Helvetia" }
+		ai_chance = { factor = 25 }
+	}
+		
+	option = {
+		name = "EVTOPTE232000000" # Name it Capital
+		prestige = 40
+		3102 = { change_province_name = "Lake Bern" }
+		ai_chance = { factor = 20 }
+	}
+}
+
+## Discovery of Lake Victoria - Romanian
+country_event = {
+
+	id = 232000033
+	title = "EVTNAME232000000"
+	desc = "EVTDESC232000000"
+	picture = "Nile"
+
+	
+	trigger = {
+		NOT = { has_global_flag = lake_victoria_discovered }
+		NOT = { has_country_flag = NoGoToNile }
+		OR = {
+			has_country_flag = YesGoToNileAgain
+			has_country_flag = YesGoToNile
+			has_country_flag = YesGoToNileThird
+				owns = 2044
+				owns = 2019
+				owns = 2023
+				owns = 2018
+		}
+		is_greater_power = yes # Nation is a great power
+		primary_culture = romanian
+	}
+
+	mean_time_to_happen =  {
+		months = 300
+
+		modifier = {
+			factor = 0.9
+			year = 1860
+		}
+		modifier = {
+			factor = 0.9
+			year = 1862
+		}
+		modifier = {
+			factor = 0.9
+			year = 1864
+		}
+		
+		modifier = {
+			factor = 0.3
+			rank = 1
+			NOT = { rank = 2 }
+		}
+		
+		modifier = {
+			factor = 1.5
+			NOT = { capital_scope = { continent = europe } }
+		}
+		
+		modifier = {
+			factor = 0.01
+			OR = {
+				owns = 2044
+				owns = 2019
+				owns = 2023
+				owns = 2018
+			}
+		}
+		
+	}
+
+	immediate = {
+		set_global_flag = lake_victoria_discovered
+	}
+
+	option = {
+		name = "EVTOPTA232000000" # Name it ruler
+		prestige = 40
+		3102 = { change_province_name = "Lake Carol" }
+		ai_chance = { factor = 30 }
+	}
+
+	option = {
+		name = "EVTOPTC232000002" # Name it dynasty
+		prestige = 40
+		3102 = { change_province_name = "Lake Hohenzollern-Sigmaringen" }
+		ai_chance = { factor = 20 }
+	}
+		
+	option = {
+		name = "EVTOPTB232000000" # Name it hero
+		prestige = 40
+		3102 = { change_province_name = "Lake Dracula" }
+		ai_chance = { factor = 10 }
+	}
+		
+	option = {
+		name = "EVTOPTD232000000" # Name it personification
+		prestige = 40
+		3102 = { change_province_name = "Lake Dacia" }
+		ai_chance = { factor = 20 }
+	}
+		
+	option = {
+		name = "EVTOPTE232000000" # Name it Capital
+		prestige = 40
+		3102 = { change_province_name = "Lake Bucharest" }
+		ai_chance = { factor = 20 }
+	}
+}
+
+## Discovery of Lake Victoria - Argentine
+country_event = {
+
+	id = 232000034
+	title = "EVTNAME232000000"
+	desc = "EVTDESC232000000"
+	picture = "Nile"
+
+	
+	trigger = {
+		NOT = { has_global_flag = lake_victoria_discovered }
+		NOT = { has_country_flag = NoGoToNile }
+		OR = {
+			has_country_flag = YesGoToNileAgain
+			has_country_flag = YesGoToNile
+			has_country_flag = YesGoToNileThird
+				owns = 2044
+				owns = 2019
+				owns = 2023
+				owns = 2018
+		}
+		is_greater_power = yes # Nation is a great power
+		tag = ARG
+	}
+
+	mean_time_to_happen =  {
+		months = 300
+
+		modifier = {
+			factor = 0.9
+			year = 1860
+		}
+		modifier = {
+			factor = 0.9
+			year = 1862
+		}
+		modifier = {
+			factor = 0.9
+			year = 1864
+		}
+		
+		modifier = {
+			factor = 0.3
+			rank = 1
+			NOT = { rank = 2 }
+		}
+		
+		modifier = {
+			factor = 1.5
+			NOT = { capital_scope = { continent = europe } }
+		}
+		
+		modifier = {
+			factor = 0.01
+			OR = {
+				owns = 2044
+				owns = 2019
+				owns = 2023
+				owns = 2018
+			}
+		}
+		
+	}
+
+	immediate = {
+		set_global_flag = lake_victoria_discovered
+	}
+
+	option = {
+		name = "EVTOPTB232000000" # Name it hero
+		prestige = 40
+		3102 = { change_province_name = "Lake San Martín" }
+		ai_chance = { factor = 30 }
+	}
+
+	option = {
+		name = "EVTOPTB232000001" # Name it politician
+		prestige = 40
+		3102 = { change_province_name = "Lake Rosas" }
+		ai_chance = { factor = 15 }
+	}
+		
+	option = {
+		name = "EVTOPTC232000001" # Name it general
+		prestige = 40
+		3102 = { change_province_name = "Lake Urquiza" }
+		ai_chance = { factor = 15 }
+	}
+		
+	option = {
+		name = "EVTOPTD232000000" # Name it personification
+		prestige = 40
+		3102 = { change_province_name = "Lake Argentina" }
+		ai_chance = { factor = 20 }
+	}
+		
+	option = {
+		name = "EVTOPTE232000000" # Name it Capital
+		prestige = 40
+		3102 = { change_province_name = "Lake Buenos Aires" }
 		ai_chance = { factor = 20 }
 	}
 }

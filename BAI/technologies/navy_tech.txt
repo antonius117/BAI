@@ -904,7 +904,7 @@ oil_driven_ships = {
 		}
 		# Valuable to naval tech school countries (UK)
 		modifier = {
-			factor = 1.05
+			factor = 1.5
 			tech_school = naval_tech_school
 		}
 		# GPs with 9 or more coastal provinces (Prussia+)
@@ -973,7 +973,7 @@ naval_design_bureaus = {
 	navy_base = { build_time = -10 }
 	unciv_military = yes
 	ai_chance = {
-		factor = 0.5
+		factor = 0.75
 		# Land-locked countries don't research this
 		modifier = {
 			factor = 0
@@ -1059,7 +1059,7 @@ fire_control_systems = {
 	unciv_military = yes
 	navy_base = { build_time = -10 }
 	ai_chance = {
-		factor = 0.5
+		factor = 0.75
 		# Land-locked countries don't research this
 		modifier = {
 			factor = 0
@@ -1146,7 +1146,7 @@ weapon_platforms = {
 	unciv_military = yes
 	navy_base = { build_time = -10 }
 	ai_chance = {
-		factor = 0.5
+		factor = 0.75
 		# Land-locked countries don't research this
 		modifier = {
 			factor = 0
@@ -1232,7 +1232,7 @@ main_armament = {
 	unciv_military = yes
 	navy_base = { build_time = -10 }
 	ai_chance = {
-		factor = 0.5
+		factor = 0.75
 		# Land-locked countries don't research this
 		modifier = {
 			factor = 0
@@ -1323,7 +1323,7 @@ advanced_naval_design = {
 	unciv_military = yes
 	navy_base = { build_time = -10 }
 	ai_chance = {
-		factor = 0.5
+		factor = 0.75
 		# Land-locked countries don't research this
 		modifier = {
 			factor = 0
@@ -1409,7 +1409,7 @@ modern_naval_design = {
 	unciv_military = yes
 	navy_base = { build_time = -10 }
 	ai_chance = {
-		factor = 0.5
+		factor = 0.75
 		# Land-locked countries don't research this
 		modifier = {
 			factor = 0
@@ -1493,7 +1493,7 @@ alphabetic_flag_signaling = {
 	supply_range = 0.10
 	
 	ai_chance = {
-		factor = 0.5
+		factor = 0.75
 		modifier = {
 			factor = 0
 			NOT = { total_num_of_ports = 1 }
@@ -1519,7 +1519,7 @@ alphabetic_flag_signaling = {
 			NOT = { rank = 18 }
 		}
 		modifier = {
-			factor = 1.02
+			factor = 1.2
 			tech_school = naval_tech_school
 		}
 		modifier = {
@@ -1536,7 +1536,7 @@ naval_plans = {
 	supply_range = 0.10
 	
 	ai_chance = {
-		factor = 0.5
+		factor = 0.75
 		modifier = {
 			factor = 0
 			NOT = { total_num_of_ports = 1 }
@@ -1562,7 +1562,7 @@ naval_plans = {
 			war = yes
 		}
 		modifier = {
-			factor = 1.02
+			factor = 1.2
 			tech_school = naval_tech_school
 		}
 		modifier = {
@@ -1578,7 +1578,7 @@ naval_statistics = {
 	unciv_military = yes
 	supply_range = 0.10
 		ai_chance = {
-		factor = 0.5
+		factor = 0.75
 		modifier = {
 			factor = 0
 			NOT = { total_num_of_ports = 1 }
@@ -1592,7 +1592,7 @@ naval_statistics = {
 			NOT = { total_amount_of_ships = 1 }
 		}
 		modifier = {
-			factor = 1.02
+			factor = 1.2
 			tech_school = naval_tech_school
 		}
 		modifier = {
@@ -1620,7 +1620,7 @@ naval_logistics = {
 	unciv_military = yes
 	supply_range = 0.10
 		ai_chance = {
-		factor = 0.5
+		factor = 0.75
 		modifier = {
 			factor = 0
 			NOT = { total_num_of_ports = 1 }
@@ -1646,7 +1646,7 @@ naval_logistics = {
 			war = yes
 		}
 		modifier = {
-			factor = 1.02
+			factor = 1.2
 			tech_school = naval_tech_school
 		}
 		modifier = {
@@ -1662,7 +1662,7 @@ naval_directionism = {
 	unciv_military = yes
 	supply_range = 0.10
 		ai_chance = {
-		factor = 0.5
+		factor = 0.75
 		modifier = {
 			factor = 0
 			NOT = { total_num_of_ports = 1 }
@@ -1688,7 +1688,7 @@ naval_directionism = {
 			war = yes
 		}
 		modifier = {
-			factor = 1.02
+			factor = 1.2
 			tech_school = naval_tech_school
 		}
 		modifier = {
@@ -1704,7 +1704,7 @@ naval_integration = {
 	unciv_military = yes
 	supply_range = 0.10
 		ai_chance = {
-		factor = 0.5
+		factor = 0.75
 		modifier = {
 			factor = 0
 			NOT = { total_num_of_ports = 1 }
@@ -1726,7 +1726,7 @@ naval_integration = {
 			war = yes
 		}
 		modifier = {
-			factor = 1.02
+			factor = 1.2
 			tech_school = naval_tech_school
 		}
 		modifier = {
@@ -1759,7 +1759,7 @@ the_command_principle = {
 		default_organisation = 10
 	}
 	ai_chance = {
-		factor = 0.25
+		factor = 0.5
 		# Land-locked countries don't research this
 		modifier = {
 			factor = 0
@@ -2091,7 +2091,7 @@ naval_nco_training = {
 		default_organisation = 5
 	}
 	ai_chance = {
-		factor = 0.25
+		factor = 0.5
 		# Land-locked countries don't research this
 		modifier = {
 			factor = 0
@@ -2174,7 +2174,7 @@ modern_naval_training = {
 		default_organisation = 5
 	}
 	ai_chance = {
-		factor = 0.25
+		factor = 0.5
 		# Land-locked countries don't research this
 		modifier = {
 			factor = 0

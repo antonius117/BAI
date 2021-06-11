@@ -799,7 +799,7 @@ ideologies = {
 		factor = 1
 		
 		modifier = {
-			factor = 1.1
+			factor = 1.08
 		 	is_disarmed = yes
 			OR = {
 				is_primary_culture = yes
@@ -862,7 +862,7 @@ ideologies = {
 			}
 		}
 		modifier = {
-			factor = 3
+			factor = 2.5
 		 	revanchism = 0.15
 			OR = {
 				is_primary_culture = yes
@@ -870,7 +870,7 @@ ideologies = {
 			}
 		}
 		modifier = {
-			factor = 4
+			factor = 3
 		 	revanchism = 0.20
 			OR = {
 				is_primary_culture = yes
@@ -891,6 +891,13 @@ ideologies = {
 		modifier = {
 			factor = 1.2
 			nationalvalue = nv_supremacy
+			ruling_party_ideology = fascist
+		}
+		modifier = {
+			factor = 1.2
+			country = {
+				NOT = { plurality = 35 }
+			}
 			ruling_party_ideology = fascist
 		}
 		modifier = {
@@ -1231,7 +1238,7 @@ ideologies = {
 	}
 
 	communist = {
-		factor = 0.7
+		factor = 0.5
 		modifier = {
 			factor = 0.1
 			NOT = { militancy = 6 }
@@ -1252,8 +1259,11 @@ ideologies = {
 			ruling_party_ideology = communist 
 		}
 		modifier = {
-			factor = 0.2
-			ruling_party_ideology = communist 
+			factor = 1.2
+			country = {
+				NOT = { plurality = 35 }
+			}
+			ruling_party_ideology = communist
 		}
 	}
 	liberal = {
@@ -1387,6 +1397,13 @@ ideologies = {
 		modifier = {
 			factor = 1.2
 			nationalvalue = nv_freedom
+			ruling_party_ideology = anarcho_liberal
+		}
+		modifier = {
+			factor = 1.2
+			country = {
+				NOT = { plurality = 35 }
+			}
 			ruling_party_ideology = anarcho_liberal
 		}
 		modifier = {

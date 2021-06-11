@@ -40,8 +40,11 @@ post_napoleonic_thought = {
 			is_greater_power = yes
 		}
 		modifier = {
-			factor = 1.02
-			tech_school = army_tech_school
+			factor = 1.2
+			OR = {
+				tech_school = army_tech_school
+				tech_school = prussian_tech_school
+			}
 		}
 		modifier = {
 			factor = 3
@@ -82,8 +85,11 @@ strategic_mobility = {
 			war = yes
 		}
 		modifier = {
-			factor = 1.02
-			tech_school = army_tech_school
+			factor = 1.2
+			OR = {
+				tech_school = army_tech_school
+				tech_school = prussian_tech_school
+			}
 		}
 		modifier = {
 			factor = 1.4
@@ -153,8 +159,11 @@ point_defense_system = {
 			}
 		}
 		modifier = {
-			factor = 1.02
-			tech_school = army_tech_school
+			factor = 1.2
+			OR = {
+				tech_school = army_tech_school
+				tech_school = prussian_tech_school
+			}
 		}
 		modifier = {
 			factor = 1.1
@@ -213,8 +222,11 @@ deep_defense_system = {
 			is_greater_power = yes
 		}
 		modifier = {
-			factor = 1.02
-			tech_school = army_tech_school
+			factor = 1.2
+			OR = {
+				tech_school = army_tech_school
+				tech_school = prussian_tech_school
+			}
 		}
 	}
 }
@@ -259,8 +271,11 @@ infiltration = {
 			is_greater_power = yes
 		}
 		modifier = {
-			factor = 1.02
-			tech_school = army_tech_school
+			factor = 1.2
+			OR = {
+				tech_school = army_tech_school
+				tech_school = prussian_tech_school
+			}
 		}
 	}
 
@@ -306,8 +321,11 @@ modern_army_doctrine = {
 			is_greater_power = yes
 		}
 		modifier = {
-			factor = 1.02
-			tech_school = army_tech_school
+			factor = 1.2
+			OR = {
+				tech_school = army_tech_school
+				tech_school = prussian_tech_school
+			}
 		}
 	}
 }
@@ -351,8 +369,11 @@ flintlock_rifles = {
 			}
 		}
 		modifier = {
-			factor = 1.02
-			tech_school = army_tech_school
+			factor = 1.2
+			OR = {
+				tech_school = army_tech_school
+				tech_school = prussian_tech_school
+			}
 		}
 	}
 }
@@ -398,8 +419,11 @@ muzzle_loaded_rifles = {
 			}
 		}
 		modifier = {
-			factor = 1.02
-			tech_school = army_tech_school
+			factor = 1.2
+			OR = {
+				tech_school = army_tech_school
+				tech_school = prussian_tech_school
+			}
 		}
 	}
 }
@@ -446,8 +470,11 @@ breech_loaded_rifles = {
 			}
 		}
 		modifier = {
-			factor = 1.02
-			tech_school = army_tech_school
+			factor = 1.2
+			OR = {
+				tech_school = army_tech_school
+				tech_school = prussian_tech_school
+			}
 		}
 	}
 }
@@ -483,8 +510,11 @@ machine_guns = {
 			}
 		}
 		modifier = {
-			factor = 1.02
-			tech_school = army_tech_school
+			factor = 1.2
+			OR = {
+				tech_school = army_tech_school
+				tech_school = prussian_tech_school
+			}
 		}
 		modifier = {
 			factor = 1.5
@@ -517,7 +547,7 @@ bolt_action_rifles = {
 			war = yes
 		}
 		modifier = {
-			factor = 1.02
+			factor = 1.2
 			civilized = yes
 			any_neighbor_country = {
 				civilized = yes
@@ -526,8 +556,11 @@ bolt_action_rifles = {
 			}
 		}
 		modifier = {
-			factor = 1.02
-			tech_school = army_tech_school
+			factor = 1.2
+			OR = {
+				tech_school = army_tech_school
+				tech_school = prussian_tech_school
+			}
 		}
 		modifier = {
 			factor = 1.5
@@ -559,7 +592,7 @@ modern_divisional_structure = {
 			war = yes
 		}
 		modifier = {
-			factor = 1.02
+			factor = 1.2
 			civilized = yes
 			any_neighbor_country = {
 				civilized = yes
@@ -568,8 +601,11 @@ modern_divisional_structure = {
 			}
 		}
 		modifier = {
-			factor = 1.02
-			tech_school = army_tech_school
+			factor = 1.2
+			OR = {
+				tech_school = army_tech_school
+				tech_school = prussian_tech_school
+			}
 		}
 		modifier = {
 			factor = 1.5
@@ -598,7 +634,7 @@ bronze_muzzle_loaded_artillery = {
 			is_greater_power = yes
 		}
 		modifier = {
-			factor = 1.02
+			factor = 1.2
 			civilized = yes
 			any_neighbor_country = {
 				civilized = yes
@@ -611,8 +647,11 @@ bronze_muzzle_loaded_artillery = {
 			war = yes
 		}
 		modifier = {
-			factor = 1.02
-			tech_school = army_tech_school
+			factor = 1.2
+			OR = {
+				tech_school = army_tech_school
+				tech_school = prussian_tech_school
+			}
 		}
 		modifier = {
 			factor = 1.5
@@ -642,11 +681,14 @@ iron_muzzle_loaded_artillery = {
 			is_greater_power = yes
 		}
 		modifier = {
-			factor = 1.02
-			tech_school = army_tech_school
+			factor = 1.2
+			OR = {
+				tech_school = army_tech_school
+				tech_school = prussian_tech_school
+			}
 		}
 		modifier = {
-			factor = 1.02
+			factor = 1.2
 			civilized = yes
 			any_neighbor_country = {
 				civilized = yes
@@ -685,7 +727,7 @@ iron_breech_loaded_artillery = {
 			is_greater_power = yes
 		}
 		modifier = {
-			factor = 1.02
+			factor = 1.2
 			civilized = yes
 			any_neighbor_country = {
 				civilized = yes
@@ -699,7 +741,10 @@ iron_breech_loaded_artillery = {
 		}
 		modifier = {
 			factor = 2
-			tech_school = army_tech_school
+			OR = {
+				tech_school = army_tech_school
+				tech_school = prussian_tech_school
+			}
 		}
 		modifier = {
 			factor = 1.5
@@ -729,7 +774,7 @@ steel_breech_loaded_artillery = {
 			is_greater_power = yes
 		}
 		modifier = {
-			factor = 1.02
+			factor = 1.2
 			civilized = yes
 			any_neighbor_country = {
 				civilized = yes
@@ -742,8 +787,11 @@ steel_breech_loaded_artillery = {
 			war = yes
 		}
 		modifier = {
-			factor = 1.02
-			tech_school = army_tech_school
+			factor = 1.2
+			OR = {
+				tech_school = army_tech_school
+				tech_school = prussian_tech_school
+			}
 		}
 		modifier = {
 			factor = 1.5
@@ -774,7 +822,7 @@ indirect_artillery_fire = {
 			is_greater_power = yes
 		}
 		modifier = {
-			factor = 1.02
+			factor = 1.2
 			civilized = yes
 			any_neighbor_country = {
 				civilized = yes
@@ -787,8 +835,11 @@ indirect_artillery_fire = {
 			war = yes
 		}
 		modifier = {
-			factor = 1.02
-			tech_school = army_tech_school
+			factor = 1.2
+			OR = {
+				tech_school = army_tech_school
+				tech_school = prussian_tech_school
+			}
 		}
 		modifier = {
 			factor = 1.5
@@ -819,7 +870,7 @@ heavy_armament_dunno = {
 			is_greater_power = yes
 		}
 		modifier = {
-			factor = 1.02
+			factor = 1.2
 			civilized = yes
 			any_neighbor_country = {
 				civilized = yes
@@ -832,8 +883,11 @@ heavy_armament_dunno = {
 			war = yes
 		}
 		modifier = {
-			factor = 1.02
-			tech_school = army_tech_school
+			factor = 1.2
+			OR = {
+				tech_school = army_tech_school
+				tech_school = prussian_tech_school
+			}
 		}
 		modifier = {
 			factor = 1.5
@@ -866,7 +920,7 @@ military_staff_system = {
 			is_greater_power = yes
 		}
 		modifier = {
-			factor = 1.02
+			factor = 1.2
 			civilized = yes
 			any_neighbor_country = {
 				civilized = yes
@@ -879,8 +933,11 @@ military_staff_system = {
 			war = yes
 		}
 		modifier = {
-			factor = 1.02
-			tech_school = army_tech_school
+			factor = 1.2
+			OR = {
+				tech_school = army_tech_school
+				tech_school = prussian_tech_school
+			}
 		}
 		modifier = {
 			factor = 1.5
@@ -910,11 +967,14 @@ military_plans = {
 			is_greater_power = yes
 		}
 		modifier = {
-			factor = 1.02
-			tech_school = army_tech_school
+			factor = 1.2
+			OR = {
+				tech_school = army_tech_school
+				tech_school = prussian_tech_school
+			}
 		}
 		modifier = {
-			factor = 1.02
+			factor = 1.2
 			civilized = yes
 			any_neighbor_country = {
 				civilized = yes
@@ -954,11 +1014,14 @@ military_statistics = {
 			is_greater_power = yes
 		}
 		modifier = {
-			factor = 1.02
-			tech_school = army_tech_school
+			factor = 1.2
+			OR = {
+				tech_school = army_tech_school
+				tech_school = prussian_tech_school
+			}
 		}
 		modifier = {
-			factor = 1.02
+			factor = 1.2
 			civilized = yes
 			any_neighbor_country = {
 				civilized = yes
@@ -999,11 +1062,14 @@ military_logistics = {
 			is_greater_power = yes
 		}
 		modifier = {
-			factor = 1.02
-			tech_school = army_tech_school
+			factor = 1.2
+			OR = {
+				tech_school = army_tech_school
+				tech_school = prussian_tech_school
+			}
 		}
 		modifier = {
-			factor = 1.02
+			factor = 1.2
 			civilized = yes
 			any_neighbor_country = {
 				civilized = yes
@@ -1036,7 +1102,7 @@ military_directionism = {
 		supply_consumption = 0.20
 	}
 	ai_chance = {
-		factor = 30
+		factor = 6
 		modifier = {
 			factor = 1.5
 			is_greater_power = yes
@@ -1046,11 +1112,14 @@ military_directionism = {
 			war = yes
 		}
 		modifier = {
-			factor = 1.02
-			tech_school = army_tech_school
+			factor = 1.2
+			OR = {
+				tech_school = army_tech_school
+				tech_school = prussian_tech_school
+			}
 		}
 		modifier = {
-			factor = 1.02
+			factor = 1.2
 			civilized = yes
 			any_neighbor_country = {
 				civilized = yes
@@ -1086,11 +1155,14 @@ aeronautics = {
 			is_greater_power = yes
 		}
 		modifier = {
-			factor = 1.02
-			tech_school = army_tech_school
+			factor = 1.2
+			OR = {
+				tech_school = army_tech_school
+				tech_school = prussian_tech_school
+			}
 		}
 		modifier = {
-			factor = 1.02
+			factor = 1.2
 			civilized = yes
 			any_neighbor_country = {
 				civilized = yes
@@ -1131,8 +1203,11 @@ army_command_principle = {
 	ai_chance = {
 		factor = 2
 		modifier = {
-			factor = 1.02
-			tech_school = army_tech_school
+			factor = 1.2
+			OR = {
+				tech_school = army_tech_school
+				tech_school = prussian_tech_school
+			}
 		}
 		modifier = {
 			factor = 3
@@ -1172,7 +1247,7 @@ army_professionalism = {
 			war = yes
 		}
 		modifier = {
-			factor = 1.02
+			factor = 1.2
 			civilized = yes
 			any_neighbor_country = {
 				civilized = yes
@@ -1181,8 +1256,11 @@ army_professionalism = {
 			}
 		}
 		modifier = {
-			factor = 1.02
-			tech_school = army_tech_school
+			factor = 1.2
+			OR = {
+				tech_school = army_tech_school
+				tech_school = prussian_tech_school
+			}
 		}
 		modifier = {
 			factor = 1.05
@@ -1223,8 +1301,11 @@ army_decision_making = {
 			is_greater_power = yes
 		}
 		modifier = {
-			factor = 1.02
-			tech_school = army_tech_school
+			factor = 1.2
+			OR = {
+				tech_school = army_tech_school
+				tech_school = prussian_tech_school
+			}
 		}
 		modifier = {
 			factor = 3
@@ -1240,7 +1321,7 @@ army_decision_making = {
 			year = 1870
 		}
 		modifier = {
-			factor = 1.02
+			factor = 1.2
 			civilized = yes
 			any_neighbor_country = {
 				civilized = yes
@@ -1278,8 +1359,11 @@ army_risk_management = {
 			is_greater_power = yes
 		}
 		modifier = {
-			factor = 1.02
-			tech_school = army_tech_school
+			factor = 1.2
+			OR = {
+				tech_school = army_tech_school
+				tech_school = prussian_tech_school
+			}
 		}
 		modifier = {
 			factor = 1.05
@@ -1295,7 +1379,7 @@ army_risk_management = {
 			war = yes
 		}
 		modifier = {
-			factor = 1.02
+			factor = 1.2
 			civilized = yes
 			any_neighbor_country = {
 				civilized = yes
@@ -1334,8 +1418,11 @@ army_nco_training = {
 			is_greater_power = yes
 		}
 		modifier = {
-			factor = 1.02
-			tech_school = army_tech_school
+			factor = 1.2
+			OR = {
+				tech_school = army_tech_school
+				tech_school = prussian_tech_school
+			}
 		}
 		modifier = {
 			factor = 3
@@ -1351,7 +1438,7 @@ army_nco_training = {
 			year = 1920
 		}
 		modifier = {
-			factor = 1.02
+			factor = 1.2
 			civilized = yes
 			any_neighbor_country = {
 				civilized = yes
@@ -1389,15 +1476,18 @@ great_war_experience = {
 			is_greater_power = yes
 		}
 		modifier = {
-			factor = 1.02
-			tech_school = army_tech_school
+			factor = 1.2
+			OR = {
+				tech_school = army_tech_school
+				tech_school = prussian_tech_school
+			}
 		}
 		modifier = {
 			factor = 3
 			war = yes
 		}
 		modifier = {
-			factor = 1.02
+			factor = 1.2
 			civilized = yes
 			any_neighbor_country = {
 				civilized = yes

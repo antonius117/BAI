@@ -1125,6 +1125,10 @@ country_event = {
 	id = 188244
 	title = "EVTNAME188244"
 	desc = "EVTDESC188244"
+	news = yes
+	news_desc_long = "EVTDESC188244_NEWS_LONG"
+	news_desc_medium = "EVTDESC188244_NEWS_MEDIUM"
+	news_desc_short = "EVTDESC188244_NEWS_SHORT"
 	picture = "statue_of_liberty"
 	
 	is_triggered_only = yes

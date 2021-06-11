@@ -806,6 +806,12 @@ province_event = {
 			factor = 0.9
 			average_consciousness = 5
 		}
+		modifier = {
+			factor = 1.5
+			owner = {
+				any_owned_province = { has_province_modifier = naval_school }
+			}
+		}
 	}
 	
 	option = {

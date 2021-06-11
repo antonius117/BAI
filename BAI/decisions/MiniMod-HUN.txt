@@ -903,4 +903,70 @@ political_decisions = {
 			GRE = { country_event = 188233 }
 		}
 	}
+
+	karabakh_question = {
+		picture = form_transcaucasia
+		potential = {
+			is_greater_power = yes
+			revolution_n_counterrevolution = 1
+			is_sphere_leader_of = ARM
+			is_sphere_leader_of = AZB
+			NOT = { government = proletarian_dictatorship }
+			1100 = {
+				OR = {
+					owned_by = ARM
+					owned_by = AZB
+				}
+				NOT = {
+					owned_by = THIS
+				}
+			}
+			1101 = {
+				OR = {
+					owned_by = ARM
+					owned_by = AZB
+				}
+				NOT = {
+					owned_by = THIS
+				}
+			}
+			1106 = {
+				OR = {
+					owned_by = ARM
+					owned_by = AZB
+				}
+				NOT = {
+					owned_by = THIS
+				}
+			}
+			NOT = {
+				primary_culture = armenian
+				primary_culture = azerbaijani
+				truce_with = ARM
+				truce_with = AZB
+			}
+			NOT = { has_country_flag = karabakh_question }
+		}
+		
+		allow = {
+			mass_politics = 1
+			war = no
+			is_disarmed = no
+			ARM = {
+				war = no
+				is_disarmed = no
+			}
+			AZB = {
+				war = no
+				is_disarmed = no
+			}
+		}
+		
+		effect = {
+			set_country_flag = karabakh_question
+			prestige = 5
+			ARM = { country_event = 188247 }
+			AZB = { country_event = 188247 }
+		}
+	}
 }

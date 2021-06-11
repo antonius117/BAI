@@ -166,7 +166,8 @@ country_event = {
 	
 	option = {
 		name = "We welcome the republic."
-		prestige = -5
+		set_country_flag = entre_rios_has_happened
+		prestige = -15
 		government = democracy
 		ruling_party_ideology = conservative
 		random_owned = {
@@ -230,9 +231,29 @@ country_event = {
 				factor = -2
 			}
 		}
+		ARG_2355 = {
+			any_pop = {
+				ideology = {
+					value = liberal
+					factor = 0.1
+				}
+			}
+			aristocrats = { militancy = 6 }
+			soldiers = { militancy = 4 }
+			officers = { militancy = 4 }
+		}
 		add_country_modifier = {
 			name = national_confusion
 			duration = 365
+		}
+		capital = 2360
+		release_vassal = BUE
+		relation = { who = BUE value = -400 }
+		BUE = {
+			add_country_modifier = {
+				name = no_freedom
+				duration = 1825
+			}
 		}
 		ai_chance = {
 			factor = 10
@@ -454,7 +475,7 @@ country_event = {
 	
 	option = {
 		name = "Agree to their demands."
-		prestige = -5
+		prestige = -15
 		nationalvalue = nv_liberty
 		ruling_party_ideology = liberal
 		political_reform = population_equal_weight
@@ -639,7 +660,7 @@ country_event = {
 		name = "Long live the Confederation!"
 		clr_country_flag = buenos_aires_rebellion
 		set_country_flag = buenos_aires_has_happened
-		prestige = 5
+		prestige = 10
 		ENT = {
 			all_core = { remove_core = ENT }
 		}

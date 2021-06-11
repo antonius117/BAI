@@ -26,7 +26,7 @@ private_banks = {
 			economic_policy = laissez_faire
 		}
 		modifier = {
-			factor = 1.02
+			factor = 1.2
 			tech_school = commerce_tech_school
 		}
 		modifier = {
@@ -65,7 +65,7 @@ stock_exchange = {
 			economic_policy = laissez_faire
 		}
 		modifier = {
-			factor = 1.02
+			factor = 1.2
 			tech_school = commerce_tech_school
 		}
 		modifier = {
@@ -104,7 +104,7 @@ business_banks = {
 			economic_policy = laissez_faire
 		}
 		modifier = {
-			factor = 1.02
+			factor = 1.2
 			tech_school = commerce_tech_school
 		}
 		modifier = {
@@ -142,7 +142,7 @@ investment_banks = {
 			economic_policy = laissez_faire
 		}
 		modifier = {
-			factor = 1.02
+			factor = 1.2
 			tech_school = commerce_tech_school
 		}
 		modifier = {
@@ -180,7 +180,7 @@ bank_inspection_board = {
 			economic_policy = laissez_faire
 		}
 		modifier = {
-			factor = 1.02
+			factor = 1.2
 			tech_school = commerce_tech_school
 		}
 		modifier = {
@@ -218,7 +218,7 @@ mutual_funds = {
 			economic_policy = laissez_faire
 		}
 		modifier = {
-			factor = 1.02
+			factor = 1.2
 			tech_school = commerce_tech_school
 		}
 	}
@@ -247,7 +247,7 @@ no_standard = {
 			rank = 16
 		}
 		modifier = {
-			factor = 1.02
+			factor = 1.2
 			tech_school = commerce_tech_school
 		}
 	}
@@ -289,7 +289,7 @@ ad_hoc_money_bill_printing = {
 			literacy = 0.6
 		}
 		modifier = {
-			factor = 1.02
+			factor = 1.2
 			tech_school = commerce_tech_school
 		}
 	}
@@ -319,7 +319,7 @@ private_bank_money_bill_printing = {
 			rank = 16
 		}
 		modifier = {
-			factor = 1.02
+			factor = 1.2
 			tech_school = commerce_tech_school
 		}
 	}
@@ -349,7 +349,7 @@ central_bank_money_bill_printing = {
 			economic_policy = laissez_faire
 		}
 		modifier = {
-			factor = 1.02
+			factor = 1.2
 			tech_school = commerce_tech_school
 		}
 	}
@@ -387,7 +387,7 @@ modern_central_bank_system = {
 			literacy = 0.6
 		}
 		modifier = {
-			factor = 1.02
+			factor = 1.2
 			tech_school = commerce_tech_school
 		}
 	}
@@ -418,7 +418,7 @@ market_determined_exchange_rates = {
 			rank = 16
 		}
 		modifier = {
-			factor = 1.02
+			factor = 1.2
 			tech_school = commerce_tech_school
 		}
 	}
@@ -436,7 +436,7 @@ early_classical_theory_and_critique = {
 	ai_chance = {
 		factor = 1
 		modifier = {
-			factor = 1.02
+			factor = 1.2
 			tech_school = commerce_tech_school
 		}
 		modifier = {
@@ -474,7 +474,7 @@ late_classical_theory = {
 			literacy = 0.6
 		}
 		modifier = {
-			factor = 1.02
+			factor = 1.2
 			tech_school = commerce_tech_school
 		}
 	}
@@ -496,7 +496,7 @@ collectivist_theory = {
 			industrial_score = 200 #150
 		}
 		modifier = {
-			factor = 1.02
+			factor = 1.2
 			tech_school = commerce_tech_school
 		}
 		modifier = {
@@ -526,7 +526,7 @@ the_historical_theory = {
 			industrial_score = 300 #250
 		}
 		modifier = {
-			factor = 1.02
+			factor = 1.2
 			tech_school = commerce_tech_school
 		}
 		modifier = {
@@ -556,7 +556,7 @@ neoclassical_theory = {
 			industrial_score = 600 #500
 		}
 		modifier = {
-			factor = 1.02
+			factor = 1.2
 			tech_school = commerce_tech_school
 		}
 		modifier = {
@@ -586,7 +586,7 @@ keynesian_economics = {
 			industrial_score = 2000 #1500
 		}
 		modifier = {
-			factor = 1.02
+			factor = 1.2
 			tech_school = commerce_tech_school
 		}
 		modifier = {
@@ -633,7 +633,7 @@ freedom_of_trade = {
 			literacy = 0.2
 		}		
 		modifier = {
-			factor = 1.02
+			factor = 1.2
 			tech_school = commerce_tech_school
 		}
 	}
@@ -670,7 +670,7 @@ market_structure = {
 			industrial_score = 50
 		}
 		modifier = {
-			factor = 1.02
+			factor = 1.2
 			tech_school = commerce_tech_school
 		}
 	}	
@@ -703,7 +703,7 @@ business_regulations = {
 			industrial_score = 150
 		}
 		modifier = {
-			factor = 1.02
+			factor = 1.2
 			tech_school = commerce_tech_school
 		}
 	}	
@@ -737,7 +737,7 @@ market_regulations = {
 			industrial_score = 250
 		}
 		modifier = {
-			factor = 1.02
+			factor = 1.2
 			tech_school = commerce_tech_school
 		}
 	}	
@@ -764,7 +764,7 @@ economic_responsibility = {
 			industrial_score = 500
 		}
 		modifier = {
-			factor = 1.02
+			factor = 1.2
 			tech_school = commerce_tech_school
 		}
 	}	
@@ -791,7 +791,7 @@ government_interventionism = {
 			industrial_score = 1500
 		}
 		modifier = {
-			factor = 1.02
+			factor = 1.2
 			tech_school = commerce_tech_school
 		}
 	}	
@@ -829,7 +829,7 @@ guild_based_production = {
 			literacy = 0.6
 		}		
 		modifier = {
-			factor = 1.02
+			factor = 1.2
 			tech_school = commerce_tech_school
 		}
 	}	
@@ -867,7 +867,7 @@ organized_factories = {
 			industrial_score = 150
 		}
 		modifier = {
-			factor = 1.02
+			factor = 1.2
 			tech_school = commerce_tech_school
 		}
 	}	
@@ -905,7 +905,7 @@ scientific_management = {
 			industrial_score = 250
 		}
 		modifier = {
-			factor = 1.02
+			factor = 1.2
 			tech_school = commerce_tech_school
 		}
 	}	
@@ -931,7 +931,7 @@ time_saving_measures = {
 			industrial_score = 400
 		}
 		modifier = {
-			factor = 1.02
+			factor = 1.2
 			tech_school = commerce_tech_school
 		}
 	}	
@@ -957,7 +957,7 @@ management_strategy = {
 			industrial_score = 750
 		}
 		modifier = {
-			factor = 1.02
+			factor = 1.2
 			tech_school = commerce_tech_school
 		}
 	}	
@@ -983,7 +983,7 @@ organizational_development = {
 			industrial_score = 1500
 		}
 		modifier = {
-			factor = 1.02
+			factor = 1.2
 			tech_school = commerce_tech_school
 		}
 	}	

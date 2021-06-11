@@ -4970,3 +4970,377 @@ country_event = {
 		}
 	}
 }
+
+country_event = {
+	id = 188247
+	title = "EVTNAME188247"
+	desc = "EVTDESC188247"
+	picture = "treaty"
+
+	is_triggered_only = yes
+
+	option = {
+		name = "Ask for $FROMCOUNTRY$ arbitration."
+		set_country_flag = karabakh_question_agree
+		badboy = -1
+		relation = { who = FROM value = 50 }
+		ai_chance = {
+			factor = 90
+			modifier = {
+				factor = 10
+				relation = {
+					who = FROM
+					value = 150
+				}
+			}
+		}
+	}
+
+	option = {
+		name = "Never!"
+		clr_country_flag = karabakh_question_agree
+		badboy = 1
+		relation = { who = FROM value = -50 }
+		ai_chance = {
+			factor = 10
+			modifier = {
+				factor = 10
+				government = fascist_dictatorship
+				FROM = { NOT = { government = fascist_dictatorship } }
+			}
+		}
+	}
+}
+
+country_event = {
+	id = 188248
+	title = "EVTNAME188247"
+	desc = "EVTDESC188248"
+	picture = "treaty"
+
+	trigger = {
+		war = no
+		has_country_flag = karabakh_question
+		ARM = {
+			has_country_flag = karabakh_question_agree
+			war = no
+		}
+		AZB = {
+			has_country_flag = karabakh_question_agree
+			war = no
+		}
+	}
+
+	fire_only_once = yes
+
+	mean_time_to_happen = {
+		days = 7
+	}
+
+	option = {
+		name = "Nakhchivan and Karabakh belongs to Armenia."
+		relation = { who = ARM value = 200 }
+		relation = { who = AZB value = -200 }
+		AZB = { country_event = 188249 }
+		ai_chance = {
+			factor = 25
+			modifier = {
+				factor = 10
+				relation = {
+					who = ARM
+					value = 100
+				}
+				NOT = {
+					relation = {
+						who = AZB
+						value = 0
+					}
+				}
+			}
+			modifier = {
+				factor = 10
+				ARM = { vassal_of = THIS }
+				AZB = { NOT = { vassal_of = THIS } }
+			}
+		}
+	}
+
+	option = {
+		name = "Nakhchivan and Karabakh belongs to Azerbaijan."
+		relation = { who = ARM value = -200 }
+		relation = { who = AZB value = 200 }
+		ARM = { country_event = 188251 }
+		ai_chance = {
+			factor = 25
+			modifier = {
+				factor = 10
+				relation = {
+					who = AZB
+					value = 100
+				}
+				NOT = {
+					relation = {
+						who = ARM
+						value = 0
+					}
+				}
+			}
+			modifier = {
+				factor = 10
+				AZB = { vassal_of = THIS }
+				ARM = { NOT = { vassal_of = THIS } }
+			}
+		}
+	}
+
+	option = {
+		name = "Split Nakhchivan and Karabakh between Armenia and Azerbaijan."
+		random_country = {
+			limit = {
+				tag = ARM
+				1100 = { owned_by = ARM }
+				1101 = { owned_by = ARM }
+				1106 = { owned_by = ARM }
+			}
+			relation = { who = THIS value = -100 }
+		}
+		random_country = {
+			limit = {
+				tag = ARM
+				1100 = { NOT = { owned_by = ARM } }
+				1101 = { NOT = { owned_by = ARM } }
+				1106 = { NOT = { owned_by = ARM } }
+			}
+			relation = { who = THIS value = 100 }
+		}
+		random_country = {
+			limit = {
+				tag = AZB
+				1100 = { owned_by = AZB }
+				1101 = { owned_by = AZB }
+				1106 = { owned_by = AZB }
+				
+			}
+			relation = { who = THIS value = -100 }
+		}
+		random_country = {
+			limit = {
+				tag = AZB
+				1100 = { NOT = { owned_by = AZB } }
+				1101 = { NOT = { owned_by = AZB } }
+				1106 = { NOT = { owned_by = AZB } }
+			}
+			relation = { who = THIS value = 100 }
+		}
+		ARM = { country_event = 188253 }
+		AZB = { country_event = 188254 }
+		ai_chance = {
+			factor = 50
+		}
+	}
+}
+
+country_event = {
+	id = 188249
+	title = "EVTNAME188247"
+	desc = "EVTDESC188249"
+	picture = "treaty"
+
+	is_triggered_only = yes
+
+	option = {
+		name = "Why did we agree to this arbitration?"
+		relation = { who = ARM value = -200 }
+		any_pop = {
+			limit = {
+				has_pop_culture = azerbaijani
+			}
+			militancy = 1
+			consciousness = 2
+		}
+		any_owned = {
+			limit = {
+				OR = {
+					province_id = 1100
+					province_id = 1101
+					province_id = 1106
+				}
+			}
+			add_core = ARM
+			add_core = AZB
+			secede_province = ARM
+		}
+		ARM = { country_event = 188250 }
+	}
+}
+
+country_event = {
+	id = 188250
+	title = "EVTNAME188247"
+	desc = "EVTDESC188250"
+	picture = "treaty"
+
+	is_triggered_only = yes
+
+	option = {
+		name = "Wonderful!"
+		any_pop = {
+			limit = {
+				has_pop_culture = armenian
+				location = { is_core = AZB }
+			}
+			militancy = -6
+			consciousness = -6
+		}
+		any_pop = {
+			limit = {
+				has_pop_culture = armenian
+				location = { NOT = { is_core = AZB } }
+			}
+			militancy = -1
+			consciousness = -2
+		}
+		any_pop = {
+			limit = {
+				has_pop_culture = azerbaijani
+			}
+			militancy = 1
+			consciousness = 2
+		}
+	}
+}
+
+country_event = {
+	id = 188251
+	title = "EVTNAME188247"
+	desc = "EVTDESC188251"
+	picture = "treaty"
+
+	is_triggered_only = yes
+
+	option = {
+		name = "Why did we agree to this arbitration?"
+		relation = { who = AZB value = -200 }
+		any_pop = {
+			limit = {
+				has_pop_culture = armenian
+			}
+			militancy = 1
+			consciousness = 2
+		}
+		any_owned = {
+			limit = {
+				OR = {
+					province_id = 1100
+					province_id = 1101
+					province_id = 1106
+				}
+			}
+			add_core = ARM
+			add_core = AZB
+			secede_province = AZB
+		}
+		AZB = { country_event = 188252 }
+	}
+}
+
+country_event = {
+	id = 188252
+	title = "EVTNAME188247"
+	desc = "EVTDESC188250"
+	picture = "treaty"
+
+	is_triggered_only = yes
+
+	option = {
+		name = "Wonderful!"
+		any_pop = {
+			limit = {
+				has_pop_culture = azerbaijani
+				location = { is_core = ARM }
+			}
+			militancy = -6
+			consciousness = -6
+		}
+		any_pop = {
+			limit = {
+				has_pop_culture = azerbaijani
+				location = { NOT = { is_core = ARM } }
+			}
+			militancy = -1
+			consciousness = -2
+		}
+		any_pop = {
+			limit = {
+				has_pop_culture = armenian
+			}
+			militancy = 1
+			consciousness = 2
+		}
+	}
+}
+
+country_event = {
+	id = 188253
+	title = "EVTNAME188247"
+	desc = "EVTDESC188253"
+	picture = "treaty"
+
+	is_triggered_only = yes
+
+	option = {
+		name = "One day all of Nakhchivan and Karabakh will be ours."
+		any_owned = {
+			limit = {
+				province_id = 1106
+			}
+			add_core = ARM
+			add_core = AZB
+			secede_province = AZB
+		}
+		any_pop = {
+			limit = {
+				OR = {
+					has_pop_culture = armenian
+					has_pop_culture = azerbaijani
+				}
+			}
+			militancy = 1
+			consciousness = 2
+		}
+	}
+}
+
+country_event = {
+	id = 188254
+	title = "EVTNAME188247"
+	desc = "EVTDESC188253"
+	picture = "treaty"
+
+	is_triggered_only = yes
+
+	option = {
+		name = "One day all of Nakhchivan and Karabakh will be ours."
+		any_owned = {
+			limit = {
+				OR = {
+					province_id = 1100
+					province_id = 1101
+				}
+			}
+			add_core = ARM
+			add_core = AZB
+			secede_province = ARM
+		}
+		any_pop = {
+			limit = {
+				OR = {
+					has_pop_culture = armenian
+					has_pop_culture = azerbaijani
+				}
+			}
+			militancy = 1
+			consciousness = 2
+		}
+	}
+}
