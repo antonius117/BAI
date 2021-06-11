@@ -9,3 +9,5 @@ https://www.moddb.com/mods/blood-and-iron-mod/news/changes-and-plans
 - Click on Code, then Download ZIP
 
 HoD 3.03 players download the compatibility patch from the Miscellaneous folder!
+
+<a href="https://www.buymeacoffee.com/antonius117" target="_blank"><img src="https://www.buymeacoffee.com/assets/img/custom_images/orange_img.png" alt="Buy Me A Coffee" style="height: 41px !important;width: 174px !important;box-shadow: 0px 3px 2px 0px rgba(190, 190, 190, 0.5) !important;-webkit-box-shadow: 0px 3px 2px 0px rgba(190, 190, 190, 0.5) !important;" ></a>
