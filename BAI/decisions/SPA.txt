@@ -157,7 +157,7 @@ political_decisions = {
 		
 		allow = {
 			war = no
-			prestige = 150
+			prestige = 100
 			is_greater_power = yes
 			nationalism_n_imperialism = 1
 			SPA = {
@@ -166,6 +166,9 @@ political_decisions = {
 						owned_by = THIS
 						owner = {
 							in_sphere = THIS
+							war = no
+						}
+						owner = {
 							vassal_of = THIS
 							war = no
 						}
@@ -178,6 +181,9 @@ political_decisions = {
 						owned_by = THIS
 						owner = {
 							in_sphere = THIS
+							war = no
+						}
+						owner = {
 							vassal_of = THIS
 							war = no
 						}
@@ -324,7 +330,7 @@ political_decisions = {
 		
 		allow = {
 			war = no
-			prestige = 150
+			prestige = 100
 			is_greater_power = yes
 			nationalism_n_imperialism = 1
 			SPC = {
@@ -333,6 +339,9 @@ political_decisions = {
 						owned_by = THIS
 						owner = {
 							in_sphere = THIS
+							war = no
+						}
+						owner = {
 							vassal_of = THIS
 							war = no
 						}
@@ -345,6 +354,9 @@ political_decisions = {
 						owned_by = THIS
 						owner = {
 							in_sphere = THIS
+							war = no
+						}
+						owner = {
 							vassal_of = THIS
 							war = no
 						}
